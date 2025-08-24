@@ -10,6 +10,7 @@
 {
   "current": {
     "type_primary_font": "mono",
+    "min_page_margin": 60,
     "content_for_index": []
   }
 }
