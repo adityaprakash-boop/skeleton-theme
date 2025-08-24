@@ -1,6 +1,6 @@
 {% style %}
   #shopify-section-{{ section.id }} {
-      position: {% unless section.settings.sticky_header_type == 'none' %}sticky{% else %}relative{% endunless %};
+    position: {% unless section.settings.sticky_header_type == 'none' %}sticky{% else %}relative{% endunless %};
     top: 0;
     background: #fff;
     width: 100%;
@@ -159,6 +159,7 @@
   #header-search.active {
     display: flex;
   }
+
   {%- if settings.predictive_search_enabled -%}
     #header-search predictive-search {
       position: relative;
@@ -177,6 +178,7 @@
       overflow-y: auto;
     }
   {%- endif -%}
+
   #header-search form {
     position: relative;
     border: 1px solid rgb(var(--color-foreground), 0.2);
@@ -187,6 +189,7 @@
     gap: 10px;
     padding-inline: 10px;
   }
+
   #header-search form input {
     width: 100%;
     border: 0;
@@ -196,6 +199,7 @@
     outline: none;
     box-shadow: none;
   }
+
   /* clears the 'X' from Internet Explorer */
   #header-search form input[type='search']::-ms-clear,
   #header-search form input[type='search']::-ms-reveal {
@@ -203,6 +207,7 @@
       width: 0;
       height: 0;
   }
+
   #header-search .reset__button {
     position: relative;
     border: 1px solid rgba(var(--color-foreground),.2) !important;
@@ -215,6 +220,7 @@
     margin: 0;
     margin-right: 15px;
   }
+
   #header-search .reset__button::before {
     content: '';
     position: absolute;
@@ -223,6 +229,7 @@
     height: calc(100% + 10px);
     background: rgba(var(--color-foreground),.08);
   }
+
   #header-search .reset__button svg.icon-close {
     width: 10px !important;
     height: auto;
@@ -241,6 +248,7 @@
     cursor: pointer;
     padding: 0;
   }
+
   #header-search svg {
     width: 20px;
     color: rgb(var(--color-foreground));
@@ -253,6 +261,7 @@
       }
     {% endunless %}
   }
+
   @media (max-width: 768px) {
     #main-header > nav,
     .header-actions_account,
