@@ -115,3 +115,7 @@ body {
 .shopify-section > .full-width {
   grid-column: 1 / -1;
 }
+
+[x-cloak] {
+  display: none !important;
+}

@@ -11,6 +11,10 @@
     {% render 'meta-tags' %}
 
     {{ content_for_header }}
+    
+    <script src="{{ 'alpinejs-persist@3.14.8.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'alpinejs@3.14.8.min.js' | asset_url }}" defer="defer"></script>
+
   </head>
 
   <body>
