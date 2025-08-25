@@ -1,4 +1,8 @@
 {% style %}
+  [x-cloak] {
+    display: none !important;
+  }
+  
   {% # Loads all font variantions with display: swap %}
   {{ settings.type_primary_font | font_face: font_display: 'swap' }}
   {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
