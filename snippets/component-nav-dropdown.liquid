@@ -36,14 +36,14 @@
   {% for link in section.settings.menu.links %}
     <li x-data="{ menuOpen: false, activeSubMenu: null }" @click.outside="menuOpen = false; activeSubMenu = null">
       {% if link.links != blank %}
-        <button
+        <div
           @click="menuOpen = !menuOpen"
           :class="{ 'menu-open': menuOpen }"
           class="menu-toggle"
         >
           {{- link.title | escape -}}
           {{- 'icon-caret.svg' | inline_asset_content -}}
-        </button>
+        </div>
         <ul
           x-show="menuOpen"
           class="nav-{{ nav_style }} color-{{ section.settings.menu_color_scheme }} gradient"
@@ -64,14 +64,14 @@
                   {{ childlink.title | escape }}
                 </a>
               {% else %}
-                <button
+                <div
                   @click="activeSubMenu = (activeSubMenu === '{{ childlink.title | escape }}' ? null : '{{ childlink.title | escape }}')"
                   :class="{ 'menu-open': activeSubMenu === '{{ childlink.title | escape }}' }"
                   class="menu-toggle"
                 >
                   {{- childlink.title | escape -}}
                   {{- 'icon-caret.svg' | inline_asset_content -}}
-                </button>
+                </div>
                 <ul
                   x-show="activeSubMenu === '{{ childlink.title | escape }}'"
                   class="nav-dropdown_child"

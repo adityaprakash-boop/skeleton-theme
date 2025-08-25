@@ -38,7 +38,6 @@
   margin: 0;
   font-weight: 500;
   font-size: 140%;
-  font-family: var(--font-heading-family);
 }
 
 .cart-header a {
