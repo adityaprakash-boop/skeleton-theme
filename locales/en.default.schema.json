@@ -49,6 +49,216 @@
     "text_style": "Text style",
     "text": "Text"
   },
+  "sections": {
+    "all": {
+      "colors": {
+        "label": "Colors"
+      },
+      "spacing": "Section spacing",
+      "padding": {
+        "section_padding_heading": "Section padding",
+        "padding_top": "Top padding",
+        "padding_bottom": "Bottom padding"
+      }
+    },
+    "header": {
+      "name": "Header",
+      "settings": {
+        "logo_position": {
+          "label": "Logo position",
+          "options__1": {
+            "label": "Middle left"
+          },
+          "options__2": {
+            "label": "Top left"
+          },
+          "options__3": {
+            "label": "Top center"
+          },
+          "options__4": {
+            "label": "Middle center"
+          }
+        },
+        "logo_help": {
+          "content": "Adjust where your logo appears in the header"
+        },
+        "menu": {
+          "label": "Main menu"
+        },
+        "menu_type_desktop": {
+          "label": "Menu type (desktop)",
+          "info": "Choose how the desktop menu is displayed",
+          "options__1": {
+            "label": "Dropdown"
+          },
+          "options__2": {
+            "label": "Mega menu"
+          },
+          "options__3": {
+            "label": "Drawer"
+          }
+        },
+        "sticky_header_type": {
+          "label": "Sticky header behavior",
+          "options__1": {
+            "label": "None"
+          },
+          "options__2": {
+            "label": "On scroll up"
+          },
+          "options__3": {
+            "label": "Always"
+          },
+          "options__4": {
+            "label": "Reduce logo size"
+          }
+        },
+        "show_line_separator": {
+          "label": "Show bottom border"
+        },
+        "header__1": {
+          "content": "Colors"
+        },
+        "menu_color_scheme": {
+          "label": "Menu color scheme"
+        },
+        "header__3": {
+          "content": "Localization"
+        },
+        "header__4": {
+          "info": "Control country and language pickers"
+        },
+        "enable_country_selector": {
+          "label": "Enable country selector"
+        },
+        "header__5": {
+          "content": "Language"
+        },
+        "header__6": {
+          "info": "Enable a language selector in the header"
+        },
+        "enable_language_selector": {
+          "label": "Enable language selector"
+        },
+        "header__7": {
+          "content": "Customer account",
+          "info": "Settings for account icon"
+        },
+        "enable_customer_avatar": {
+          "label": "Show customer icon",
+          "info": "Display a link to account or login"
+        },
+        "mobile_layout": {
+          "content": "Mobile layout"
+        },
+        "mobile_logo_position": {
+          "label": "Mobile logo position",
+          "options__1": {
+            "label": "Center"
+          },
+          "options__2": {
+            "label": "Left"
+          }
+        },
+        "margin_bottom": {
+          "label": "Bottom margin"
+        }
+      }
+    }
+  },
+  "settings_schema": {
+    "logo": {
+      "name": "Logo",
+      "settings": {
+        "logo_image": {
+          "label": "Logo image"
+        },
+        "logo_height": {
+          "label": "Logo height"
+        },
+        "favicon": {
+          "label": "Favicon",
+          "info": "Upload an .ico or .png to show in the browser tab"
+        }
+      }
+    },
+    "colors": {
+      "name": "Colors",
+      "settings": {
+        "background": {
+          "label": "Background"
+        },
+        "background_gradient": {
+          "label": "Background gradient",
+          "info": "Overrides background when set"
+        },
+        "text": {
+          "label": "Text"
+        },
+        "button_background": {
+          "label": "Primary button"
+        },
+        "button_label": {
+          "label": "On primary button"
+        },
+        "secondary_button_label": {
+          "label": "On secondary button"
+        },
+        "shadow": {
+          "label": "Shadow"
+        }
+      }
+    },
+    "cart": {
+      "name": "Cart",
+      "settings": {
+        "cart_type": {
+          "label": "Cart type",
+          "drawer": {
+            "label": "Drawer"
+          },
+          "page": {
+            "label": "Page"
+          },
+          "notification": {
+            "label": "Notification"
+          }
+        },
+        "show_vendor": {
+          "label": "Show vendor"
+        },
+        "show_cart_note": {
+          "label": "Show cart note"
+        },
+        "cart_drawer": {
+          "header": "Cart drawer",
+          "collection": {
+            "label": "Upsell collection",
+            "info": "Products to show below the cart"
+          }
+        }
+      }
+    },
+    "search_input": {
+      "name": "Search",
+      "settings": {
+        "header": {
+          "content": "Predictive search"
+        },
+        "predictive_search_enabled": {
+          "label": "Enable predictive search"
+        },
+        "predictive_search_show_vendor": {
+          "label": "Show vendor",
+          "info": "Display the product vendor in results"
+        },
+        "predictive_search_show_price": {
+          "label": "Show price",
+          "info": "Display the product price in results"
+        }
+      }
+    }
+  },
   "options": {
     "alignment": {
       "left": "Left",
