@@ -12,18 +12,9 @@
     "main": {
       "type": "hello-world",
       "settings": {}
-    },
-    "collections_HjNXia": {
-      "type": "collections",
-      "name": "t:general.collections_grid",
-      "settings": {
-        "grid_item_width": "collections--compact",
-        "grid_gap": 25
-      }
     }
   },
   "order": [
-    "main",
-    "collections_HjNXia"
+    "main"
   ]
 }
