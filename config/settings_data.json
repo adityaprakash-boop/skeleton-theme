@@ -11,6 +11,7 @@
   "current": {
     "type_primary_font": "mono",
     "min_page_margin": 60,
+    "cart_type": "drawer",
     "content_for_index": [],
     "color_schemes": {
       "scheme-1": {
