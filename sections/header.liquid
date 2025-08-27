@@ -480,7 +480,9 @@
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   });
 </script>
-<script src="{{ 'component-localization-form.js' | asset_url }}" defer="defer"></script>
+{% if section.settings.enable_country_selector or section.settings.enable_language_selector %}
+  <script src="{{ 'component-localization-form.js' | asset_url }}" defer="defer"></script>
+{% endif %}
 
 {% schema %}
 {
