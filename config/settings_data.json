@@ -12,6 +12,9 @@
     "type_primary_font": "mono",
     "min_page_margin": 60,
     "cart_type": "notification",
+    "brand_headline": "Explore the Latest in Tech Innovations.",
+    "brand_description": "<p>Explore the Latest Innovations in Tech Gear.</p>",
+    "brand_image": "{{ shop.brand.logo }}",
     "content_for_index": [],
     "color_schemes": {
       "scheme-1": {
