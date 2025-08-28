@@ -15,6 +15,15 @@
     "brand_headline": "Explore the Latest in Tech Innovations.",
     "brand_description": "<p>Explore the Latest Innovations in Tech Gear.</p>",
     "brand_image": "{{ shop.brand.logo }}",
+    "social_facebook_link": "facebook.com",
+    "social_instagram_link": "facebook.com",
+    "social_youtube_link": "facebook.com",
+    "social_tiktok_link": "facebook.com",
+    "social_twitter_link": "facebook.com",
+    "social_snapchat_link": "facebook.com",
+    "social_pinterest_link": "facebook.com",
+    "social_tumblr_link": "facebook.com",
+    "social_vimeo_link": "facebook.com",
     "content_for_index": [],
     "color_schemes": {
       "scheme-1": {
