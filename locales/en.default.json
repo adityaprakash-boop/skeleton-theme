@@ -48,5 +48,58 @@
     "submit": "Search",
     "no_results_html": "No results found for {{ terms }}",
     "results_for_html": "{{ count }} results found for {{ terms }}"
+  },
+  "accessibility": {
+    "close": "Close",
+    "clear_search": "Clear search term",
+    "unit_price_separator": "per"
+  },
+  "general": {
+    "continue_shopping": "Continue shopping",
+    "cart": {
+      "item_added": "Item added to cart",
+      "view_empty_cart": "View cart"
+    },
+    "social": {
+      "links": {
+        "facebook": "Facebook",
+        "instagram": "Instagram",
+        "youtube": "YouTube",
+        "tiktok": "TikTok",
+        "twitter": "Twitter",
+        "pinterest": "Pinterest",
+        "snapchat": "Snapchat",
+        "tumblr": "Tumblr",
+        "vimeo": "Vimeo"
+      }
+    }
+  },
+  "sections": {
+    "cart": {
+      "empty": "Your cart is empty",
+      "login": {
+        "title": "Log in",
+        "paragraph_html": "You must be logged in to checkout. <a href=\"{{ link }}\">Log in</a>."
+      },
+      "checkout": "Checkout"
+    },
+    "footer": {
+      "payment": "Payment methods"
+    }
+  },
+  "products": {
+    "product": {
+      "price": {
+        "from_price_html": "From {{ price }}",
+        "regular_price": "Regular price",
+        "sale_price": "Sale price",
+        "unit_price": "Unit price"
+      },
+      "volume_pricing": {
+        "price_range": "{{ minimum }} - {{ maximum }}"
+      },
+      "on_sale": "Sale",
+      "sold_out": "Sold out"
+    }
   }
 }

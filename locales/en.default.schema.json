@@ -174,6 +174,60 @@
         }
       }
     }
+    ,
+    "footer": {
+      "name": "Footer",
+      "blocks": {
+        "link_list": {
+          "name": "Menu",
+          "settings": {
+            "heading": {
+              "default": "Quick links",
+              "label": "Heading"
+            },
+            "menu": {
+              "label": "Menu",
+              "info": "Select a menu to display"
+            }
+          }
+        },
+        "brand_information": {
+          "name": "Brand information",
+          "settings": {
+            "paragraph": { "content": "Add brand content to your footer" },
+            "header__1": { "content": "Social media" },
+            "show_social": { "label": "Show social media icons", "info": "Displays social icons if links are set in theme settings" }
+          }
+        },
+        "text": {
+          "name": "Text",
+          "settings": {
+            "heading": { "default": "Heading", "label": "Heading" },
+            "subtext": { "default": "Add your text here.", "label": "Text" }
+          }
+        }
+      },
+      "settings": {
+        "header__1": { "content": "Newsletter", "info": "Collect email subscribers in your footer" },
+        "newsletter_enable": { "label": "Show newsletter signup" },
+        "newsletter_heading": { "default": "Subscribe to our emails", "label": "Newsletter heading" },
+        "header__9": { "content": "Follow on Shop", "info": "Let customers follow your shop" },
+        "enable_follow_on_shop": { "label": "Enable Follow on Shop" },
+        "header__2": { "content": "Social media", "info": "Control whether to show social icons" },
+        "show_social": { "label": "Show social links" },
+        "header__3": { "content": "Localization", "info": "Country and language settings" },
+        "header__4": { "info": "Control country and language selectors" },
+        "enable_country_selector": { "label": "Enable country selector" },
+        "header__5": { "content": "Language", "info": "Language selector settings" },
+        "header__6": { "info": "Enable a language selector in the footer" },
+        "enable_language_selector": { "label": "Enable language selector" },
+        "header__7": { "content": "Payments" },
+        "payment_enable": { "label": "Show payment icons" },
+        "header__8": { "content": "Policies", "info": "Show store policy links" },
+        "show_policy": { "label": "Show policy links" },
+        "margin_top": { "label": "Top margin" }
+      }
+    }
   },
   "settings_schema": {
     "logo": {
@@ -265,6 +319,22 @@
           "label": "Show price",
           "info": "Display the product price in results"
         }
+      }
+    }
+    ,
+    "social-media": {
+      "name": "Social media",
+      "settings": {
+        "header": { "content": "Social links" },
+        "social_facebook_link": { "label": "Facebook URL", "info": "Paste your Facebook page URL" },
+        "social_instagram_link": { "label": "Instagram URL", "info": "Paste your Instagram profile URL" },
+        "social_youtube_link": { "label": "YouTube URL", "info": "Paste your YouTube channel URL" },
+        "social_tiktok_link": { "label": "TikTok URL", "info": "Paste your TikTok profile URL" },
+        "social_twitter_link": { "label": "Twitter URL", "info": "Paste your Twitter/X profile URL" },
+        "social_snapchat_link": { "label": "Snapchat URL", "info": "Paste your Snapchat profile URL" },
+        "social_pinterest_link": { "label": "Pinterest URL", "info": "Paste your Pinterest profile URL" },
+        "social_tumblr_link": { "label": "Tumblr URL", "info": "Paste your Tumblr blog URL" },
+        "social_vimeo_link": { "label": "Vimeo URL", "info": "Paste your Vimeo profile URL" }
       }
     }
   },
