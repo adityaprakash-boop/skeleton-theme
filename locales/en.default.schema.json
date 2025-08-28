@@ -322,6 +322,17 @@
       }
     }
     ,
+    "brand_information": {
+      "name": "Brand information",
+      "settings": {
+        "paragraph": { "content": "Add brand details used in the footer" },
+        "brand_headline": { "label": "Brand headline" },
+        "brand_description": { "label": "Brand description" },
+        "brand_image": { "label": "Brand image" },
+        "brand_image_width": { "label": "Brand image width" }
+      }
+    },
+    
     "social-media": {
       "name": "Social media",
       "settings": {
