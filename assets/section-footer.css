@@ -726,9 +726,7 @@ li.list-social__item a {
   flex-direction: row !important;
   gap: 10px;
 }
-.footer__content-bottom {
-  display: none;
-}
+
 .footer__payment-row {
   margin-top: 32px;
   text-align: center;
