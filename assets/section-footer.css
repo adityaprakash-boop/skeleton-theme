@@ -8,8 +8,8 @@
 }
 
 .footer__content-top {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 56px;
+  padding-bottom: 56px;
   display: block;
 }
 
@@ -44,6 +44,11 @@
     padding-left: 4rem;
     padding-right: 4rem;
   }
+  /* Override padding to a more compact size on small screens */
+  .footer__content-top,
+  .footer__content-top.page-width {
+    padding: 24px 16px;
+  }
 }
 
 @media screen and (min-width: 750px) {
@@ -55,7 +60,7 @@
 
 .footer__content-bottom {
   border-top: solid 0.1rem rgba(var(--color-foreground), 0.08);
-  padding-top: 3rem;
+  padding-top: 2rem;
 }
 
 .footer__content-bottom:only-child {
@@ -174,12 +179,12 @@
   font-weight: 600;
   margin-bottom: 2rem;
   margin-top: 0;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
 @media screen and (min-width: 990px) {
   .footer-block__heading {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -361,6 +366,10 @@
 .copyright__content a {
   color: rgba(var(--color-foreground), 0.75);
 }
+/* Base footer link size (mobile-first) */
+.footer-block__details-content .list-menu__item--link {
+  font-size: 1.2rem;
+}
 
 .footer-block__details-content .list-menu__item--active {
   transition: text-decoration-thickness 150ms ease;
@@ -390,7 +399,7 @@
 @media screen and (min-width: 750px) {
   .footer-block__details-content .list-menu__item--link {
     display: inline-block;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   .footer-block__details-content > :first-child .list-menu__item--link {
@@ -690,14 +699,14 @@ li.list-social__item a {
 }
 
 .list-social__item .icon {
-  height: 2.2rem;
-  width: 2.2rem;
+  height: 1.6rem;
+  width: 1.6rem;
 }
 
 .list-social__link {
   align-items: center;
   display: flex;
-  padding: 1.1rem;
+  padding: 0.6rem;
   color: rgb(var(--color-foreground));
 }
 
@@ -728,7 +737,7 @@ li.list-social__item a {
 }
 
 .footer__payment-row {
-  margin-top: 32px;
+  margin-top: 20px;
   text-align: center;
 }
 .footer__payment-row .list-payment {
@@ -742,7 +751,7 @@ li.list-social__item a {
 }
 
 .footer__payment-row .icon {
-  height: 28px;
+  height: 22px;
   width: auto;
   display: inline-block;
 }
@@ -763,7 +772,7 @@ li.list-social__item a {
     gap: 48px;
   }
   .footer__payment-row {
-    margin-top: 40px;
+    margin-top: 28px;
   }
 }
 
@@ -794,7 +803,7 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
 }
 @media screen and (max-width: 768px) {
   .list-social__link{
-    padding: 2px;
+    padding: 4px;
   }
   li.list-social__item a {
     width: 24px;
