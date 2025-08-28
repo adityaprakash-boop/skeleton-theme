@@ -13,6 +13,46 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "link_list_xdP99L": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Quick links",
+            "menu": "footer"
+          }
+        },
+        "link_list_kkNmcT": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Quick links",
+            "menu": "footer"
+          }
+        },
+        "brand_information_pLUCGY": {
+          "type": "brand_information",
+          "settings": {
+            "show_social": true
+          }
+        },
+        "text_3D9g6x": {
+          "type": "text",
+          "settings": {
+            "heading": "Provide 3 distinct proposals in JSON form indexed by keys.",
+            "subtext": "<p>Upgrade Your Kitchen Game with Cookware Fit for Experts</p>"
+          }
+        },
+        "payment_icons_Y9PRJD": {
+          "type": "payment_icons",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "link_list_xdP99L",
+        "link_list_kkNmcT",
+        "brand_information_pLUCGY",
+        "text_3D9g6x",
+        "payment_icons_Y9PRJD"
+      ],
       "settings": {
         "color_scheme": "",
         "newsletter_enable": true,
