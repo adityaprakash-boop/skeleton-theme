@@ -14,7 +14,10 @@
 
 {%- if collections_to_show > 0 -%}
   <div class="featured-collections-section page-width">
-    <div class="featured-collections__header title-wrapper title-wrapper--no-top-margin" style="text-align: {{ heading_alignment }};">
+    <div
+      class="featured-collections__header title-wrapper title-wrapper--no-top-margin"
+      style="text-align: {{ heading_alignment }};"
+    >
       {%- if heading != blank -%}
         <h2 class="featured-collections__heading title h2">{{ heading | escape }}</h2>
       {%- endif -%}
@@ -62,16 +65,24 @@
             </div>
             {%- if style == 'style2' -%}
               <div class="collection-card__info collection-card__info--below">
-                <h3 class="collection-card__title h3" style="color: {{ text_color }}">{{ display_title | default: 'Collection Title' }}</h3>
+                <h3 class="collection-card__title h3" style="color: {{ text_color }}">
+                  {{ display_title | default: 'Collection Title' }}
+                </h3>
                 {%- unless hide_shop_now -%}
-                  <span class="collection-card__shop-now link underlined-link" style="color: {{ text_color }}">Shop Now</span>
+                  <span class="collection-card__shop-now link underlined-link" style="color: {{ text_color }}"
+                    >Shop Now</span
+                  >
                 {%- endunless -%}
               </div>
             {%- else -%}
               <div class="collection-card__info">
-                <h3 class="collection-card__title h3" style="color: {{ text_color }}">{{ display_title | default: 'Collection Title' }}</h3>
+                <h3 class="collection-card__title h3" style="color: {{ text_color }}">
+                  {{ display_title | default: 'Collection Title' }}
+                </h3>
                 {%- unless hide_shop_now -%}
-                  <span class="collection-card__shop-now link underlined-link" style="color: {{ text_color }}">Shop Now</span>
+                  <span class="collection-card__shop-now link underlined-link" style="color: {{ text_color }}"
+                    >Shop Now</span
+                  >
                 {%- endunless -%}
               </div>
             {%- endif -%}
