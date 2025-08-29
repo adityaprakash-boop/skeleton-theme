@@ -18,7 +18,7 @@
   /* Adjust spacing */
   font-weight: bold;
   /* Make heading bold */
-  color: #000000;
+  color: rgb(32, 34, 35);
   /* Make heading black */
   font-size: 3.6rem;
   /* Match featured products heading size */
@@ -28,10 +28,10 @@
 .featured-collections__subheading {
   margin-top: 0;
   /* Inherits subtitle style */
-  color: #000000;
-  /* Make subheading black */
-  font-style: italic;
-  /* Make subheading italic */
+  color: rgb(92, 95, 98);
+  /* Match hello-world description color */
+  font-style: normal;
+  /* Keep normal style like hello-world */
 }
 
 .featured-collections__grid {
@@ -40,7 +40,8 @@
   padding: 0;
   /* Remove default grid padding if any */
   gap: 25px;
-  /* Uses base.css flexbox grid */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .featured-collections__card.grid__item {
@@ -50,31 +51,36 @@
   /* For positioning the text overlay */
   overflow: hidden;
   /* Hide overflow if needed */
+  max-height: 300px;
 }
 
 .collection-card__link {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   position: relative;
   /* Needed for overlay child */
   color: inherit;
   text-decoration: none;
-  height: 100%;
+  height: 300px;
+  max-height: 300px;
+  overflow: hidden;
 }
 
 .collection-card__image-wrapper {
-  height: 100%;
+  height: 220px;
   width: 100%;
+  flex: 0 0 auto;
 }
 
-/* Override base.css padding for taller portrait images */
+/* Horizontal line layout overrides aspect-ratio hacks */
 .collection-card__image-wrapper.media--portrait {
-  padding-bottom: 144%;
-  /* Approx 15% taller than 125% */
+  padding-bottom: 0 !important;
+  height: 220px;
 }
 
 .collection-card__link--below .collection-card__image-wrapper.media--portrait {
-  padding-bottom: 100%;
+  padding-bottom: 0 !important;
 }
 
 .collection-card__image {
@@ -92,22 +98,21 @@
 }
 
 .collection-card__info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1.5rem 1rem;
+  position: static;
+  padding: 1.25rem 0;
   /* Adjust padding as needed */
-  text-align: center;
-  color: #ffffff;
-  /* White text */
-  z-index: 2;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
-  /* Gradient overlay for text visibility */
+  text-align: left;
+  color: inherit;
+  z-index: 1;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 60%;
 }
 
 .collection-card__title {
-  color: #ffffff;
+  color: #111;
   margin-top: 0;
   margin-bottom: 0.5rem;
   /* Space between title and link */
@@ -143,19 +148,19 @@
 /* Style 2: Info below image */
 .collection-card__info--below {
   position: static;
-  background: #fff;
-  color: #111;
-  text-align: center;
-  padding: 1.25rem 0 0.75rem 0;
-  border-radius: 0 0 8px 8px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  padding: 1.25rem 0;
+  border-radius: 0;
   box-shadow: none;
 }
 
 .collection-card__info--below .collection-card__title {
-  color: #111;
+  color: rgb(32, 34, 35);
   margin-bottom: 0.25rem;
   text-transform: none;
-  font-size: 2.4rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
@@ -170,8 +175,8 @@
 
 @media (max-width: 750px) {
   .featured-collections__grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
@@ -183,13 +188,15 @@
 
   .collection-card__link {
     min-width: 0;
-    max-width: 343px;
-    margin: auto;
+    max-width: 100%;
+    margin: 0;
     width: 100%;
   }
 
+  .collection-card__image-wrapper,
   .collection-card__image-wrapper.media--portrait {
-    padding-bottom: 72% !important;
+    height: 220px;
+    padding-bottom: 0 !important;
   }
 
   .featured-collections__heading {
