@@ -12,9 +12,50 @@
     "main": {
       "type": "hello-world",
       "settings": {}
+    },
+    "featured_collections_hhETJ9": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_card_3ccame": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "custom_title": ""
+          }
+        },
+        "collection_card_BRp9XN": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "custom_title": ""
+          }
+        },
+        "collection_card_jbyADA": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "",
+            "custom_title": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_card_3ccame",
+        "collection_card_BRp9XN",
+        "collection_card_jbyADA"
+      ],
+      "name": "Featured Collections",
+      "settings": {
+        "heading": "Find the perfect fit for your game",
+        "subheading": "Browse through our collections",
+        "heading_alignment": "center",
+        "style": "style2",
+        "text_color": "#000000",
+        "hide_shop_now": true
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "featured_collections_hhETJ9"
   ]
 }
