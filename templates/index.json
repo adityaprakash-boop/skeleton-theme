@@ -40,14 +40,14 @@
         "collection_card_LVn8DN": {
           "type": "collection_card",
           "settings": {
-            "collection": "",
+            "collection": "summer",
             "custom_title": ""
           }
         },
         "collection_card_nCgcp7": {
           "type": "collection_card",
           "settings": {
-            "collection": "",
+            "collection": "winter",
             "custom_title": ""
           }
         }
