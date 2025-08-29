@@ -24,17 +24,17 @@
             <div class="footer-block grid__item" {{ block.shopify_attributes }}>
               {%- case block.type -%}
                 {%- when 'text' -%}
-                  <h2 class="footer-block__heading inline-richtext">{{ block.settings.heading }}</h2>
-                  <div class="footer-block__details-content rte">{{ block.settings.subtext }}</div>
+                  <h2 class="footer-block__heading">{{ block.settings.heading }}</h2>
+                  <div class="footer-block__details-content">{{ block.settings.subtext }}</div>
                 {%- when 'link_list' -%}
                   {%- if block.settings.menu != blank -%}
-                    <h2 class="footer-block__heading inline-richtext">{{ block.settings.heading }}</h2>
-                    <ul class="footer-block__details-content list-unstyled">
+                    <h2 class="footer-block__heading">{{ block.settings.heading }}</h2>
+                    <ul class="footer-block__details-content">
                       {%- for link in block.settings.menu.links -%}
                         <li>
                           <a
                             href="{{ link.url }}"
-                            class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                            class="list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
                           >
                             {{- link.title | escape -}}
                           </a>
@@ -43,7 +43,7 @@
                     </ul>
                   {%- endif -%}
                 {%- when 'social_icons' -%}
-                  <h2 class="footer-block__heading inline-richtext">Follow Us</h2>
+                  <h2 class="footer-block__heading">Follow Us</h2>
                   <div class="footer-block__details-content footer-block-social-icons">
                     {%- render 'component-social-icons', class: 'footer__list-social' -%}
                   </div>
@@ -69,10 +69,10 @@
                       </div>
                     {%- endif -%}
                     {%- if settings.brand_headline != blank -%}
-                      <h2 class="footer-block__heading rte">{{ settings.brand_headline }}</h2>
+                      <h2 class="footer-block__heading">{{ settings.brand_headline }}</h2>
                     {%- endif -%}
                     {%- if settings.brand_description != blank -%}
-                      <div class="rte">{{ settings.brand_description }}</div>
+                      <div>{{ settings.brand_description }}</div>
                     {%- endif -%}
                     {%- if block.settings.show_social and has_social_icons -%}
                       {%- render 'component-social-icons', class: 'footer__list-social' -%}
@@ -100,11 +100,11 @@
                     {%- endif -%}
                   </div>
                 {%- when 'payment_icons' -%}
-                  <div class="footer-block__details-content footer-block-payment-icons">
-                    <ul class="list list-payment" role="list">
+                  <div class="footer-block__details-content">
+                    <ul class="list-payment" role="list">
                       {%- for type in shop.enabled_payment_types -%}
                         <li class="list-payment__item">
-                          {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                          {{ type | payment_type_svg_tag: class: 'icon' }}
                         </li>
                       {%- endfor -%}
                     </ul>
@@ -115,10 +115,10 @@
         </div>
         {%- if section.settings.payment_enable -%}
           <div class="footer__payment-row">
-            <ul class="list list-payment" role="list">
+            <ul class="list-payment" role="list">
               {%- for type in shop.enabled_payment_types -%}
                 <li class="list-payment__item">
-                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                  {{ type | payment_type_svg_tag: class: 'icon' }}
                 </li>
               {%- endfor -%}
             </ul>
@@ -134,8 +134,8 @@
       data-cascade
     {% endif %}
   >
-    <div class="footer__content-bottom-wrapper page-width">
-      <div class="footer__column footer__localization isolate">
+    <div class="footer__content-bottom-wrapper">
+      <div class="footer__column footer__localization">
         {%- render 'component-localization-form',
           enable_country_selector: section.settings.enable_country_selector,
           enable_language_selector: section.settings.enable_language_selector
@@ -144,11 +144,11 @@
       <div class="footer__column footer__column--info">
         {%- if section.settings.payment_enable -%}
           <div class="footer__payment">
-            <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
-            <ul class="list list-payment" role="list">
+            <span>{{ 'sections.footer.payment' | t }}</span>
+            <ul class="list-payment" role="list">
               {%- for type in shop.enabled_payment_types -%}
                 <li class="list-payment__item">
-                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                  {{ type | payment_type_svg_tag: class: 'icon' }}
                 </li>
               {%- endfor -%}
             </ul>
@@ -156,14 +156,14 @@
         {%- endif -%}
       </div>
     </div>
-    <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
-      <div class="footer__copyright caption">
+    <div class="footer__content-bottom-wrapper{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
+      <div class="footer__copyright">
         <small class="copyright__content"
           >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
         </small>
         <small class="copyright__content">{{ powered_by_link }}</small>
         {%- if section.settings.show_policy -%}
-          <ul class="policies list-unstyled">
+          <ul class="policies">
             {%- for policy in shop.policies -%}
               {%- if policy != blank -%}
                 <li>
