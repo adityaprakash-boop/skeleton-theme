@@ -347,6 +347,16 @@
         "social_tumblr_link": { "label": "Tumblr URL", "info": "Paste your Tumblr blog URL" },
         "social_vimeo_link": { "label": "Vimeo URL", "info": "Paste your Vimeo profile URL" }
       }
+    },
+    "currency_format": {
+      "name": "Currency format",
+      "settings": {
+        "content": "Currency display",
+        "paragraph": "Choose how to display currency values across your store.",
+        "currency_code_enabled": {
+          "label": "Show currency code (e.g., USD)"
+        }
+      }
     }
   },
   "options": {
