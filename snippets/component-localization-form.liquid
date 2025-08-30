@@ -1,3 +1,16 @@
+{% doc %}
+  Renders country and/or language selectors using Shopify's localization form.
+  Provides toggleable lists with Alpine.js and writes selected codes to inputs.
+
+  @param {boolean} [enable_country_selector] - If true, show country selector
+  @param {boolean} [enable_language_selector] - If true, show language selector
+
+  @example
+  {% render 'component-localization-form',
+    enable_country_selector: true,
+    enable_language_selector: true
+  %}
+{% enddoc %}
 {% stylesheet %}
   localization-form {
     display: grid;

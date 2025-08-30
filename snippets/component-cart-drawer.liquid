@@ -1,8 +1,15 @@
+{% doc %}
+  Renders the slide-out cart drawer with line items, options, totals, and actions.
+  Uses Alpine.js for open/close state and listens for an `item-added-to-cart` event.
+
+  @example
+  {% render 'component-cart-drawer' %}
+{% enddoc %}
 {{ 'cart.css' | asset_url | stylesheet_tag }}
 
 <div
   id="cart-drawer"
-  class="color-{{ settings.cart_color_scheme }} gradient"
+  class="color-{{ settings.cart_color_scheme }}"
   :class="{ 'cart-open': cartOpen }"
 >
   <button class="drawer-overlay" @click="closeCartDrawer">
@@ -23,7 +30,7 @@
           </a>
 
           {%- if shop.customer_accounts_enabled and customer == null -%}
-            <p class="cart__login-title h3">{{ 'sections.cart.login.title' | t }}</p>
+            <p>{{ 'sections.cart.login.title' | t }}</p>
             <p class="cart__login-paragraph">
               {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
             </p>
@@ -104,7 +111,6 @@
                             {%- if property.last contains '/uploads/' -%}
                               <a
                                 href="{{ property.last }}"
-                                class="link"
                                 target="_blank"
                                 aria-describedby="a11y-new-window-message"
                               >
@@ -203,7 +209,7 @@
           </div>
         {%- endif -%}
 
-        <div class="cart-actions">
+        <div>
           <div class="cart-charges">
             {% if cart.cart_level_discount_applications.size > 0 %}
               <ul class="cart-discounts">
@@ -218,7 +224,7 @@
 
             <div class="cart-total">
               <span class="cart-total__label">Estimated total</span>
-              <span class="cart-total__price">{{ cart.total_price | money }}</span>
+              <span>{{ cart.total_price | money }}</span>
             </div>
             <small class="cart-total__small">Taxes, discounts and shipping calculated at checkout.</small>
           </div>

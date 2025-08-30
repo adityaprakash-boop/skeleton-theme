@@ -2,7 +2,7 @@
   <div id="predictive-search-results">
     <div id="predictive-results__wrapper">
       {%- if predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0 -%}
-        <div class="predictive-search__suggestions">
+        <div>
           <h3>Suggestions</h3>
           <ul role="listbox" aria-labelledby="predictive-search-suggestions">
             {%- for query in predictive_search.resources.queries -%}
@@ -30,7 +30,7 @@
           </ul>
         </div>
       {%- elsif predictive_search.resources.articles.size > 0 or predictive_search.resources.pages.size > 0 -%}
-        <div class="predictive-search__articles">
+        <div>
           <h3>Articles and Pages</h3>
           <ul role="listbox" aria-labelledby="predictive-search-articles">
             {%- for page in predictive_search.resources.pages -%}

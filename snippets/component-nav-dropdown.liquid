@@ -1,3 +1,12 @@
+{% doc %}
+  Renders a dropdown navigation list with support for nested child links.
+  Can render in a drawer style for mobile or inline for the header.
+
+  @param {string} [nav_style] - 'drawer' to render classes for drawer navigation
+
+  @example
+  {% render 'component-nav-dropdown', nav_style: 'drawer' %}
+{% enddoc %}
 {% unless nav_style == 'drawer' %}
   {% style %}
     #main-header .nav-dropdown,

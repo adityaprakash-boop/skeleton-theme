@@ -315,13 +315,13 @@
 {% endcapture %}
 
 <div
-  class="color-{{ section.settings.color_scheme }} gradient"
+  class="color-{{ section.settings.color_scheme }}"
   {% if settings.cart_type == 'drawer' %}
     x-data="cartDrawer"
   {% endif %}
 >
   <header
-    class="page-width{% if section.settings.menu_position == 'center' %} header-menu-position-center{% endif %}"
+    {% if section.settings.menu_position == 'center' %}class="header-menu-position-center"{% endif %}
     id="main-header"
     x-data="{ searchOpen: false, searchTerm: '' }"
     @click.outside="searchOpen = false"

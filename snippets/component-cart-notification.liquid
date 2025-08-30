@@ -1,3 +1,13 @@
+{% doc %}
+  Renders an add-to-cart notification panel with product summary, actions, and
+  links to cart/checkout. Uses a color scheme and adapts layout to header type.
+
+  @param {string} [color_scheme] - Optional color scheme handle for the wrapper
+  @param {string} [desktop_menu_type] - If not 'drawer', uses page-width wrapper
+
+  @example
+  {% render 'component-cart-notification', color_scheme: 'primary' %}
+{% enddoc %}
 {% stylesheet %}
   .cart-notification-wrapper {
     position: relative;
