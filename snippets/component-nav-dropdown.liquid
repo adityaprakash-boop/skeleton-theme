@@ -3,9 +3,11 @@
   Can render in a drawer style for mobile or inline for the header.
 
   @param {string} [nav_style] - 'drawer' to render classes for drawer navigation
+  @param {linklist} menu - Menu object to render
+  @param {string} menu_color_scheme - Color scheme handle for menu background
 
   @example
-  {% render 'component-nav-dropdown', nav_style: 'drawer' %}
+  {% render 'component-nav-dropdown', nav_style: 'drawer', menu: section.settings.menu, menu_color_scheme: section.settings.menu_color_scheme %}
 {% enddoc %}
 {% unless nav_style == 'drawer' %}
   {% style %}
@@ -42,7 +44,7 @@
     class="menu-drawer_navigation"
   {% endif %}
 >
-  {% for link in section.settings.menu.links %}
+  {% for link in menu.links %}
     <li x-data="{ menuOpen: false, activeSubMenu: null }" @click.outside="menuOpen = false; activeSubMenu = null">
       {% if link.links != blank %}
         <div
@@ -55,7 +57,7 @@
         </div>
         <ul
           x-show="menuOpen"
-          class="nav-{{ nav_style }} color-{{ section.settings.menu_color_scheme }} gradient"
+          class="nav-{{ nav_style }} color-{{ menu_color_scheme }} gradient"
           x-transition
           role="list"
           x-cloak

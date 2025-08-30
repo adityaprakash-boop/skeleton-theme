@@ -327,7 +327,13 @@
     @click.outside="searchOpen = false"
     @input="searchTerm = $event.target.value"
   >
-    {% render 'component-nav-drawer' %}
+    {% render 'component-nav-drawer',
+      menu: section.settings.menu,
+      menu_color_scheme: section.settings.menu_color_scheme,
+      enable_country_selector: section.settings.enable_country_selector,
+      enable_language_selector: section.settings.enable_language_selector,
+      enable_customer_avatar: section.settings.enable_customer_avatar
+    %}
 
     {% if section.settings.logo_position == 'top-center' or section.settings.menu == blank %}
       {{ header_search }}
@@ -346,9 +352,9 @@
     {% if section.settings.menu != blank and section.settings.menu_type_desktop != 'drawer' %}
       <nav class="header-menu-position-{{ section.settings.menu_position }}">
         {% if section.settings.menu_type_desktop == 'dropdown' %}
-          {% render 'component-nav-dropdown', nav_style: 'dropdown' %}
+          {% render 'component-nav-dropdown', nav_style: 'dropdown', menu: section.settings.menu, menu_color_scheme: section.settings.menu_color_scheme %}
         {% elsif section.settings.menu_type_desktop != 'drawer' %}
-          {% render 'component-nav-megamenu' %}
+          {% render 'component-nav-megamenu', menu: section.settings.menu, menu_color_scheme: section.settings.menu_color_scheme %}
         {% endif %}
       </nav>
     {% endif %}
@@ -358,7 +364,8 @@
         <div class="header-actions_localization">
           {%- render 'component-localization-form',
             enable_country_selector: section.settings.enable_country_selector,
-            enable_language_selector: section.settings.enable_language_selector
+            enable_language_selector: section.settings.enable_language_selector,
+            menu_color_scheme: section.settings.menu_color_scheme
           -%}
         </div>
       {% endif %}

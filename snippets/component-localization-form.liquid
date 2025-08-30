@@ -4,11 +4,13 @@
 
   @param {boolean} [enable_country_selector] - If true, show country selector
   @param {boolean} [enable_language_selector] - If true, show language selector
+  @param {string} menu_color_scheme - Color scheme for the dropdown list
 
   @example
   {% render 'component-localization-form',
     enable_country_selector: true,
-    enable_language_selector: true
+    enable_language_selector: true,
+    menu_color_scheme: section.settings.menu_color_scheme
   %}
 {% enddoc %}
 {% stylesheet %}
@@ -83,7 +85,7 @@
           x-cloak
           id="CountryList"
           role="list"
-          class="localization-list color-{{ section.settings.menu_color_scheme }} gradient"
+          class="localization-list color-{{ menu_color_scheme }} gradient"
         >
           {% for country in localization.available_countries %}
             <li class="localization-item" tabindex="-1">
@@ -135,7 +137,7 @@
           x-cloak
           id="LanguageList"
           role="list"
-          class="localization-list color-{{ section.settings.menu_color_scheme }} gradient"
+          class="localization-list color-{{ menu_color_scheme }} gradient"
         >
           {% for language in localization.available_languages %}
             <li class="localization-item" tabindex="-1">
