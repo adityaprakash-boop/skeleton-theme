@@ -488,7 +488,7 @@
   });
 </script>
 {% if section.settings.enable_country_selector or section.settings.enable_language_selector %}
-  <script src="{{ 'component-localization-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'component-localization-form.js' | asset_url }}" type="module"></script>
 {% endif %}
 
 {% schema %}

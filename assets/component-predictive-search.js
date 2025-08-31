@@ -1,4 +1,4 @@
-class PredictiveSearch extends HTMLElement {
+export class PredictiveSearch extends HTMLElement {
   constructor() {
     super();
 
@@ -85,4 +85,6 @@ class PredictiveSearch extends HTMLElement {
   }
 }
 
-customElements.define('predictive-search', PredictiveSearch);  
+if (!customElements.get('predictive-search')) {
+  customElements.define('predictive-search', PredictiveSearch);
+}

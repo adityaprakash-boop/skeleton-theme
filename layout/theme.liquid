@@ -46,7 +46,7 @@
     {% sections 'footer-group' %}
 
     {%- if settings.predictive_search_enabled -%}
-      <script src="{{ 'component-predictive-search.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'component-predictive-search.js' | asset_url }}" type="module"></script>
     {%- endif -%}
   </body>
 </html>

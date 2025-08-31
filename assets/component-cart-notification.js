@@ -1,4 +1,4 @@
-class CartNotification extends HTMLElement {
+export class CartNotification extends HTMLElement {
   constructor() {
     super();
     this.hideNotification = this.hideNotification.bind(this);
@@ -42,4 +42,6 @@ class CartNotification extends HTMLElement {
   }
 }
 
-customElements.define('cart-notification', CartNotification);
+if (!customElements.get('cart-notification')) {
+  customElements.define('cart-notification', CartNotification);
+}
