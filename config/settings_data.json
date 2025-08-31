@@ -10,8 +10,9 @@
 {
   "current": {
     "type_primary_font": "mono",
+    "max_page_width": "110rem",
     "min_page_margin": 60,
-    "cart_type": "drawer",
+    "cart_type": "notification",
     "predictive_search_show_vendor": true,
     "predictive_search_show_price": true,
     "brand_headline": "Explore the Latest in Tech Innovations.",
