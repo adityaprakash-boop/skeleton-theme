@@ -228,6 +228,10 @@
         "margin_top": { "label": "Top margin" }
       }
     }
+    ,
+    "main-cart-items": {
+      "name": "Cart"
+    }
   },
   "settings_schema": {
     "logo": {
