@@ -234,7 +234,293 @@
     }
     ,
     "main-product": {
-      "name": "Product"
+      "name": "Product",
+      "blocks": {
+        "text": {
+          "name": "Text",
+          "settings": {
+            "text": { "default": "Text", "label": "Text" },
+            "text_style": {
+              "label": "Text style",
+              "options__1": { "label": "Body" },
+              "options__2": { "label": "Subtitle" },
+              "options__3": { "label": "Uppercase" }
+            }
+          }
+        },
+        "title": {
+          "name": "Title",
+          "settings": {
+            "title_color": { "label": "Title color" },
+            "title_font_size": { "label": "Title font size" },
+            "title_font_weight": {
+              "label": "Title font weight",
+              "options__1": { "label": "Light" },
+              "options__2": { "label": "Medium" },
+              "options__3": { "label": "Bold" }
+            }
+          }
+        },
+        "price": {
+          "name": "Price",
+          "settings": {
+            "price_color": { "label": "Price color" },
+            "price_font_size": { "label": "Price font size" },
+            "price_font_weight": {
+              "label": "Price font weight",
+              "options__1": { "label": "Light" },
+              "options__2": { "label": "Medium" },
+              "options__3": { "label": "Bold" }
+            }
+          }
+        },
+        "sku": {
+          "name": "SKU",
+          "settings": {
+            "text_style": {
+              "label": "Text style",
+              "options__1": { "label": "Body" },
+              "options__2": { "label": "Subtitle" },
+              "options__3": { "label": "Uppercase" }
+            }
+          }
+        },
+        "inventory": {
+          "name": "Inventory",
+          "settings": {
+            "text_style": {
+              "label": "Text style",
+              "options__1": { "label": "Body" },
+              "options__2": { "label": "Subtitle" },
+              "options__3": { "label": "Uppercase" }
+            },
+            "inventory_threshold": { "label": "Low stock threshold", "info": "Show low stock at or below this quantity" },
+            "show_inventory_quantity": { "label": "Show quantity" }
+          }
+        },
+        "quantity_selector": { "name": "Quantity selector" },
+        "variant_picker": {
+          "name": "Variant selector",
+          "settings": {
+            "picker_type": {
+              "label": "Picker type",
+              "options__1": { "label": "Dropdown" },
+              "options__2": { "label": "Buttons" }
+            },
+            "swatch_shape": {
+              "label": "Swatch shape",
+              "info": "Shape to use for color swatches",
+              "options__1": { "label": "Circle" },
+              "options__2": { "label": "Square" },
+              "options__3": { "label": "None" }
+            }
+          }
+        },
+        "buy_buttons": {
+          "name": "Buy buttons",
+          "settings": {
+            "show_dynamic_checkout": { "label": "Show dynamic checkout button", "info": "Displays the Buy it now button" },
+            "show_gift_card_recipient": { "label": "Enable gift card recipient", "info": "Collect recipient details for gift cards" }
+          }
+        },
+        "description": {
+          "name": "Description",
+          "settings": {
+            "description_color": { "label": "Description color" },
+            "description_font_size": { "label": "Description font size" },
+            "description_font_weight": {
+              "label": "Description font weight",
+              "options__1": { "label": "Light" },
+              "options__2": { "label": "Medium" },
+              "options__3": { "label": "Bold" }
+            }
+          }
+        },
+        "share": {
+          "name": "Share",
+          "settings": {
+            "text": { "label": "Share label", "default": "Share" },
+            "featured_image_info": { "content": "Uses the product featured image" },
+            "title_info": { "content": "Uses the product title" }
+          }
+        },
+        "subscription": {
+          "name": "Subscriptions",
+          "settings": {
+            "supporting_text_title": { "label": "Supporting text title", "default": "Purchase options" }
+          }
+        },
+        "collapsible_tab": {
+          "name": "Collapsible tab",
+          "settings": {
+            "heading": { "default": "Details", "info": "Optional tab title", "label": "Heading" },
+            "icon": {
+              "label": "Icon",
+              "options__1": { "label": "None" },
+              "options__2": { "label": "Apple" },
+              "options__3": { "label": "Banana" },
+              "options__4": { "label": "Bottle" },
+              "options__5": { "label": "Box" },
+              "options__6": { "label": "Carrot" },
+              "options__7": { "label": "Chat bubble" },
+              "options__8": { "label": "Check mark" },
+              "options__9": { "label": "Clipboard" },
+              "options__10": { "label": "Dairy" },
+              "options__11": { "label": "Dairy free" },
+              "options__12": { "label": "Dryer" },
+              "options__13": { "label": "Eye" },
+              "options__14": { "label": "Fire" },
+              "options__15": { "label": "Gluten free" },
+              "options__16": { "label": "Heart" },
+              "options__17": { "label": "Iron" },
+              "options__18": { "label": "Leaf" },
+              "options__19": { "label": "Leather" },
+              "options__20": { "label": "Lightning bolt" },
+              "options__21": { "label": "Lipstick" },
+              "options__22": { "label": "Lock" },
+              "options__23": { "label": "Map pin" },
+              "options__24": { "label": "Nut free" },
+              "options__25": { "label": "Pants" },
+              "options__26": { "label": "Paw print" },
+              "options__27": { "label": "Pepper" },
+              "options__28": { "label": "Perfume" },
+              "options__29": { "label": "Plane" },
+              "options__30": { "label": "Plant" },
+              "options__31": { "label": "Price tag" },
+              "options__32": { "label": "Question mark" },
+              "options__33": { "label": "Recycle" },
+              "options__34": { "label": "Return" },
+              "options__35": { "label": "Ruler" },
+              "options__36": { "label": "Serving dish" },
+              "options__37": { "label": "Shirt" },
+              "options__38": { "label": "Shoe" },
+              "options__39": { "label": "Silhouette" },
+              "options__40": { "label": "Snowflake" },
+              "options__41": { "label": "Star" },
+              "options__42": { "label": "Stopwatch" },
+              "options__43": { "label": "Truck" },
+              "options__44": { "label": "Washing" }
+            },
+            "content": { "label": "Content" },
+            "page": { "label": "Page" }
+          }
+        },
+        "popup": {
+          "name": "Popup",
+          "settings": {
+            "link_label": { "label": "Link label", "default": "Learn more" },
+            "page": { "label": "Page" }
+          }
+        },
+        "rating": {
+          "name": "Rating",
+          "settings": { "paragraph": { "content": "Add a rating block from your app to show reviews" } }
+        },
+        "complementary_products": {
+          "name": "Complementary products",
+          "settings": {
+            "paragraph": { "content": "Show recommended accessories for this product" },
+            "heading": { "default": "You may also like", "label": "Heading" },
+            "make_collapsible_row": { "label": "Make row collapsible" },
+            "icon": { "info": "Icon used for the row label", "label": "Icon" },
+            "product_list_limit": { "label": "Max products to show" },
+            "products_per_page": { "label": "Products per page" },
+            "pagination_style": {
+              "label": "Pagination style",
+              "options": {
+                "option_1": "Dots",
+                "option_2": "Counter",
+                "option_3": "Numbers"
+              }
+            },
+            "product_card": { "heading": "Product card" },
+            "image_ratio": {
+              "label": "Image ratio",
+              "options": {
+                "option_1": "Portrait",
+                "option_2": "Square"
+              }
+            },
+            "enable_quick_add": { "label": "Enable quick add" }
+          }
+        },
+        "icon_with_text": {
+          "name": "Icon with text",
+          "settings": {
+            "layout": {
+              "label": "Layout",
+              "options__1": { "label": "Horizontal" },
+              "options__2": { "label": "Vertical" }
+            },
+            "content": { "label": "Content", "info": "Configure each icon and its text below" },
+            "icon_1": { "label": "Icon 1" },
+            "image_1": { "label": "Image 1" },
+            "heading_1": { "default": "Heading", "label": "Heading 1", "info": "Displayed beside icon 1" },
+            "icon_2": { "label": "Icon 2" },
+            "image_2": { "label": "Image 2" },
+            "heading_2": { "default": "Heading", "label": "Heading 2", "info": "Displayed beside icon 2" },
+            "icon_3": { "label": "Icon 3" },
+            "image_3": { "label": "Image 3" },
+            "heading_3": { "default": "Heading", "label": "Heading 3", "info": "Displayed beside icon 3" }
+          }
+        },
+        "monogram": {
+          "name": "Monogram",
+          "settings": {
+            "button_text": { "label": "Button text", "default": "Add monogram" }
+          }
+        }
+      },
+      "settings": {
+        "enable_sticky_info": { "label": "Enable sticky content" },
+        "header": { "content": "Layout", "info": "Control the layout for this product page" },
+        "media_size": {
+          "label": "Media size",
+          "info": "Adjust media size on desktop",
+          "options__1": { "label": "Small" },
+          "options__2": { "label": "Medium" },
+          "options__3": { "label": "Large" }
+        },
+        "constrain_to_viewport": { "label": "Constrain media to viewport" },
+        "media_fit": {
+          "label": "Media fit",
+          "options__1": { "label": "Contain" },
+          "options__2": { "label": "Cover" }
+        },
+        "media_position": {
+          "label": "Media position",
+          "info": "Position of media relative to info on desktop",
+          "options__1": { "label": "Left" },
+          "options__2": { "label": "Right" }
+        },
+        "image_zoom": {
+          "label": "Image zoom",
+          "info": "Choose how zooming works for images",
+          "options__1": { "label": "Lightbox" },
+          "options__2": { "label": "Hover" },
+          "options__3": { "label": "None" }
+        },
+        "enable_video_looping": { "label": "Enable video looping" },
+        "variant_label_header": { "content": "Variant labels" },
+        "variant_label_color": { "label": "Label color" },
+        "variant_label_font_size": { "label": "Label font size" },
+        "variant_label_font_weight": {
+          "label": "Label font weight",
+          "options__1": { "label": "Light" },
+          "options__2": { "label": "Medium" },
+          "options__3": { "label": "Bold" }
+        }
+      }
+    }
+    ,
+    "custom-liquid": {
+      "name": "Custom liquid",
+      "settings": {
+        "custom_liquid": {
+          "label": "Custom Liquid",
+          "info": "Add custom Liquid code"
+        }
+      }
     }
   },
   "settings_schema": {
