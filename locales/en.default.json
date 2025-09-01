@@ -69,6 +69,11 @@
       "item_added": "Item added to cart",
       "view_empty_cart": "View cart"
     },
+    "share": {
+      "share_url": "Share URL",
+      "close": "Close share",
+      "copy_to_clipboard": "Copy to clipboard"
+    },
     "social": {
       "links": {
         "facebook": "Facebook",
@@ -105,10 +110,24 @@
         "unit_price": "Unit price"
       },
       "volume_pricing": {
-        "price_range": "{{ minimum }} - {{ maximum }}"
+        "price_range": "{{ minimum }} - {{ maximum }}",
+        "note": "Discounts applied at checkout"
       },
+      "duties_and_taxes_included": "Duties and taxes included",
+      "taxes_included": "Taxes included",
+      "duties_included": "Duties included",
+      "shipping_policy_html": "Shipping calculated at checkout. <a href=\"{{ link }}\">Shipping policy</a>",
+      "inventory_low_stock_show_count": "Low stock ({{ count }} left)",
+      "inventory_low_stock": "Low stock",
+      "inventory_in_stock_show_count": "{{ count }} in stock",
+      "inventory_in_stock": "In stock",
+      "inventory_out_of_stock_continue_selling": "Available for order",
+      "inventory_out_of_stock": "Out of stock",
       "on_sale": "Sale",
       "sold_out": "Sold out"
+    },
+    "modal": {
+      "label": "Product media modal"
     }
   }
 }

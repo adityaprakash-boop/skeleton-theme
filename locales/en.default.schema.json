@@ -232,6 +232,10 @@
     "main-cart-items": {
       "name": "Cart"
     }
+    ,
+    "main-product": {
+      "name": "Product"
+    }
   },
   "settings_schema": {
     "logo": {

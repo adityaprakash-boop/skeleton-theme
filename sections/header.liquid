@@ -315,13 +315,16 @@
 {% endcapture %}
 
 <div
+  data-ajax-cart-section
   class="color-{{ section.settings.color_scheme }}"
   {% if settings.cart_type == 'drawer' %}
     x-data="cartDrawer"
   {% endif %}
 >
   <header
-    {% if section.settings.menu_position == 'center' %}class="header-menu-position-center"{% endif %}
+    {% if section.settings.menu_position == 'center' %}
+      class="header-menu-position-center"
+    {% endif %}
     id="main-header"
     x-data="{ searchOpen: false, searchTerm: '' }"
     @click.outside="searchOpen = false"
@@ -352,9 +355,16 @@
     {% if section.settings.menu != blank and section.settings.menu_type_desktop != 'drawer' %}
       <nav class="header-menu-position-{{ section.settings.menu_position }}">
         {% if section.settings.menu_type_desktop == 'dropdown' %}
-          {% render 'component-nav-dropdown', nav_style: 'dropdown', menu: section.settings.menu, menu_color_scheme: section.settings.menu_color_scheme %}
+          {% render 'component-nav-dropdown',
+            nav_style: 'dropdown',
+            menu: section.settings.menu,
+            menu_color_scheme: section.settings.menu_color_scheme
+          %}
         {% elsif section.settings.menu_type_desktop != 'drawer' %}
-          {% render 'component-nav-megamenu', menu: section.settings.menu, menu_color_scheme: section.settings.menu_color_scheme %}
+          {% render 'component-nav-megamenu',
+            menu: section.settings.menu,
+            menu_color_scheme: section.settings.menu_color_scheme
+          %}
         {% endif %}
       </nav>
     {% endif %}
