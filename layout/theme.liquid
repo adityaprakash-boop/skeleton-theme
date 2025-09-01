@@ -19,7 +19,9 @@
     {% render 'css-variables' %}
 
     {% # Load and preload the critical CSS %}
+    {% comment %}
     {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
+    {% endcomment %}
     {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
 
 

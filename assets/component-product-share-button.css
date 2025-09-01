@@ -47,7 +47,7 @@
   z-index: 3;
   width: 100%;
   min-width: max-content;
-  border-radius: var(--inputs-radius);
+  border-radius: 6px;
   border: 0;
 }
 
@@ -68,7 +68,7 @@
   height: 100%;
   margin-top: 0;
   padding: 8px 0 8px 15px;
-  margin: var(--inputs-border-width);
+  margin: 1px;
 }
 
 .share-button__fallback .field__input {
@@ -83,13 +83,13 @@
   flex-grow: 1;
   text-align: left;
   padding: 22px 15px 8px 20px;
-  transition: box-shadow var(--duration-short) ease;
+  transition: box-shadow 150ms ease;
   appearance: none;
   background-color: rgb(var(--color-background));
   color: rgb(var(--color-foreground));
-  font-family: var(--font-body-family);
-  font-style: var(--font-body-style);
-  font-weight: var(--font-body-weight);
+  font-family: var(--font-primary--family);
+  font-style: var(--font-primary--style);
+  font-weight: var(--font-primary--weight);
   font-size: 16px;
   box-sizing: border-box;
   position: relative;
@@ -102,13 +102,13 @@
   pointer-events: none;
   position: absolute;
   transition:
-    top var(--duration-short) ease,
-    font-size var(--duration-short) ease;
+    top 150ms ease,
+    font-size 150ms ease;
   color: rgba(var(--color-foreground), 0.75);
   line-height: 1.5;
   font-size: 10px;
-  top: calc(var(--inputs-border-width) + 5px);
-  left: calc(var(--inputs-border-width) + 20px);
+  top: 6px;
+  left: 21px;
 }
 
 .share-button__fallback button {
@@ -120,7 +120,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  right: var(--inputs-border-width);
+  right: 1px;
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -135,8 +135,8 @@
   right: 0;
   bottom: 0;
   left: 0;
-  border-radius: var(--inputs-radius-outset);
-  box-shadow: var(--inputs-shadow-horizontal-offset) var(--inputs-shadow-vertical-offset) var(--inputs-shadow-blur-radius) rgba(var(--color-shadow), var(--inputs-shadow-opacity));
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(var(--color-shadow), 0.1);
   z-index: -1;
 }
 
@@ -144,14 +144,14 @@
   pointer-events: none;
   content: '';
   position: absolute;
-  top: var(--inputs-border-width);
-  right: var(--inputs-border-width);
-  bottom: var(--inputs-border-width);
-  left: var(--inputs-border-width);
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  left: 1px;
   border: 0.1rem solid transparent;
-  border-radius: var(--inputs-radius);
-  box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity));
-  transition: box-shadow var(--duration-short) ease;
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px rgba(var(--color-foreground), 0.2);
+  transition: box-shadow 150ms ease;
   z-index: 1;
 }
 

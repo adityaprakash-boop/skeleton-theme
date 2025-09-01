@@ -142,8 +142,8 @@ product-info .product__info-wrapper form>*:last-child {
 }
 
 .pill-label {
-  border: var(--variant-pills-border-width) solid rgba(var(--color-foreground), var(--variant-pills-border-opacity));
-  border-radius: var(--variant-pills-radius);
+  border: 1px solid rgba(var(--color-foreground), 0.2);
+  border-radius: 999px;
   color: rgba(var(--color-foreground));
   background-color: rgb(var(--color-background));
   display: inline-block;
@@ -214,7 +214,7 @@ product-info .product__info-wrapper form>*:last-child {
   justify-content: flex-start;
   width: calc(140px / 1 + 1px * 2);
   min-height: calc((1px * 2) + 40px);
-  outline: var(--inputs-border-width) solid rgba(var(--color-foreground), var(--inputs-border-opacity));
+  outline: 1px solid rgba(var(--color-foreground), 0.2);
 }
 
 .product__quantity quantity-selector input {
@@ -224,7 +224,7 @@ product-info .product__info-wrapper form>*:last-child {
   width: 100%;
   font-size: 16px;
   color: currentColor;
-  font-family: var(--font-body-family);
+  font-family: var(--font-primary--family);
 }
 
 .product__quantity quantity-selector input::-webkit-outer-spin-button,
@@ -242,7 +242,7 @@ product-info .product__info-wrapper form>*:last-child {
   width: 100%;
   background: transparent;
   border: none;
-  outline: var(--inputs-border-width) solid rgba(var(--color-foreground), var(--inputs-border-opacity));
+  outline: 1px solid rgba(var(--color-foreground), 0.2);
   padding: 12.5px 10px;
   cursor: pointer;
   font-size: 15px;
@@ -274,7 +274,7 @@ shopify-buy-it-now-button .shopify-payment-button__button {
 }
 
 .shopify-payment-button .shopify-payment-button__button--unbranded {
-  background: rgba(var(--color-button), var(--alpha-button-background));
+  background: rgb(var(--color-button));
 }
 
 .product-form__input {
