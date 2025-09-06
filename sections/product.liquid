@@ -363,7 +363,7 @@
             {%- when 'share' -%}
               {% assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin %}
               {{ 'component-product-share-button.css' | asset_url | stylesheet_tag }}
-              {% render 'component-product-share-button', block: block, share_link: share_url %}
+              {% render 'component-product-share-button', block: block, share_link: share_url, section_id: section.id %}
               <script src="{{ 'component-product-share-button.js' | asset_url }}" type="module"></script>
             {%- when 'subscription' -%}
               <div class="product__subscription">
@@ -485,7 +485,7 @@
     {% render 'component-product-media-modal',
       section_id: section.id,
       color_scheme: section.settings.color_scheme,
-      enable_video_looping: section.settings.enable_video_looping,
+      enable_video_looping: section.settings.enable_video_looping
     %}
   {%- endif -%}
 

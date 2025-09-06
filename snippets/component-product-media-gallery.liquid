@@ -1,3 +1,22 @@
+{% doc %}
+  Renders a swiper-based gallery of product media with optional hover zoom and lightbox modal triggers.
+
+  @param {object} product_media - Array of media items to display
+  @param {object} selected_variant - Variant used to prioritize featured media
+  @param {string} is_zoom - Zoom mode ('none' or 'hover')
+  @param {string} section_id - Section DOM id used for modal targeting
+  @param {boolean} video_looping - Whether videos should loop
+
+  @example
+  {% render 'component-product-media-gallery',
+    product_media: product.media,
+    selected_variant: product.selected_or_first_available_variant,
+    is_zoom: 'hover',
+    section_id: section.id,
+    video_looping: true
+  %}
+{% enddoc %}
+
 <media-gallery>
   <div class="swiper">
     <div class="swiper-wrapper">
