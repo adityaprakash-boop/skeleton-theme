@@ -62,7 +62,8 @@
           product_media: product.media,
           selected_variant: selected_variant,
           video_looping: section.settings.enable_video_looping,
-          is_zoom: section.settings.image_zoom
+          is_zoom: section.settings.image_zoom,
+          section_id: section.id
         %}
       </div>
       <div class="product__info-wrapper flex__item {% if section.settings.enable_sticky_info %}product__info-sticky {% endif %}">
@@ -481,8 +482,11 @@
     </div>
   </div>
   {%- if section.settings.image_zoom != 'none' -%}
-    {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
-    {% render 'component-product-media-modal', variant_images: variant_images %}
+    {% render 'component-product-media-modal',
+      section_id: section.id,
+      color_scheme: section.settings.color_scheme,
+      enable_video_looping: section.settings.enable_video_looping,
+    %}
   {%- endif -%}
 
   <script src="{{ 'section-product.js' | asset_url }}" type="module"></script>
