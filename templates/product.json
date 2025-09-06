@@ -60,12 +60,6 @@
           "type": "quantity_selector",
           "settings": {}
         },
-        "monogram_block": {
-          "type": "monogram",
-          "settings": {
-            "button_text": "Add Monogram"
-          }
-        },
         "subscription_AbipnR": {
           "type": "subscription",
           "settings": {
@@ -105,8 +99,7 @@
         "subscription_AbipnR",
         "share_ybFkAW",
         "description_RxGjaP",
-        "buy_buttons_JPDYXc",
-        "monogram_block"
+        "buy_buttons_JPDYXc"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -115,7 +108,7 @@
         "constrain_to_viewport": true,
         "media_fit": "cover",
         "media_position": "left",
-        "image_zoom": "hover",
+        "image_zoom": "lightbox",
         "enable_video_looping": true,
         "padding_top": 36,
         "padding_bottom": 100,
