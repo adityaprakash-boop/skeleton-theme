@@ -290,7 +290,7 @@
   </button>
 
   <div class="drawer-overlay" @click="open = !open">
-    <span hidden>Close</span>
+    <span hidden>{{ 'accessibility.close' | t }}</span>
   </div>
 
   <div class="drawer__wrapper filters-drawer">
@@ -316,9 +316,9 @@
           <div class="drawer__count-wrapper">
             <p class="mobile-facets__count" id="drawer-results-count-{{ section.id }}">
               {%- if collection.products_count == collection.all_products_count -%}
-                {{ collection.products_count }} products
+                {{ 'products.facets.results_count' | t: count: collection.products_count }}
               {% else %}
-                {{ collection.products_count }} of {{ collection.all_products_count }}
+                {{ 'products.facets.results_count_of' | t: count: collection.products_count, total: collection.all_products_count }}
               {% endif %}
             </p>
             <div id="drawer-loading-spinner-{{ section.id }}" class="loading-overlay__spinner"></div>
@@ -396,7 +396,7 @@
             {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
             <div id="sort-by-drawer-{{ section.id }}" class="facet-filters__field large-up-hide">
               <h2 class="facet-filters__label">
-                <label for="SortBy">Sort by:</label>
+                <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
               </h2>
               <select
                 data-render-section="filters-form-drawer"

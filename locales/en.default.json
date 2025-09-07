@@ -69,6 +69,11 @@
       "item_added": "Item added to cart",
       "view_empty_cart": "View cart"
     },
+    "pagination": {
+      "previous": "Previous page",
+      "next": "Next page",
+      "page": "Page {{ number }}"
+    },
     "share": {
       "share_url": "Share URL",
       "close": "Close share",
@@ -102,6 +107,14 @@
     }
   },
   "products": {
+    "facets": {
+      "filter_button": "Filter",
+      "sort_button": "Sort",
+      "filter_and_sort": "Filter & sort",
+      "sort_by_label": "Sort by:",
+      "results_count": "{{ count }} products",
+      "results_count_of": "{{ count }} of {{ total }}"
+    },
     "product": {
       "price": {
         "from_price_html": "From {{ price }}",
@@ -124,10 +137,14 @@
       "inventory_out_of_stock_continue_selling": "Available for order",
       "inventory_out_of_stock": "Out of stock",
       "on_sale": "Sale",
-      "sold_out": "Sold out"
+      "sold_out": "Sold out",
+      "add_to_cart": "Add to cart",
+      "choose_options": "Choose options",
+      "choose_product_options": "Choose options for {{ product_name }}"
     },
     "modal": {
       "label": "Product media modal"
     }
-  }
+  },
+  
 }

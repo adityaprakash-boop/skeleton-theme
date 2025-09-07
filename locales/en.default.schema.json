@@ -63,6 +63,7 @@
       "colors": {
         "label": "Colors"
       },
+      "has_cards_info": "Used when this section contains card elements",
       "spacing": "Section spacing",
       "padding": {
         "section_padding_heading": "Section padding",
@@ -519,6 +520,60 @@
         "custom_liquid": {
           "label": "Custom Liquid",
           "info": "Add custom Liquid code"
+        }
+      }
+    }
+    ,
+    "main-collection-product-grid": {
+      "name": "Collection",
+      "settings": {
+        "products_per_page": { "label": "Products per page" },
+        "columns_desktop": { "label": "Columns on desktop" },
+        "header__3": { "content": "Product cards" },
+        "image_ratio": {
+          "label": "Image ratio",
+          "options__1": { "label": "Adapt to image" },
+          "options__2": { "label": "Portrait" },
+          "options__3": { "label": "Square" }
+        },
+        "show_vendor": { "label": "Show vendor" },
+        "show_rating": { "label": "Show rating", "info": "Display product rating on cards" },
+        "enable_swatches": { "label": "Enable swatches", "info": "Show variant swatches on product cards" },
+        "swatch_type": {
+          "label": "Swatch type",
+          "info": "Display swatches based on color values or variant images",
+          "options__1": { "label": "Color based" },
+          "options__2": { "label": "Image based" }
+        },
+        "swatch_trigger": { "label": "Swatch trigger" },
+        "button_styling": { "content": "Button Styling" },
+        "button_text_color": { "label": "Button text color" },
+        "button_border_color": { "label": "Button border color" },
+        "button_background_color": { "label": "Button background color" },
+        "quick_add": {
+          "label": "Quick add button",
+          "info": "Show a quick add button on product cards",
+          "options": {
+            "option_1": "None",
+            "option_2": "Standard"
+          }
+        },
+        "header__1": { "content": "Filtering" },
+        "enable_filtering": { "label": "Enable filtering", "info": "Allow customers to filter products" },
+        "filter_type": {
+          "label": "Filter layout",
+          "info": "Choose how filters are displayed on the collection page",
+          "options__1": { "label": "Horizontal" },
+          "options__2": { "label": "Vertical" },
+          "options__3": { "label": "Drawer" }
+        },
+        "enable_sorting": { "label": "Enable sorting" },
+        "collapse_filters": { "label": "Collapse filters by default", "info": "This supports only the vertical option" },
+        "header_mobile": { "content": "Mobile layout" },
+        "columns_mobile": {
+          "label": "Columns on mobile",
+          "options__1": { "label": "1" },
+          "options__2": { "label": "2" }
         }
       }
     }
