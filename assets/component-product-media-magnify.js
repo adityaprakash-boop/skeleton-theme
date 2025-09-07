@@ -1,6 +1,7 @@
-export class ProductMediaMagnifier {
-  constructor(zoomRatio = 2) {
-    this.zoomRatio = zoomRatio;
+export class ProductMediaMagnifier extends HTMLElement {
+  constructor() {
+    super();
+    this.zoomRatio = 2;
     this.overlay = null;
   }
 
@@ -61,7 +62,7 @@ export class ProductMediaMagnifier {
     }
   }
 
-  initialize() {
+  connectedCallback() {
     const images = document.querySelectorAll('.image-magnify-hover');
     images.forEach((image) => {
       image.onclick = (event) => {
@@ -72,10 +73,7 @@ export class ProductMediaMagnifier {
   }
 }
 
-export function initializeProductMediaMagnifier(zoomRatio = 2) {
-  const instance = new ProductMediaMagnifier(zoomRatio);
-  instance.initialize();
-  return instance;
-}
 
-initializeProductMediaMagnifier();
+if (!customElements.get('product-media-magnify')) {
+  customElements.define('product-media-magnify', ProductMediaMagnifier);
+}

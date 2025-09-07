@@ -58,6 +58,9 @@
   <div class="page-width">
     <div class="product flex product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} {% if section.settings.constrain_to_viewport %}constrain-height{% endif %}">
       <div class="product__media-wrapper flex`__item media-{{ section.settings.media_fit }}">
+        {% if section.settings.image_zoom == 'hover' %}
+          <product-media-magnify>
+        {% endif %}
         {% render 'component-product-media-gallery',
           product_media: product.media,
           selected_variant: selected_variant,
@@ -65,6 +68,9 @@
           is_zoom: section.settings.image_zoom,
           section_id: section.id
         %}
+        {% if section.settings.image_zoom == 'hover' %}
+          </product-media-magnify>
+        {% endif %}
       </div>
       <div class="product__info-wrapper flex__item {% if section.settings.enable_sticky_info %}product__info-sticky {% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
