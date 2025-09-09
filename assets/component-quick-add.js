@@ -5,6 +5,27 @@ export class QuickAdd extends HTMLElement {
     this.modalContent = null;
     this.setupModal();
     this.bindEvents();
+    this.onCartRequestEnd = this.onCartRequestEnd.bind(this);
+  }
+
+  connectedCallback() {
+    document.addEventListener('liquid-ajax-cart:request-end', this.onCartRequestEnd);
+  }
+
+  disconnectedCallback() {
+    document.removeEventListener('liquid-ajax-cart:request-end', this.onCartRequestEnd);
+  }
+
+  onCartRequestEnd(event) {
+    const { requestState } = event.detail || {};
+    if (requestState?.requestType === 'add' && requestState?.responseData?.ok) {
+      document.body.classList.remove('overflow-hidden');
+
+      document.querySelectorAll('quick-add-modal').forEach((modal) => {
+        modal.removeAttribute('open');
+        modal.modalContent.innerHTML = '';
+      });
+    }
   }
 
   setupModal() {
@@ -93,31 +114,3 @@ if (!customElements.get('quick-add-modal')) {
   customElements.define('quick-add-modal', QuickAdd);
 }
 
-
-export function onCartUpdate(e) {
-  try {
-    const { requestState } = e?.detail || {};
-
-    if (!requestState) return;
-
-    if (requestState.requestType === 'add' && requestState.responseData?.ok) {
-      document.body.classList.add('js-show-ajax-cart');
-      document.body.classList.remove('overflow-hidden');
-
-      document.querySelectorAll('quick-add-modal').forEach((modal) => {
-        modal.removeAttribute('open');
-        modal.modalContent.innerHTML = '';
-      });
-
-      document.dispatchEvent(
-        new CustomEvent('item-added-to-cart', {
-          detail: requestState?.responseData?.body || null,
-        })
-      );
-    }
-  } catch (error) {
-    console.error('Error handling cart update:', error);
-  }
-}
-
-document.addEventListener('liquid-ajax-cart:request-end', onCartUpdate);

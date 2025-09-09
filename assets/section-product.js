@@ -11,7 +11,6 @@ export class ProductInfo extends HTMLElement {
     this.quantitySelector.querySelector('button[name="plus"]').addEventListener('click', this.onQuantitySelectorEvent.bind(this));
     this.quantitySelector.querySelector('button[name="minus"]').addEventListener('click', this.onQuantitySelectorEvent.bind(this));
     document.getElementById('swiper-script').addEventListener('load', this.initSwiper.bind(this));
-    document.addEventListener('liquid-ajax-cart:request-end', this.onCartUpdate.bind(this));
   }
 
   connectedCallback() {
@@ -33,22 +32,6 @@ export class ProductInfo extends HTMLElement {
         nextEl: '.swiper-button-next',
       },
     });
-  }
-
-  onCartUpdate(e) {
-    if (!window.location.pathname.includes('/products/')) return;
-    const { requestState } = e.detail;
-    // If the "add to cart" request is successful
-    if (requestState.requestType === 'add' && requestState.responseData?.ok) {
-      // Add the CSS class to the "body" tag
-      document.body.classList.add('js-show-ajax-cart');
-      // dispatch a custom event
-      document.dispatchEvent(
-        new CustomEvent('item-added-to-cart', {
-          detail: requestState?.responseData?.body,
-        })
-      );
-    }
   }
 
   get variantSelector() {

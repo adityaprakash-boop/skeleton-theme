@@ -4,12 +4,20 @@ export class CartNotification extends HTMLElement {
     this.hideNotification = this.hideNotification.bind(this);
     this.querySelector('.cart-notification-continue_shopping').addEventListener('click', () => this.hideNotification());
     this.querySelector('.cart-notification__close').addEventListener('click', () => this.hideNotification());
-    document.addEventListener('item-added-to-cart', (event) => this.updateNotification(event.detail));
+    document.addEventListener('liquid-ajax-cart:request-end', this.onCartUpdate.bind(this));
   }
 
   disconnectedCallback() {
     this.querySelector('.cart-notification-continue_shopping').removeEventListener('click', this.hideNotification);
     this.querySelector('.cart-notification__close').removeEventListener('click', this.hideNotification);
+    document.removeEventListener('liquid-ajax-cart:request-end', this.onCartUpdate.bind(this));
+  }
+
+  onCartUpdate(event) {
+    const { requestState } = event.detail;
+    if (requestState?.requestType === 'add' && requestState.responseData?.ok) {
+      this.updateNotification(requestState.responseData.body)
+    }
   }
 
   updateNotification(updatedCartNotification) {

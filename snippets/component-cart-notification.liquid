@@ -140,7 +140,7 @@
   }
 {% endstylesheet %}
 
-<cart-notification class="cart-notification-wrapper{% if desktop_menu_type != 'drawer' %} page-width{% endif %}">
+<cart-notification  data-ajax-cart-section class="cart-notification-wrapper{% if desktop_menu_type != 'drawer' %} page-width{% endif %}">
   <div
     id="cart-notification"
     class="cart-notification {% if color_scheme %} color-{{ color_scheme }} gradient{% endif %}"
