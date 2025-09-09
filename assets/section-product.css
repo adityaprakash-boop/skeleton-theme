@@ -106,7 +106,7 @@ product-info .product__info-wrapper form>*:last-child {
 }
 
 .product__price {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -366,12 +366,14 @@ shopify-buy-it-now-button .shopify-payment-button__button {
   gap: 0.5rem;
   font-size: 16px;
   letter-spacing: 0.5px;
+  padding:  5px 0;
 }
 
 .product__inventory .svg-wrapper,
 .product__inventory svg {
   width: 15px;
   height: 15px;
+  min-height: 15px;
 }
 
 .product__inventory .svg-wrapper {

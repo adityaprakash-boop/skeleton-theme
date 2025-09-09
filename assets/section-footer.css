@@ -1,3 +1,7 @@
+.shopify-section-group-footer-group {
+  grid-template-columns: 0 !important;
+}
+
 .footer {
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
   background: #ECECEC;
@@ -70,7 +74,9 @@
 
 .footer__content-bottom-wrapper {
   display: flex;
+  justify-content: center;
   width: 100%;
+  padding: 0px 30px;
 }
 
 @media screen and (max-width: 749px) {
@@ -178,7 +184,7 @@
 }
 .footer-block__heading {
   font-weight: 600;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   margin-top: 0;
   font-size: 1rem;
   color: rgb(32, 34, 35);
@@ -186,7 +192,7 @@
 
 @media screen and (min-width: 990px) {
   .footer-block__heading {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -708,8 +714,10 @@ li.list-social__item a {
 .list-social__link {
   align-items: center;
   display: flex;
-  padding: 0.6rem;
+  padding: .6rem;
   color: rgb(var(--color-foreground));
+  width: 30px;
+  height: 30px;
 }
 
 .utility-bar .list-social__link {
@@ -787,10 +795,14 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
   text-decoration: auto;
 }
 .footer__content-top.page-width {
-  max-width: 95%;
+  max-width: 100%;
+  padding: 30px;
 }
 .footer-block.grid__item .footer__list-social {
   justify-content: flex-start;
+  list-style: none;
+  padding-inline-start: 0;
+  margin-block-start: 1em;
 }
 
 @media screen and (min-width: 990px) {

@@ -52,20 +52,14 @@
     "name": "t:general.layout",
     "settings": [
       {
-        "type": "select",
+        "type": "range",
         "id": "max_page_width",
-        "label": "t:labels.page_width",
-        "options": [
-          {
-            "value": "90rem",
-            "label": "t:options.page_width.narrow"
-          },
-          {
-            "value": "110rem",
-            "label": "t:options.page_width.wide"
-          }
-        ],
-        "default": "90rem"
+        "min": 1200,
+        "max": 1800,
+        "step": 100,
+        "default": 1600,
+        "unit": "px",
+        "label": "t:labels.page_width"
       },
       {
         "type": "range",
