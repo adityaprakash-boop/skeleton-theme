@@ -144,8 +144,18 @@ body {
   padding: 0 1.5rem;
 }
 
-@media screen and (min-width: 750px) {
+/* Mobile-first responsive design */
+@media screen and (max-width: 749px) {
+  .shopify-section {
+    display: block;
+    padding: 0;
+  }
+  
+  .shopify-section > * {
+    grid-column: auto;
+  }
+  
   .page-width {
-    padding: 0 15px;
+    padding: 0 1rem;
   }
 }

@@ -25,6 +25,29 @@ product-info {
   flex-shrink: 0;
 }
 
+/* Mobile-specific fixes for product layout */
+@media screen and (max-width: 749px) {
+  .product.flex {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .product__media-wrapper {
+    width: 100%;
+    max-width: 100%;
+    order: 0;
+  }
+  
+  .product__info-wrapper {
+    width: 100%;
+    max-width: 100%;
+    order: 1;
+    padding-top: 20px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .swiper {
   z-index: 0;
 }

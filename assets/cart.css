@@ -536,8 +536,7 @@ h2.cart__empty-text {
 
   ajax-cart-quantity {
     width: 100%;
-    height: 36px;
-    max-width: 117px;
+    max-width: 125px;
   }
 
   .cart__wrapper .cart-item__action {
