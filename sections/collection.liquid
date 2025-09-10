@@ -101,7 +101,9 @@
                       {%- render 'component-filters-drawer',
                         results: collection,
                         enable_sorting: section.settings.enable_sorting,
-                        enable_filtering: section.settings.enable_filtering
+                        enable_filtering: section.settings.enable_filtering,
+                        color_scheme: section.settings.color_scheme,
+                        section_id: section.id
                       -%}
                     </div>
                   {%- endif -%}
@@ -112,7 +114,9 @@
                         {%- render 'component-filters-drawer',
                           results: collection,
                           enable_sorting: section.settings.enable_sorting,
-                          enable_filtering: section.settings.enable_filtering
+                          enable_filtering: section.settings.enable_filtering,
+                          color_scheme: section.settings.color_scheme,
+                          section_id: section.id
                         -%}
                       </div>
                     </div>
@@ -121,7 +125,9 @@
                       {% render 'component-filters-drawer',
                         results: collection,
                         enable_sorting: section.settings.enable_sorting,
-                        enable_filtering: section.settings.enable_filtering
+                        enable_filtering: section.settings.enable_filtering,
+                        color_scheme: section.settings.color_scheme,
+                        section_id: section.id
                       %}
                     </div>
                   {% endif %}
