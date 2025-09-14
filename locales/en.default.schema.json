@@ -61,9 +61,9 @@
   "sections": {
     "all": {
       "colors": {
-        "label": "Colors"
+        "label": "Colors",
+        "has_cards_info": "Used when this section contains card elements"
       },
-      "has_cards_info": "Used when this section contains card elements",
       "spacing": "Section spacing",
       "padding": {
         "section_padding_heading": "Section padding",
