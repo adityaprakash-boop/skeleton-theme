@@ -1,45 +1,52 @@
+body.collection {
+  overflow-x: hidden;
+}
+
 body.collection .shopify-section.section .page-width {
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0px 20px;
+  box-sizing: border-box;
 }
 
 .collection-hero__title {
-  margin: 75px 0;
+  margin: 48px 0 32px 0;
   font-size: 3.6rem;
   font-weight: 600;
-  color: black;
+  color: #121212;
+  letter-spacing: 0;
+  line-height: 1.2;
 }
 
 .sorting-wrapper {
   display: flex;
   width: 100%;
-  align-items: flex-start;
-  justify-content: flex-end;
-  gap: 30px;
-  margin-bottom: 5px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 16px;
 }
 
 .child-sorting-wrapper {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 100%;
-  max-width: 350px;
+  gap: 24px;
 }
 
 .product-grid-container {
   width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .facet-filters__label {
   display: block;
-  color: rgba(var(--color-foreground), .85);
-  font-size: 2.2rem;
-  margin: 0 20px 0 0;
-  font-weight: 600;
+  color: #212121;
+  font-size: 1.5rem;
+  margin: 0 16px 0 0;
+  font-weight: 500;
   width: max-content;
-  font-family: var(--font-primary--family);
 }
 
 .facet-filters__field {
@@ -73,15 +80,15 @@ body.collection .shopify-section.section .page-width {
   background-color: transparent;
   border: 0;
   border-radius: 0;
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   height: auto;
   margin: 0;
   padding-left: 0;
   padding-right: 17px;
   cursor: pointer;
-  color: rgba(var(--color-foreground), .75);
+  color: #212121;
   max-width: 225px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .facet-filters__sort:focus {
@@ -123,7 +130,11 @@ body.collection .shopify-section.section .page-width {
 
 .results-count {
   width: max-content;
-  font-size: 2rem;
+  font-size: 1.4rem;
+  color: #121212;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
 }
 
 .active-filter-group__item-wrapper {
@@ -154,8 +165,9 @@ body.collection .shopify-section.section .page-width {
 
 .horizontal-filters__parent-wrapper {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   width: 100%;
+  gap: 40px;
 }
 
 .filter-type-horizontal .filter-close .icon-close {
@@ -187,7 +199,7 @@ body.collection .shopify-section.section .page-width {
 }
 
 .product-grid-wrapper {
-  margin-top: 13px;
+  margin-top: 24px;
 }
 
 .mobile-filters-drawer {
@@ -208,7 +220,16 @@ body.collection .shopify-section.section .page-width {
 }
 
 .product-grid {
-  gap: 16px;
+  gap: 10px !important;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.product-grid > * {
+  min-width: 0; /* Prevent grid items from overflowing */
+  box-sizing: border-box;
 }
 
 @keyframes spin {
@@ -217,31 +238,68 @@ body.collection .shopify-section.section .page-width {
   }
 }
 
+/* Desktop - Large screens */
+@media screen and (min-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+/* Desktop - Medium screens */
+@media screen and (min-width: 990px) and (max-width: 1199px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* Mobile - Large */
+@media screen and (min-width: 480px) and (max-width: 749px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Mobile - Small */
+@media screen and (max-width: 479px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+}
+
 @media screen and (max-width: 750px) {
+  body.collection .shopify-section.section .page-width {
+    padding: 0 16px;
+  }
+
   .collection-hero__title {
-    margin: 20px 0px 0px 0px;
+    margin: 24px 0 16px 0;
+    font-size: 2.4rem;
   }
 
   .mobile-filters-drawer {
     width: 100%;
-    border: 1px solid #DDD7D7;
-    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.08);
     max-width: 139px;
     height: 40px;
     padding: 10px 5px 10px 5px;
+    border-radius: 4px;
   }
 
   .product-grid {
-    row-gap: 20px;
-    column-gap: 20px;
-    gap: 20px;
+    gap: 8px !important;
   }
 
-  .collection-hero__title {
-    font-size: 2.4rem;
+  .product-grid-wrapper {
+    margin-top: 16px;
   }
-
-  
 
   .sorting-wrapper {
     margin-bottom: 0px;
@@ -249,66 +307,75 @@ body.collection .shopify-section.section .page-width {
   }
 
   .results-count {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 
   .filter-type-horizontal .active-filter-group__item-wrapper {
-    gap: 0px;
+    gap: 8px;
   }
 
   .filter-type-horizontal .active-filter-group__item-wrapper .active-filter-item {
-    margin-top: 12px;
-    margin-right: 12px;
+    margin-top: 8px;
+    margin-right: 8px;
   }
 }
 
 /* START - Filters checkbox styles for all filter types */
 .facet-checkbox {
-  padding: 10px 20px 10px 0;
+  padding: 10px 0;
   flex-grow: 1;
   position: relative;
-  font-size: 14px;
+  font-size: 15px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   word-break: break-word;
   cursor: pointer;
-  line-height: 1;
+  line-height: 1.4;
+  color: #212121;
 }
 
 .facet-checkbox:hover {
-  color: rgba(var(--color-foreground), 1);
-  text-decoration: underline;
+  opacity: 0.8;
 }
 
 .facet-checkbox input[type='checkbox'] {
-  margin-right: 12px;
   position: absolute;
   opacity: 0;
-  width: 16px;
-  height: 16px;
-  top: 7px;
-  left: -4px;
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  left: 0;
 }
 
-.facet-checkbox>svg,
-.facet-checkbox>.svg-wrapper {
-  background-color: rgb(var(--color-background));
-  margin-right: 12px;
+/* Hide default square icon and show circular style */
+.facet-checkbox > svg {
+  display: none;
+}
+
+.facet-checkbox::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #DADADA;
+  margin-right: 10px;
   flex-shrink: 0;
+  transition: all 0.2s ease;
 }
 
-.facet-checkbox .svg-wrapper {
-  visibility: hidden;
+.facet-checkbox input:checked ~ .svg-wrapper {
+  visibility: visible;
   position: absolute;
-  left: 3px;
-  z-index: 5;
+  left: 5px;
   top: 14px;
   width: 11px;
-  height: 7px;
+  height: 11px;
+  z-index: 1;
 }
 
-.facet-checkbox>input[type='checkbox']:checked~.svg-wrapper>.icon-checkmark {
-  visibility: visible;
+.facet-checkbox input:checked ~ .svg-wrapper .icon-checkmark {
+  stroke: #212121;
+  stroke-width: 1.5px;
 }
 
 .facet-checkbox:has(input:disabled) {
