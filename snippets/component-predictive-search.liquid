@@ -26,7 +26,6 @@
       type="reset"
       class="reset__button"
       aria-label="Clear search term"
-      @click="$refs.searchInput.value = ''; searchTerm = ''; $dispatch('search-input-cleared');"
       x-show="searchTerm.length > 0"
       x-transition
       x-cloak

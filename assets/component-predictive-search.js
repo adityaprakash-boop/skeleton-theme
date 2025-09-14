@@ -4,15 +4,17 @@ export class PredictiveSearch extends HTMLElement {
 
     this.input = this.querySelector('input[type="search"]');
     this.predictiveSearchResults = this.querySelector('#predictive-search');
+    this.resetButton = this.querySelector('.reset__button');
     this.searchTerm = this.input.value.trim();
     this.isOpen = false;
     this.abortController = new AbortController();
 
-    
+
 
     this.input.addEventListener('input', this.debounce((e) => this.onChange(e), 700));
     this.input.addEventListener('focus', (e) => this.onChange(e));
-    this.addEventListener('search-input-cleared', (e) => this.onChange(e));
+    this.resetButton.addEventListener('click', (e) => this.clearSearch(e));
+
     this.handleClickOutside = this.handleClickOutside.bind(this);
     document.addEventListener('click', this.handleClickOutside);
   }
@@ -72,6 +74,12 @@ export class PredictiveSearch extends HTMLElement {
   close() {
     this.predictiveSearchResults.style.display = 'none';
     this.isOpen = false;
+  }
+
+  clearSearch(e) {
+    e.preventDefault();
+    this.input.value = '';
+    this.onChange();
   }
 
   handleClickOutside(event) {
