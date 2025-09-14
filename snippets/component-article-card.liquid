@@ -4,7 +4,6 @@
   Accepts:
   - blog: {Object} Blog object
   - article: {Object} Article object
-  - media_aspect_ratio: {String} The setting changes the aspect ratio of the article image, if shown
   - media_height: {String} The setting changes the height of the article image. Overrides media_aspect_ratio.
   - show_image: {String} The setting either show the article image or not. If it's not included it will show the image by default
   - show_date: {String} The setting either show the article date or not. If it's not included it will not show the image by default
@@ -17,12 +16,6 @@
 {% endcomment %}
 
 {%- if article and article != empty -%}
-  {%- liquid
-    assign ratio = 1
-    if media_aspect_ratio != null
-      assign ratio = media_aspect_ratio
-    endif
-  -%}
   <div class="article-card-wrapper card-wrapper underline-links-hover">
     <div
       class="
@@ -30,12 +23,8 @@
         {% if media_height and media_height != 'adapt' %} article-card__image--{{ media_height }}{% endif %}
         {% if article.image and show_image %} card--media{% else %} card--text{% endif %}
       "
-      style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
-      <div
-        class="card__inner"
-        style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
-      >
+      <div class="card__inner">
         {%- if show_image == true and article.image -%}
           <div class="article-card__image-wrapper card__media">
             <div

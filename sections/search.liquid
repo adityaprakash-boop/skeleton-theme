@@ -254,8 +254,7 @@
                               show_vendor: section.settings.show_vendor,
                               enable_swatches: section.settings.enable_swatches,
                               swatch_trigger: section.settings.swatch_trigger,
-                              swatch_type: section.settings.swatch_type,
-                              media_aspect_ratio: section.settings.image_ratio
+                              swatch_type: section.settings.swatch_type
                             %}
                           {%- when 'article' -%}
                             {% render 'component-article-card',
@@ -264,7 +263,6 @@
                               show_date: section.settings.article_show_date,
                               show_author: section.settings.article_show_author,
                               show_badge: true,
-                              media_aspect_ratio: 1,
                               lazy_load: lazy_load
                             %}
                           {%- when 'page' -%}
