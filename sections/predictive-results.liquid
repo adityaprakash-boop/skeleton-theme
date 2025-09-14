@@ -29,7 +29,8 @@
             {%- endfor -%}
           </ul>
         </div>
-      {%- elsif predictive_search.resources.articles.size > 0 or predictive_search.resources.pages.size > 0 -%}
+      {%- endif -%}
+      {%- if predictive_search.resources.articles.size > 0 or predictive_search.resources.pages.size > 0 -%}
         <div>
           <h3>Articles and Pages</h3>
           <ul role="listbox" aria-labelledby="predictive-search-articles">
