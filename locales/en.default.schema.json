@@ -577,6 +577,53 @@
         }
       }
     }
+    ,
+    "main-blog": {
+      "name": "Blog",
+      "settings": {
+        "header": {
+          "content": "Layout"
+        },
+        "layout": {
+          "label": "Layout",
+          "info": "Choose how blog posts are arranged",
+          "options__1": {
+            "label": "Grid"
+          },
+          "options__2": {
+            "label": "Collage"
+          }
+        },
+        "show_image": {
+          "label": "Show featured image"
+        },
+        "image_height": {
+          "label": "Image height",
+          "info": "Choose the height of featured images",
+          "options__1": {
+            "label": "Adapt to image"
+          },
+          "options__2": {
+            "label": "Small"
+          },
+          "options__3": {
+            "label": "Medium"
+          },
+          "options__4": {
+            "label": "Large"
+          }
+        },
+        "show_date": {
+          "label": "Show date"
+        },
+        "show_author": {
+          "label": "Show author"
+        },
+        "paragraph": {
+          "content": "Excerpt will be shown by default."
+        }
+      }
+    }
   },
   "settings_schema": {
     "logo": {

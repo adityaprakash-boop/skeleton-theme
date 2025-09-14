@@ -4,7 +4,6 @@
   Accepts:
   - blog: {Object} Blog object
   - article: {Object} Article object
-  - media_height: {String} The setting changes the height of the article image. Overrides media_aspect_ratio.
   - show_image: {String} The setting either show the article image or not. If it's not included it will show the image by default
   - show_date: {String} The setting either show the article date or not. If it's not included it will not show the image by default
   - show_author: {String} The setting either show the article author or not. If it's not included it will not show the author by default
@@ -17,22 +16,11 @@
 
 {%- if article and article != empty -%}
   <div class="article-card-wrapper card-wrapper underline-links-hover">
-    <div
-      class="
-        card article-card
-        {% if media_height and media_height != 'adapt' %} article-card__image--{{ media_height }}{% endif %}
-        {% if article.image and show_image %} card--media{% else %} card--text{% endif %}
-      "
-    >
+    <div class="card article-card {% if article.image and show_image %} card--media{% else %} card--text{% endif %}">
       <div class="card__inner">
         {%- if show_image == true and article.image -%}
           <div class="article-card__image-wrapper card__media">
-            <div
-              class="article-card__image media media--hover-effect"
-              {% if section.settings.media_height == 'adapt' %}
-                style="padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;"
-              {% endif %}
-            >
+            <div class="article-card__image media media--hover-effect">
               <img
                 srcset="
                   {%- if article.image.src.width >= 165 -%}{{ article.image.src | image_url: width: 165 }} 165w,{%- endif -%}
