@@ -13,7 +13,6 @@ export class PredictiveSearch extends HTMLElement {
 
     this.input.addEventListener('input', this.debounce((e) => this.onChange(e), 700));
     this.input.addEventListener('focus', (e) => this.onChange(e));
-    this.resetButton.addEventListener('click', (e) => this.clearSearch(e));
 
     this.handleClickOutside = this.handleClickOutside.bind(this);
     document.addEventListener('click', this.handleClickOutside);
