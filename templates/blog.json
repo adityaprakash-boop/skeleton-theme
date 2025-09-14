@@ -12,7 +12,7 @@
     "main": {
       "type": "blog",
       "settings": {
-        "layout": "collage",
+        "layout": "grid",
         "show_image": true,
         "show_date": true,
         "show_author": true,
