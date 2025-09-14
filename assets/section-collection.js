@@ -28,12 +28,11 @@ export class CollectionInfo extends HTMLElement {
     const form = event.target.closest('form') || document.querySelector('#filters-form') || document.querySelector('#filters-form-drawer');
     const formData = new FormData(form);
     let searchParams = new URLSearchParams(formData).toString();
-
-    if (window.location.search.includes('?q=')) {
-      const existingParams = new URLSearchParams(window.location.search);
-      const qValue = existingParams.get('q');
-
-      searchParams = `q=${qValue}&${searchParams}`;
+    const existingParams = new URLSearchParams(window.location.search);
+    const qValue = existingParams.get('q');
+    
+    if (qValue) {
+      searchParams = `q=${encodeURIComponent(qValue)}&${searchParams}`;
     }
 
     this.fetchSection(searchParams);
