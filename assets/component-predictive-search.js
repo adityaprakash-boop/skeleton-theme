@@ -8,15 +8,17 @@ export class PredictiveSearch extends HTMLElement {
     this.isOpen = false;
     this.abortController = new AbortController();
 
-    if (this.searchTerm.length) {
-      this.getSearchResults(this.searchTerm);
-    }
+    
 
-    this.input.addEventListener('input', this.debounce(() => this.onChange(), 300));
-    this.addEventListener('search-input-cleared', () => this.onChange());
+    this.input.addEventListener('input', this.debounce((e) => this.onChange(e), 700));
+    this.input.addEventListener('focus', (e) => this.onChange(e));
+    this.addEventListener('search-input-cleared', (e) => this.onChange(e));
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+    document.addEventListener('click', this.handleClickOutside);
   }
 
-  onChange() {
+  onChange(e) {
+    console.log(e);
     const newSearchTerm = this.input.value.trim();
     this.searchTerm = newSearchTerm;
 
@@ -70,6 +72,18 @@ export class PredictiveSearch extends HTMLElement {
   close() {
     this.predictiveSearchResults.style.display = 'none';
     this.isOpen = false;
+  }
+
+  handleClickOutside(event) {
+    // Check if the click is outside the predictive search component
+    if (this.isOpen && !this.contains(event.target)) {
+      this.close();
+    }
+  }
+
+  disconnectedCallback() {
+    // Clean up event listener when component is removed
+    document.removeEventListener('click', this.handleClickOutside);
   }
 
   toggleLoading(show) {

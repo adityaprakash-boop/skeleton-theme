@@ -325,7 +325,7 @@
       class="header-menu-position-center"
     {% endif %}
     id="main-header"
-    x-data="{ searchOpen: false, searchTerm: '' }"
+    x-data="{ searchOpen: false, searchTerm: '{{ search.terms | escape }}' }"
     @click.outside="searchOpen = false"
     @input="searchTerm = $event.target.value"
   >
