@@ -48,9 +48,7 @@
   box-sizing: border-box;
 }
 
-.card-vendor {
-  display: none; /* Vendor not shown in Figma design */
-}
+
 
 .product-color-swatches:empty {
   display: flex;
