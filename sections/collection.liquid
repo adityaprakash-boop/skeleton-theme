@@ -14,8 +14,8 @@
   .product-grid {
     display: grid;
     grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
-    row-gap: var(--grid-desktop-horizontal-spacing);
-    column-gap: var(--grid-desktop-vertical-spacing);
+    row-gap: 20px;
+    column-gap: 20px;
   }
 
   #product-grid-{{ section.id }} {
@@ -52,16 +52,14 @@
   }
 
   .product-grid-{{ section.id }} .quick-add__submit:after {
-    box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))
-        {{ section.settings.button_border_color }},
-      0 0 0 var(--buttons-border-width) rgba(var(--color-button), var(--alpha-button-background));
+    box-shadow: 0 0 0 1px {{ section.settings.button_border_color }},
+      0 0 0 1px rgba(var(--color-button), 0.1);
     transition: box-shadow 0.2s ease;
   }
 
   .product-grid-{{ section.id }} .quick-add__submit:hover:after {
-    box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))
-        {{ section.settings.button_border_color | color_modify: 'alpha', 0.8 }},
-      0 0 0 var(--buttons-border-width) rgba(var(--color-button), var(--alpha-button-background));
+    box-shadow: 0 0 0 1px {{ section.settings.button_border_color | color_modify: 'alpha', 0.8 }},
+      0 0 0 1px rgba(var(--color-button), 0.1);
   }
 {%- endstyle -%}
 
