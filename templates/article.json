@@ -15,12 +15,16 @@
         "featured_image": {
           "type": "featured_image",
           "settings": {
-            "image_height": "adapt"
+            "image_height": "small"
           }
         },
         "title": {
           "type": "title",
           "settings": {
+            "title_color": "#000000",
+            "title_alignment": "left",
+            "title_font_size": 32,
+            "title_font_weight": "500",
             "blog_show_date": true,
             "blog_show_author": false
           }
@@ -33,11 +37,22 @@
         },
         "content": {
           "type": "content",
-          "settings": {}
+          "settings": {
+            "content_color": "#000000",
+            "content_alignment": "left",
+            "content_font_weight": "500"
+          }
         }
       },
-      "block_order": ["featured_image", "title", "share", "content"],
-      "settings": {}
+      "block_order": [
+        "featured_image",
+        "title",
+        "share",
+        "content"
+      ],
+      "settings": {
+        "back_button_alignment": "center"
+      }
     }
   },
   "order": [
