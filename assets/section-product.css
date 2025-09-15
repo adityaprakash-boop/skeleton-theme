@@ -530,6 +530,14 @@ shopify-buy-it-now-button .shopify-payment-button__button {
   animation: spinner 2s infinite linear;
 }
 
+.loading__spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+}
+
 @media screen and (min-width: 990px) {
   .product--large .product__info-wrapper {
     max-width: 35%;
