@@ -624,6 +624,10 @@
         }
       }
     }
+    ,
+    "main-page": {
+      "name": "Page"
+    }
   },
   "settings_schema": {
     "logo": {
