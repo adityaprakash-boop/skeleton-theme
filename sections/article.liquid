@@ -36,7 +36,7 @@
       {%- when 'featured_image' -%}
         {%- if article.image -%}
           <div
-            class="article-template__hero-container{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            class="article-template__hero-container"
             {{ block.shopify_attributes }}
           >
             <div
@@ -55,7 +55,7 @@
                   {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
                   {{ article.image | image_url }} {{ article.image.width }}w
                 "
-                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
+                sizes="(min-width: 1200px) 1100px, (min-width: 750px) calc(100vw - 10rem), 100vw"
                 src="{{ article.image | image_url: width: 1100 }}"
                 loading="eager"
                 fetchpriority="high"
@@ -69,7 +69,7 @@
 
       {%- when 'title' -%}
         <header
-          class="page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+          class="page-width"
           {{ block.shopify_attributes }}
         >
           <h1
@@ -91,7 +91,7 @@
 
       {%- when 'content' -%}
         <div
-          class="article-template__content page-width rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          class="article-template__content page-width rte"
           {{ block.shopify_attributes }}
         >
           {{ article.content }}
@@ -99,7 +99,7 @@
 
       {%- when 'share' -%}
         <div
-          class="article-template__social-sharing page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          class="article-template__social-sharing page-width"
           {{ block.shopify_attributes }}
         >
           {% assign share_url = request.origin | append: article.url %}
@@ -108,7 +108,7 @@
     {%- endcase -%}
   {%- endfor -%}
 
-  <div class="article-template__back element-margin-top page-width center{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="article-template__back element-margin-top page-width center">
     <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
       <span class="icon-wrap">
         <span class="svg-wrapper">
@@ -122,7 +122,7 @@
     <div class="article-template__comment-wrapper background-secondary">
       <div
         id="comments"
-        class="page-width page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        class="page-width page-width--narrow"
       >
         {%- if article.comments_count > 0 -%}
           {%- assign anchor_id = '#Comments-' | append: article.id -%}
