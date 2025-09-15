@@ -21,7 +21,7 @@
         "title": {
           "type": "title",
           "settings": {
-            "title_color": "#c71111",
+            "title_color": "#242833",
             "title_alignment": "left",
             "title_font_size": 64,
             "title_font_weight": "300",
@@ -38,7 +38,7 @@
         "content": {
           "type": "content",
           "settings": {
-            "content_color": "#c71111",
+            "content_color": "#242833",
             "content_alignment": "left",
             "content_font_weight": "700"
           }
