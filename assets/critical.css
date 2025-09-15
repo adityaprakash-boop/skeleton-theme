@@ -6,15 +6,35 @@
   margin: 0;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  min-height: 100svh;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  height: 100%;
 }
 
 html:has(dialog[scroll-lock][open], details[scroll-lock][open]) {
   overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.06rem;
+  line-height: 1.1;
+  font-family: var(--font-primary--family);
+  font-style: var(--font-primary--style);
+  font-weight: var(--font-primary--weight);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
 }
 
 img,
@@ -73,11 +93,6 @@ p:empty {
 }
 
 /** Theme styles below */
-body {
-  font-family: var(--font-primary--family);
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-}
 
 /** Section layout utilities */
 
@@ -142,6 +157,20 @@ body {
   max-width: var(--page-width);
   margin: 0 auto;
   padding: 0 1.5rem;
+}
+
+.loading__spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+}
+
+@media screen and (min-width: 750px) {
+  body {
+    font-size: 1.6rem;
+  }
 }
 
 /* Mobile-first responsive design */
