@@ -22,6 +22,21 @@
     "comment_form_submit": "Post",
     "comment_form_title": "Add a comment"
   },
+  "blogs": {
+    "article": {
+      "comments": "Comments ({{ count }})",
+      "blog": "Blog",
+      "back_to_blog": "Back to {{ title }}",
+      "comment_form_title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Comment",
+      "post": "Post comment",
+      "moderated": "Please note, comments need to be approved before they are published.",
+      "success": "Your comment was posted successfully!",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated."
+    }
+  },
   "cart": {
     "checkout": "Checkout",
     "title": "Cart",
@@ -49,7 +64,9 @@
   "password": {
     "title": "This shop is private",
     "password": "Password",
-    "enter": "Enter"
+    "password_placeholder": "Enter password",
+    "enter": "Enter",
+    "contact_info": "Need access? Get in touch:"
   },
   "search": {
     "title": "Search",
@@ -78,6 +95,9 @@
       "share_url": "Share URL",
       "close": "Close share",
       "copy_to_clipboard": "Copy to clipboard"
+    },
+    "search": {
+      "search": "Search"
     },
     "social": {
       "links": {
@@ -113,7 +133,9 @@
       "filter_and_sort": "Filter & sort",
       "sort_by_label": "Sort by:",
       "results_count": "{{ count }} products",
-      "results_count_of": "{{ count }} of {{ total }}"
+      "results_count_of": "{{ count }} of {{ total }}",
+      "product_count_simple": "{{ count }} products",
+      "product_count": "{{ product_count }} of {{ count }} products"
     },
     "product": {
       "price": {
@@ -146,5 +168,22 @@
       "label": "Product media modal"
     }
   },
-  
+  "templates": {
+    "search": {
+      "title": "Search",
+      "no_results": "No results found for {{ terms }}",
+      "results_with_count_and_term": "{{ count }} results found for {{ terms }}",
+      "results_with_count": "{{ count }} results found",
+      "page": "Page"
+    },
+    "contact": {
+      "form": {
+        "error_heading": "Please adjust the following:"
+      }
+    },
+    "404": {
+      "title": "Page not found",
+      "subtext": "404"
+    },
+  }
 }

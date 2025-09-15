@@ -1,89 +1,219 @@
 {%- style -%}
   .filters-horizontal .facets__heading {
-    margin: 0px;
-    margin-right: 20px;
+    margin: 0;
+    margin-right: 0;
     width: unset;
-    font-family: var(--font-primary--family);
     font-size: 14px;
-    line-height: 2;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    color: #121212;
   }
 
   .filters-horizontal {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
-    max-width: 700px;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
   }
 
   .facets__wrapper {
     position: relative;
-    margin-right: 30px;
-    margin-bottom: 15px;
+    margin: 0;
   }
 
   .filter-button {
     width: max-content;
     border: none;
-    background: none;
+    background: transparent;
     cursor: pointer;
     font-size: 14px;
-    color: rgba(var(--color-foreground), 0.75);
-    padding: 0px;
-    margin-right: 5px;
+    font-weight: 400;
+    color: #121212;
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    transition: opacity 0.2s ease;
   }
 
   .filter-button:hover {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    color: rgba(var(--color-foreground), 1);
+    text-decoration: none;
+    opacity: 0.7;
   }
 
   .filter-button .icon-caret {
-    height: 6px;
-    position: relative;
-    top: -1px;
-    right: -5px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .filter-button .icon-caret svg {
+    width: 8.71px;
+    height: 5.06px;
+    transform: rotate(0deg);
+    transition: transform 0.2s ease;
   }
 
   .filter-content {
-    border-width: 0.1rem;
-    border-style: solid;
-    border-color: rgba(var(--color-foreground), 0.1);
-    border-radius: 0.4rem;
-    box-shadow: 0 1.2rem 2.4rem rgba(var(--color-shadow), 0.15);
-    background-color: rgb(var(--color-background));
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background-color: #FFFFFF;
     position: absolute;
-    top: calc(100% + 10px);
-    left: -12px;
-    width: 350px;
-    max-height: 550px;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 320px;
+    max-height: 400px;
     overflow-y: auto;
-    z-index: 5;
+    z-index: 10;
   }
 
   .filter-content .facets__list {
-    padding: 7px 20px;
+    padding: 16px;
     list-style-type: none;
     margin: 0;
   }
 
+  .facets__item {
+    margin: 0;
+  }
+
   .facets__head-wrapper {
-    border-bottom: 1px solid rgba(var(--color-foreground), 0.2);
-    padding: 20px;
+    border-bottom: 1px solid #E5E5E5;
+    padding: 16px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 14px;
-    background-color: rgb(var(--color-background));
+    background-color: #FFFFFF;
     position: sticky;
-    top: 0px;
+    top: 0;
     z-index: 1;
   }
 
+  .facet-name {
+    color: #121212;
+    font-weight: 500;
+  }
+
   .facet-reset {
-    text-transform: capitalize;
-    color: black;
+    text-transform: lowercase;
+    color: #121212;
     cursor: pointer;
-    text-underline-offset: 3px;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-size: 13px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+
+  .facet-reset:hover {
+    opacity: 1;
+  }
+
+  /* Open state for filter button */
+  .facets__wrapper[x-data] .filter-button[x-bind\\:class] svg {
+    transform: rotate(180deg);
+  }
+
+  /* Checkbox styles to match other filters */
+  .filter-content .facet-checkbox {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #121212;
+    cursor: pointer;
+    position: relative;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  .filter-content .facet-checkbox:hover {
+    opacity: 0.8;
+  }
+
+  .filter-content .facet-checkbox input[type='checkbox'] {
+    position: absolute;
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    top: 8px;
+    left: 0;
+  }
+
+  /* Hide default square icon and show circular style */
+  .filter-content .facet-checkbox > svg {
+    display: none;
+  }
+
+  .filter-content .facet-checkbox::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #DADADA;
+    margin-right: 10px;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  .filter-content .facet-checkbox input:checked ~ .svg-wrapper {
+    visibility: visible;
+    position: absolute;
+    left: 5px;
+    top: 12px;
+    width: 11px;
+    height: 11px;
+    z-index: 1;
+  }
+
+  .filter-content .facet-checkbox input:checked ~ .svg-wrapper .icon-checkmark {
+    stroke: #212121;
+    stroke-width: 1.5px;
+  }
+
+  .filter-content .facet-checkbox:has(input:disabled) {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  /* Active filter state */
+  .facets__wrapper[x-data]:has(.filter-content[x-show="true"]) .filter-button {
+    opacity: 1;
+  }
+
+  .facets__wrapper[x-data]:has(.filter-content[x-show="true"]) .filter-button .icon-caret svg {
+    transform: rotate(180deg);
+  }
+
+  /* Mobile styles */
+  @media screen and (max-width: 749px) {
+    .filters-horizontal {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .horizontal-filters__parent-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .filter-button {
+      font-size: 13px;
+    }
+
+    .filter-content {
+      width: 280px;
+    }
   }
 {%- endstyle -%}
 

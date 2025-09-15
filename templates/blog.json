@@ -11,7 +11,14 @@
   "sections": {
     "main": {
       "type": "blog",
-      "settings": {}
+      "settings": {
+        "layout": "grid",
+        "show_image": true,
+        "show_date": true,
+        "show_author": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [

@@ -325,9 +325,8 @@
       class="header-menu-position-center"
     {% endif %}
     id="main-header"
-    x-data="{ searchOpen: false, searchTerm: '' }"
+    x-data="{ searchOpen: false, searchTerm: '{{ search.terms | escape }}' }"
     @click.outside="searchOpen = false"
-    @input="searchTerm = $event.target.value"
   >
     {% render 'component-nav-drawer',
       menu: section.settings.menu,
@@ -432,7 +431,7 @@
             type="reset"
             class="reset__button"
             aria-label="Clear search term"
-            @click="$refs.searchInput.value = ''; searchTerm = ''; $dispatch('search-input-cleared');"
+            @click="searchTerm = ''"
             x-show="searchTerm.length > 0"
             x-transition
             x-cloak
