@@ -64,7 +64,9 @@
   "password": {
     "title": "This shop is private",
     "password": "Password",
-    "enter": "Enter"
+    "password_placeholder": "Enter password",
+    "enter": "Enter",
+    "contact_info": "Need access? Get in touch:"
   },
   "search": {
     "title": "Search",
