@@ -178,6 +178,10 @@
       "form": {
         "error_heading": "Please adjust the following:"
       }
-    }
+    },
+    "404": {
+      "title": "Page not found",
+      "subtext": "404"
+    },
   }
 }
