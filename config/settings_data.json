@@ -10,7 +10,7 @@
 {
   "current": {
     "type_primary_font": "mono",
-    "max_page_width": "110rem",
+    "max_page_width": 1600,
     "min_page_margin": 60,
     "cart_type": "notification",
     "predictive_search_enabled": true,
@@ -26,8 +26,8 @@
     "social_twitter_link": "facebook.com",
     "social_snapchat_link": "facebook.com",
     "social_pinterest_link": "facebook.com",
-    "social_tumblr_link": "facebook.com",
-    "social_vimeo_link": "facebook.com",
+    "social_tumblr_link": "",
+    "social_vimeo_link": "",
     "content_for_index": [],
     "color_schemes": {
       "scheme-1": {

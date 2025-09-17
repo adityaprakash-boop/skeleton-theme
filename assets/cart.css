@@ -205,14 +205,13 @@ ajax-cart-quantity {
   grid-template-columns: 30px 60px 30px;
   border: .1rem solid rgba(var(--color-foreground), .2);
   width: 100%;
-  height: 40px;
   max-width: 128px;
 }
 
 ajax-cart-quantity a {
   display: grid;
   place-items: center;
-  padding-block: 10px;
+  padding-block: 5px;
   color: rgba(var(--color-foreground));
 }
 
@@ -383,7 +382,7 @@ h2.cart__empty-text {
   font-weight: 400;
   font-size: 15px;
   letter-spacing: .03em;
-  margin: 0 auto 2rem;
+  margin: 2rem auto;
 }
 
 .cart__login-paragraph,
@@ -510,8 +509,7 @@ h2.cart__empty-text {
 
   ajax-cart-quantity {
     width: 100%;
-    height: 36px;
-    max-width: 117px;
+    max-width: 125px;
   }
 
   .cart__wrapper .cart-item__action {

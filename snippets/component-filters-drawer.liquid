@@ -247,7 +247,7 @@
     overflow: hidden;
   }
 
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 768px) {
     .drawer-main-wrapper .mobile-facets__heading {
       font-size: 14px;
     }
@@ -292,7 +292,7 @@
         <span>{{ 'products.facets.sort_button' | t }}</span>
       {%- endif -%}
     </div>
-    <div class="mobile-facet-text-wrapper medium-hide large-up-hide">
+    <div class="mobile-facet-text-wrapper large-up-hide">
       {%- if enable_filtering and enable_sorting -%}
         <span>{{ 'products.facets.filter_and_sort' | t }}</span>
       {%- elsif enable_filtering -%}
@@ -311,7 +311,7 @@
     <div class="facets__header-drawer">
       <div class="child-facets__header-wrapper">
         <div class="mobile-facets__header-inner">
-          <h2 class="mobile-facets__heading medium-hide large-up-hide">
+          <h2 class="mobile-facets__heading large-up-hide">
             {%- if enable_filtering and enable_sorting -%}
               {{ 'products.facets.filter_and_sort' | t }}
             {%- elsif enable_filtering -%}

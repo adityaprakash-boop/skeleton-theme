@@ -31,7 +31,7 @@
   margin: 0;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .price {
     margin-bottom: 0;
   }
@@ -42,7 +42,7 @@
   line-height: 1.5;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .price--large {
     font-size: 18px;
   }

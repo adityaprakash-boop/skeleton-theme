@@ -6,15 +6,35 @@
   margin: 0;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  min-height: 100svh;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  height: 100%;
 }
 
 html:has(dialog[scroll-lock][open], details[scroll-lock][open]) {
   overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.06rem;
+  line-height: 1.1;
+  font-family: var(--font-primary--family);
+  font-style: var(--font-primary--style);
+  font-weight: var(--font-primary--weight);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
 }
 
 img,
@@ -25,7 +45,6 @@ svg {
   display: block;
   max-width: 100%;
   height: auto;
-  min-height: 30px;
 }
 
 input,
@@ -73,11 +92,6 @@ p:empty {
 }
 
 /** Theme styles below */
-body {
-  font-family: var(--font-primary--family);
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-}
 
 /** Section layout utilities */
 
@@ -115,4 +129,96 @@ body {
 /* Child elements that use the full-width utility class span the entire viewport. */
 .shopify-section > .full-width {
   grid-column: 1 / -1;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  word-wrap: normal !important;
+}
+
+.visually-hidden--inline {
+  margin: 0;
+  height: 1em;
+}
+
+.page-width {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.loading__spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+}
+
+.drawer__wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(600px, 100%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: inherit;
+  transform: translate(0%, 0px);
+  transition: transform 0.2s;
+  box-sizing: border-box;
+  z-index: 20;
+}
+
+.drawer-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #0003;
+  transition: opacity 0.4s;
+  z-index: 19;
+}
+
+@media screen and (min-width: 769px) {
+  body {
+    font-size: 1.6rem;
+  }
+  .large-up-hide {
+    display: none !important;
+  }
+}
+
+
+/* Mobile-first responsive design */
+@media screen and (max-width: 768px) {
+  .shopify-section {
+    display: block;
+    padding: 0;
+  }
+  
+  .shopify-section > * {
+    grid-column: auto;
+  }
+  
+  .page-width {
+    padding: 0 1rem;
+  }
+
+  .small-hide {
+    display: none !important;
+  }
 }

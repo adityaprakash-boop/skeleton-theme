@@ -499,7 +499,7 @@ Use nesting for media queries
 .header {
   width: 100%;
 
-  @media screen and (min-width: 750px) {
+  @media screen and (min-width: 769px) {
     width: 100px;
   }
 }
@@ -509,7 +509,7 @@ This includes when there is nothing to override, e.g.
 
 ```css
 .header {
-  @media screen and (min-width: 750px) {
+  @media screen and (min-width: 769px) {
     width: 100px;
   }
 }

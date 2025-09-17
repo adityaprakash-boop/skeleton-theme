@@ -7,7 +7,7 @@
   width: 100%;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .blog-articles {
     grid-template-columns: 1fr 1fr;
   }
