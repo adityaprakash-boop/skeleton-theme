@@ -1,3 +1,5 @@
+import { debounce } from './theme.js';
+
 export class PredictiveSearch extends HTMLElement {
   constructor() {
     super();
@@ -11,7 +13,7 @@ export class PredictiveSearch extends HTMLElement {
 
 
 
-    this.input.addEventListener('input', this.debounce((e) => this.onChange(e), 700));
+    this.input.addEventListener('input', debounce((e) => this.onChange(e), 700));
     this.input.addEventListener('focus', (e) => this.onChange(e));
 
     this.handleClickOutside = this.handleClickOutside.bind(this);
@@ -95,14 +97,6 @@ export class PredictiveSearch extends HTMLElement {
 
   toggleLoading(show) {
     this.querySelector('.predictive-search__loading')?.classList.toggle('hidden', !show);
-  }
-
-  debounce(fn, wait) {
-    let timeout;
-    return (...args) => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => fn.apply(this, args), wait);
-    };
   }
 }
 

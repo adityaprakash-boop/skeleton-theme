@@ -1,10 +1,4 @@
-export function debounce(fn, wait) {
-  let t;
-  return (...args) => {
-    clearTimeout(t);
-    t = setTimeout(() => fn.apply(this, args), wait);
-  };
-}
+import { debounce } from './theme.js';
 
 export class CollectionInfo extends HTMLElement {
   constructor() {
