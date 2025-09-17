@@ -24,27 +24,14 @@
   %}
 {% endcomment %}
 
-{%- liquid
-  assign ratio = 1
-  if card_product.featured_media and media_aspect_ratio == 'portrait'
-    assign ratio = 0.8
-  elsif card_product.featured_media and media_aspect_ratio == 'adapt'
-    assign ratio = card_product.featured_media.aspect_ratio
-  endif
-  if ratio == 0 or ratio == null
-    assign ratio = 1
-  endif
--%}
-
 <product-card
-  class="product-card card--{{ settings.card_style }}{% if settings.card_style == 'card' %} color-{{ settings.card_color_scheme }}{% endif %}"
+  class="product-card"
   data-product-id="{{ card_product.id }}"
 >
   <div class="product-card-child">
     <a
       href="{{ card_product.url }}"
       class="card-media"
-      style="--media-ratio: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
       <div class="card-media-child{% if card_product.featured_image == blank %} card-media-no-image{% endif %}">
         {% if card_product.featured_image != blank %}
@@ -62,20 +49,18 @@
           {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
         {% endif %}
       </div>
-      <div class="card-badge-wrapper {{ settings.badge_position }}">
+      <div class="card-badge-wrapper">
         {%- if card_product.available == false -%}
-          <div class="card__badge {{ settings.badge_position }}">
+          <div class="card__badge">
             <span
-              class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+              class="badge badge--bottom-left"
             >
               {{- 'products.product.sold_out' | t -}}
             </span>
           </div>
         {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
-          <div class="card__badge {{ settings.badge_position }}">
-            <span
-              class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
-            >
+          <div class="card__badge">
+            <span class="badge badge--bottom-left">
               {{- 'products.product.on_sale' | t -}}
             </span>
           </div>
@@ -192,7 +177,7 @@
             </quick-add-modal>
           {%- else -%}
             <ajax-cart-product-form
-              data-section-id="{{ section.id }}"
+              data-section-id="{{ section_id }}"
             >
               {% form 'product', card_product, id: product_form_id, novalidate: 'novalidate' %}
                 <input

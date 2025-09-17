@@ -33,7 +33,7 @@
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
-  @media screen and (min-width: 750px) {
+  @media screen and (min-width: 769px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
@@ -90,7 +90,7 @@
                 <div class="product-grid-container">
                   <div class="sorting-wrapper">
                     {%- if section.settings.enable_filtering and section.settings.filter_type == 'vertical' -%}
-                      <div class="mobile-filters-drawer medium-hide large-up-hide">
+                      <div class="mobile-filters-drawer large-up-hide">
                         {%- render 'component-filters-drawer',
                           results: search,
                           enable_sorting: section.settings.enable_sorting,
@@ -103,7 +103,7 @@
                     {%- if section.settings.enable_filtering and section.settings.filter_type == 'horizontal' -%}
                       <div class="horizontal-filters__parent-wrapper">
                         {% render 'component-filters-horizontal', results: search %}
-                        <div class="mobile-horizontal-filter medium-hide large-up-hide">
+                        <div class="mobile-horizontal-filter large-up-hide">
                           {%- render 'component-filters-drawer',
                             results: search,
                             enable_sorting: section.settings.enable_sorting,
@@ -268,7 +268,7 @@
                           {%- when 'page' -%}
                             <div class="article-card-wrapper card-wrapper underline-links-hover">
                               <div
-                                class="card card--card card--text ratio color-{{ settings.blog_card_color_scheme }}"
+                                class="card card--card card--text ratio"
                                 style="--ratio-percent: 100%;"
                               >
                                 <div class="card__content">
@@ -279,7 +279,7 @@
                                       </a>
                                     </h3>
                                   </div>
-                                  <div class="card__badge {{ settings.badge_position }}">
+                                  <div class="card__badge">
                                     <span class="badge color-{{ settings.color_schemes | first }}">
                                       {{- 'templates.search.page' | t -}}
                                     </span>

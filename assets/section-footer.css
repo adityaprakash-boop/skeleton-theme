@@ -18,7 +18,7 @@
   display: block;
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 768px) {
   .footer .grid {
     display: block;
   }
@@ -56,7 +56,7 @@
   }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .footer__content-top .grid {
     row-gap: 6rem;
     margin-bottom: 0;
@@ -79,7 +79,7 @@
   padding: 0px 30px;
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 768px) {
   .footer__content-bottom {
     flex-wrap: wrap;
     padding-top: 0;
@@ -105,7 +105,7 @@
   align-items: center;
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 768px) {
   .footer__localization:empty + .footer__column {
     padding-top: 1.5rem;
   }
@@ -125,7 +125,7 @@
   padding-right: 2rem;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .footer__column--info {
     padding-left: 0;
     padding-right: 0;
@@ -139,7 +139,7 @@
   margin: 0 auto;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .footer-block {
     display: block;
     margin-top: 0;
@@ -161,13 +161,13 @@
   margin-top: 0;
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 768px) {
   .footer-block.footer-block--menu:only-child {
     text-align: left;
   }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .footer-block--newsletter {
     flex-wrap: nowrap;
     justify-content: center;
@@ -219,7 +219,7 @@
   max-width: 36rem;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   /* Pushes other components to the right of the flexbox */
   .footer-block__newsletter:not(:only-child) {
     text-align: left;
@@ -255,7 +255,7 @@
   }
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 768px) {
   /*
     On a small screen we want all the items to be centered
     because they will be stacked.
@@ -280,7 +280,7 @@
   }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .footer-block__newsletter + .footer__list-social {
     margin-top: 0;
   }
@@ -304,7 +304,7 @@
   color: rgba(var(--color-foreground), 0.75);
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .footer__localization {
     padding: 0.4rem 0;
     justify-content: flex-start;
@@ -315,7 +315,7 @@
   }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .footer__payment {
     margin-top: 1.5rem;
   }
@@ -330,7 +330,7 @@
   margin-top: 1.5rem;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .footer__content-bottom-wrapper:not(.footer__content-bottom-wrapper--center) .footer__copyright {
     text-align: right;
   }
@@ -351,7 +351,7 @@
   margin-bottom: 4rem;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .footer-block__details-content {
     margin-bottom: 0;
   }
@@ -384,7 +384,7 @@
   color: rgb(var(--color-foreground));
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .footer-block__details-content .list-menu__item--link:hover,
   .copyright__content a:hover {
     color: rgb(var(--color-foreground));
@@ -404,7 +404,7 @@
   }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .footer-block__details-content .list-menu__item--link {
     display: inline-block;
     font-size: 1rem;
@@ -436,7 +436,7 @@ li.list-social__item a {
   color: white;
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 768px) {
   .footer-block-image,
   .footer-block-image.left,
   .footer-block-image.center,
@@ -515,7 +515,7 @@ li.list-social__item a {
   display: block;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .policies li a {
     padding: 0;
   }
@@ -534,13 +534,13 @@ li.list-social__item a {
 
 /* check for flexbox gap in older Safari versions */
 @supports not (inset: 10px) {
-  @media screen and (max-width: 749px) {
+  @media screen and (max-width: 768px) {
     .footer .grid {
       margin-left: 0;
     }
   }
 
-  @media screen and (min-width: 750px) {
+  @media screen and (min-width: 769px) {
     .footer__content-top .grid {
       margin-left: -3rem;
     }
@@ -562,7 +562,7 @@ li.list-social__item a {
   position: relative;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .newsletter-form {
     align-items: flex-start;
     margin: 0 auto;
@@ -591,7 +591,7 @@ li.list-social__item a {
   margin-top: 2rem;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .newsletter-form__message {
     justify-content: flex-start;
   }
@@ -672,7 +672,7 @@ li.list-social__item a {
   padding-left: 0;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .list-payment {
     justify-content: flex-end;
     margin: -0.5rem;
@@ -694,7 +694,7 @@ li.list-social__item a {
   justify-content: flex-end;
 }
 
-@media only screen and (max-width: 749px) {
+@media only screen and (max-width: 768px) {
   .list-social {
     justify-content: center;
   }
@@ -766,7 +766,7 @@ li.list-social__item a {
   display: inline-block;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .footer__blocks-wrapper {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;

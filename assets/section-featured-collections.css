@@ -173,7 +173,7 @@
   margin-top: 0.25rem;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 768px) {
   .featured-collections__grid {
     display: grid;
     grid-template-columns: 1fr;

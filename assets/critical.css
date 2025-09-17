@@ -166,32 +166,45 @@ p:empty {
   padding: 20px;
 }
 
-@media screen and (max-width: 749px) {
-  .small-hide {
-    display: none !important;
-  }
+.drawer__wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(600px, 100%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: inherit;
+  transform: translate(0%, 0px);
+  transition: transform 0.2s;
+  box-sizing: border-box;
+  z-index: 20;
 }
 
-@media screen and (min-width: 750px) and (max-width: 989px) {
-  .medium-hide {
-    display: none !important;
-  }
+.drawer-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #0003;
+  transition: opacity 0.4s;
+  z-index: 19;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 769px) {
+  body {
+    font-size: 1.6rem;
+  }
   .large-up-hide {
     display: none !important;
   }
 }
 
-@media screen and (min-width: 750px) {
-  body {
-    font-size: 1.6rem;
-  }
-}
 
 /* Mobile-first responsive design */
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 768px) {
   .shopify-section {
     display: block;
     padding: 0;
@@ -203,5 +216,9 @@ p:empty {
   
   .page-width {
     padding: 0 1rem;
+  }
+
+  .small-hide {
+    display: none !important;
   }
 }

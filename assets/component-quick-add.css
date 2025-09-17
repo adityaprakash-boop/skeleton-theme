@@ -177,7 +177,7 @@ quick-add-modal .product-media-container.constrain-height {
   animation: spinner 2s infinite linear;
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 768px) {
   quick-add-modal .slider .product__media-item.grid__item {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
@@ -200,7 +200,7 @@ quick-add-modal .product-media-container.constrain-height {
   }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 769px) {
   .quick-add-modal__content {
     --modal-height-offset: 10rem;
     margin-top: var(--modal-height-offset);
