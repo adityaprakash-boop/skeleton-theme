@@ -39,7 +39,7 @@ body.collection .shopify-section.section .page-width {
   margin: 0 20px 0 0;
   font-weight: 600;
   width: max-content;
-  font-family: var(--font-primary--family);
+  font-family: var(--font-body-family);
 }
 
 .facet-filters__field {

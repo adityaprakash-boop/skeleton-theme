@@ -87,9 +87,9 @@
   appearance: none;
   background-color: rgb(var(--color-background));
   color: rgb(var(--color-foreground));
-  font-family: var(--font-primary--family);
-  font-style: var(--font-primary--style);
-  font-weight: var(--font-primary--weight);
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
   font-size: 16px;
   box-sizing: border-box;
   position: relative;
