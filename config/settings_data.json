@@ -9,9 +9,9 @@
  */
 {
   "current": {
-    "type_primary_font": "mono",
+    "type_primary_font": "roboto_condensed_n4",
     "max_page_width": "1600",
-    "min_page_margin": "60",
+    "min_page_margin": 60,
     "cart_type": "notification",
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": true,
