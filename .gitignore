@@ -9,7 +9,7 @@ ehthumbs.db
 Thumbs.db
 node_modules/
 .vs
-,vscode
+.vscode
 # Shopify CLI files
 .shopify/
 
