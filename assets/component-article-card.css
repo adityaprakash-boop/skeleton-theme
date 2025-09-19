@@ -31,7 +31,7 @@
 .article-card__title {
   text-decoration: none;
   color: currentColor;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0;
@@ -66,8 +66,7 @@
 
 .blog-articles .article-card .card__information,
 .blog__posts .article-card .card__information {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 2.4rem;
 }
 
 .article-card__info {
@@ -128,6 +127,15 @@
 
   .article-card__image--large {
     height: 50rem;
+  }
+
+  .blog-articles .article-card .card__information,
+  .blog__posts .article-card .card__information {
+    padding: 1.6rem 2rem 4rem;
+  }
+
+  .article-card__title {
+    font-size: 2.4rem;
   }
 }
 

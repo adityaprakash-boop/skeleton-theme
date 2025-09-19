@@ -18,7 +18,6 @@
 
 .card__content {
   background-color: var(--background-color);
-  padding: 1.6rem 2rem 4rem;
 }
 
 .card__information {

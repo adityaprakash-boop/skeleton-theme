@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "article",
@@ -15,32 +15,32 @@
         "featured_image": {
           "type": "featured_image",
           "settings": {
-            "image_height": "small"
+            "image_height": "large"
           }
         },
         "title": {
           "type": "title",
           "settings": {
-            "title_color": "#242833",
+            "title_color": "#121212",
             "title_alignment": "left",
-            "title_font_size": 64,
+            "title_font_size": 40,
             "title_font_weight": "300",
             "blog_show_date": true,
-            "blog_show_author": true
+            "blog_show_author": false
           }
         },
         "share": {
           "type": "share",
           "settings": {
-            "share_label": "Share w"
+            "share_label": "Share"
           }
         },
         "content": {
           "type": "content",
           "settings": {
-            "content_color": "#242833",
+            "content_color": "#121212",
             "content_alignment": "left",
-            "content_font_weight": "700"
+            "content_font_weight": "300"
           }
         }
       },
@@ -51,7 +51,9 @@
         "content"
       ],
       "settings": {
-        "back_button_alignment": "center"
+        "back_button_alignment": "flex-start",
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     }
   },
