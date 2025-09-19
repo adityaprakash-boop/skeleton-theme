@@ -253,7 +253,7 @@
     color: rgb(var(--color-foreground));
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1025px) {
     {% unless section.settings.menu_type_desktop == 'drawer' %}
       #header-drawer {
         display: none;
@@ -261,7 +261,7 @@
     {% endunless %}
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     #main-header > nav,
     .header-actions_account,
     .header-actions_localization {
@@ -286,7 +286,7 @@
         border-top: 1px solid rgba(var(--color-foreground),var(--color-background));
     }
   }
-  @media (min-width: 769px) {
+  @media (min-width: 1025px) {
     .header-menu-position-center {
       display: grid;
     }
