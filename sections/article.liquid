@@ -10,7 +10,9 @@
           color: {{ block.settings.title_color }};
           text-align: {{ block.settings.title_alignment }};
           font-weight: {{ block.settings.title_font_weight }};
-          font-size: {{ block.settings.title_font_size }}px;
+          @media screen and (min-width: 769px) {
+            font-size: {{ block.settings.title_font_size }}px;
+          }
         }
       {% when 'content' %}
         .article-template__content * {
@@ -43,7 +45,7 @@
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
-        <div class="page-width page-width--narrow">
+        <div class="page-width article-content__page-width">
           {% render block %}
         </div>
       {%- when 'featured_image' -%}
@@ -83,7 +85,7 @@
 
       {%- when 'title' -%}
         <header
-          class="page-width"
+          class="page-width article-content__page-width"
           {{ block.shopify_attributes }}
         >
           <h1
@@ -92,12 +94,12 @@
             {{ article.title | escape }}
           </h1>
           {%- if block.settings.blog_show_date -%}
-            <span class="circle-divider caption-with-letter-spacing">
+            <span class="article-template__date">
               {{- article.published_at | time_tag: format: 'date' -}}
             </span>
           {%- endif -%}
           {%- if block.settings.blog_show_author -%}
-            <span class="caption-with-letter-spacing">
+            <span class="article-template__author">
               <span>{{ article.author }}</span>
             </span>
           {%- endif -%}
@@ -105,7 +107,7 @@
 
       {%- when 'content' -%}
         <div
-          class="article-template__content page-width rte"
+          class="article-template__content page-width article-content__page-width rte"
           {{ block.shopify_attributes }}
         >
           {{ article.content }}
@@ -113,7 +115,7 @@
 
       {%- when 'share' -%}
         <div
-          class="article-template__social-sharing page-width"
+          class="article-template__social-sharing page-width article-content__page-width"
           {{ block.shopify_attributes }}
         >
           {% assign share_url = request.origin | append: article.url %}
@@ -122,7 +124,7 @@
     {%- endcase -%}
   {%- endfor -%}
 
-  <div class="article-template__back element-margin-top page-width center">
+  <div class="article-template__back element-margin-top page-width article-content__page-width center">
     <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
       <span class="icon-wrap">
         <span class="svg-wrapper">
@@ -136,7 +138,7 @@
     <div class="article-template__comment-wrapper background-secondary">
       <div
         id="comments"
-        class="page-width page-width--narrow"
+        class="page-width article-content__page-width"
       >
         {%- if article.comments_count > 0 -%}
           {%- assign anchor_id = '#Comments-' | append: article.id -%}

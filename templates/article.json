@@ -51,7 +51,7 @@
         "content"
       ],
       "settings": {
-        "back_button_alignment": "flex-start",
+        "back_button_alignment": "center",
         "padding_top": 64,
         "padding_bottom": 64
       }
