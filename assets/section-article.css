@@ -156,10 +156,6 @@
   }
 }
 
-.article-template__comments-fields {
-  margin-bottom: 4rem;
-}
-
 .article-template__comments-comment {
   color: rgba(var(--color-foreground), 0.75);
   background-color: rgb(var(--color-background));
@@ -201,4 +197,88 @@
 
 .article-template__back:last-child {
   margin-bottom: 3.2rem;
+}
+
+/* --- comments styling --- */
+
+.article-template__comment-wrapper h2 {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.article-template__comments {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.article-template__comments-comment {
+  border: 1px solid rgba(var(--color-foreground), 0.08);
+  border-radius: 8px;
+}
+
+.article-template__comments-comment p:last-child {
+  margin-bottom: 0;
+}
+
+.article-template__comments-comment footer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(var(--color-foreground), 0.06);
+  display: flex;
+  gap: 0.8rem;
+  justify-content: flex-end;
+  color: rgba(var(--color-foreground), 0.6);
+}
+
+.comment-form .field__input {
+  border: 1px solid rgba(var(--color-foreground), 0.15);
+  border-radius: 8px;
+  background-color: rgb(var(--color-background));
+  padding: 1.2rem 1.4rem;
+  width: 100%;
+}
+
+.comment-form label {
+  font-size: 1.3rem;
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+.article-template__comment-warning.caption {
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+.comment-form .form__message,
+.comment-form .form-status-list {
+  background: rgba(var(--color-foreground), 0.04);
+  border: 1px solid rgba(var(--color-foreground), 0.08);
+  border-radius: 8px;
+  padding: 1.2rem 1.4rem;
+}
+
+.comment-form .form-status-list {
+  margin-top: 1rem;
+}
+
+.comment-form .button[type="submit"],
+.comment-form input[type="submit"].button {
+  margin-top: 1rem;
+  background: transparent;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid rgba(var(--color-foreground), 0.15);
+  border-radius: 8px;
+  color: rgb(var(--color-foreground));
+  font-size: 1.4rem;
+  line-height: 1.5;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.comment-form .button[type="submit"]:hover {
+  background: rgba(var(--color-foreground), 0.8 );
+  color: rgb(var(--color-background));
+  transform: translateX(2px);
 }
