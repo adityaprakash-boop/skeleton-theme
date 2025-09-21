@@ -532,6 +532,30 @@
       }
     }
     ,
+    "main-account": {
+      "name": "Account"
+    }
+    ,
+    "main-activate-account": {
+      "name": "Activate account"
+    }
+    ,
+    "main-addresses": {
+      "name": "Addresses"
+    }
+    ,
+    "main-order": {
+      "name": "Order"
+    }
+    ,
+    "main-register": {
+      "name": "Register"
+    }
+    ,
+    "main-reset-password": {
+      "name": "Reset password"
+    }
+    ,
     "main-collection-product-grid": {
       "name": "Collection",
       "settings": {
