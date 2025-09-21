@@ -43,6 +43,26 @@
     "update": "Update",
     "remove": "Remove"
   },
+  "customer": {
+    "recover_password": {
+      "title": "Reset your password",
+      "subtext": "We will send you an email to reset your password.",
+      "success": "We've sent you an email with a link to update your password."
+    },
+    "login_page": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "sign_in": "Sign in",
+      "create_account": "Create account",
+      "forgot_password": "Forgot your password?",
+      "alternate_provider_separator": "or",
+      "guest_title": "Continue as a guest",
+      "guest_continue": "Continue"
+    }
+  },
   "customers": {
     "login": {
       "email": "Email",
@@ -78,7 +98,8 @@
   "accessibility": {
     "close": "Close",
     "clear_search": "Clear search term",
-    "unit_price_separator": "per"
+    "unit_price_separator": "per",
+    "error": "Error"
   },
   "general": {
     "continue_shopping": "Continue shopping",
@@ -114,6 +135,19 @@
     }
   },
   "sections": {
+    "main-login": {
+      "name": "Login",
+      "shop_login_button": {
+        "enable": "Enable Shop Login Button"
+      }
+    },
+    "all": {
+      "padding": {
+        "section_padding_heading": "Section padding",
+        "padding_top": "Top padding",
+        "padding_bottom": "Bottom padding"
+      }
+    },
     "cart": {
       "empty": "Your cart is empty",
       "login": {

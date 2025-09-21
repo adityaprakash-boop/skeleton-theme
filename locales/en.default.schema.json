@@ -525,6 +525,13 @@
       }
     }
     ,
+    "main-login": {
+      "name": "Login",
+      "shop_login_button": {
+        "enable": "Enable Shop Login Button"
+      }
+    }
+    ,
     "main-collection-product-grid": {
       "name": "Collection",
       "settings": {
