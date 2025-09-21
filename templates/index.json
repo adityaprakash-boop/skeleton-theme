@@ -9,9 +9,27 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "hello-world",
-      "settings": {}
+    "hero_1": {
+      "type": "hero",
+      "settings": {
+        "background_type": "image",
+        "image_background": "shopify://shop_images/nobg.png",
+        "video_background_url": "",
+        "overlay_color": "#d9d9d9",
+        "overlay_opacity": 30,
+        "content_alignment": "center",
+        "vertical_alignment": "center",
+        "text_color": "#000000",
+        "stars_text": "",
+        "heading": "Main Banner Title Here",
+        "subheading": "Sub Header Here",
+        "button_text": "Shop Now",
+        "button_link": "shopify://collections/cam-plans",
+        "button_color": "#000000",
+        "button_text_color": "#ffffff",
+        "show_endorsement": false,
+        "endorsement_name": ""
+      }
     },
     "featured_collections_hhETJ9": {
       "type": "featured-collections",
@@ -71,7 +89,7 @@
     }
   },
   "order": [
-    "main",
+    "hero_1",
     "featured_collections_hhETJ9"
   ]
 }
