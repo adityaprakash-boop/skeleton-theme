@@ -610,6 +610,22 @@
       }
     }
     ,
+    "main-search": {
+      "name": "Search",
+      "settings": {
+        "header__2": {
+          "content": "Article results",
+          "info": "Configure how articles appear in search results"
+        },
+        "article_show_date": {
+          "label": "Show article date"
+        },
+        "article_show_author": {
+          "label": "Show article author"
+        }
+      }
+    }
+    ,
     "main-blog": {
       "name": "Blog",
       "settings": {
