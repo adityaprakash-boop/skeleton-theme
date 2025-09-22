@@ -410,7 +410,7 @@
                         <div class="svg-wrapper">
                           {{- 'icon-checkmark.svg' | inline_asset_content -}}
                         </div>
-                        {{- v.label }} ({{ v.count }})
+                        {{- v.label }} {% if section.settings.show_filter_count != blank %} ({{ v.count }}){% endif %}
                       </label>
                     {%- endfor -%}
                   {% endif %}

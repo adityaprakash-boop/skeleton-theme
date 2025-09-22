@@ -132,7 +132,7 @@
                   <div class="svg-wrapper">
                     {{- 'icon-checkmark.svg' | inline_asset_content -}}
                   </div>
-                  {{- v.label }} ({{ v.count }})
+                  {{- v.label }} {% if show_filter_count %} ({{ v.count }}){% endif %}
                 </label>
               {% endfor %}
             {% endif %}
