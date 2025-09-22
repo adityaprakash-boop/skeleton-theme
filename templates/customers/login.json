@@ -10,14 +10,11 @@
 {
   "sections": {
     "main": {
-      "type": "blog",
+      "type": "login",
       "settings": {
-        "layout": "collage",
-        "show_image": true,
-        "show_date": true,
-        "show_author": false,
-        "padding_top": 64,
-        "padding_bottom": 64
+        "enable_shop_login_button": "true",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },

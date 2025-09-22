@@ -525,6 +525,37 @@
       }
     }
     ,
+    "main-login": {
+      "name": "Login",
+      "shop_login_button": {
+        "enable": "Enable Shop Login Button"
+      }
+    }
+    ,
+    "main-account": {
+      "name": "Account"
+    }
+    ,
+    "main-activate-account": {
+      "name": "Activate account"
+    }
+    ,
+    "main-addresses": {
+      "name": "Addresses"
+    }
+    ,
+    "main-order": {
+      "name": "Order"
+    }
+    ,
+    "main-register": {
+      "name": "Register"
+    }
+    ,
+    "main-reset-password": {
+      "name": "Reset password"
+    }
+    ,
     "main-collection-product-grid": {
       "name": "Collection",
       "settings": {
@@ -575,6 +606,22 @@
           "label": "Columns on mobile",
           "options__1": { "label": "1" },
           "options__2": { "label": "2" }
+        }
+      }
+    }
+    ,
+    "main-search": {
+      "name": "Search",
+      "settings": {
+        "header__2": {
+          "content": "Article results",
+          "info": "Configure how articles appear in search results"
+        },
+        "article_show_date": {
+          "label": "Show article date"
+        },
+        "article_show_author": {
+          "label": "Show article author"
         }
       }
     }

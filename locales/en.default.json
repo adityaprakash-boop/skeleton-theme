@@ -43,6 +43,112 @@
     "update": "Update",
     "remove": "Remove"
   },
+  "customer": {
+    "account": {
+      "title": "Account",
+      "details": "Account details",
+      "view_addresses": "View addresses",
+      "return": "Return to account"
+    },
+    "orders": {
+      "title": "Order history",
+      "order_number": "Order",
+      "date": "Date",
+      "payment_status": "Payment status",
+      "fulfillment_status": "Fulfillment status",
+      "total": "Total",
+      "order_number_link": "Order {{ number }}",
+      "none": "You haven't placed any orders yet."
+    },
+    "order": {
+      "title": "Order {{ name }}",
+      "date_html": "Placed on {{ date }}",
+      "cancelled_html": "Order cancelled on {{ date }}",
+      "cancelled_reason": "Reason: {{ reason }}",
+      "product": "Product",
+      "sku": "SKU",
+      "price": "Price",
+      "quantity": "Quantity",
+      "total": "Total",
+      "discount": "Discount",
+      "fulfilled_at_html": "Fulfilled {{ date }}",
+      "track_shipment": "Track shipment",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "tax": "Tax",
+      "total_duties": "Duties",
+      "total_refunded": "Refunded",
+      "billing_address": "Billing address",
+      "payment_status": "Payment status",
+      "shipping_address": "Shipping address",
+      "fulfillment_status": "Fulfillment status"
+    },
+    "activate_account": {
+      "title": "Activate account",
+      "subtext": "Create a password to activate your account.",
+      "password": "Password",
+      "password_confirm": "Confirm password",
+      "submit": "Activate account",
+      "cancel": "Decline invitation"
+    },
+    "addresses": {
+      "title": "Addresses",
+      "add_new": "Add a new address",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "company": "Company",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "City",
+      "country": "Country/Region",
+      "province": "Province",
+      "zip": "Postal/Zip code",
+      "phone": "Phone",
+      "set_default": "Set as default address",
+      "add": "Add address",
+      "update": "Update address",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "delete_confirm": "Are you sure you wish to delete this address?",
+      "default": "Default",
+      "edit_address": "Edit address"
+    },
+    "register": {
+      "title": "Create account",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create"
+    },
+    "reset_password": {
+      "title": "Reset account password",
+      "subtext": "Enter a new password",
+      "password": "Password",
+      "password_confirm": "Confirm password",
+      "submit": "Reset password"
+    },
+    "log_out": "Log out",
+    "recover_password": {
+      "title": "Reset your password",
+      "subtext": "We will send you an email to reset your password.",
+      "success": "We've sent you an email with a link to update your password."
+    },
+    "login_page": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "sign_in": "Sign in",
+      "create_account": "Create account",
+      "forgot_password": "Forgot your password?",
+      "alternate_provider_separator": "or",
+      "guest_title": "Continue as a guest",
+      "guest_continue": "Continue"
+    }
+  },
   "customers": {
     "login": {
       "email": "Email",
@@ -78,7 +184,8 @@
   "accessibility": {
     "close": "Close",
     "clear_search": "Clear search term",
-    "unit_price_separator": "per"
+    "unit_price_separator": "per",
+    "error": "Error"
   },
   "general": {
     "continue_shopping": "Continue shopping",
@@ -87,6 +194,7 @@
       "view_empty_cart": "View cart"
     },
     "pagination": {
+      "label": "Pagination",
       "previous": "Previous page",
       "next": "Next page",
       "page": "Page {{ number }}"
@@ -114,6 +222,19 @@
     }
   },
   "sections": {
+    "main-login": {
+      "name": "Login",
+      "shop_login_button": {
+        "enable": "Enable Shop Login Button"
+      }
+    },
+    "all": {
+      "padding": {
+        "section_padding_heading": "Section padding",
+        "padding_top": "Top padding",
+        "padding_bottom": "Bottom padding"
+      }
+    },
     "cart": {
       "empty": "Your cart is empty",
       "login": {
