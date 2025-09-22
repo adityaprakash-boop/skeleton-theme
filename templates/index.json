@@ -52,6 +52,7 @@
           "type": "collection_card",
           "settings": {
             "collection": "spring",
+            "custom_image": "shopify://shop_images/V2-Homepage-aboutus-mobile_2.png",
             "custom_title": ""
           }
         },
