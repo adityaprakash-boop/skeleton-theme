@@ -184,7 +184,7 @@ h2.card-heading.product-grid-heading {
   overflow: hidden;
 }
 
-.card-media {
+.card-media, .article-card__image--medium {
   display: flex;
   position: relative;
   align-items: stretch;
@@ -205,14 +205,14 @@ h2.card-heading.product-grid-heading {
   box-sizing: border-box;
 }
 
-.card-media:before {
+.card-media:before, .article-card__image--medium:before {
   content: '';
   width: 0;
   height: 0;
   padding-bottom: 104.2%; /* 272px / 261px from Figma */
 }
 
-.card-media-child {
+.card-media-child, .article-card__image{
   position: absolute;
   top: 0;
   bottom: 0;
@@ -221,7 +221,7 @@ h2.card-heading.product-grid-heading {
   z-index: 1;
 }
 
-.card-media-child img {
+.card-media-child img, .article-card__image{
   width: 100%;
   height: 100%;
   object-fit: cover;
