@@ -257,7 +257,17 @@
 }
 
 .comment-form .form-status-list {
-  margin-top: 1rem;
+  margin: 1rem 0;
+}
+
+.comment-form .form-status{
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.comment-form .form-status .svg-wrapper {
+  width: 32px;
 }
 
 .comment-form .button[type="submit"],
