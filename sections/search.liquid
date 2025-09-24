@@ -84,7 +84,8 @@
                 {%- if section.settings.enable_filtering and section.settings.filter_type == 'vertical' -%}
                   {% render 'component-filters-sidebar',
                     results: search,
-                    collapse_filters: section.settings.collapse_filters
+                    collapse_filters: section.settings.collapse_filters,
+                    show_filter_count: section.settings.show_filter_count,
                   %}
                 {% endif %}
                 <div class="product-grid-container">
@@ -96,7 +97,8 @@
                           enable_sorting: section.settings.enable_sorting,
                           enable_filtering: section.settings.enable_filtering,
                           color_scheme: section.settings.color_scheme,
-                          section_id: section.id
+                          section_id: section.id,
+                          show_filter_count: section.settings.show_filter_count,
                         -%}
                       </div>
                     {%- endif -%}
@@ -109,7 +111,8 @@
                             enable_sorting: section.settings.enable_sorting,
                             enable_filtering: section.settings.enable_filtering,
                             color_scheme: section.settings.color_scheme,
-                            section_id: section.id
+                            section_id: section.id,
+                            show_filter_count: section.settings.show_filter_count,
                           -%}
                         </div>
                       </div>
@@ -120,7 +123,8 @@
                           enable_sorting: section.settings.enable_sorting,
                           enable_filtering: section.settings.enable_filtering,
                           color_scheme: section.settings.color_scheme,
-                          section_id: section.id
+                          section_id: section.id,
+                          show_filter_count: section.settings.show_filter_count,
                         %}
                       </div>
                     {% endif %}
@@ -374,6 +378,13 @@
       "default": false,
       "label": "t:sections.main-collection-product-grid.settings.show_rating.label",
       "info": "t:sections.main-collection-product-grid.settings.show_rating.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filter_count",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.show_filter_count.label",
+      "info": "t:sections.main-collection-product-grid.settings.show_filter_count.info"
     },
     {
       "type": "select",
