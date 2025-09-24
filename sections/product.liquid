@@ -9,6 +9,17 @@
   {%- if section.settings.image_zoom != 'none' -%}
     {{ 'component-product-media-modal.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
+  {% for block in section.blocks %}
+    {% if block.type == 'complementary_products' %}
+      {{ 'component-product-card.css' | asset_url | stylesheet_tag }}
+      <script src="{{ 'component-product-card.js' | asset_url }}" type="module"></script>
+      {% if block.settings.quick_add == 'standard' %}
+        {{ 'component-quick-add.css' | asset_url | stylesheet_tag }}
+        <script src="{{ 'component-quick-add.js' | asset_url }}" type="module"></script>
+        <script src="{{ 'component-modal-opener.js' | asset_url }}" type="module"></script>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
 
   {%- style -%}
     .section-{{ section.id }}-padding {
@@ -482,6 +493,29 @@
                   >
                 {% endif %}
               </div>
+            {%- when 'complementary' -%}
+              <script src="{{ 'product-recommendations.js' | asset_url }}" type="module"></script>
+
+              <product-recommendations class="product-recommendations" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ block.settings.products_to_show }}&intent=complementary">
+                {% if recommendations.performed and recommendations.products_count > 0 %}
+                  {%- for product in recommendations.products limit: block.settings.products_to_show -%}
+                    <li>
+                      {% render 'component-product-card',
+                        card_product: product,
+                        show_vendor: block.settings.show_vendor,
+                        enable_swatches: block.settings.enable_swatches,
+                        swatch_trigger: block.settings.swatch_trigger,
+                        swatch_type: block.settings.swatch_type,
+                        quick_add: block.settings.quick_add,
+                        section_id: section.id,
+                        button_text_color: block.settings.button_text_color,
+                        button_border_color: block.settings.button_border_color
+                      %}
+                    </li>
+                    {%- assign skip_card_product_styles = true -%}
+                  {%- endfor -%}
+                {% endif %}
+              </product-recommendations>
           {%- endcase -%}
         {%- endfor -%}
       </div>
@@ -907,6 +941,79 @@
           "type": "page",
           "id": "page",
           "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
+        }
+      ]
+    },
+    {
+      "type": "complementary",
+      "name": "Complementary products",
+      "settings": [
+        {
+          "type": "header",
+          "content": "t:sections.main-collection-product-grid.settings.header__3.content"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_vendor",
+          "default": false,
+          "label": "t:sections.main-collection-product-grid.settings.show_vendor.label"
+        },
+        {
+          "type": "range",
+          "id": "products_to_show",
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "default": 4,
+          "label": "t:sections.main-product.blocks.complementary_products.settings.product_list_limit.label",
+        },
+        {
+          "type": "select",
+          "id": "quick_add",
+          "default": "standard",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.label",
+          "info": "t:sections.main-collection-product-grid.settings.quick_add.info",
+          "options": [
+            {
+              "value": "none",
+              "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_1"
+            },
+            {
+              "value": "standard",
+              "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_2"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_swatches",
+          "default": true,
+          "label": "t:sections.main-collection-product-grid.settings.enable_swatches.label",
+          "info": "t:sections.main-collection-product-grid.settings.enable_swatches.info"
+        },
+        {
+          "type": "select",
+          "id": "swatch_type",
+          "label": "t:sections.main-collection-product-grid.settings.swatch_type.label",
+          "options": [
+            {
+              "value": "color",
+              "label": "t:sections.main-collection-product-grid.settings.swatch_type.options__1.label"
+            },
+            {
+              "value": "image",
+              "label": "t:sections.main-collection-product-grid.settings.swatch_type.options__2.label"
+            }
+          ],
+          "default": "image",
+          "info": "t:sections.main-collection-product-grid.settings.swatch_type.info"
+        },
+        {
+          "type": "text",
+          "id": "swatch_trigger",
+          "label": "Swatch trigger",
+          "default": "Color",
+          "info": "Enter the product option name to use for variant swatches (e.g. 'Color', 'Size', etc.)"
         }
       ]
     }
