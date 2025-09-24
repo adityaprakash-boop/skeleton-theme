@@ -4,6 +4,11 @@ body.collection .shopify-section.section .page-width {
   padding: 0px 20px;
 }
 
+.collection-page__wrapper {
+  margin: 0;
+  width: 100%;
+}
+
 .collection-hero__title {
   margin: 75px 0;
   font-size: 3.6rem;
@@ -292,6 +297,11 @@ body.collection .shopify-section.section .page-width {
   background-color: rgb(var(--color-background));
   margin-right: 12px;
   flex-shrink: 0;
+  height: auto;
+}
+
+.facet-checkbox>svg {
+  height: auto;
 }
 
 .facet-checkbox .svg-wrapper {

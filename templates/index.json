@@ -9,9 +9,27 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "hello-world",
-      "settings": {}
+    "hero_1": {
+      "type": "hero",
+      "settings": {
+        "background_type": "image",
+        "image_background": "shopify://shop_images/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg",
+        "video_background_url": "",
+        "overlay_color": "#d9d9d9",
+        "overlay_opacity": 30,
+        "content_alignment": "center",
+        "vertical_alignment": "center",
+        "text_color": "#000000",
+        "stars_text": "",
+        "heading": "Main Banner Title Here",
+        "subheading": "Sub Header Here",
+        "button_text": "Shop Now",
+        "button_link": "shopify://collections/cam-plans",
+        "button_color": "#000000",
+        "button_text_color": "#ffffff",
+        "show_endorsement": false,
+        "endorsement_name": ""
+      }
     },
     "featured_collections_hhETJ9": {
       "type": "featured-collections",
@@ -34,6 +52,7 @@
           "type": "collection_card",
           "settings": {
             "collection": "spring",
+            "custom_image": "shopify://shop_images/V2-Homepage-aboutus-mobile_2.png",
             "custom_title": ""
           }
         },
@@ -48,6 +67,7 @@
           "type": "collection_card",
           "settings": {
             "collection": "winter",
+            "custom_image": "shopify://shop_images/image_667.png",
             "custom_title": ""
           }
         }
@@ -68,10 +88,74 @@
         "text_color": "#000000",
         "hide_shop_now": true
       }
+    },
+    "featured_products_example": {
+      "type": "featured-products",
+      "blocks": {
+        "block_1": {
+          "type": "product_card",
+          "settings": {
+            "product": ""
+          }
+        },
+        "block_2": {
+          "type": "product_card",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_card_bpd4Xd": {
+          "type": "product_card",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_card_tP6QmJ": {
+          "type": "product_card",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_card_RUFfmj": {
+          "type": "product_card",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_card_QizrFh": {
+          "type": "product_card",
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "product_card_bpd4Xd",
+        "product_card_tP6QmJ",
+        "product_card_RUFfmj",
+        "product_card_QizrFh"
+      ],
+      "settings": {
+        "heading": "Best Sellers",
+        "subheading": "",
+        "view_all_text": "View All",
+        "view_all_url": "shopify://products/acb-top-in-chipped-brick",
+        "heading_alignment": "center",
+        "show_view_all_as_button": true,
+        "button_background_color": "#2e2e2e",
+        "button_text_color": "#ffffff",
+        "product_content_alignment": "center",
+        "review_content_alignment": "center",
+        "product_info_text_color": "#111111",
+        "stars_color": "#000000"
+      }
     }
   },
   "order": [
-    "main",
-    "featured_collections_hhETJ9"
+    "hero_1",
+    "featured_collections_hhETJ9",
+    "featured_products_example"
   ]
 }

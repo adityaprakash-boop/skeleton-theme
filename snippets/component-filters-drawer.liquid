@@ -7,6 +7,8 @@
   @param {boolean} enable_sorting - Show sorting select inside the drawer
   @param {string} color_scheme - Color scheme for the drawer (optional, defaults to 'scheme-1')
   @param {string} section_id - Unique identifier for the section (required for proper DOM IDs)
+  @param {string} show_filter_count - Show filter count
+
 
   @example
   {% render 'component-filters-drawer', results: collection, enable_sorting: true, enable_filtering: true, color_scheme: 'scheme-1', section_id: section.id %}
@@ -410,7 +412,7 @@
                         <div class="svg-wrapper">
                           {{- 'icon-checkmark.svg' | inline_asset_content -}}
                         </div>
-                        {{- v.label }} ({{ v.count }})
+                        {{- v.label }} {% if show_filter_count != blank %} ({{ v.count }}){% endif %}
                       </label>
                     {%- endfor -%}
                   {% endif %}

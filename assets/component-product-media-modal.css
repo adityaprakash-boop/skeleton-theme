@@ -91,6 +91,7 @@
   position: relative;
   width: 100%;
   height: 100%;
+  z-index: 1;
 }
 
 media-gallery .swiper-slide .loading__spinner {
@@ -99,6 +100,7 @@ media-gallery .swiper-slide .loading__spinner {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 4rem;
+  z-index: 2;
 }
 
 media-gallery .image-magnify-full-size {
