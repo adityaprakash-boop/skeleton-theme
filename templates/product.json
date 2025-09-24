@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "product",
@@ -95,6 +95,18 @@
             "content": "<p>Maximize Your Store's Potential with Superior Shipping Strategies.</p>",
             "page": ""
           }
+        },
+        "complementary_MeGfU6": {
+          "type": "complementary",
+          "settings": {
+            "heading": "Pairs Well With",
+            "show_vendor": false,
+            "products_to_show": 4,
+            "quick_add": "standard",
+            "enable_swatches": true,
+            "swatch_type": "image",
+            "swatch_trigger": "Color"
+          }
         }
       },
       "block_order": [
@@ -109,7 +121,8 @@
         "share_ybFkAW",
         "description_RxGjaP",
         "buy_buttons_JPDYXc",
-        "collapsible_tab_pxw7hB"
+        "collapsible_tab_pxw7hB",
+        "complementary_MeGfU6"
       ],
       "settings": {
         "enable_sticky_info": true,
