@@ -13,7 +13,7 @@
   gap: 0;
 }
 
-.card-heading {
+.card-heading, .card__heading {
   padding: 1rem 0 0 0;
   margin: 0;
   font-size: 1.4rem;
@@ -27,11 +27,11 @@
   margin-top: 2rem;
 }
 
-h2.card-heading.product-grid-heading {
+h2.card-heading.product-grid-heading, .card__heading {
   font-size: 2rem;
 }
 
-.card-heading a {
+.card-heading a, .card__heading a {
   text-decoration: none;
   color: #121212;
   display: block;
@@ -269,6 +269,22 @@ h2.card-heading.product-grid-heading {
 .card__badge.bottom {
   align-self: flex-start;
 }
+
+/******************* Article Card *******************/
+.article-card{
+  height: 100%;
+}
+.card__inner{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.card__content{
+  flex: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 @media (max-width: 768px) {
   .product-card.card--standard .card-media-child {
     width: 100%;
@@ -279,7 +295,7 @@ h2.card-heading.product-grid-heading {
     padding: 2px 0;
   }
   
-  .card-heading {
+  .card-heading, .card__heading {
     font-size: 1.3rem;
   }
   
