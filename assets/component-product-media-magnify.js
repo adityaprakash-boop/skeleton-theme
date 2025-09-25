@@ -13,11 +13,13 @@ export class ProductMediaMagnifier extends HTMLElement {
 
     image.style.opacity = '50%';
     this.toggleLoadingSpinner(image);
-
+    
     overlayImage.onload = () => {
-      this.toggleLoadingSpinner(image);
-      image.parentElement.insertBefore(this.overlay, image);
-      image.style.opacity = '100%';
+      setTimeout(() => {
+        this.toggleLoadingSpinner(image);
+        image.parentElement.insertBefore(this.overlay, image);
+        image.style.opacity = '100%';
+      }, 300);
     };
 
     return this.overlay;

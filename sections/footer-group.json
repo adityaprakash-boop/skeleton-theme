@@ -40,18 +40,13 @@
             "heading": "Provide 3 distinct proposals in JSON form indexed by keys.",
             "subtext": "<p>Upgrade Your Kitchen Game with Cookware Fit for Experts</p>"
           }
-        },
-        "payment_icons_Y9PRJD": {
-          "type": "payment_icons",
-          "settings": {}
         }
       },
       "block_order": [
         "link_list_xdP99L",
         "link_list_kkNmcT",
         "brand_information_pLUCGY",
-        "text_3D9g6x",
-        "payment_icons_Y9PRJD"
+        "text_3D9g6x"
       ],
       "settings": {
         "color_scheme": "",

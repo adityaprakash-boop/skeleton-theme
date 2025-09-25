@@ -44,17 +44,18 @@
   }
 
   /* Button styling for product grid */
-  .product-grid-{{ section.id }} .quick-add__submit {
+  .product-grid-{{section.id}} .product-grid .quick-add__submit {
     color: {{ section.settings.button_text_color }};
     background-color: {{ section.settings.button_background_color }};
+    border-color: {{ section.settings.button_border_color }};
     transition: all 0.2s ease;
   }
 
-  .product-grid-{{ section.id }} .quick-add__submit:hover {
+  .product-grid-{{section.id}} .quick-add__submit:hover {
     background-color: {{ section.settings.button_background_color | color_modify: 'alpha', 0.8 }};
   }
 
-  .product-grid-{{ section.id }} .quick-add__submit:after {
+  .product-grid-{{section.id}} .quick-add__submit:after {
     transition: box-shadow 0.2s ease;
   }
 {%- endstyle -%}
