@@ -7,6 +7,7 @@ export class PredictiveSearch extends HTMLElement {
     this.input = this.querySelector('input[type="search"]');
     this.predictiveSearchResults = this.querySelector('#predictive-search');
     this.resetButton = this.querySelector('.reset__button');
+    this.overlay = this.querySelector('#predictive-search-overlay');
     this.searchTerm = this.input.value.trim();
     this.isOpen = false;
     this.abortController = new AbortController();
@@ -17,7 +18,13 @@ export class PredictiveSearch extends HTMLElement {
     this.input.addEventListener('focus', (e) => this.onChange(e));
 
     this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.handleOverlayClick = this.handleOverlayClick.bind(this);
+    
     document.addEventListener('click', this.handleClickOutside);
+    
+    if (this.overlay) {
+      this.overlay.addEventListener('click', this.handleOverlayClick);
+    }
   }
 
   onChange(e) {
@@ -65,16 +72,27 @@ export class PredictiveSearch extends HTMLElement {
     this.predictiveSearchResults.innerHTML = resultsMarkup;
     this.open();
   }
-
+  
   open() {
     this.toggleLoading(false);
     this.predictiveSearchResults.style.display = 'block';
+    document.body.classList.add('predictive-search-open');
+    
+    if (this.overlay) {
+      this.overlay.classList.add('show');
+    }
+    
     this.isOpen = true;
   }
 
   close() {
     this.predictiveSearchResults.style.display = 'none';
     this.isOpen = false;
+    document.body.classList.remove('predictive-search-open');
+    
+    if (this.overlay) {
+      this.overlay.classList.remove('show');
+    }
   }
 
   clearSearch(e) {
@@ -90,9 +108,19 @@ export class PredictiveSearch extends HTMLElement {
     }
   }
 
+  handleOverlayClick(event) {
+    // Close search when overlay is clicked
+    if (event.target === this.overlay) {
+      this.close();
+    }
+  }
+
   disconnectedCallback() {
-    // Clean up event listener when component is removed
+    // Clean up event listeners when component is removed
     document.removeEventListener('click', this.handleClickOutside);
+    if (this.overlay) {
+      this.overlay.removeEventListener('click', this.handleOverlayClick);
+    }
   }
 
   toggleLoading(show) {
