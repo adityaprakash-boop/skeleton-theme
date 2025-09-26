@@ -37,6 +37,51 @@ body {
   color: var(--color-foreground);
 }
 
+/**
+ * Main Content Layout
+ * 
+ * Creates a flexible main content area that:
+ * - Grows to fill available vertical space
+ * - Pushes footer to bottom of viewport on short pages
+ * - Maintains normal flow when content exceeds viewport height
+ * - Provides accessible focus target for skip navigation
+ */
+.content-for-layout {
+  flex: 1 0 auto;
+  outline: none; /* Remove focus outline since this is programmatic focus */
+  position: relative;
+}
+
+/* Ensure consistent spacing and proper stacking context */
+#MainContent {
+  isolation: isolate;
+}
+
+/**
+ * Skip Navigation Link
+ * 
+ * Accessibility feature that allows keyboard users to bypass navigation
+ * and jump directly to main content. Becomes visible when focused.
+ */
+.skip-to-content-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  z-index: 9999;
+  padding: 8px 16px;
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1.4rem;
+  transition: top 0.2s ease-in-out;
+}
+
+.skip-to-content-link:focus {
+  top: 6px;
+}
+
 h1,
 h2,
 h3,
