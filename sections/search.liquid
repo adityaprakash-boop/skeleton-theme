@@ -129,7 +129,10 @@
                     {%- endif -%}
                     {%- if section.settings.enable_filtering and section.settings.filter_type == 'horizontal' -%}
                       <div class="horizontal-filters__parent-wrapper">
-                        {% render 'component-filters-horizontal', results: search %}
+                        {% render 'component-filters-horizontal',
+                          results: search,
+                          show_filter_count: section.settings.show_filter_count
+                        %}
                         <div class="mobile-horizontal-filter large-up-hide">
                           {%- render 'component-filters-drawer',
                             results: search,
