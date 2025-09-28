@@ -19,7 +19,7 @@
     <div class="card article-card {% if article.image and show_image %} card--media{% else %} card--text{% endif %}">
       <div class="card__inner">
         {%- if show_image == true and article.image -%}
-          <div class="article-card__image-wrapper card__media">
+          <a href="{{ article.url }}" class="article-card__image-wrapper card__media">
             <div class="article-card__image--medium">
               <img
                 srcset="
@@ -40,8 +40,16 @@
                 height="{{ article.image.height }}"
                 class="article-card__image"
               >
+              {%- if show_badge -%}
+                <div class="card__badge-wrapper">
+                  <div class="card__badge article-card__badge ">
+                    <span class="badge">{{ 'blogs.article.blog' | t }}</span>
+                  </div>
+                </div>
+
+              {%- endif -%}
             </div>
-          </div>
+          </a>
         {%- endif -%}
         <div class="card__content">
           <div class="card__information">
@@ -70,11 +78,6 @@
               {%- endif -%}
             {%- endif -%}
           </div>
-          {%- if show_badge -%}
-            <div class="card__badge ">
-              <span class="badge">{{ 'blogs.article.blog' | t }}</span>
-            </div>
-          {%- endif -%}
         </div>
       </div>
     </div>

@@ -130,7 +130,10 @@
                     {%- endif -%}
                     {%- if section.settings.enable_filtering and section.settings.filter_type == 'horizontal' -%}
                       <div class="horizontal-filters__parent-wrapper">
-                        {% render 'component-filters-horizontal', results: search %}
+                        {% render 'component-filters-horizontal',
+                          results: search,
+                          show_filter_count: section.settings.show_filter_count
+                        %}
                         <div class="mobile-horizontal-filter large-up-hide">
                           {%- render 'component-filters-drawer',
                             results: search,
@@ -303,22 +306,24 @@
                             <div class="article-card-wrapper card-wrapper underline-links-hover">
                               <div
                                 class="card card--card card--text ratio"
-                                style="--ratio-percent: 100%;"
+                                style="--ratio-percent: 104.2%;"
                               >
-                                <div class="card__content">
+                                <a href="{{ item.url }}" class="card__content">
                                   <div class="card__information">
                                     <h3 class="card__heading">
-                                      <a href="{{ item.url }}" class="full-unstyled-link">
+                                      <span class="page-card__title">
                                         {{ item.title | truncate: 50 | escape }}
-                                      </a>
+                                      </span>
                                     </h3>
                                   </div>
-                                  <div class="card__badge">
-                                    <span class="badge color-{{ settings.color_schemes | first }}">
-                                      {{- 'templates.search.page' | t -}}
-                                    </span>
+                                  <div class="card__badge-wrapper">
+                                    <div class="card__badge article-card__badge">
+                                      <span class="badge">
+                                        {{- 'templates.search.page' | t -}}
+                                      </span>
+                                    </div>
                                   </div>
-                                </div>
+                                </a>
                               </div>
                             </div>
                         {%- endcase -%}
