@@ -40,6 +40,14 @@
                 height="{{ article.image.height }}"
                 class="article-card__image"
               >
+              {%- if show_badge -%}
+                <div class="card__badge-wrapper">
+                  <div class="card__badge article-card__badge ">
+                    <span class="badge">{{ 'blogs.article.blog' | t }}</span>
+                  </div>
+                </div>
+
+              {%- endif -%}
             </div>
           </a>
         {%- endif -%}
@@ -70,11 +78,6 @@
               {%- endif -%}
             {%- endif -%}
           </div>
-          {%- if show_badge -%}
-            <div class="card__badge ">
-              <span class="badge">{{ 'blogs.article.blog' | t }}</span>
-            </div>
-          {%- endif -%}
         </div>
       </div>
     </div>
