@@ -14,9 +14,9 @@
       {{ 'component-product-card.css' | asset_url | stylesheet_tag }}
       {{ 'component-complementary-products.css' | asset_url | stylesheet_tag }}
       <script src="{{ 'component-product-card.js' | asset_url }}" type="module"></script>
+      <script src="{{ 'product-recommendations.js' | asset_url }}" type="module"></script>
       {% if block.settings.quick_add == 'standard' %}
-        {{ 'component-quick-add.css' | asset_url | stylesheet_tag }}
-        <script src="{{ 'product-recommendations.js' | asset_url }}" type="module"></script>
+        {{ 'component-quick-add.css' | asset_url | stylesheet_tag }}        
         <script src="{{ 'component-quick-add.js' | asset_url }}" type="module"></script>
         <script src="{{ 'component-modal-opener.js' | asset_url }}" type="module"></script>
       {% endif %}
