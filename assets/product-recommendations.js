@@ -1,4 +1,4 @@
-class ProductRecommendations extends HTMLElement {
+export class ProductRecommendations extends HTMLElement {
   constructor() {
     super();
     this.handleIntersection = this.handleIntersection.bind(this);
@@ -37,4 +37,6 @@ class ProductRecommendations extends HTMLElement {
   }
 }
 
-customElements.define('product-recommendations', ProductRecommendations);
+if (!customElements.get('product-recommendations')) {
+  customElements.define('product-recommendations', ProductRecommendations);
+} 
