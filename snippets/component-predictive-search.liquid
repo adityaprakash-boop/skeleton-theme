@@ -2,10 +2,12 @@
   Renders the predictive search form and an empty results container that can be
   populated via JavaScript.
 
+  @param {string} [context] - Optional context for the predictive search
+
   @example
   {% render 'component-predictive-search' %}
 {% enddoc %}
-<predictive-search x-ref="predictiveSearch"> 
+<predictive-search x-ref="predictiveSearch">
   <form action="{{ routes.search_url }}" method="get" role="search">
     <input
       type="search"
@@ -43,5 +45,13 @@
     </div>
     <div id="predictive-search"></div>
   </div>
-  <div id="predictive-search-overlay" x-on:click="searchOpen = false" class="predictive-search-overlay" :class="{ 'show': searchOpen }"></div>
+  <div
+    id="predictive-search-overlay"
+    x-on:click="searchOpen = false"
+    x-transition
+    class="predictive-search-overlay"
+    {% if context == 'header' %}
+      :class="{ 'show': searchOpen }"
+    {% endif %}
+  ></div>
 </predictive-search>
