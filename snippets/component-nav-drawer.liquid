@@ -94,6 +94,9 @@
     box-shadow: none;
     border: 1px solid rgb(var(--color-foreground), 0.2);
   }
+  .menu-drawer_account svg {
+    max-width: 60%;
+  }
 {% endstylesheet %}
 <div
   id="header-drawer"
@@ -130,6 +133,7 @@
         <a
           href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
           rel="nofollow"
+          class="menu-drawer_account"
         >
           {{ 'icon-account.svg' | inline_asset_content }}
         </a>
