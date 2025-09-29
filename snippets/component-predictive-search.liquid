@@ -43,5 +43,5 @@
     </div>
     <div id="predictive-search"></div>
   </div>
-  <div id="predictive-search-overlay" class="predictive-search-overlay"></div>
+  <div id="predictive-search-overlay" x-on:click="searchOpen = false" class="predictive-search-overlay" :class="{ 'show': searchOpen }"></div>
 </predictive-search>
