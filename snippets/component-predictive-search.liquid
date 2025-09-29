@@ -45,13 +45,15 @@
     </div>
     <div id="predictive-search"></div>
   </div>
-  <div
-    id="predictive-search-overlay"
-    x-on:click="searchOpen = false"
-    x-transition
-    class="predictive-search-overlay"
-    {% if context == 'header' %}
-      :class="{ 'show': searchOpen }"
-    {% endif %}
-  ></div>
+  {% if context == 'header' %}
+    <div
+      id="predictive-search-overlay"
+      x-on:click="searchOpen = false"
+      x-transition
+      x-cloak
+      x-show="searchOpen"
+      :style="{ opacity: searchOpen ? 1 : 0 }"
+      class="predictive-search-overlay"
+    ></div>
+  {% endif %}
 </predictive-search>

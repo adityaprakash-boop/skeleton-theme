@@ -137,15 +137,12 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 998;
-    display: none;
+    display: block;
     opacity: 0;
     transition: opacity 0.3s ease;
   }
 
-  .predictive-search-overlay.show {
-    display: block;
-    opacity: 1;
-  }
+
 
   /* Ensure predictive search components appear above overlay */
   predictive-search {
