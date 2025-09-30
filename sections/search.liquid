@@ -274,7 +274,7 @@
 
                   <div class="product-grid-wrapper product-grid-{{ section.id }}" id="product-grid-{{ section.id }}">
                     <div id="loading-overlay-{{ section.id }}" class="loading-overlay"></div>
-                    <div class="product-grid">
+                    <div class="product-grid" {% if section.settings.enable_infinite_scroll %}data-product-grid{% endif %}>
                       {%- for item in search.results -%}
                         {% assign lazy_load = false %}
                         {%- if forloop.index > 2 -%}
@@ -329,9 +329,18 @@
                         {%- endcase -%}
                       {%- endfor -%}
                     </div>
-                    {%- if paginate.pages > 1 -%}
-                      {% render 'component-pagination', paginate: paginate, anchor: '' %}
-                    {%- endif -%}
+                    {% if section.settings.enable_infinite_scroll %}
+                      <infinite-scroll style="display: flex; justify-content: center;">
+                        {%- if paginate.next -%}
+                          <a style="color: currentColor; text-decoration: none; pointer-events: none; margin-top: 30px;"
+                            href="{{ paginate.next.url }}&section_id={{ section.id }}"></a>
+                        {%- endif -%}
+                      </infinite-scroll>
+                    {% else %}
+                      {%- if paginate.pages > 1 -%}
+                        {% render 'component-pagination', paginate: paginate, anchor: '' %}
+                      {%- endif -%}
+                    {% endif %}
                   </div>
                 </div>
               </div>
@@ -346,6 +355,9 @@
 <script src="{{ 'section-collection.js' | asset_url }}" type="module"></script>
 <script src="{{ 'component-product-card.js' | asset_url }}" type="module"></script>
 <script src="{{ 'component-filters-price-range.js' | asset_url }}" type="module"></script>
+{% if section.settings.enable_infinite_scroll %}
+  <script src="{{ 'infinite-scroll.js' | asset_url }}" type="module"></script>
+{% endif %}
 
 {% schema %}
 {
@@ -461,6 +473,17 @@
       "label": "Swatch trigger",
       "default": "Color",
       "info": "Enter the product option name to use for variant swatches (e.g. 'Color', 'Size', etc.)"
+    },
+    {
+      "type": "header",
+      "content": "Pagination"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_infinite_scroll",
+      "default": true,
+      "label": "Enable infinite scroll",
+      "info": "Enable infinite scroll for the collection page"
     },
     {
       "type": "header",
