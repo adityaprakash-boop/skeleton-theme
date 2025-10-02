@@ -172,10 +172,15 @@
 }
 
 @media (max-width: 768px) {
+  .featured-collections__header {
+    margin-bottom: 3rem;
+  }
+
   .featured-collections__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+    padding: 0 16px;
   }
 
   .featured-collections__card.grid__item {
@@ -193,12 +198,12 @@
 
   .collection-card__image-wrapper,
   .collection-card__image-wrapper.media--portrait {
-    height: 220px;
+    height: 254px;
     padding-bottom: 0 !important;
   }
 
   .featured-collections__heading {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
   }
 
   .collection-card__info--below .collection-card__title {
