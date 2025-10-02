@@ -36,7 +36,6 @@
       "blocks": {
         "collection_card_3ccame": {
           "type": "collection_card",
-          "disabled": true,
           "settings": {
             "collection": "luxury-pret",
             "custom_title": ""
@@ -44,7 +43,6 @@
         },
         "collection_card_BRp9XN": {
           "type": "collection_card",
-          "disabled": true,
           "settings": {
             "collection": "mid-season",
             "custom_title": ""
