@@ -3,7 +3,6 @@
 .featured-collections-section {
   padding-top: 11rem;
   padding-bottom: 3rem;
-  max-width: 1280px;
   padding-left: 0px;
   padding-right: 0px;
 }
@@ -11,14 +10,15 @@
 .featured-collections__header {
   text-align: left;
   /* Align header text left */
+  margin-bottom: 4rem;
 }
 
 .featured-collections__heading {
   margin-bottom: 0.5rem;
   /* Adjust spacing */
-  font-weight: bold;
+  font-weight: 600;
   /* Make heading bold */
-  color: rgb(32, 34, 35);
+  color: #000;
   /* Make heading black */
   font-size: 3.6rem;
   /* Match featured products heading size */
@@ -40,18 +40,18 @@
   padding: 0;
   /* Remove default grid padding if any */
   gap: 25px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
 }
 
 .featured-collections__card.grid__item {
+  flex: 1;
+  /* each card takes up equal width */
   max-width: none;
   /* Override base.css potentially limiting max-width */
   position: relative;
   /* For positioning the text overlay */
   overflow: hidden;
   /* Hide overflow if needed */
-  max-height: 300px;
 }
 
 .collection-card__link {
@@ -62,13 +62,10 @@
   /* Needed for overlay child */
   color: inherit;
   text-decoration: none;
-  height: 300px;
-  max-height: 300px;
   overflow: hidden;
 }
 
 .collection-card__image-wrapper {
-  height: 220px;
   width: 100%;
   flex: 0 0 auto;
 }
@@ -76,7 +73,6 @@
 /* Horizontal line layout overrides aspect-ratio hacks */
 .collection-card__image-wrapper.media--portrait {
   padding-bottom: 0 !important;
-  height: 220px;
 }
 
 .collection-card__link--below .collection-card__image-wrapper.media--portrait {
@@ -87,6 +83,7 @@
   display: block;
   width: 100%;
   height: 100%;
+  aspect-ratio: 1;
   object-fit: cover;
   transition: transform 0.3s ease;
   /* Optional: zoom effect on hover */
@@ -160,8 +157,9 @@
   color: rgb(32, 34, 35);
   margin-bottom: 0.25rem;
   text-transform: none;
-  font-size: 1rem;
+  font-size: 2.4rem;
   font-weight: 600;
+  text-align: center;
 }
 
 .collection-card__info--below .collection-card__shop-now {

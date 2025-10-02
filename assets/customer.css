@@ -852,12 +852,16 @@
 }
 
 /* Addresses */
-.addresses h1 {
+.addresses h1, .activate h1 {
   margin-bottom: 2rem;
 }
 
+.activate p {
+  margin: 16px 0;
+}
+
 @media screen and (min-width: 750px) {
-  .addresses h1 {
+  .addresses h1, .activate h1 {
     margin-bottom: 2.7rem;
   }
 }

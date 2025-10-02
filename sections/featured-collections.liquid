@@ -8,6 +8,7 @@
   assign collections_to_show = section.blocks.size
   assign heading_alignment = section.settings.heading_alignment
   assign style = section.settings.style
+  assign grid_gap = section.settings.grid_gap
   assign text_color = section.settings.text_color
   assign hide_shop_now = section.settings.hide_shop_now
 -%}
@@ -26,7 +27,7 @@
       {%- endif -%}
     </div>
 
-    <div class="featured-collections__grid">
+    <div class="featured-collections__grid" style="gap: {{ grid_gap }}px;">
       {%- for block in section.blocks -%}
         {%- assign collection = block.settings.collection -%}
         {%- assign custom_image = block.settings.custom_image -%}
@@ -138,6 +139,16 @@
         { "value": "style2", "label": "Style 2 (Text/Button below image)" }
       ],
       "default": "style2"
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Grid Gap",
+      "default": 25,
+      "unit": "px",
+      "min": 0,
+      "max": 40,
+      "step": 1
     },
     {
       "type": "color",
