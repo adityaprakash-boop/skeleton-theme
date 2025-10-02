@@ -213,6 +213,17 @@ p:empty {
   padding: 0 1.5rem;
 }
 
+.caption-large,
+.customer .field input,
+.customer select,
+.field__input,
+.form__label,
+.select__select {
+  font-size: 1.3rem;
+  line-height: calc(1 + .5 / var(--font-body-scale));
+  letter-spacing: .04rem;
+}
+
 .loading__spinner {
   position: absolute;
   top: 50%;

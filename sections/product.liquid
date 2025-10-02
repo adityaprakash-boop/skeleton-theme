@@ -301,6 +301,42 @@
                     {%- endif -%}
                   {% endform %}
                 </ajax-cart-product-form>
+
+                {%- if block.settings.show_pickup_availability -%}
+                  {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
+                  
+                  {%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities
+                  | where: 'pick_up_enabled', true
+                  -%}
+                  
+                  <pickup-availability class="product__pickup-availabilities quick-add-hidden" 
+                    {% if product.selected_or_first_available_variant.available and pick_up_availabilities.size> 0 %}
+                    available
+                    {% endif %}
+                    data-root-url="{{ routes.root_url }}"
+                    data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                    data-has-only-default-variant="{{ product.has_only_default_variant }}"
+                    data-product-page-color-scheme="gradient color-{{ section.settings.color_scheme }}"
+                  >
+                    <template>
+                      <pickup-availability-preview class="pickup-availability-preview">
+                        <span class="svg-wrapper">
+                          {{- 'icon-unavailable.svg' | inline_asset_content -}}
+                        </span>
+                        <div class="pickup-availability-info">
+                          <p class="caption-large">
+                              {{ 'sections.main-product.blocks.pickup_availability.unavailable' | t }}
+                          </p>
+                          <button class="pickup-availability-button link link--text underlined-link">
+                            {{ 'sections.main-product.blocks.pickup_availability.refresh' | t }}
+                          </button>
+                        </div>
+                      </pickup-availability-preview>
+                    </template>
+                  </pickup-availability>
+                  
+                  <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
+                {%- endif -%}
               </div>
 
             {%- when 'custom_liquid' -%}
@@ -809,6 +845,13 @@
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_pickup_availability",
+          "default": true,
+          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_pickup_availability.label",
+          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_pickup_availability.info"
         }
       ]
     },
