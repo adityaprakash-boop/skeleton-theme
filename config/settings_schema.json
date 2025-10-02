@@ -69,6 +69,16 @@
       },
       {
         "type": "range",
+        "id": "max_page_width_narrow",
+        "min": 600,
+        "max": 1200,
+        "step": 100,
+        "default": 1000,
+        "unit": "px",
+        "label": "t:labels.page_width_narrow"
+      },
+      {
+        "type": "range",
         "id": "min_page_margin",
         "min": 10,
         "max": 100,

@@ -13,6 +13,18 @@
   }
 }
 
+.customer.account,
+.customer.order {
+  width: 100%;
+}
+
+@media screen and (min-width: 750px) {
+  .customer.account, .customer.order {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .customer > h1,
 .customer__title {
   margin-top: 0;
@@ -68,6 +80,40 @@
 
 .customer .field:first-of-type {
   margin-top: 0;
+}
+
+.customer .select {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.customer select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
+  font-size: 1.6rem;
+  width: 100%;
+  transition: box-shadow 0.1s ease;
+  height: 4.5rem;
+  min-width: 7rem;
+  position: relative;
+  cursor: pointer;
+  line-height: 1.6;
+  padding: 0 3rem 0 2rem;
+}
+
+.customer select+.svg-wrapper{
+  height: .6rem;
+  width: 1rem;
+  pointer-events: none;
+  position: absolute;
+  top: calc(50% - .2rem);
+  right: 0;
 }
 
 .customer .field input {
@@ -126,6 +172,7 @@
   text-underline-offset: .3rem;
   text-decoration-thickness: .1rem;
   transition: text-decoration-thickness 0.1s ease;
+  display: inline-block;
 }
 
 .customer a:hover {
@@ -191,6 +238,14 @@
   height: 1.3rem;
 }
 
+.customer .svg-wrapper {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+}
+
 /* Customer Table */
 .customer table {
   table-layout: auto;
@@ -228,6 +283,10 @@
   padding: 0;
 }
 
+.customer td {
+  color: rgba(var(--color-foreground), 0.75);
+}
+
 @media screen and (min-width: 750px) {
   .customer td {
     padding-right: 2.2rem;
@@ -244,6 +303,7 @@
 }
 
 .customer thead th {
+  color: rgba(var(--color-foreground), 0.75);
   font-size: 1.2rem;
   letter-spacing: 0.07rem;
   text-transform: uppercase;
@@ -573,6 +633,7 @@
 :is(.account, .order) p {
   margin: 0 0 2rem;
   font-size: 1.6rem;
+  line-height: 1.8;
 }
 
 :is(.account, .order) h1 {
@@ -587,6 +648,12 @@
 @media screen and (min-width: 990px) {
   :is(.account, .order) h2 {
     margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  :is(.account, .order) h2 {
+    font-size: 2rem;
   }
 }
 
@@ -785,6 +852,16 @@
 }
 
 /* Addresses */
+.addresses h1 {
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .addresses h1 {
+    margin-bottom: 2.7rem;
+  }
+}
+
 .addresses li > button {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -842,6 +919,7 @@ li[data-address] {
 
 .addresses h2 {
   text-align: left;
+  margin: 2rem 0;
 }
 
 li[data-address] > h2 {
