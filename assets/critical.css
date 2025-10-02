@@ -171,7 +171,7 @@ p:empty {
 .page-width--narrow {
   max-width: var(--page-width-narrow);
   margin: 0 auto;
-  padding: 0 1.25rem;
+  padding: 0;
 }
 
 .loading__spinner {
