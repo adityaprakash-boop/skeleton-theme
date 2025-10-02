@@ -264,7 +264,7 @@
                   </infinite-scroll>
                   {%  else %}
                     {%- if paginate.pages > 1 -%}
-                      {% render 'component-pagination', paginate: paginate, anchor: '' %}
+                      {% render 'component-pagination', paginate: paginate, anchor: '#product-grid-' | append: section.id %}
                     {%- endif -%}
                 {% endif %}
                 </div>

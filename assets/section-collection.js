@@ -95,11 +95,28 @@ export class CollectionInfo extends HTMLElement {
         this.updateSourceFromDestination(html, `sort-by-${this.dataset.section}`);
         this.updateFilters(html, `js-filter`);
         this.hideLoadingOverlay();
+        this.scrollToProductGrid();
       })
       .catch((error) => {
         console.error(error);
         this.hideLoadingOverlay();
       });
+  };
+
+  scrollToProductGrid = () => {
+    const productGrid = this.querySelector(`#product-grid-${this.dataset.section}`);
+    const headerId = document.querySelector('#main-header');
+    const headerOffset = (headerId.offsetHeight + 10) || 80;
+
+    if (productGrid) {
+      const elementPosition = productGrid.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 }
 
