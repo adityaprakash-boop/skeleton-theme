@@ -117,7 +117,6 @@ if (!customElements.get('pickup-availability-drawer')) {
         this.removeAttribute('open');
         document.body.removeEventListener('click', this.onBodyClick);
         document.body.classList.remove('overflow-hidden');
-        removeTrapFocus(this.focusElement);
       }
 
       show(focusElement) {
@@ -125,7 +124,6 @@ if (!customElements.get('pickup-availability-drawer')) {
         this.setAttribute('open', '');
         document.body.addEventListener('click', this.onBodyClick);
         document.body.classList.add('overflow-hidden');
-        trapFocus(this);
       }
     }
   );
