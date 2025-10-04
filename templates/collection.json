@@ -12,7 +12,7 @@
     "main": {
       "type": "collection",
       "settings": {
-        "products_per_page": 20,
+        "products_per_page": 32,
         "columns_desktop": 4,
         "color_scheme": "",
         "show_vendor": true,
