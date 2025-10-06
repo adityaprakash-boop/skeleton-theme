@@ -1,4 +1,4 @@
-class InfiniteScroll extends HTMLElement {
+export class InfiniteScroll extends HTMLElement {
   constructor() {
     super();
     this.anchor = this.querySelector("a");
@@ -55,4 +55,6 @@ class InfiniteScroll extends HTMLElement {
   }
 }
 
-customElements.define("infinite-scroll", InfiniteScroll);
+if (!customElements.get("infinite-scroll")) {
+  customElements.define("infinite-scroll", InfiniteScroll);
+}

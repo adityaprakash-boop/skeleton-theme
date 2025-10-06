@@ -16,7 +16,7 @@
       <script src="{{ 'component-product-card.js' | asset_url }}" type="module"></script>
       <script src="{{ 'product-recommendations.js' | asset_url }}" type="module"></script>
       {% if block.settings.quick_add == 'standard' %}
-        {{ 'component-quick-add.css' | asset_url | stylesheet_tag }}        
+        {{ 'component-quick-add.css' | asset_url | stylesheet_tag }}
         <script src="{{ 'component-quick-add.js' | asset_url }}" type="module"></script>
         <script src="{{ 'component-modal-opener.js' | asset_url }}" type="module"></script>
       {% endif %}
@@ -304,14 +304,15 @@
 
                 {%- if block.settings.show_pickup_availability -%}
                   {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
-                  
+
                   {%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities
-                  | where: 'pick_up_enabled', true
+                    | where: 'pick_up_enabled', true
                   -%}
-                  
-                  <pickup-availability class="product__pickup-availabilities quick-add-hidden" 
-                    {% if product.selected_or_first_available_variant.available and pick_up_availabilities.size> 0 %}
-                    available
+
+                  <pickup-availability
+                    class="product__pickup-availabilities quick-add-hidden"
+                    {% if product.selected_or_first_available_variant.available and pick_up_availabilities.size > 0 %}
+                      available
                     {% endif %}
                     data-root-url="{{ routes.root_url }}"
                     data-variant-id="{{ product.selected_or_first_available_variant.id }}"
@@ -325,7 +326,7 @@
                         </span>
                         <div class="pickup-availability-info">
                           <p class="caption-large">
-                              {{ 'sections.main-product.blocks.pickup_availability.unavailable' | t }}
+                            {{ 'sections.main-product.blocks.pickup_availability.unavailable' | t }}
                           </p>
                           <button class="pickup-availability-button link link--text underlined-link">
                             {{ 'sections.main-product.blocks.pickup_availability.refresh' | t }}
@@ -334,8 +335,8 @@
                       </pickup-availability-preview>
                     </template>
                   </pickup-availability>
-                  
-                  <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
+
+                  <script src="{{ 'component-pickup-availability.js' | asset_url }}" type="module"></script>
                 {%- endif -%}
               </div>
 
