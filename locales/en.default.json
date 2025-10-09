@@ -245,6 +245,19 @@
     },
     "footer": {
       "payment": "Payment methods"
+    },
+    "main-product": {
+      "blocks": {
+        "pickup_availability": {
+          "view_store_info": "View store information",
+          "check_other_stores": "Check availability at other stores",
+          "pick_up_available": "Pickup available",
+          "pick_up_available_at_html": "Pickup available at <span class=\"color-foreground\">{{ location_name }}</span>",
+          "pick_up_unavailable_at_html": "Pickup currently unavailable at <span class=\"color-foreground\">{{ location_name }}</span>",
+          "unavailable": "Couldn't load pickup availability",
+          "refresh": "Refresh"
+        }
+      }
     }
   },
   "products": {
@@ -305,6 +318,6 @@
     "404": {
       "title": "Page not found",
       "subtext": "404"
-    },
+    }
   }
 }

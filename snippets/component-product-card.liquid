@@ -146,9 +146,6 @@
                 aria-haspopup="dialog"
                 aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
                 data-product-url="{{ card_product.url }}"
-                {% if button_text_color %}
-                  style="color: {{ button_text_color }};"
-                {% endif %}
               >
                 {{ 'products.product.choose_options' | t }}
                 <div class="loading__spinner hidden">

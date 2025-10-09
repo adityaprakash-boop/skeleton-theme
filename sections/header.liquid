@@ -114,7 +114,7 @@
       padding: 0;
       cursor: pointer;
   }
-  #header-cart-bubble svg {
+  #header-cart-bubble svg, .header-actions_account svg {
     width: 25px;
   }
   [data-cart-count] {
@@ -178,6 +178,7 @@
       width: calc(100% - 2px);
       max-height: 80vh;
       overflow-y: auto;
+      z-index: 1000;
     }
   {%- endif -%}
 
@@ -200,6 +201,10 @@
     background: transparent;
     outline: none;
     box-shadow: none;
+  }
+
+  #header-search form input:-internal-autofill-selected{
+    background-color: transparent;
   }
 
   /* clears the 'X' from Internet Explorer */

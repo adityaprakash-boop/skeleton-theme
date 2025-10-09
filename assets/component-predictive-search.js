@@ -10,12 +10,8 @@ export class PredictiveSearch extends HTMLElement {
     this.searchTerm = this.input.value.trim();
     this.isOpen = false;
     this.abortController = new AbortController();
-
-
-
     this.input.addEventListener('input', debounce((e) => this.onChange(e), 700));
     this.input.addEventListener('focus', (e) => this.onChange(e));
-
     this.handleClickOutside = this.handleClickOutside.bind(this);
     document.addEventListener('click', this.handleClickOutside);
   }
@@ -65,7 +61,7 @@ export class PredictiveSearch extends HTMLElement {
     this.predictiveSearchResults.innerHTML = resultsMarkup;
     this.open();
   }
-
+  
   open() {
     this.toggleLoading(false);
     this.predictiveSearchResults.style.display = 'block';
@@ -91,7 +87,7 @@ export class PredictiveSearch extends HTMLElement {
   }
 
   disconnectedCallback() {
-    // Clean up event listener when component is removed
+    // Clean up event listeners when component is removed
     document.removeEventListener('click', this.handleClickOutside);
   }
 

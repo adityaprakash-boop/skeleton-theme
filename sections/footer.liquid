@@ -1,6 +1,13 @@
 {% comment %}theme-check-disable UndefinedObject{% endcomment %}
 {{ 'section-footer.css' | asset_url | stylesheet_tag }}
 
+<style>
+  #shopify-section-{{ section.id }} {
+    background-color: rgb(243, 243, 243);
+    z-index: -1;
+  }
+</style>
+
 <footer class="footer color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding">
   {%- liquid
     assign has_social_icons = true
@@ -78,52 +85,10 @@
                       {%- render 'component-social-icons', class: 'footer__list-social' -%}
                     {%- endif -%}
                   </div>
-                {%- when 'image' -%}
-                  <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
-                    {%- if block.settings.image != blank -%}
-                      {%- assign image_size_2x = block.settings.image_width | times: 2 | at_most: 5760 -%}
-                      <div
-                        class="footer-block__image-wrapper"
-                        style="max-width: min(100%, {{ block.settings.image_width }}px);"
-                      >
-                        <img
-                          srcset="{{ block.settings.image | image_url: width: block.settings.image_width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x"
-                          src="{{ block.settings.image | image_url: width: 760 }}"
-                          alt="{{ block.settings.image.alt | escape }}"
-                          loading="lazy"
-                          width="{{ block.settings.image.width }}"
-                          height="{{ block.settings.image.height }}"
-                        >
-                      </div>
-                    {%- else -%}
-                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
-                    {%- endif -%}
-                  </div>
-                {%- when 'payment_icons' -%}
-                  <div class="footer-block__details-content">
-                    <ul class="list-payment" role="list">
-                      {%- for type in shop.enabled_payment_types -%}
-                        <li class="list-payment__item">
-                          {{ type | payment_type_svg_tag: class: 'icon' }}
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  </div>
               {%- endcase -%}
             </div>
           {%- endfor -%}
         </div>
-        {%- if section.settings.payment_enable -%}
-          <div class="footer__payment-row">
-            <ul class="list-payment" role="list">
-              {%- for type in shop.enabled_payment_types -%}
-                <li class="list-payment__item">
-                  {{ type | payment_type_svg_tag: class: 'icon' }}
-                </li>
-              {%- endfor -%}
-            </ul>
-          </div>
-        {%- endif -%}
       </div>
     {%- endunless -%}
   {%- endif -%}
@@ -145,7 +110,6 @@
       <div class="footer__column footer__column--info">
         {%- if section.settings.payment_enable -%}
           <div class="footer__payment">
-            <span>{{ 'sections.footer.payment' | t }}</span>
             <ul class="list-payment" role="list">
               {%- for type in shop.enabled_payment_types -%}
                 <li class="list-payment__item">
@@ -159,10 +123,7 @@
     </div>
     <div class="footer__content-bottom-wrapper{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
       <div class="footer__copyright">
-        <small class="copyright__content"
-          >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
-        </small>
-        <small class="copyright__content">{{ powered_by_link }}</small>
+        <small class="copyright__content" >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url }} - {{ powered_by_link }} </small>
         {%- if section.settings.show_policy -%}
           <ul class="policies">
             {%- for policy in shop.policies -%}
@@ -245,57 +206,6 @@
           "label": "t:sections.footer.blocks.text.settings.subtext.label"
         }
       ]
-    },
-    {
-      "type": "image",
-      "name": "Image",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "range",
-          "id": "image_width",
-          "min": 50,
-          "max": 550,
-          "step": 5,
-          "unit": "px",
-          "label": "Image width",
-          "default": 100
-        },
-        {
-          "type": "select",
-          "id": "alignment",
-          "label": "Image alignment on large screen",
-          "options": [
-            {
-              "value": "",
-              "label": "Left"
-            },
-            {
-              "value": "center",
-              "label": "Center"
-            },
-            {
-              "value": "right",
-              "label": "Right"
-            }
-          ],
-          "default": "center"
-        }
-      ]
-    },
-    {
-      "type": "payment_icons",
-      "name": "Payment icons",
-      "settings": []
-    },
-    {
-      "type": "social_icons",
-      "name": "Social media icons",
-      "settings": []
     }
   ],
   "settings": [
@@ -304,17 +214,6 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.footer.settings.header__2.content",
-      "info": "t:sections.footer.settings.header__2.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_social",
-      "default": true,
-      "label": "t:sections.footer.settings.show_social.label"
     },
     {
       "type": "header",
@@ -374,15 +273,18 @@
       "default": 0
     }
   ],
-  "default": {
-    "blocks": [
-      {
-        "type": "link_list"
-      },
-      {
-        "type": "text"
-      }
-    ]
-  }
+  "presets": [
+    {
+      "name": "t:sections.footer.presets.name",
+      "blocks": [
+        {
+          "type": "link_list"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}
