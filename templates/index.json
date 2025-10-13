@@ -13,7 +13,6 @@
       "type": "hero",
       "settings": {
         "background_type": "image",
-        "image_background": "shopify://shop_images/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg",
         "video_background_url": "",
         "overlay_color": "#d9d9d9",
         "overlay_opacity": 30,
@@ -37,37 +36,35 @@
         "collection_card_3ccame": {
           "type": "collection_card",
           "settings": {
-            "collection": "luxury-pret",
+            "collection": "",
             "custom_title": ""
           }
         },
         "collection_card_BRp9XN": {
           "type": "collection_card",
           "settings": {
-            "collection": "mid-season",
+            "collection": "",
             "custom_title": ""
           }
         },
         "collection_card_jbyADA": {
           "type": "collection_card",
           "settings": {
-            "collection": "spring",
-            "custom_image": "shopify://shop_images/V2-Homepage-aboutus-mobile_2.png",
+            "collection": "",
             "custom_title": ""
           }
         },
         "collection_card_LVn8DN": {
           "type": "collection_card",
           "settings": {
-            "collection": "summer",
+            "collection": "",
             "custom_title": ""
           }
         },
         "collection_card_nCgcp7": {
           "type": "collection_card",
           "settings": {
-            "collection": "winter",
-            "custom_image": "shopify://shop_images/image_667.png",
+            "collection": "",
             "custom_title": ""
           }
         }
@@ -85,6 +82,7 @@
         "subheading": "Browse through our collections",
         "heading_alignment": "center",
         "style": "style2",
+        "grid_gap": 25,
         "text_color": "#000000",
         "hide_shop_now": true
       }
