@@ -11,6 +11,17 @@
   "type": "header",
   "name": "t:general.header",
   "sections": {
+    "announcement_bar_w3jQpJ": {
+      "type": "announcement-bar",
+      "name": "Announcement Bar",
+      "settings": {
+        "text_1": "SUBSCRIBE & SAVE 20% + FREE SHIPPING EVERY MONTH",
+        "text_2": "FREE SHIPPING OVER $100",
+        "text_3": "24,370 VERIFIED REVIEWS",
+        "background_color": "#254430",
+        "text_color": "#FFFFFF"
+      }
+    },
     "header": {
       "type": "header",
       "settings": {
@@ -32,21 +43,10 @@
         "menu_text_color": "#000000",
         "cart_count_color": "#2e2e2e"
       }
-    },
-    "announcement_bar_w3jQpJ": {
-      "type": "announcement-bar",
-      "name": "Announcement Bar",
-      "settings": {
-        "text_1": "SUBSCRIBE & SAVE 20% + FREE SHIPPING EVERY MONTH",
-        "text_2": "FREE SHIPPING OVER $100",
-        "text_3": "24,370 VERIFIED REVIEWS",
-        "background_color": "#254430",
-        "text_color": "#FFFFFF"
-      }
     }
   },
   "order": [
-    "header",
-    "announcement_bar_w3jQpJ"
+    "announcement_bar_w3jQpJ",
+    "header"
   ]
 }
