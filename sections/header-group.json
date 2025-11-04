@@ -11,28 +11,6 @@
   "type": "header",
   "name": "t:general.header",
   "sections": {
-    "header": {
-      "type": "header",
-      "settings": {
-        "logo_position": "middle-left",
-        "menu_position": "center",
-        "menu": "main-menu",
-        "menu_type_desktop": "mega",
-        "sticky_header_type": "on-scroll-up",
-        "show_line_separator": true,
-        "color_scheme": "",
-        "menu_color_scheme": "",
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "enable_customer_avatar": true,
-        "mobile_logo_position": "center",
-        "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "menu_text_color": "#000000",
-        "cart_count_color": "#2e2e2e"
-      }
-    },
     "announcement_bar_4XywgV": {
       "type": "announcement-bar",
       "blocks": {
@@ -64,6 +42,28 @@
       "settings": {
         "background_color": "#254430",
         "text_color": "#ffffff"
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_position": "middle-center",
+        "menu_position": "left",
+        "menu": "welleco-menu",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "color_scheme": "",
+        "menu_color_scheme": "",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "enable_customer_avatar": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "menu_text_color": "#000000",
+        "cart_count_color": "#2e2e2e"
       }
     }
   },
