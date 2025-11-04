@@ -1,0 +1,155 @@
+{% comment %}
+  Announcement Bar Section
+  Displays a customizable announcement banner at the top of the page with rotating text
+{% endcomment %}
+
+<link rel="stylesheet" href="https://use.typekit.net/sjm2dby.css">
+
+{%- liquid
+  assign text_1 = section.settings.text_1
+  assign text_2 = section.settings.text_2
+  assign text_3 = section.settings.text_3
+  assign background_color = section.settings.background_color
+  assign text_color = section.settings.text_color
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --announcement-bg-color: {{ background_color }};
+    --announcement-text-color: {{ text_color }};
+    padding: 0;
+    margin: 0;
+  }
+</style>
+
+{% stylesheet %}
+.announcement-bar-section .announcement-bar {
+  background-color: var(--announcement-bg-color, #000000);
+  color: var(--announcement-text-color, #FFFFFF);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.announcement-bar-section .announcement-bar__container {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  text-align: center;
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  min-height: 1.5em;
+}
+
+.announcement-bar-section .announcement-bar__text-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.announcement-bar-section .announcement-bar__text {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 100;
+  line-height: 1.5;
+  color: var(--announcement-text-color, rgb(250, 248, 248));
+  font-family: "josefin-sans", sans-serif;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0s linear 0.8s;
+  top: 0;
+  left: 0;
+}
+
+.announcement-bar-section .announcement-bar__text.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.8s ease-in-out, visibility 0s linear 0s;
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .announcement-bar-section .announcement-bar__text {
+    font-size: 1.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .announcement-bar-section .announcement-bar__text {
+    transition: none;
+  }
+}
+{% endstylesheet %}
+
+{%- if text_1 != blank or text_2 != blank or text_3 != blank -%}
+  <announcement-rotator
+    class="announcement-bar full-width section-{{ section.id }}-padding"
+    data-section-id="{{ section.id }}"
+  >
+    <div class="announcement-bar__container">
+      <div class="announcement-bar__text-wrapper">
+        {%- if text_1 != blank -%}
+          <p class="announcement-bar__text" data-index="0">{{ text_1 | escape }}</p>
+        {%- endif -%}
+        {%- if text_2 != blank -%}
+          <p class="announcement-bar__text" data-index="1">{{ text_2 | escape }}</p>
+        {%- endif -%}
+        {%- if text_3 != blank -%}
+          <p class="announcement-bar__text" data-index="2">{{ text_3 | escape }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+  </announcement-rotator>
+{%- endif -%}
+
+<script src="{{ 'section-announcement-bar.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "tag": "section",
+  "class": "announcement-bar-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text_1",
+      "label": "Text Line 1",
+      "default": "SUBSCRIBE & SAVE 20% + FREE SHIPPING EVERY MONTH"
+    },
+    {
+      "type": "text",
+      "id": "text_2",
+      "label": "Text Line 2",
+      "default": "FREE SHIPPING OVER $100"
+    },
+    {
+      "type": "text",
+      "id": "text_3",
+      "label": "Text Line 3",
+      "default": "24,370 VERIFIED REVIEWS"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#254430"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Bar"
+    }
+  ]
+}
+{% endschema %}
+
