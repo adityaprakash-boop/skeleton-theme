@@ -50,6 +50,12 @@
             "text": "FREE SHIPPING OVER $100"
           }
         },
+        "announcement_text_wKEzMC": {
+          "type": "announcement_text",
+          "settings": {
+            "text": "24,370 VERIFIED REVIEWS"
+          }
+        },
         "announcement_text_TJnAHd": {
           "type": "announcement_text",
           "settings": {
@@ -59,12 +65,13 @@
       },
       "block_order": [
         "announcement_text_6JpAL3",
+        "announcement_text_wKEzMC",
         "announcement_text_TJnAHd"
       ],
       "name": "Announcement Bar",
       "settings": {
         "background_color": "#254430",
-        "text_color": "#FFFFFF"
+        "text_color": "#ffffff"
       }
     }
   },
