@@ -6,9 +6,6 @@
 <link rel="stylesheet" href="https://use.typekit.net/sjm2dby.css">
 
 {%- liquid
-  assign text_1 = section.settings.text_1
-  assign text_2 = section.settings.text_2
-  assign text_3 = section.settings.text_3
   assign background_color = section.settings.background_color
   assign text_color = section.settings.text_color
 -%}
@@ -85,22 +82,20 @@
 }
 {% endstylesheet %}
 
-{%- if text_1 != blank or text_2 != blank or text_3 != blank -%}
+{%- if section.blocks.size > 0 -%}
   <announcement-rotator
     class="announcement-bar full-width section-{{ section.id }}-padding"
     data-section-id="{{ section.id }}"
   >
     <div class="announcement-bar__container">
       <div class="announcement-bar__text-wrapper">
-        {%- if text_1 != blank -%}
-          <p class="announcement-bar__text" data-index="0">{{ text_1 | escape }}</p>
-        {%- endif -%}
-        {%- if text_2 != blank -%}
-          <p class="announcement-bar__text" data-index="1">{{ text_2 | escape }}</p>
-        {%- endif -%}
-        {%- if text_3 != blank -%}
-          <p class="announcement-bar__text" data-index="2">{{ text_3 | escape }}</p>
-        {%- endif -%}
+        {%- for block in section.blocks -%}
+          {%- if block.settings.text != blank -%}
+            <p class="announcement-bar__text" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+              {{ block.settings.text | escape }}
+            </p>
+          {%- endif -%}
+        {%- endfor -%}
       </div>
     </div>
   </announcement-rotator>
@@ -115,24 +110,6 @@
   "class": "announcement-bar-section",
   "settings": [
     {
-      "type": "text",
-      "id": "text_1",
-      "label": "Text Line 1",
-      "default": "SUBSCRIBE & SAVE 20% + FREE SHIPPING EVERY MONTH"
-    },
-    {
-      "type": "text",
-      "id": "text_2",
-      "label": "Text Line 2",
-      "default": "FREE SHIPPING OVER $100"
-    },
-    {
-      "type": "text",
-      "id": "text_3",
-      "label": "Text Line 3",
-      "default": "24,370 VERIFIED REVIEWS"
-    },
-    {
       "type": "color",
       "id": "background_color",
       "label": "Background Color",
@@ -143,6 +120,20 @@
       "id": "text_color",
       "label": "Text Color",
       "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement_text",
+      "name": "Announcement Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Enter Your Text"
+        }
+      ]
     }
   ],
   "presets": [
