@@ -11,14 +11,6 @@
   "type": "header",
   "name": "t:general.header",
   "sections": {
-    "announcement_bar_w3jQpJ": {
-      "type": "announcement-bar",
-      "name": "Announcement Bar",
-      "settings": {
-        "background_color": "#254430",
-        "text_color": "#ffffff"
-      }
-    },
     "header": {
       "type": "header",
       "settings": {
@@ -76,8 +68,7 @@
     }
   },
   "order": [
-    "announcement_bar_w3jQpJ",
-    "header",
-    "announcement_bar_4XywgV"
+    "announcement_bar_4XywgV",
+    "header"
   ]
 }
