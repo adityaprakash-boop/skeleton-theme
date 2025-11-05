@@ -120,25 +120,6 @@
                       </li>
                     {%- endfor -%}
                   </ul>
-
-                {%- elsif childlink.title == 'SHOP BY COLLECTION' -%}
-                  <!-- Display all collections dynamically -->
-                  <ul class="nav-megamenu_child" role="list">
-                    {%- for collection_item in collections -%}
-                      {%- unless collection_item.handle == 'frontpage' -%}
-                        <li>
-                          <a
-                            href="{{ collection_item.url }}"
-                            {% if request.page_type == 'collection' and collection_item.handle == collection.handle %}
-                              aria-current="page"
-                            {% endif %}
-                          >
-                            {{ collection_item.title | escape }}
-                          </a>
-                        </li>
-                      {%- endunless -%}
-                    {%- endfor -%}
-                  </ul>
                 {%- endif -%}
               </li>
             {%- endfor -%}

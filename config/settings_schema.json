@@ -61,7 +61,7 @@
         "type": "range",
         "id": "max_page_width",
         "min": 1200,
-        "max": 1800,
+        "max": 2000,
         "step": 100,
         "default": 1600,
         "unit": "px",
