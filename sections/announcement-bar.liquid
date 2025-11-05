@@ -1,9 +1,5 @@
-{% comment %}
-  Announcement Bar Section
-  Displays a customizable announcement banner at the top of the page with rotating text
-{% endcomment %}
 
-<link rel="stylesheet" href="https://use.typekit.net/sjm2dby.css">
+
 
 {%- liquid
   assign background_color = section.settings.background_color
@@ -17,70 +13,72 @@
     padding: 0;
     margin: 0;
   }
+  @font-face {
+    font-family: "Futura PT";
+    src: url('{{ "FuturaCyrillicLight.woff2" | asset_url }}') format("woff2"),
+         url('{{ "FuturaCyrillicLight.woff"  | asset_url }}') format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Futura PT";
+    src: url('{{ "FuturaCyrillicBook.woff2" | asset_url }}') format("woff2"),
+         url('{{ "FuturaCyrillicBook.woff"  | asset_url }}') format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Futura PT";
+    src: url('{{ "FuturaCyrillicMedium.woff2" | asset_url }}') format("woff2"),
+         url('{{ "FuturaCyrillicMedium.woff"  | asset_url }}') format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Futura PT";
+    src: url('{{ "FuturaCyrillicDemi.woff2" | asset_url }}') format("woff2"),
+         url('{{ "FuturaCyrillicDemi.woff"  | asset_url }}') format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Futura PT";
+    src: url('{{ "FuturaCyrillicBold.woff2" | asset_url }}') format("woff2"),
+         url('{{ "FuturaCyrillicBold.woff"  | asset_url }}') format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Futura PT";
+    src: url('{{ "FuturaCyrillicExtraBold.woff2" | asset_url }}') format("woff2"),
+         url('{{ "FuturaCyrillicExtraBold.woff"  | asset_url }}') format("woff");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Futura PT";
+    src: url('{{ "FuturaCyrillicHeavy.woff2" | asset_url }}') format("woff2"),
+         url('{{ "FuturaCyrillicHeavy.woff"  | asset_url }}') format("woff");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
 </style>
 
-{% stylesheet %}
-.announcement-bar-section .announcement-bar {
-  background-color: var(--announcement-bg-color, #000000);
-  color: var(--announcement-text-color, #FFFFFF);
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
+{{ 'section-announcement-bar.css' | asset_url | stylesheet_tag }}
 
-.announcement-bar-section .announcement-bar__container {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  text-align: center;
-  max-width: 100%;
-  margin: 0 auto;
-  position: relative;
-  min-height: 1.5em;
-}
-
-.announcement-bar-section .announcement-bar__text-wrapper {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-}
-
-.announcement-bar-section .announcement-bar__text {
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: 100;
-  line-height: 1.5;
-  color: var(--announcement-text-color, rgb(250, 248, 248));
-  font-family: "josefin-sans", sans-serif;
-  position: absolute;
-  width: 100%;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.8s ease-in-out, visibility 0s linear 0.8s;
-  top: 0;
-  left: 0;
-}
-
-.announcement-bar-section .announcement-bar__text.active {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.8s ease-in-out, visibility 0s linear 0s;
-  position: relative;
-}
-
-@media screen and (max-width: 768px) {
-  .announcement-bar-section .announcement-bar__text {
-    font-size: 1.2rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .announcement-bar-section .announcement-bar__text {
-    transition: none;
-  }
-}
-{% endstylesheet %}
 
 {%- if section.blocks.size > 0 -%}
   <announcement-rotator
