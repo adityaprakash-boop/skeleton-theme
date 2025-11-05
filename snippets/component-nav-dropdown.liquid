@@ -65,15 +65,50 @@
           {%- for childlink in link.links -%}
             <li>
               {% if childlink.links == blank %}
-                <a
-                  href="{{ childlink.url }}"
-                  class="header__menu-item"
-                  {% if childlink.current %}
-                    aria-current="page"
-                  {% endif %}
-                >
-                  {{ childlink.title | escape }}
-                </a>
+                {%- if childlink.title == 'SHOP BY COLLECTION' -%}
+                  {%- comment -%} Display all collections from the store {%- endcomment -%}
+                  <div
+                    @click="activeSubMenu = (activeSubMenu === '{{ childlink.title | escape }}' ? null : '{{ childlink.title | escape }}')"
+                    :class="{ 'menu-open': activeSubMenu === '{{ childlink.title | escape }}' }"
+                    class="menu-toggle"
+                  >
+                    {{- childlink.title | escape -}}
+                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                  </div>
+                  <ul
+                    x-show="activeSubMenu === '{{ childlink.title | escape }}'"
+                    class="nav-dropdown_child"
+                    x-transition
+                    role="list"
+                    x-cloak
+                  >
+                    {%- for collection_item in collections -%}
+                      {%- unless collection_item.handle == 'frontpage' -%}
+                        <li>
+                          <a
+                            href="{{ collection_item.url }}"
+                            class="header__menu-item"
+                            {% if request.page_type == 'collection' and collection_item.handle == collection.handle %}
+                              aria-current="page"
+                            {% endif %}
+                          >
+                            {{ collection_item.title | escape }}
+                          </a>
+                        </li>
+                      {%- endunless -%}
+                    {%- endfor -%}
+                  </ul>
+                {%- else -%}
+                  <a
+                    href="{{ childlink.url }}"
+                    class="header__menu-item"
+                    {% if childlink.current %}
+                      aria-current="page"
+                    {% endif %}
+                  >
+                    {{ childlink.title | escape }}
+                  </a>
+                {%- endif -%}
               {% else %}
                 <div
                   @click="activeSubMenu = (activeSubMenu === '{{ childlink.title | escape }}' ? null : '{{ childlink.title | escape }}')"

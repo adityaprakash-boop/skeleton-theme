@@ -1,4 +1,7 @@
 {% style %}
+#shopify-section-{{ section.id }} * {
+    font-family: "Futura PT", "Futura", "Avenir Next", sans-serif ;
+  }
   #shopify-section-{{ section.id }} {
     position: {% unless section.settings.sticky_header_type == 'none' %}sticky{% else %}relative{% endunless %};
     top: 0;
@@ -60,7 +63,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 1rem;
+    gap: 3rem;
   }
   .header-menu-position-left ul {
     justify-content: flex-start;
@@ -105,6 +108,7 @@
   #main-header nav a {
     text-decoration: none;
     color: inherit;
+    font-size: 15px;
   }
   #header-cart-bubble {
       position: relative;
@@ -137,7 +141,8 @@
   .header-actions > * {
     display: flex;
     justify-content: flex-end;
-    gap: 1rem;
+    align-items: center;
+    gap: 2rem;
     color: inherit;
     {% if section.settings.logo_position == 'top-left' or section.settings.logo_position == 'top-center' %}
       grid-area: 1 / 3;
@@ -260,6 +265,26 @@
     width: 20px;
     color: rgb(var(--color-foreground));
   }
+    /* TAKE OUR QUIZ Button Styles */
+    .header-quiz-button {
+    display: inline-block;
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+    padding: 12px 17px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .header-quiz-button:hover {
+    background: #000;
+    color: #fff;
+  }
+
 
   @media (min-width: 1025px) {
     {% unless section.settings.menu_type_desktop == 'drawer' %}
@@ -376,7 +401,11 @@
     {% endif %}
 
     <div class="header-actions">
-      {% if section.settings.enable_country_selector or section.settings.enable_language_selector %}
+      {%- unless section.settings.logo_position == 'top-center' or section.settings.menu == blank -%}
+        {{ header_search }}
+      {%- endunless -%}
+    
+      {%- if section.settings.enable_country_selector or section.settings.enable_language_selector -%}
         <div class="header-actions_localization">
           {%- render 'component-localization-form',
             enable_country_selector: section.settings.enable_country_selector,
@@ -384,11 +413,11 @@
             menu_color_scheme: section.settings.menu_color_scheme
           -%}
         </div>
-      {% endif %}
+      {%- endif -%}
 
-      {% unless section.settings.logo_position == 'top-center' or section.settings.menu == blank %}
-        {{ header_search }}
-      {% endunless %}
+      <a href="/pages/quiz" class="header-quiz-button">
+        {{ section.settings.quiz_button_text }}
+      </a>
 
       {% if shop.customer_accounts_enabled and section.settings.enable_customer_avatar %}
         <a
@@ -418,6 +447,8 @@
         {{- 'icon-cart2.svg' | inline_asset_content -}}
         <div data-cart-count data-ajax-cart-bind="item_count">{{ cart.item_count }}</div>
       </a>
+     
+    
     </div>
 
     <div id="header-search" :class="{ 'active': searchOpen }">
@@ -725,7 +756,14 @@
       "id": "cart_count_color",
       "label": "Cart count color",
       "default": "#2E2E2E"
+    },
+    {
+      "type": "text",
+      "id": "quiz_button_text",
+      "label": "Quiz button text",
+      "default": "TAKE OUR QUIZ"
     }
+    
   ],
   "blocks": [
     {
