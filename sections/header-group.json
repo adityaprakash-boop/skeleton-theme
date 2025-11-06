@@ -47,6 +47,12 @@
     "header": {
       "type": "header",
       "blocks": {
+        "featured_product_jVeYjG": {
+          "type": "featured_product",
+          "settings": {
+            "product": "the-complete-snowboard"
+          }
+        },
         "featured_product_nyGy4t": {
           "type": "featured_product",
           "settings": {
@@ -55,6 +61,7 @@
         }
       },
       "block_order": [
+        "featured_product_jVeYjG",
         "featured_product_nyGy4t"
       ],
       "settings": {
