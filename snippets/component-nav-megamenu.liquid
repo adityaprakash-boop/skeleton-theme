@@ -423,7 +423,8 @@
   flex-wrap: wrap;
   margin-bottom: 20px;
   padding: 10px 0;
-  padding-left: 5%;
+  padding-left: 4%;
+  padding-top: 2%;
 }
 
 #main-header .nav-megamenu_about-block {
@@ -445,22 +446,27 @@
 }
 
 #main-header .nav-megamenu_about-name {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: 1px;
+  text-align: left;
+  
 }
 
 
 {% endstylesheet %}
 <ul>
   {% for link in menu.links %}
-    <li x-data="{ menuOpen: false }">
+    <li 
+      x-data="{ menuOpen: false }" 
+      @mouseenter="menuOpen = true" 
+      @mouseleave="menuOpen = false"
+    >
       {% if link.links != blank or link.title == 'ABOUT' %}
         <!-- Removed caret icon + hover behavior -->
         <a
           href="{{ link.url }}"
           class="menu-toggle"
-          @click.prevent="menuOpen = !menuOpen"  <!-- ✅ toggle on click -->
           :class="{ 'menu-open': menuOpen }"
         >
           {{- link.title | escape -}}
