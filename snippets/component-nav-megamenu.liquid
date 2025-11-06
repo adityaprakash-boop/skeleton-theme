@@ -590,10 +590,13 @@
               </li>
             {%- endfor -%}
           </ul>
+
+          {% if link.title != 'ABOUT' %}
            <!-- SHOP ALL BUTTON -->
            <div class="nav-megamenu_shop-all">
             <a href="{{ link.url }}" class="shop-all-btn">SHOP ALL</a>
           </div>
+          {% endif %}
         </div>
 
       {% else %}
