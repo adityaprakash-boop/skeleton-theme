@@ -547,7 +547,7 @@
 {
   "name": "t:sections.header.name",
   "class": "section-header",
-  "max_blocks": 3,
+  "max_blocks": 8,
   "settings": [
     {
       "type": "select",
@@ -805,7 +805,29 @@
           "label": "Product"
         }
       ]
+    },
+    {
+      "type": "about_block",
+      "name": "About Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL"
+        }
+      ]
     }
+    
   ]
 }
 {% endschema %}

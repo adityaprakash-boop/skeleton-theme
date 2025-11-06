@@ -1,4 +1,4 @@
-{% doc %}
+{% comment %}
   Renders a megamenu layout for a navigation item with child links. The menu
   expands on click using Alpine.js and supports nested child links.
 
@@ -8,7 +8,7 @@
 
   @example
   {% render 'component-nav-megamenu', menu: section.settings.menu, menu_color_scheme: section.settings.menu_color_scheme, featured_products: section.blocks %}
-{% enddoc %}
+{% endcomment %}
 {% stylesheet %}
   #main-header .nav-megamenu {
     position: absolute;
@@ -246,7 +246,7 @@
     display: flex;
     /* grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); */
     gap: 16px;
-    width: 200%;
+    width: 250%;
     margin-top: 20px;
     padding: 10px 0;
   }
@@ -400,34 +400,67 @@
   display: inline-block;
   padding: 15px 30px;
   border: 1px solid black;
-  
+
   font-size: 17px;
   font-weight: 400;
   color: black;
   background-color: white;
-  
+
   letter-spacing: 1px;
 }
 
 #main-header .shop-all-btn:hover {
   background-color: black;
   color: white; /* ✅ keeps text visible on hover */
- 
+
 }
+/* --- ABOUT BLOCKS --- */
+#main-header .nav-megamenu_about-blocks {
+  display: flex;
+
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  padding-left: 5%;
+}
+
+#main-header .nav-megamenu_about-block {
+  max-width: 15%;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+
+}
+
+
+
+#main-header .nav-megamenu_about-block img {
+  width: 100%;
+  object-fit: cover;
+  
+  margin-bottom: 10px;
+}
+
+#main-header .nav-megamenu_about-name {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
 
 {% endstylesheet %}
 <ul>
   {% for link in menu.links %}
-    <li
-      x-data="{ menuOpen: false }"
-      @mouseenter="menuOpen = true"
-      @mouseleave="menuOpen = false"
-    >
-      {% if link.links != blank %}
+    <li x-data="{ menuOpen: false }">
+      {% if link.links != blank or link.title == 'ABOUT' %}
         <!-- Removed caret icon + hover behavior -->
         <a
           href="{{ link.url }}"
           class="menu-toggle"
+          @click.prevent="menuOpen = !menuOpen"  <!-- ✅ toggle on click -->
           :class="{ 'menu-open': menuOpen }"
         >
           {{- link.title | escape -}}
@@ -445,6 +478,23 @@
           x-transition:leave-start="shutter-leave-start"
           x-transition:leave-end="shutter-leave-end"
         >
+          {% if link.title == 'ABOUT' %}
+            {% assign about_blocks = section.blocks | where: 'type', 'about_block' %}
+            {% if about_blocks.size > 0 %}
+              <div class="nav-megamenu_about-blocks">
+                {% for block in about_blocks %}
+                  <a href="{{ block.settings.url }}" class="nav-megamenu_about-block">
+                    {% if block.settings.image != blank %}
+                      <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.name | escape }}">
+                    {% endif %}
+                    {% if block.settings.name != blank %}
+                      <div class="nav-megamenu_about-name">{{ block.settings.name }}</div>
+                    {% endif %}
+                  </a>
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% endif %}
           <ul class="page-width" role="list">
             {%- for childlink in link.links -%}
               <li>
@@ -479,8 +529,7 @@
                       {%- if block.type == 'featured_product' and block.settings.product != blank -%}
                         {%- assign product = block.settings.product -%}
                         <div class="nav-megamenu_product-card-wrapper">
-                          <!-- Replace with this updated section -->
-                          <!-- Replace with this updated section -->
+
                           <div class="nav-megamenu_product-card">
                             <a href="{{ product.url }}">
                               {%- if product.featured_image -%}
