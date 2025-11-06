@@ -55,6 +55,14 @@
             "url": "#"
           }
         },
+        "about_block_4FtqWQ": {
+          "type": "about_block",
+          "settings": {
+            "image": "shopify://shop_images/250114-Welleco-day2-SH_018-40276-_1_copy_2_jpg.png",
+            "name": "INNOVATION",
+            "url": "#"
+          }
+        },
         "featured_product_jVeYjG": {
           "type": "featured_product",
           "settings": {
@@ -70,6 +78,7 @@
       },
       "block_order": [
         "about_block_WB6f3R",
+        "about_block_4FtqWQ",
         "featured_product_jVeYjG",
         "featured_product_nyGy4t"
       ],
