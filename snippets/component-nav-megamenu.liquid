@@ -16,13 +16,15 @@
     top: 100%;
     width: 100%;
     margin-top: 1px;
+    /* --- NEW: Added for shutter animation --- */
+    transform-origin: top;
   }
   #main-header .nav-megamenu .page-width {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     margin-inline: auto;
     align-items: flex-start;
-    padding: 30px 20px;
+    padding: 30px 40px;
   }
   #main-header .nav-megamenu .nav-megamenu_child {
     position: static;
@@ -31,12 +33,20 @@
   }
   #main-header .nav-megamenu_heading {
     font-weight: 500;
+    font-size: 17px;
+    word-spacing: 2px;
+    letter-spacing: 2px;
   }
   #main-header .nav-megamenu_child a {
     display: block;
     padding: 6px 0;
-    font-size: 15px;
+    font-size: 13px;
     line-height: 1.5;
+    font-weight: 400;
+    word-spacing: 1px;
+    letter-spacing: 1px;
+    
+    
   }
   
   /* Featured Products Grid in Megamenu */
@@ -50,147 +60,353 @@
   #main-header .nav-megamenu_product-card {
     display: flex;
     flex-direction: column;
+    
+    
+
+    
   }
   
   #main-header .nav-megamenu_product-card a {
     text-decoration: none;
     color: inherit;
+   
+    
   }
   
   #main-header .nav-megamenu_product-image {
-    width: 100%;
+    /* width: 100%; */
     aspect-ratio: 1 / 1.2;
-    object-fit: cover;
+    object-fit: cntain;
     margin-bottom: 10px;
     background-color: #f5f5f5;
+   
   }
   
   #main-header .nav-megamenu_product-title {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 400;
     margin-bottom: 5px;
     line-height: 1.4;
+    word-spacing: 1.5px;
   }
   
   #main-header .nav-megamenu_product-price {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 300;
   }
-  
+ 
   #main-header .nav-megamenu_product-price s {
     color: rgba(var(--color-foreground), 0.5);
     margin-right: 5px;
   }
+  
   /* Underline only for main (top-level) menu items */
+  #main-header > nav > ul > li > a,
+  #main-header > nav > ul > li > .menu-toggle {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    padding: 5px 0;
+  }
+
+  /* Create the center-out underline */
+  #main-header > nav > ul > li > a::after,
+  #main-header > nav > ul > li > .menu-toggle::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: all 0.5s ease;
+    transform: translateX(-50%);
+  }
+
+  /* Animate underline on hover (main menu only) */
+  #main-header > nav > ul > li:hover > a::after,
+  #main-header > nav > ul > li:hover > .menu-toggle::after {
+    width: 100%;
+  }
+  /* ---------- Featured Products in Megamenu ---------- */
+  #main-header .nav-megamenu_featured-products {
+    display: flex;
+    /* grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); */
+    gap: 16px;
+    width:300%;
+    margin-top: 20px;
+    padding: 10px 0;
+  }
+
+  /* Limit card size so it doesn’t stretch */
+  #main-header .nav-megamenu_product-card-wrapper {
+    width: 100%;
+    /* max-width: 300px; */
+  
+    margin: 0 auto;
+  }
+
+  /* Shrink inner product card */
+  #main-header .nav-megamenu_featured-products .product-card {
+    transform: scale(0.9);
+    transform-origin: top center;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  /* On hover, gently lift */
+  /* #main-header .nav-megamenu_featured-products .product-card:hover {
+    transform: scale(0.95) translateY(-4px);
+  } */
+
+  /* Fix image stretching */
+  #main-header .nav-megamenu_featured-products .card-media-child img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    aspect-ratio: 1 / 1; /* square image */
+    /* border-radius: 6px; */
+    
+    
+  }
+
+  /* Tighten up info */
+  #main-header .nav-megamenu_featured-products .card-information {
+    text-align: center;
+    padding-top: 8px;
+  }
+
+  #main-header .nav-megamenu_featured-products .card-heading a {
+    font-size: 14px;
+    line-height: 1.4;
+    display: block;
+    font-weight: 400;
+  }
+
+  #main-header .nav-megamenu_featured-products .card-pricing {
+    font-size: 13px;
+    margin-top: 4px;
+    font-weight: 300;
+  }
+
+  /* Hide quick add buttons to keep it compact */
+  #main-header .nav-megamenu_featured-products .quick-add {
+    display: none !important;
+  }
+
+  /* Hide swatches if accidentally enabled */
+  #main-header .nav-megamenu_featured-products .product-color-swatches {
+    display: none !important;
+  }
+
+  /* Optional: subtle card hover shadow */
+  #main-header .nav-megamenu_featured-products .product-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background: #fff;
+    border-radius: 8px;
+  }
+  
+  /* --- NEW: Add these classes for the slide animation --- */
+  
+  #main-header .nav-megamenu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    margin-top: 1px;
+    /* Optional: Improves performance */
+    will-change: clip-path, transform;
+  }
+
+  /* --- CORRECTED: Shutter Animation using clip-path for Alpine.js v2 --- */
+
+  /* Defines the transition properties for the 'enter' phase */
+  .shutter-enter {
+    transition: clip-path 0.2s ease-out, transform 0.2s ease-out;
+  }
+
+  /* The starting state: fully clipped from the bottom and slightly moved up */
+  .shutter-enter-start {
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(-15px);
+  }
+
+  /* The ending state: fully visible and in its final position */
+  .shutter-enter-end {
+    clip-path: inset(0 0 0% 0);
+    transform: translateY(0);
+  }
+
+  /* Defines the transition properties for the 'leave' phase */
+  .shutter-leave {
+    transition: clip-path 0.2s ease-in;
+  }
+
+  /* The starting state when leaving: fully visible */
+  .shutter-leave-start {
+    clip-path: inset(0 0 0% 0);
+  }
+
+  /* The ending state when leaving: fully clipped from the bottom */
+  .shutter-leave-end {
+    clip-path: inset(0 0 100% 0);
+  }
+  #main-header .nav-megamenu_featured-products {
+    display: flex;
+    /* grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); */
+    gap: 16px;
+    width:200%;
+    margin-top: 20px;
+    padding: 10px 0;
+  }
+
+  /* Limit card size so it doesn’t stretch */
+  #main-header .nav-megamenu_product-card-wrapper {
+    width: 100%;
+    /* max-width: 300px; */
+    
+
+    margin: 0 auto;
+  }
+
+  /* Shrink inner product card */
+  #main-header .nav-megamenu_featured-products .product-card {
+    transform: scale(0.9);
+    transform-origin: top center;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  /* On hover, gently lift */
+  /* #main-header .nav-megamenu_featured-products .product-card:hover {
+    transform: scale(0.95) translateY(-4px);
+  } */
+
+  /* Fix image stretching */
+  #main-header .nav-megamenu_featured-products .card-media-child img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    aspect-ratio: 1 / 1; /* square image */
+    /* border-radius: 6px; */
+
+
+  }
+
+  /* Tighten up info */
+  #main-header .nav-megamenu_featured-products .card-information {
+    text-align: center;
+    padding-top: 8px;
+  }
+
+  #main-header .nav-megamenu_featured-products .card-heading a {
+    font-size: 14px;
+    line-height: 1.4;
+    display: block;
+    font-weight: 400;
+  }
+
+  #main-header .nav-megamenu_featured-products .card-pricing {
+    font-size: 13px;
+    margin-top: 4px;
+    font-weight: 300;
+  }
+
+  /* Hide quick add buttons to keep it compact */
+  #main-header .nav-megamenu_featured-products .quick-add {
+    display: none !important;
+  }
+
+  /* Hide swatches if accidentally enabled */
+  #main-header .nav-megamenu_featured-products .product-color-swatches {
+    display: none !important;
+  }
+  #main-header .nav-megamenu_product-card {
+  position: relative; /* Essential for positioning the hover content */
+  overflow: hidden;   /* Hides the content that slides up */
+  display: flex;
+  flex-direction: column;
+}
+/* --- NEW: Shutter Content Container --- */
+#main-header .nav-megamenu_product-info-hover {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; /* Covers bottom half of the card */
+  background: white;
+  padding: 10px;
+  box-sizing: border-box;
+  transform: translateY(100%); /* Hides it by default by pushing it down */
+  transition: transform 0.3s ease-in-out; /* Smooth shutter animation */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
+  text-align: left;
+  
+}
+
+/* --- NEW: Hover State to reveal the shutter --- */
+#main-header .nav-megamenu_product-card:hover .nav-megamenu_product-info-hover {
+  transform: translateY(0); /* Move it into view */
+}
+
+/* --- NEW: Button Container & Styles --- */
+#main-header .nav-megamenu_buttons {
+  margin-top: 10px;
+  width: 100%;
+}
+
+#main-header .nav-megamenu_buttons .btn {
+  display: block;
+  width: 100%;
+  padding: 8px 5px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid black;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  opacity: 1;
+}
+
+#main-header .nav-megamenu_buttons .btn-subscribe {
+  background-color: white;
+  color: black;
+  margin-bottom: 5px;
+  line-height: 1.1;
+}
+
+
+
+#main-header .nav-megamenu_buttons .btn-add-to-cart {
+  background-color: black;
+  color: white;
+  padding: 12px 5px;
+}
+
+#main-header .nav-megamenu_buttons .btn-add-to-cart:hover {
+  background-color: black;
+  color: white;
+}
+/* --- NEW: Style for the always-visible info --- */
+#main-header .nav-megamenu_product-info-visible {
+  padding: 10px;
+  
+}
 #main-header > nav > ul > li > a,
 #main-header > nav > ul > li > .menu-toggle {
-  position: relative;
-  text-decoration: none;
-  color: inherit;
-  padding: 5px 0;
+  font-size: 15px; 
+  font-weight: 500;/* 👈 change this value */
 }
 
-/* Create the center-out underline */
-#main-header > nav > ul > li > a::after,
-#main-header > nav > ul > li > .menu-toggle::after {
-  content: '';
-  position: absolute;
-  bottom: -3px;
-  left: 50%;
-  width: 0;
-  height: 1px;
-  background: currentColor;
-  transition: all 0.5s ease;
-  transform: translateX(-50%);
-}
-
-/* Animate underline on hover (main menu only) */
-#main-header > nav > ul > li:hover > a::after,
-#main-header > nav > ul > li:hover > .menu-toggle::after {
-  width: 100%;
-}
-/* ---------- Featured Products in Megamenu ---------- */
-#main-header .nav-megamenu_featured-products {
-  display: flex;
-  /* grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); */
-  gap: 16px;
-  width:300%;
-  margin-top: 20px;
-  padding: 10px 0;
-}
-
-/* Limit card size so it doesn’t stretch */
-#main-header .nav-megamenu_product-card-wrapper {
-  width: 100%;
-  /* max-width: 300px; */
- 
-  margin: 0 auto;
-}
-
-/* Shrink inner product card */
-#main-header .nav-megamenu_featured-products .product-card {
-  transform: scale(0.9);
-  transform-origin: top center;
-  transition: all 0.3s ease;
-  border: none;
-  box-shadow: none;
-  background: transparent;
-}
-
-/* On hover, gently lift */
-/* #main-header .nav-megamenu_featured-products .product-card:hover {
-  transform: scale(0.95) translateY(-4px);
-} */
-
-/* Fix image stretching */
-#main-header .nav-megamenu_featured-products .card-media-child img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  aspect-ratio: 1 / 1; /* square image */
-  /* border-radius: 6px; */
-  
-  
-}
-
-/* Tighten up info */
-#main-header .nav-megamenu_featured-products .card-information {
-  text-align: center;
-  padding-top: 8px;
-}
-
-#main-header .nav-megamenu_featured-products .card-heading a {
-  font-size: 14px;
-  line-height: 1.4;
-  display: block;
-  font-weight: 400;
-}
-
-#main-header .nav-megamenu_featured-products .card-pricing {
-  font-size: 13px;
-  margin-top: 4px;
-  font-weight: 300;
-}
-
-/* Hide quick add buttons to keep it compact */
-#main-header .nav-megamenu_featured-products .quick-add {
-  display: none !important;
-}
-
-/* Hide swatches if accidentally enabled */
-#main-header .nav-megamenu_featured-products .product-color-swatches {
-  display: none !important;
-}
-
-/* Optional: subtle card hover shadow */
-#main-header .nav-megamenu_featured-products .product-card:hover {
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  background: #fff;
-  border-radius: 8px;
-}
-
-
-  
 {% endstylesheet %}
 <ul>
   {% for link in menu.links %}
@@ -211,14 +427,21 @@
           {{- link.title | escape -}}
         </a>
         
+        
 
         <!-- Megamenu Dropdown -->
         <div
           x-show="menuOpen"
-          x-transition
           x-cloak
           class="nav-megamenu color-{{ menu_color_scheme }} gradient"
+          x-transition:enter="shutter-enter"
+          x-transition:enter-start="shutter-enter-start"
+          x-transition:enter-end="shutter-enter-end"
+          x-transition:leave="shutter-leave"
+          x-transition:leave-start="shutter-leave-start"
+          x-transition:leave-end="shutter-leave-end"
         >
+         
           <ul class="page-width" role="list">
             {%- for childlink in link.links -%}
               <li>
@@ -253,12 +476,58 @@
                       {%- if block.type == 'featured_product' and block.settings.product != blank -%}
                         {%- assign product = block.settings.product -%}
                         <div class="nav-megamenu_product-card-wrapper">
-                          {% render 'component-product-card',
-                            card_product: product,
-                            show_vendor: false,
-                            enable_swatches: false,
-                            section_id: 'megamenu'
-                          %}
+                          <!-- Replace with this updated section -->
+<!-- Replace with this updated section -->
+<div class="nav-megamenu_product-card">
+  <a href="{{ product.url }}">
+    {%- if product.featured_image -%}
+      <img
+        src="{{ product.featured_image | image_url: width: 400 }}"
+        alt="{{ product.featured_image.alt | escape }}"
+        class="nav-megamenu_product-image"
+        width="200"
+        height="240"
+        loading="lazy"
+      >
+    {%- else -%}
+      <div class="nav-megamenu_product-image" style="background-color: #f0f0f0;"></div>
+    {%- endif -%}
+  </a>
+  
+  <!-- 1. ALWAYS-VISIBLE INFO -->
+  <div class="nav-megamenu_product-info-visible">
+    <div class="nav-megamenu_product-title">
+      {{ product.title }}
+    </div>
+    <div class="nav-megamenu_product-price">
+      {%- if product.compare_at_price > product.price -%}
+        <s>{{ product.compare_at_price | money }}</s>
+      {%- endif -%}
+      <span>{{ product.price | money }}</span>
+    </div>
+  </div>
+
+  <!-- 2. SLIDING HOVER PANEL (with duplicated info + buttons) -->
+  <div class="nav-megamenu_product-info-hover">
+    <div class="nav-megamenu_product-title">
+      {{ product.title }}
+    </div>
+    <div class="nav-megamenu_product-price">
+      {%- if product.compare_at_price > product.price -%}
+        <s>{{ product.compare_at_price | money }}</s>
+      {%- endif -%}
+      <span>{{ product.price | money }}</span>
+    </div>
+    <div class="nav-megamenu_buttons">
+      <div class="btn btn-subscribe">
+        SUBSCRIBE & SAVE 20%
+      </div>
+      <div class="btn btn-add-to-cart">
+        ADD TO CART
+      </div>
+    </div>
+  </div>
+</div>
                         </div>
                       {%- endif -%}
                     {%- endfor -%}
