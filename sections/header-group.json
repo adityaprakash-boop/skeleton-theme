@@ -63,6 +63,14 @@
             "url": "#"
           }
         },
+        "about_block_fi7i7D": {
+          "type": "about_block",
+          "settings": {
+            "image": "shopify://shop_images/250114-Welleco-day2-SH_018-40276-_1_copy_3_jpg.png",
+            "name": "AWARDS",
+            "url": "#"
+          }
+        },
         "featured_product_jVeYjG": {
           "type": "featured_product",
           "settings": {
@@ -79,6 +87,7 @@
       "block_order": [
         "about_block_WB6f3R",
         "about_block_4FtqWQ",
+        "about_block_fi7i7D",
         "featured_product_jVeYjG",
         "featured_product_nyGy4t"
       ],
