@@ -394,7 +394,8 @@
         {% elsif section.settings.menu_type_desktop != 'drawer' %}
           {% render 'component-nav-megamenu',
             menu: section.settings.menu,
-            menu_color_scheme: section.settings.menu_color_scheme
+            menu_color_scheme: section.settings.menu_color_scheme,
+            featured_products: section.blocks
           %}
         {% endif %}
       </nav>
@@ -768,6 +769,17 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type": "featured_product",
+      "name": "Featured Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
     }
   ]
 }

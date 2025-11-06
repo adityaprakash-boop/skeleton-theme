@@ -75,9 +75,12 @@
         {% if show_vendor %}
           <span class="card-vendor">{{ card_product.vendor }}</span>
         {% endif %}
-        <div class="card-pricing">
-          {% render 'component-product-price', product: card_product, show_compare_at_price: true %}
-        </div>
+       {% unless section_id == 'megamenu' %}
+  <div class="card-pricing">
+    {% render 'component-product-price', product: card_product, show_compare_at_price: true %}
+  </div>
+{% endunless %}
+
         {% if enable_swatches %}
           <div class="product-color-swatches">
             {%- for option in card_product.options_with_values -%}
