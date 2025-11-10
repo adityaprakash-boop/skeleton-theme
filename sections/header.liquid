@@ -87,6 +87,7 @@
     background: transparent;
     color: inherit;
     font-size: inherit;
+    
   }
   #main-header .menu-toggle svg {
     width: 12px;
@@ -245,10 +246,12 @@
     background: rgba(var(--color-foreground),.08);
   }
 
+
   #header-search .reset__button svg.icon-close {
     width: 10px !important;
     height: auto;
   }
+  
 
   /* clears the 'X' from Chrome */
   #header-search form input[type='search']::-webkit-search-decoration,
@@ -287,6 +290,73 @@
     background: #000;
     color: #fff;
   }
+  
+  #header-search .predictive-search__products ul {
+  display: flex; 
+  flex-wrap: wrap;         
+  flex-direction: row;    
+  gap: 1.5rem;           
+
+ 
+  list-style-type: none;
+  padding: 1rem;
+  margin: 0;
+}
+
+
+#header-search .predictive-search__products ul li {
+  flex-shrink: 0;       
+           
+}
+#header-search .predictive-search__products ul li a {
+  display: block; 
+  text-align: left;
+  font-size: 1.4rem; 
+}
+#header-search  {
+  margin-top: 120px;
+  border-radius: 40rem;
+}
+.header-drawer-search { 
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+.mobile-info-bar {
+ display: none;
+  
+  
+}
+
+@media (max-width: 1024px) {
+  /* .mobile-info-bar {
+    color: black;
+  display: flex;
+      font-size: 1.3rem;
+      letter-spacing: 1.2px;
+      align-items: center;
+      line-height: 2.2rem;
+      gap: 2.7rem;
+      border-top: 1px solid grey;
+      padding: 1.6rem 3.2rem;
+      justify-content: space-evenly;
+      flex: 0 0 auto; 
+      
+  }
+}
+@media (max-width: 920px) {
+  .mobile-info-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+   
+      
+  }
+  .mobile-info-bar span {
+    flex: 0 0 auto;         
+  } */
+}
+
+
  
 
 
@@ -295,10 +365,17 @@
       #header-drawer {
         display: none;
       }
+      .header-drawer-search {
+        display: none;
+      }
     {% endunless %}
   }
 
   @media (max-width: 1024px) {
+    .header-actions #header-actions_search {
+    display: none;
+  }
+
     #main-header > nav,
     .header-actions_account,
     .header-actions_localization {
@@ -322,6 +399,9 @@
     #predictive-search-wrapper {
         border-top: 1px solid rgba(var(--color-foreground),var(--color-background));
     }
+    .header-quiz-button{
+      display: none;
+    }
   }
   @media (min-width: 1025px) {
     .header-menu-position-center {
@@ -343,6 +423,28 @@
     background: {{ section.settings.cart_count_color }};
     color: #fff;
   }
+ 
+  @media (max-width: 1024px) {
+    #main-header .menu-toggle {
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.2);
+}
+#main-header ul ul  .menu-toggle {
+  border-bottom: none;
+}
+
+#main-header .menu-toggle.menu-open {
+  border-bottom: none;
+}
+
+
+
+
+
+
+
+  }
+  
+
 {% endstyle %}
 
 {% capture header_search %}
@@ -365,13 +467,23 @@
     x-data="{ searchOpen: false, searchTerm: '{{ search.terms | escape }}' }"
     @click.outside="searchOpen = false"
   >
-    {% render 'component-nav-drawer',
-      menu: section.settings.menu,
-      menu_color_scheme: section.settings.menu_color_scheme,
-      enable_country_selector: section.settings.enable_country_selector,
-      enable_language_selector: section.settings.enable_language_selector,
-      enable_customer_avatar: section.settings.enable_customer_avatar
-    %}
+    <div class="header-drawer-search">
+      {% render 'component-nav-drawer',
+        menu: section.settings.menu,
+        menu_color_scheme: section.settings.menu_color_scheme,
+        enable_country_selector: section.settings.enable_country_selector,
+        enable_language_selector: section.settings.enable_language_selector,
+        enable_customer_avatar: section.settings.enable_customer_avatar
+      %}
+    
+      <div class="header-search-drawer">
+        {{ header_search }}
+      </div>
+    </div>
+    
+    
+    
+    
 
     {% if section.settings.logo_position == 'top-center' or section.settings.menu == blank %}
       {{ header_search }}
@@ -492,6 +604,19 @@
       </button>
     </div>
   </header>
+  <div class="mobile-info-bar">
+   <span>SHOP ALL</span>
+   <span>ESSENTIALS</span>
+   <span>BEAUTY & WELLNESS</span>
+   <span>HAIR</span>
+   <span>SLEEP</span>
+   <span>KIDS</span>
+   <span>MINIS</span>
+   <span>LIFESTYLE</span>
+   <span>BUNDLES</span>
+   <span>GIFT CARDS</span>
+
+  </div>
 
   {%- if settings.cart_type == 'notification' -%}
     {%- render 'component-cart-notification',

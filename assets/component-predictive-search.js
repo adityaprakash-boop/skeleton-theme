@@ -48,7 +48,8 @@ export class PredictiveSearch extends HTMLElement {
       .then(text => {
         const parser = new DOMParser();
         const doc = parser.parseFromString(text, 'text/html');
-        const resultsMarkup = doc.querySelector('#shopify-section-predictive-results')?.innerHTML || '';
+        const productsContainer = doc.querySelector('.predictive-search__products');
+        const resultsMarkup = productsContainer ? productsContainer.outerHTML : '';
         this.updateResults(resultsMarkup);
       })
       .catch(error => {

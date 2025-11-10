@@ -1,14 +1,13 @@
-{% doc %}
+{% comment %}
   Renders a dropdown navigation list with support for nested child links.
   Can render in a drawer style for mobile or inline for the header.
 
   @param {string} [nav_style] - 'drawer' to render classes for drawer navigation
   @param {linklist} menu - Menu object to render
   @param {string} menu_color_scheme - Color scheme handle for menu background
+  @param featured_products - Blocks containing featured products from section.blocks
+{% endcomment %}
 
-  @example
-  {% render 'component-nav-dropdown', nav_style: 'drawer', menu: section.settings.menu, menu_color_scheme: section.settings.menu_color_scheme %}
-{% enddoc %}
 {% unless nav_style == 'drawer' %}
   {% style %}
     #main-header .nav-dropdown,
@@ -37,24 +36,24 @@
       padding: 12px 18px;
       border-bottom: 1px solid rgb(var(--color-foreground), 0.2);
     }
+    
   {% endstyle %}
 {% endunless %}
-<ul
-  {% if nav_style == 'drawer' %}
-    class="menu-drawer_navigation"
-  {% endif %}
->
+
+<ul class="{% if nav_style == 'drawer' %}menu-drawer_navigation{% endif %}">
   {% for link in menu.links %}
     <li x-data="{ menuOpen: false, activeSubMenu: null }" @click.outside="menuOpen = false; activeSubMenu = null">
-      {% if link.links != blank %}
-        <div
-          @click="menuOpen = !menuOpen"
+      {% if link.links != blank or link.title == 'ABOUT' %}
+       
+        <a
+          href="{{ link.url }}"
+          @click.prevent="menuOpen = !menuOpen"
           :class="{ 'menu-open': menuOpen }"
           class="menu-toggle"
         >
           {{- link.title | escape -}}
           {{- 'icon-caret.svg' | inline_asset_content -}}
-        </div>
+        </a>
         <ul
           x-show="menuOpen"
           class="nav-{{ nav_style }} color-{{ menu_color_scheme }} gradient"
@@ -62,9 +61,124 @@
           role="list"
           x-cloak
         >
-          {%- for childlink in link.links -%}
+         
+          {% if link.title == 'ABOUT' and nav_style == 'drawer' %}
+            {% assign about_blocks = featured_products | where: 'type', 'about_block' %}
+            {% if about_blocks.size > 0 %}
+              <li>
+                <div class="nav-megamenu_about-blocks-drawer">
+                  {% for block in about_blocks %}
+                    <div
+                      class="nav-megamenu_about-block-drawer"
+                      {% if block.settings.url != blank %}
+                        @click="window.location='{{ block.settings.url }}'"
+                        role="link"
+                        tabindex="0"
+                      {% endif %}
+                    >
+                      
+                        {% if block.settings.image != blank %}
+                          <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.name | escape }}">
+                        {% endif %}
+                      
+                      {% if block.settings.name != blank %}
+                        <div class="nav-megamenu_about-name">{{ block.settings.name }}</div>
+                      {% endif %}
+                    </div>
+                  {% endfor %}
+                </div>
+                
+              </li>
+            {% endif %}
+          {% endif %}
+
+          {% comment %} Renders the second-level links {% endcomment %}
+          {% for childlink in link.links %}
             <li>
-              {% if childlink.links == blank %}
+              {% comment %} CASE 1: The link is "FEATURED" in the drawer {% endcomment %}
+              {% if childlink.title == 'FEATURED' and featured_products != blank and nav_style == 'drawer' %}
+                <div class="nav-megamenu_featured-products-container">
+                  <h4 class="featured-products-title">{{ childlink.title | escape }}</h4>
+                  <div class="nav-megamenu_featured-products">
+                    {% for block in featured_products %}
+                      {% if block.type == 'featured_product' and block.settings.product != blank %}
+                        {% assign product = block.settings.product %}
+                        <div class="nav-megamenu_product-card-wrapper">
+                          <div class="nav-megamenu_product-card">
+                            <a href="{{ product.url }}">
+                              {% if product.featured_image %}
+                                <img
+                                  src="{{ product.featured_image | image_url: width: 400 }}"
+                                  alt="{{ product.featured_image.alt | escape }}"
+                                  class="nav-megamenu_product-image"
+                                  width="200"
+                                  height="240"
+                                  loading="lazy"
+                                >
+                              {% else %}
+                                <div class="nav-megamenu_product-image" style="background-color: #f0f0f0;"></div>
+                              {% endif %}
+                            </a>
+                            <div class="nav-megamenu_product-info-visible">
+                              <div class="nav-megamenu_product-title">{{ product.title }}</div>
+                              <div class="nav-megamenu_product-price">
+                                {%- if product.compare_at_price > product.price -%}
+                                  <s>{{ product.compare_at_price | money }}</s>
+                                {%- endif -%}
+                                <span>{{ product.price | money }}</span>
+                              </div>
+                            </div>
+                            <div class="nav-megamenu_product-info-hover">
+                              <div class="nav-megamenu_product-title">{{ product.title }}</div>
+                              <div class="nav-megamengu_product-price">
+                                {%- if product.compare_at_price > product.price -%}
+                                  <s>{{ product.compare_at_price | money }}</s>
+                                {%- endif -%}
+                                <span>{{ product.price | money }}</span>
+                              </div>
+                              <div class="nav-megamenu_buttons">
+                                <div class="btn btn-subscribe">SUBSCRIBE & SAVE 20%</div>
+                                <div class="btn btn-add-to-cart">ADD TO CART</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+
+              {% comment %} CASE 2: The link has its own dropdown (3rd level) {% endcomment %}
+              {% elsif childlink.links != blank %}
+                
+                  <div
+                    @click="activeSubMenu = (activeSubMenu === '{{ childlink.title | escape }}' ? null : '{{ childlink.title | escape }}')"
+                    :class="{ 'menu-open': activeSubMenu === '{{ childlink.title | escape }}' }"
+                    class="menu-toggle"
+                  >
+                    {{- childlink.title | escape -}}
+                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                  </div>
+                  <ul
+                    x-show="activeSubMenu === '{{ childlink.title | escape }}'"
+                    class="nav-dropdown_child"
+                    x-transition
+                    role="list"
+                    x-cloak
+                  >
+                    {% for grandchildlink in childlink.links %}
+                      <li>
+                        <a href="{{ grandchildlink.url }}" class="header__menu-item" {% if grandchildlink.current %}aria-current="page"{% endif %}>
+                          {{ grandchildlink.title | escape }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                
+                
+
+              {% comment %} CASE 3: A standard, simple link {% endcomment %}
+              {% else %}
                 <a
                   href="{{ childlink.url }}"
                   class="header__menu-item"
@@ -74,47 +188,13 @@
                 >
                   {{ childlink.title | escape }}
                 </a>
-              {% else %}
-                <div
-                  @click="activeSubMenu = (activeSubMenu === '{{ childlink.title | escape }}' ? null : '{{ childlink.title | escape }}')"
-                  :class="{ 'menu-open': activeSubMenu === '{{ childlink.title | escape }}' }"
-                  class="menu-toggle"
-                >
-                  {{- childlink.title | escape -}}
-                  {{- 'icon-caret.svg' | inline_asset_content -}}
-                </div>
-                <ul
-                  x-show="activeSubMenu === '{{ childlink.title | escape }}'"
-                  class="nav-dropdown_child"
-                  x-transition
-                  role="list"
-                  x-cloak
-                >
-                  {%- for grandchildlink in childlink.links -%}
-                    <li>
-                      <a
-                        href="{{ grandchildlink.url }}"
-                        class="header__menu-item"
-                        {% if grandchildlink.current %}
-                          aria-current="page"
-                        {% endif %}
-                      >
-                        {{ grandchildlink.title | escape }}
-                      </a>
-                    </li>
-                  {%- endfor -%}
-                </ul>
               {% endif %}
             </li>
-          {%- endfor -%}
+          {% endfor %}
         </ul>
       {% else %}
-        <a
-          href="{{ link.url }}"
-          {% if link.current %}
-            aria-current="page"
-          {% endif %}
-        >
+        {% comment %} Renders a top-level link that does NOT have a dropdown {% endcomment %}
+        <a href="{{ link.url }}" {% if link.current %} aria-current="page" {% endif %}>
           {{- link.title | escape -}}
         </a>
       {% endif %}

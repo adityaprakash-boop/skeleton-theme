@@ -21,10 +21,13 @@
   }
   #main-header .nav-megamenu .page-width {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     margin-inline: auto;
     align-items: flex-start;
     padding: 30px 40px;
+    
+    
+
   }
   #main-header .nav-megamenu .nav-megamenu_child {
     position: static;
@@ -33,14 +36,14 @@
   }
   #main-header .nav-megamenu_heading {
     font-weight: 500;
-    font-size: 17px;
+    font-size: 18px;
     word-spacing: 2px;
     letter-spacing: 2px;
   }
   #main-header .nav-megamenu_child a {
     display: block;
     padding: 6px 0;
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.5;
     font-weight: 400;
     word-spacing: 1px;
@@ -125,7 +128,7 @@
     /* grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); */
     gap: 16px;
     width: 300%;
-    margin-top: 20px;
+   
     padding: 10px 0;
   }
 
@@ -246,8 +249,8 @@
     display: flex;
     /* grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); */
     gap: 16px;
-    width: 250%;
-    margin-top: 20px;
+    width: 200%;
+  
     padding: 10px 0;
   }
 
@@ -323,8 +326,8 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50%; /* Covers bottom half of the card */
-    background: white;
+    height:60%; /* Covers bottom half of the card */
+    background: rgba(255, 255, 255, 0.7); 
     padding: 10px;
     box-sizing: border-box;
     transform: translateY(100%); /* Hides it by default by pushing it down */
@@ -334,6 +337,7 @@
     /* justify-content: center;
   align-items: center; */
     text-align: left;
+ 
   }
 
   /* --- NEW: Hover State to reveal the shutter --- */
@@ -419,12 +423,15 @@
   display: flex;
 
   align-items: flex-start;
-  gap: 30px;
+  gap: 2.4rem;
   flex-wrap: wrap;
-  margin-bottom: 20px;
-  padding: 10px 0;
-  padding-left: 4%;
-  padding-top: 2%;
+  
+  
+  padding-left: 4rem;
+  padding-top: 4rem;
+  
+  
+
 }
 
 #main-header .nav-megamenu_about-block {
@@ -452,21 +459,105 @@
   text-align: left;
   
 }
+@media (max-width: 890px) {
+  #main-header .nav-megamenu_buttons .btn {
+    display: block;
+    width: 100%;
+    padding: 8px 5px;
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    border: 1px solid black;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+    opacity: 1;
+  }
+  
+}
+@media (max-width: 600px) {
+    #menu-drawer .nav-megamenu_product-title{
+    font-size: 1.4rem;
+  }
+  #main-header .nav-megamenu_buttons .btn {
+    display: block;
+    width: 100%;
+    padding: 6px 3px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    border: 1px solid black;
+    cursor: pointer;
+    box-sizing: border-box;
+    
+    opacity: 1;
+  }
+  #main-header .nav-megamenu_product-info-hover {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: white;
+  padding: 10px;
+  box-sizing: border-box;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  
+}
+
+  }
+  #main-header .nav-megamenu_product-card:hover .nav-megamenu_product-info-visible {
+  opacity: 0;
+  
+}
+/* Apply the same underline animation to submenu (child) headings */
+#main-header .nav-megamenu_heading {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+/* Create the underline effect */
+#main-header .nav-megamenu_heading::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: all 0.4s ease;
+  transform: translateX(-50%);
+}
+
+/* Animate underline on hover (child links only) */
+#main-header .nav-megamenu_heading:hover::after {
+  width: 100%;
+}
+
+
+  
+
 
 
 {% endstylesheet %}
 <ul>
   {% for link in menu.links %}
-    <li 
-      x-data="{ menuOpen: false }" 
-      @mouseenter="menuOpen = true" 
-      @mouseleave="menuOpen = false"
-    >
+    <li x-data="{ menuOpen: false }">
       {% if link.links != blank or link.title == 'ABOUT' %}
         <!-- Removed caret icon + hover behavior -->
         <a
           href="{{ link.url }}"
           class="menu-toggle"
+          @click.prevent="menuOpen = !menuOpen"
           :class="{ 'menu-open': menuOpen }"
         >
           {{- link.title | escape -}}
@@ -512,7 +603,13 @@
                   {% endif %}
                 >
                   {{ childlink.title | escape }}
+                  {% if childlink.title contains 'SHOP ALL' %}
+                    <span style="display:inline-block; margin-left:6px; vertical-align:middle;">
+                      {{ 'Vector.svg' | inline_asset_content }}
+                    </span>
+                  {% endif %}
                 </a>
+                
 
                 {%- if childlink.links != blank -%}
                   <ul class="nav-megamenu_child" role="list">

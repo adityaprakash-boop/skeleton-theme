@@ -32,6 +32,7 @@
     justify-content: space-between;
   }
   #header-drawer #menu-drawer.drawer-open {
+    width: 100%;
     transform: translateX(0);
   }
   #main-header .header-drawer_icons svg {
@@ -99,6 +100,62 @@
     min-width: 40px;
     height: 40px;
   }
+  #menu-drawer .featured-products-title {
+    padding: 12px 18px;
+    font-size: 16px;
+    
+  
+    margin: 0;
+  }
+
+  /* Create the 2-column grid for featured products */
+
+  #menu-drawer .nav-megamenu_product-card-wrapper{
+    display: flex;
+  }
+  #menu-drawer .nav-megamenu_product-card{
+    width: 20%;
+  }
+ 
+
+
+  /* Ensure product images fit correctly */
+  #menu-drawer .nav-megamenu_product-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  /* About Blocks in Drawer - 2x2 grid with text overlay */
+  #menu-drawer .nav-megamenu_about-blocks-drawer {
+    display: flex;
+    flex-wrap: wrap;
+    gap:3.2rem;
+    padding-left: 4rem;
+   
+  }
+  #menu-drawer .nav-megamenu_about-block-drawer {
+   width: 40%;
+   position: relative;
+   
+  }
+  #menu-drawer .nav-megamenu_about-name {
+   
+   position: absolute;
+   bottom: 40%;
+   left: 30%;
+   color: white;
+   
+  }
+  #menu-drawer .nav-megamenu_about-block-drawer img {
+    width: 100%;
+    aspect-ratio: 2/1.2;
+    object-fit: cover;
+  }
+  @media (max-width: 890px) {
+    #menu-drawer .nav-megamenu_product-card{
+    width: 30%;
+  }
+  }
 {% endstylesheet %}
 <div
   id="header-drawer"
@@ -118,7 +175,7 @@
     class="color-{{ menu_color_scheme }} gradient"
     :class="{ 'drawer-open': drawerOpen }"
   >
-    {% render 'component-nav-dropdown', nav_style: 'drawer', menu: menu, menu_color_scheme: menu_color_scheme %}
+    {% render 'component-nav-dropdown', nav_style: 'drawer', menu: menu, menu_color_scheme: menu_color_scheme, featured_products: section.blocks %}
 
     <div class="menu-drawer_action">
       {% if enable_country_selector or enable_language_selector %}
