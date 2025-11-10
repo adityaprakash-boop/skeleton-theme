@@ -58,7 +58,7 @@
     font-size: 15px;
     line-height: 1.5;
     padding: 12px 18px;
-    border-bottom: 1px solid rgb(var(--color-foreground), 0.2);
+    
     text-decoration: none;
     width: 100%;
     color: rgba(var(--color-foreground), 0.75);
@@ -130,13 +130,31 @@
     display: flex;
     flex-wrap: wrap;
     gap:3.2rem;
-    padding-left: 4rem;
+    
+    width: 100%;
+    justify-content: space-evenly;
    
   }
   #menu-drawer .nav-megamenu_about-block-drawer {
-   width: 40%;
+   width: 45%;
    position: relative;
+   min-width: 25rem;
    
+  }
+  @media (max-width: 600px) {
+    #menu-drawer .nav-megamenu_about-block-drawer {
+      width: 80%;
+      
+    }
+  }
+  #menu-drawer .drawer-back-button {
+    background: none;
+    border: none;
+    color: black;
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 3.2rem;
   }
   #menu-drawer .nav-megamenu_about-name {
    
@@ -176,6 +194,58 @@
   height: auto;
   display: block;
 }
+#menu-drawer .drawer-all-menuitems > ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* Two per row */
+  gap: 1rem 1rem;
+  padding: 1.2rem; /* row-gap column-gap */
+  
+}
+#menu-drawer .drawer-all-menuitems-close {
+  max-width: 100%;
+ 
+  display: inline;
+ 
+}
+#menu-drawer .drawer-all-menuitems-login {
+  
+  display: flex;
+  padding: 1.5rem;
+  gap: 1.2rem;
+}
+#menu-drawer .drawer-all-menuitems-login img {
+  width: 70px;
+height:70px;
+}
+#menu-drawer .drawer-all-menuitems-login a {
+  padding: 0;
+}
+#menu-drawer .menu-title-with-image {
+  gap: 2rem;
+display: flex;
+}
+#menu-drawer .menu-title-with-image img{
+width: 70px;
+height:70px;
+}
+#menu-drawer .nav-drawer {
+  
+  position: fixed;
+  top: 0;
+  
+  width: 100%;
+  height: 100%;
+  background: rgb(var(--color-background), 1);
+  z-index: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  
+}
+
+
 
 
 
