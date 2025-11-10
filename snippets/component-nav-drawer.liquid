@@ -156,6 +156,29 @@
     width: 30%;
   }
   }
+  #menu-drawer .nav-megamenu_featured-products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* two columns */
+  gap: 16px;
+  max-width: 100%;
+}
+
+#menu-drawer .nav-megamenu_product-card-wrapper {
+  width: auto;    /* let grid control sizing */
+}
+
+#menu-drawer .nav-megamenu_product-card {
+  width: 70%;    /* full width of the grid cell */
+}
+
+#menu-drawer .nav-megamenu_product-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
 {% endstylesheet %}
 <div
   id="header-drawer"
