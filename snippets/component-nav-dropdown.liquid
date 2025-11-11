@@ -256,7 +256,7 @@
               {% endfor %}
             </ul>
           {% else %}
-            <a href="{{ link.url }}" {% if link.current %} aria-current="page" {% endif %}>
+            <a href="{{ link.url }}" class=".menu-toggle"{% if link.current %} aria-current="page" {% endif %}>
               {{- link.title | escape -}}
             </a>
           {% endif %}
