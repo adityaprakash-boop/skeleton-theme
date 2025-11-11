@@ -256,8 +256,33 @@
               {% endfor %}
             </ul>
           {% else %}
-            <a href="{{ link.url }}" class=".menu-toggle"{% if link.current %} aria-current="page" {% endif %}>
-              {{- link.title | escape -}}
+            <a href="{{ link.url }}" class="menu-toggle"{% if link.current %} aria-current="page" {% endif %}>
+              <span class="menu-title-with-image">
+                
+                {% if forloop.index == 2 %}
+                  <img 
+                    src="{{ 'QUIZ.png' | asset_img_url: '400x' }}"
+                    alt="Quiz Menu"
+                    class="menu-inline-image"
+                    loading="lazy"
+                  >
+                {% elsif forloop.index == 3 %}
+                  <img 
+                    src="{{ 'QUIZ copy.png' | asset_img_url: '400x' }}"
+                    alt="Rewards Menu"
+                    class="menu-inline-image"
+                    loading="lazy"
+                  >
+                {% elsif forloop.index == 4 %}
+                  <img 
+                    src="{{ 'QUIZ copy 2.png' | asset_img_url: '400x' }}"
+                    alt="Challenge Menu"
+                    class="menu-inline-image"
+                    loading="lazy"
+                  >
+                {% endif %}
+                {{- link.title | escape -}}
+              </span>
             </a>
           {% endif %}
         </li>

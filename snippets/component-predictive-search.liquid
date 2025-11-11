@@ -8,6 +8,7 @@
   {% render 'component-predictive-search' %}
 {% enddoc %}
 <predictive-search x-ref="predictiveSearch">
+  <div class="predictive-search-container">
   <form action="{{ routes.search_url }}" method="get" role="search">
     <input
       type="search"
@@ -44,7 +45,22 @@
     <div class="predictive-search__loading hidden">
       {{ 'icon-loader.svg' | inline_asset_content }}
     </div>
+    <div class="featured-products-preloaded-heading"><span x-show="!searchTerm.length" x-cloak>Featured Products</span></div>
+  <div class="featured-products-preloaded" x-show="!searchTerm.length" x-cloak>
+   
+    {% for product in collections['featured-products'].products %}
+      <div class="featured-product-preloaded">
+        <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.featured_image.alt | escape }}" loading="lazy">
+        <span>{{ product.title }}</span>
+        <span>{{ product.price | money }}</span>
+     
+      </div>
+
+      {% endfor %}
+
+</div>
     <div id="predictive-search"></div>
+  </div>
   </div>
   {% if context == 'header' %}
     <div
