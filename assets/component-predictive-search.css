@@ -135,7 +135,7 @@
     left: 0;
     width: 100%;
     height: calc(100% - var(--header-height, 60px));
-    background-color: rgba(0, 0, 0, 0.5);
+    
     z-index: 998;
     display: block;
     opacity: 0;
