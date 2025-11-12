@@ -132,7 +132,8 @@
             </div>
           
             <div x-show="open" class="shop-collections-wrapper" x-cloak>
-              
+              <div class="shopby-focus-child-dropdown-close" @click="open = false"> <span>{{ 'icon-close3.svg' | inline_asset_content }}</span> <span> SHOP BY COLLECTION </span>  </div>
+              <div class="shop-collections-wrapper-inner">
               
               {% for collection in collections %}
                 {% if collection.image %}
@@ -148,7 +149,42 @@
                 </div>
                 {% endif %}
               {% endfor %}
+              </div>
             </div>
+          {% elsif childlink.title == 'SHOP BY FOCUS' and childlink.links != blank %}
+            <div @click="open = !open" class="menu-toggle">
+              {{ childlink.title }}
+              {{ 'icon-caret.svg' | inline_asset_content }}
+            </div>
+          
+            <ul x-show="open" x-transition x-cloak class="shopby-focus-nav-dropdown_child" role="list">
+              <div class="shopby-focus-child-dropdown-close" @click="open = false"> <span>{{ 'icon-close3.svg' | inline_asset_content }}</span> <span> SHOP BY FOCUS </span>  </div>
+              <div class="shopby-focus-child-dropdown-list">
+              {% for grandchildlink in childlink.links %}
+                <li>
+                  <a href="{{ grandchildlink.url }}" class="header__menu-item">
+                    {{ grandchildlink.title }}
+                  </a>
+                </li>
+              {% endfor %}
+              </div>
+          
+              
+              <div class="shopbyfocus-wrapper">
+                {% for block in featured_products %}
+                  {% if block.type == 'shopbyfocus_block' %}
+                    <div class="shopbyfocus-item">
+                      {% if block.settings.image %}
+                        <img
+                          src="{{ block.settings.image | image_url: width: 600 }}"
+                          alt="Shop By Focus image"
+                        >
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </ul>
           
 
           {% elsif childlink.links != blank %}
