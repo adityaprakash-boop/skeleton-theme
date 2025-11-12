@@ -553,12 +553,15 @@
 {% endstylesheet %}
 <ul>
   {% for link in menu.links %}
-    <li x-data="{ menuOpen: false }">
+    <li 
+      x-data="{ menuOpen: false }" 
+      @mouseenter="menuOpen = true" 
+      @mouseleave="menuOpen = false"
+    >
       {% if link.links != blank or link.title == 'ABOUT' %}
         <a
           href="{{ link.url }}"
           class="menu-toggle"
-          @click.prevent="menuOpen = !menuOpen"
           :class="{ 'menu-open': menuOpen }"
         >
           {{- link.title | escape -}}
