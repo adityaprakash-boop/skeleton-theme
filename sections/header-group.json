@@ -61,6 +61,12 @@
             "image": "shopify://shop_images/250114-Welleco-day2-SH_018-40276-_1_copy_2_jpg_07a50ecf-9671-4416-9ca6-4b74271521ef.png"
           }
         },
+        "shopall_block_pbaBUL": {
+          "type": "shopall_block",
+          "settings": {
+            "image": "shopify://shop_images/250114-Welleco-day2-SH_018-40276-_1_copy_jpg_ab860e81-ea25-4b8f-a2c4-328a67f5f6c5.png"
+          }
+        },
         "shopall_block_cNR9k3": {
           "type": "shopall_block",
           "settings": {
@@ -125,6 +131,7 @@
       "block_order": [
         "about_block_WB6f3R",
         "shopall_block_GyNQcw",
+        "shopall_block_pbaBUL",
         "shopall_block_cNR9k3",
         "shopall_block_akDAhP",
         "shopall_block_pKyKJz",
