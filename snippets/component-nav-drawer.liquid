@@ -30,6 +30,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow-y: scroll;
   }
   #header-drawer #menu-drawer.drawer-open {
     width: 100%;
@@ -172,7 +173,7 @@
   }
   @media (max-width: 890px) {
     #menu-drawer .nav-megamenu_product-card{
-    width: 30%;
+    width: 100%;
   }
   }
   #menu-drawer .nav-megamenu_featured-products {
@@ -187,7 +188,7 @@
 }
 
 #menu-drawer .nav-megamenu_product-card {
-  width: 70%;    /* full width of the grid cell */
+  width: 100%;    /* full width of the grid cell */
 }
 
 #menu-drawer .nav-megamenu_product-image {
@@ -247,7 +248,14 @@ height:70px;
   
 }
 
-
+@media (max-width: 490px) {
+  #menu-drawer .drawer-all-menuitems > ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem 1rem;
+    padding: 1.2rem;
+}
+}
 
 
 
