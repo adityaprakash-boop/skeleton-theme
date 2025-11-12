@@ -49,8 +49,9 @@
   {% for link in menu.links %}
     {% if nav_style == 'drawer' and forloop.first %}
       {% for childlink in link.links %}
-        <li x-data="{ activeSubMenu: null }">
+        <li x-data="{ open: false }">
           {% if childlink.title == 'FEATURED' and featured_products != blank and nav_style == 'drawer' %}
+            
             <div class="nav-megamenu_featured-products-container">
               <h4 class="featured-products-title">{{ childlink.title | escape }}</h4>
               <div class="nav-megamenu_featured-products">
@@ -101,22 +102,61 @@
                 {% endfor %}
               </div>
             </div>
-          {% else if childlink.links != blank %}
-            <div
-              @click="activeSubMenu = (activeSubMenu === '{{ childlink.title | escape }}' ? null : '{{ childlink.title | escape }}')"
-              :class="{ 'menu-open': activeSubMenu === '{{ childlink.title | escape }}' }"
-              class="menu-toggle"
-            >
+
+          {% elsif childlink.title == 'SHOP ALL' %}
+           
+            <div @click="open = !open" class="menu-toggle">
+              {{ childlink.title }}
+              {{ 'icon-caret.svg' | inline_asset_content }}
+            </div>
+
+            <div x-show="open" x-transition class="shop-all-wrapper" x-cloak>
+              {% for block in featured_products %}
+                {% if block.type == 'shopall_block' %}
+                  <div class="shop-all-item">
+                    {% if block.settings.image %}
+                      <img
+                        src="{{ block.settings.image | image_url: width: 600 }}"
+                        alt="Shop All image"
+                      >
+                    {% endif %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% elsif childlink.title == 'SHOP BY COLLECTION' %}
+            
+            <div @click="open = !open" class="menu-toggle">
+              {{ childlink.title }}
+              {{ 'icon-caret.svg' | inline_asset_content }}
+            </div>
+          
+            <div x-show="open" class="shop-collections-wrapper" x-cloak>
+              
+              
+              {% for collection in collections %}
+                {% if collection.image %}
+                <div class="shop-collection-item">
+                  
+                    <img
+                      src="{{ collection.image | image_url: width: 600 }}"
+                      alt="{{ collection.title | escape }}"
+                    >
+                  
+                  <div class="shop-collection-title">{{ collection.title }}</div>
+                  <div class="shop-collection-description">{{ collection.description }}</div>
+                </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          
+
+          {% elsif childlink.links != blank %}
+            <div @click="open = !open" class="menu-toggle">
               {{ childlink.title | escape }}
               {{ 'icon-caret.svg' | inline_asset_content }}
             </div>
-            <ul
-              x-show="activeSubMenu === '{{ childlink.title | escape }}'"
-              class="nav-dropdown_child"
-              x-transition
-              role="list"
-              x-cloak
-            >
+            <ul x-show="open" x-transition x-cloak class="nav-dropdown_child" role="list">
               {% for grandchildlink in childlink.links %}
                 <li>
                   <a href="{{ grandchildlink.url }}" class="header__menu-item" {% if grandchildlink.current %}aria-current="page"{% endif %}>
@@ -135,6 +175,7 @@
     {% endif %}
   {% endfor %}
 </ul>
+
 
 
 <div class="drawer-all-menuitems">
