@@ -293,17 +293,26 @@ height:70px;
 #menu-drawer .shop-collection-item{
   width:20%;
 }
-#menu-drawer .shop-collection-title{
+#menu-drawer .shop-collection-title {
   font-size: 1.6rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
+  
 }
 
 
-#menu-drawer .shop-collection-description{
+#menu-drawer .shop-collection-description p{ 
   font-size: 1.3rem;
-  
+
   font-weight: 400;
+  display: -webkit-box;                  
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;                 
+  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;   
+  
               
  
     

@@ -244,7 +244,7 @@
     display: flex;
     /* grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); */
     gap: 16px;
-    width: 200%;
+    width: 300%;
   
     padding: 10px 0;
   }
@@ -553,16 +553,12 @@
 {% endstylesheet %}
 <ul>
   {% for link in menu.links %}
-    <li 
-      x-data="{ menuOpen: false }" 
-      @mouseenter="menuOpen = true" 
-      @mouseleave="menuOpen = false"
-    >
+    <li x-data="{ menuOpen: false }">
       {% if link.links != blank or link.title == 'ABOUT' %}
-        <!-- Removed caret icon + hover behavior -->
         <a
           href="{{ link.url }}"
           class="menu-toggle"
+          @click.prevent="menuOpen = !menuOpen"
           :class="{ 'menu-open': menuOpen }"
         >
           {{- link.title | escape -}}
