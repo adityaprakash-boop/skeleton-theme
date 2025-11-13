@@ -12,6 +12,7 @@
 
   assign stars_text = section.settings.stars_text
   assign heading = section.settings.heading
+  assign heading1 = section.settings.heading1
   assign subheading = section.settings.subheading
   assign button_text = section.settings.button_text
   assign button_link = section.settings.button_link
@@ -70,7 +71,7 @@
         {% endif %}
         {% comment %} NOTE: External video URLs (YouTube/Vimeo) often require JavaScript for true background video behavior. This is a basic iframe attempt. Hosted video is recommended. {% endcomment %}
       {% endif %}
-    {% else %}
+    {% elsif background_type == 'image' %}
       {% if image_background != blank %}
         {{
           image_background
@@ -80,6 +81,74 @@
       {% else %}
         {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
       {% endif %}
+    {% elsif background_type == 'split' %}
+
+      <div class="hero-split">
+    
+        <!-- LEFT SIDE -->
+        <div class="hero-split-left">
+          {% if section.settings.left_video %}
+            {{ section.settings.left_video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true }}
+    
+          {% elsif section.settings.left_video_url %}
+            {% if section.settings.left_video_url contains 'youtube.com' or section.settings.left_video_url contains 'youtu.be' %}
+              {% assign video_id = section.settings.left_video_url | split: 'v=' | last | split: '&' | first | split: '/' | last %}
+              <iframe
+                src="https://www.youtube.com/embed/{{ video_id }}?autoplay=1&mute=1&loop=1&playlist={{ video_id }}&controls=0&showinfo=0&autohide=1&modestbranding=1&playsinline=1"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+              ></iframe>
+    
+            {% elsif section.settings.left_video_url contains 'vimeo.com' %}
+              {% assign video_id = section.settings.left_video_url | split: '/' | last %}
+              <iframe
+                src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1&loop=1&muted=1&controls=0&background=1"
+                frameborder="0"
+                allow="autoplay; fullscreen"
+                allowfullscreen
+              ></iframe>
+    
+            {% endif %}
+    
+          {% elsif section.settings.left_image %}
+            {{ section.settings.left_image | image_url: width: 2000 | image_tag: loading: 'lazy', widths: '400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000', class: ''}}
+          {% endif %}
+        </div>
+    
+        <!-- RIGHT SIDE -->
+        <div class="hero-split-right">
+          {% if section.settings.right_video %}
+            {{ section.settings.right_video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true }}
+    
+          {% elsif section.settings.right_video_url %}
+            {% if section.settings.right_video_url contains 'youtube.com' or section.settings.right_video_url contains 'youtu.be' %}
+              {% assign video_id = section.settings.right_video_url | split: 'v=' | last | split: '&' | first | split: '/' | last %}
+              <iframe
+                src="https://www.youtube.com/embed/{{ video_id }}?autoplay=1&mute=1&loop=1&playlist={{ video_id }}&controls=0&showinfo=0&autohide=1&modestbranding=1&playsinline=1"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+              ></iframe>
+    
+            {% elsif section.settings.right_video_url contains 'vimeo.com' %}
+              {% assign video_id = section.settings.right_video_url | split: '/' | last %}
+              <iframe
+                src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1&loop=1&muted=1&controls=0&background=1"
+                frameborder="0"
+                allow="autoplay; fullscreen"
+                allowfullscreen
+              ></iframe>
+    
+            {% endif %}
+    
+          {% elsif section.settings.right_image %}
+            {{ section.settings.right_image | image_url: width: 2000 | image_tag: loading: 'lazy', widths: '400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000', class: '' }}
+          {% endif %}
+        </div>
+    
+      </div>
+
     {% endif %}
     <div class="hero-banner__background-overlay"></div>
   </div>
@@ -91,6 +160,9 @@
 
     {% if heading != blank %}
       <h2 class="hero-banner__heading">{{ heading | escape }}</h2>
+    {% endif %}
+    {% if heading1 != blank %}
+      <h2 class="hero-banner__heading1">{{ heading1 | escape }}</h2>
     {% endif %}
 
     {% if subheading != blank %}
@@ -128,6 +200,7 @@
   "tag": "section",
   "class": "section-hero-banner",
   "settings": [
+    
     {
       "type": "header",
       "content": "Background Settings"
@@ -138,7 +211,8 @@
       "label": "Background Type",
       "options": [
         { "value": "image", "label": "Image" },
-        { "value": "video", "label": "Video" }
+        { "value": "video", "label": "Video" },
+        { "value": "split", "label": "50/50 (Image + Video)" }
       ],
       "default": "image"
     },
@@ -157,6 +231,42 @@
       "id": "video_background_url",
       "label": "Video URL (YouTube/Vimeo)",
       "info": "Use hosted video above for better performance and reliability. External URLs might require custom JS for true background effect."
+    },{
+      "type": "header",
+      "content": "50/50 Split Settings",
+      "info": "Visible only when Background Type = 50/50"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Side Image",
+      "info": "Shown if no left video is set"
+    },
+    {
+      "type": "video",
+      "id": "left_video",
+      "label": "Left Side Video"
+    },
+    {
+      "type": "url",
+      "id": "left_video_url",
+      "label": "Left Side Video URL (YouTube/Vimeo)"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Side Image",
+      "info": "Shown if no right video is set"
+    },
+    {
+      "type": "video",
+      "id": "right_video",
+      "label": "Right Side Video"
+    },
+    {
+      "type": "url",
+      "id": "right_video_url",
+      "label": "Right Side Video URL (YouTube/Vimeo)"
     },
     {
       "type": "color",
@@ -215,6 +325,12 @@
     {
       "type": "text",
       "id": "heading",
+      "label": "Heading",
+      "default": "END OF SEASON SALE"
+    },
+    {
+      "type": "text",
+      "id": "heading1",
       "label": "Heading",
       "default": "END OF SEASON SALE"
     },

@@ -5,7 +5,7 @@
   color: var(--hero-text-color, #FFFFFF);
   /* Use variable, provide fallback */
   padding: 60px 20px;
-  min-height: 600px;
+  min-height: 750px;
   background-color: #000;
   overflow: hidden;
 }
@@ -49,7 +49,7 @@
 
 /* Horizontal content alignment classes */
 .hero-banner-section .hero-banner__content--h-left {
-  left: 5%;
+  left: 10%;
   right: auto;
   text-align: left;
 }
@@ -80,7 +80,7 @@
 
 .hero-banner-section .hero-banner__content--v-bottom {
   top: auto;
-  bottom: 60px;
+  bottom: 70px;
 }
 
 /* Combined transforms for center-center alignment */
@@ -100,38 +100,58 @@
 
 .hero-banner-section .hero-banner__heading {
   font-size: 4.4rem;
-  margin-bottom: 5px;
-  font-weight: bold;
+  margin-bottom: 1px;
+  font-weight: 300;
   line-height: 1.2;
-  color: var(--hero-text-color, #FFFFFF);
+  color: white;
+  
+  /* Explicitly use variable */
+}
+.hero-banner-section .hero-banner__heading1 {
+  font-size: 4.4rem;
+  margin-bottom: 5px;
+  font-weight: 300;
+  line-height: 1.2;
+  color: white;
+  font-style: italic;
+  
   /* Explicitly use variable */
 }
 
 .hero-banner-section .hero-banner__subheading {
-  font-size: 2.2rem;
+  font-size: 1.4rem;
   margin-bottom: 20px;
-  max-width: 600px;
+  
+  color:white;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+  line-height: 1.5;
+  max-width: 350px;
+  font-weight: 300;
+  
 }
+
+
 
 .hero-banner-section .hero-banner__button {
   display: inline-block;
-  padding: 10px 30px 10px 30px;
+  padding: 1rem 2rem;
   background-color: var(--hero-button-color, #FFFFFF);
   color: var(--hero-button-text-color, #000000);
   text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
+ 
+  
   max-width: 211px;
-  width: 100%;
+  width: 40%;
+  
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: 400;
+  text-wrap: nowrap;
 }
 
-.hero-banner-section .hero-banner__button:hover {
-  background-color: var(--hero-button-color, #FFFFFF);
-  opacity: 0.8;
-  transform: translateY(-2px);
-}
+
 
 .hero-banner-section .hero-banner__endorsement {
   position: absolute;
@@ -151,12 +171,41 @@
   max-width: 100px;
   height: auto;
 }
+/* 50/50 Split Layout */
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-split-left,
+.hero-split-right {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-split-left img,
+.hero-split-right img,
+.hero-split-left video,
+.hero-split-right video,
+.hero-split-left iframe,
+.hero-split-right iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: 0;
+  display: block;
+}
+
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero-banner-section {
     padding: 40px 15px;
-    min-height: 450px;
+    min-height: 500px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -165,15 +214,53 @@
   .hero-banner-section .hero-banner__content {
     position: relative;
     top: auto;
-    left: auto;
+    left: 10%;
     right: auto;
-    bottom: auto;
+    bottom: 20%;
     transform: none;
     margin: 0;
     padding: 0;
     max-width: 90%;
     width: 100%;
+   
   }
+.hero-banner__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+.hero-banner__subheading {
+    text-align: center;
+    
+    max-width: 400px;
+   
+}
+
+  .hero-split {
+    grid-template-columns: 1fr;
+  }
+
+ 
+  .hero-split-left {
+    display: none;
+  }
+
+  
+  .hero-split-right {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-split-right img,
+  .hero-split-right video,
+  .hero-split-right iframe {
+    object-fit: cover;
+  }
+
+
+
 
   /* Mobile horizontal alignment */
   .hero-banner-section .hero-banner__content--h-left {
@@ -226,11 +313,23 @@
   }
 
   .hero-banner-section .hero-banner__heading {
-    font-size: 3rem;
+    font-size: 4rem;
+    color: black;
+    margin-bottom: 0;
   }
+  .hero-banner-section .hero-banner__heading1{
+    font-size: 4rem;
+    color: black;
+    margin-bottom: 0;
+  }
+
 
   .hero-banner-section .hero-banner__subheading {
     font-size: 1.8rem;
+    color: black;
+    letter-spacing: 0.1rem;
+  line-height: 1.5;
+    
   }
 
   .hero-banner-section .hero-banner__button {
@@ -249,4 +348,39 @@
     left: auto;
     transform: none;
   }
+}
+@media (max-width: 768px) {
+  .hero-banner-section {
+    padding: 40px 15px;
+    min-height: 450px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .hero-banner-section .hero-banner__content {
+    position: relative;
+    top: auto;
+    left: 10%;
+    right: auto;
+    bottom: 50%;
+    transform: none;
+    margin: 0;
+    padding: 0;
+    max-width: 90%;
+    width: 100%;
+   
+  }
+.hero-banner__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+  .hero-banner-section .hero-banner__content--v-bottom {
+    align-self: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+  
 }
