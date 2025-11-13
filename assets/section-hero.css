@@ -49,7 +49,7 @@
 
 /* Horizontal content alignment classes */
 .hero-banner-section .hero-banner__content--h-left {
-  left: 10%;
+  left: 5%;
   right: auto;
   text-align: left;
 }
