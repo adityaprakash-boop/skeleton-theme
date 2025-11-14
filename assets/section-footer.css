@@ -162,7 +162,7 @@
 }
 
 .footer-block__details-content>li {
-  padding-bottom: 5px;
+  padding-bottom: 1.6rem;
   list-style: none;
 }
 
@@ -205,7 +205,7 @@ li.list-social__item a {
 }
 
 .footer-block__image-wrapper {
-  margin-bottom: 2rem;
+  margin-bottom: 2.4rem;
   overflow: hidden !important;
 }
 
@@ -441,11 +441,7 @@ li.list-social__item a {
 }
 
 /* Footer Grid and Layout */
-.footer__blocks-wrapper {
-  display: flex;
-  gap: 32px;
-  margin-bottom: 32px;
-}
+/* 
 
 .footer-block-social-icons {
   flex-direction: row !important;
@@ -587,7 +583,7 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
   .footer-block__newsletter {
     flex-direction: column;
   }
-
+/* 
   .footer__blocks-wrapper {
     display: flex;
     gap: 32px;
@@ -595,7 +591,7 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
-  }
+  } */
 
   .footer-block.grid__item {
     padding: 0;
@@ -648,7 +644,7 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
 }
 
 /* Medium Devices - Min Width 990px */
-@media screen and (min-width: 990px) {
+/* @media screen and (min-width: 990px) {
   .footer__content-top .grid {
     row-gap: 6rem;
     margin-bottom: 0;
@@ -669,7 +665,7 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
   }
 
   /* Pushes other components to the right of the flexbox */
-  .footer-block__newsletter:not(:only-child) {
+  /* .footer-block__newsletter:not(:only-child) {
     text-align: left;
     margin-right: auto;
   }
@@ -685,25 +681,25 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
 
   .footer__follow-on-shop {
     margin-bottom: 0.4rem;
-  }
+  } */
 
   /* Follow on shop is the first button but it has siblings*/
-  .footer__follow-on-shop:first-child:not(:last-child) {
+  /* .footer__follow-on-shop:first-child:not(:last-child) {
     justify-content: flex-start;
     margin-right: auto;
     text-align: left;
-  }
+  } */
 
   /*
     All three components are present, email, Follow on Shop, and social icons.
     Moves the FoS button next to the social icons so they appear grouped together
   */
-  .footer__follow-on-shop:not(:first-child):not(:last-child) {
+  /* .footer__follow-on-shop:not(:first-child):not(:last-child) {
     justify-content: flex-end;
     text-align: right;
-  }
+  } */
 
-  .footer-block__newsletter + .footer__list-social {
+  /* .footer-block__newsletter + .footer__list-social {
     margin-top: 0;
   }
 
@@ -714,13 +710,13 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
 
   .footer__localization h2 {
     margin: 1rem 0 0;
-  }
+  } */
 
   /* .footer__content-bottom-wrapper:not(.footer__content-bottom-wrapper--center) .footer__copyright {
     text-align: right;
   } */
 
-  .footer-block__details-content {
+  /* .footer-block__details-content {
     margin-bottom: 0;
   }
 
@@ -772,13 +768,16 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
   }
 
   .footer-block.grid__item:nth-child(2) {
-    max-width: 75%;
+    m
+    
+    
+    ax-width: 75%;
     margin: 0 auto;
   }
-}
+} */ 
 
 /* Large Devices - Min Width 990px */
-@media screen and (min-width: 990px) {
+/* @media screen and (min-width: 990px) {
   .footer__blocks-wrapper {
     grid-template-columns: repeat(4, 1fr);
     gap: 48px;
@@ -793,7 +792,7 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
     max-width: none;
     flex: 1 1 25%;
   }
-}
+} */
 
 /* Browser Support - Flexbox Gap Fallback */
 @supports not (inset: 10px) {
@@ -803,7 +802,7 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
     }
   }
 
-  @media screen and (min-width: 990px) {
+  /* @media screen and (min-width: 990px) {
     .footer__content-top .grid {
       margin-left: -3rem;
     }
@@ -811,5 +810,49 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
     .footer__content-top .grid__item {
       padding-left: 3rem;
     }
-  }
+  } */
+}
+.footer__blocks-wrapper {
+  display: flex;
+  /* grid-template-columns: repeat(4, 1fr); */
+  /* gap: 32px; */
+  margin-bottom: 32px;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+.footer-block__brand-info ul {
+  
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+  
+  
+}
+.footer__list-social{
+  gap: 10px;
+}
+.footer__content-top {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  display: block;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+.footer-block__heading {
+  font-weight: 500;
+  margin-bottom: 3.4rem;
+  margin-top: 0;
+  font-size: 1.6rem;
+  letter-spacing: 0.3rem;
+  /* color: rgb(32, 34, 35); */
+  color: white;
+}
+.list-menu__item--link {
+  color: white;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+  font-size: 1.4rem;
+}
+.footer-block__details-content {
+ gap: 16px;
 }
