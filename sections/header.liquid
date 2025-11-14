@@ -1,11 +1,18 @@
 {% style %}
+.header-wrapper.scrolled {
+  background: white;
+}
+.header-wrapper:hover {
+  background: white;
+}
+
 #shopify-section-{{ section.id }} * {
     font-family: "Futura PT", "Futura", "Avenir Next", sans-serif ;
   }
   #shopify-section-{{ section.id }} {
     position: {% unless section.settings.sticky_header_type == 'none' %}sticky{% else %}relative{% endunless %};
     top: 0;
-    background: #fff;
+    background: transparent;
     width: 100%;
     {% if section.settings.show_line_separator %}
       border-bottom: 1px solid rgb(var(--color-foreground), 0.2);
@@ -582,12 +589,16 @@
   </div>
 {% endcapture %}
 
-<div
-  class="color-{{ section.settings.color_scheme }}"
-  {% if settings.cart_type == 'drawer' %}
-    x-data="{ cartOpen: false }" @cart-open.window="cartOpen = true"
-  {% endif %}
->
+  <div
+    class="color-{{ section.settings.color_scheme }} header-wrapper"
+    {% if settings.cart_type == 'drawer' %}
+      x-data="{ cartOpen: false }" @cart-open.window="cartOpen = true"
+    {% endif %}
+    x-data="{ scrolled: false }"
+    @scroll.window="scrolled = window.scrollY > 0" 
+    :class="{ 'scrolled': scrolled }"
+
+  >
   <header
     {% if section.settings.menu_position == 'center' %}
       class="header-menu-position-center"

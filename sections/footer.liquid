@@ -56,30 +56,22 @@
                   </div>
                 {%- when 'brand_information' -%}
                   <div class="footer-block__brand-info">
-                    {%- if settings.brand_image != blank -%}
-                      {%- assign brand_image_height = settings.brand_image_width
-                        | divided_by: settings.brand_image.aspect_ratio
-                      -%}
-                      <div
-                        class="footer-block__image-wrapper"
-                        style="max-width: min(100%, {{ settings.brand_image_width }}px);"
-                      >
+                    {%- if block.settings.brand_image != blank -%}
+                      <div class="footer-block__image-wrapper">
                         {{
-                          settings.brand_image
+                          block.settings.brand_image
                           | image_url: width: 1100
                           | image_tag:
                             loading: 'lazy',
-                            widths: '50, 100, 150, 200, 300, 400, 550, 800, 1100',
-                            height: brand_image_height,
-                            width: settings.brand_image_width
+                            widths: '50, 100, 150, 200, 300, 400, 550, 800, 1100'
                         }}
                       </div>
                     {%- endif -%}
-                    {%- if settings.brand_headline != blank -%}
-                      <h2 class="footer-block__heading">{{ settings.brand_headline }}</h2>
+                    {%- if block.settings.brand_title != blank -%}
+                      <h2 class="footer-block__heading">{{ block.settings.brand_title }}</h2>
                     {%- endif -%}
-                    {%- if settings.brand_description != blank -%}
-                      <div>{{ settings.brand_description }}</div>
+                    {%- if block.settings.brand_description != blank -%}
+                      <div>{{ block.settings.brand_description }}</div>
                     {%- endif -%}
                     {%- if block.settings.show_social and has_social_icons -%}
                       {%- render 'component-social-icons', class: 'footer__list-social' -%}
@@ -170,25 +162,35 @@
     },
     {
       "type": "brand_information",
-      "name": "t:sections.footer.blocks.brand_information.name",
+      "name": "Brand information",
       "settings": [
         {
-          "type": "paragraph",
-          "content": "t:sections.footer.blocks.brand_information.settings.paragraph.content"
+          "type": "image_picker",
+          "id": "brand_image",
+          "label": "Brand image"
+        },
+        
+        {
+          "type": "text",
+          "id": "brand_title",
+          "label": "Brand Title",
+          "default": "About our brand"
         },
         {
-          "type": "header",
-          "content": "t:sections.footer.blocks.brand_information.settings.header__1.content"
+          "type": "text",
+          "id": "brand_description",
+          "label": "Brand Description",
+          "default": "Write something about your brand"
         },
         {
           "type": "checkbox",
           "id": "show_social",
           "default": true,
-          "label": "t:sections.footer.blocks.brand_information.settings.show_social.label",
-          "info": "t:sections.footer.blocks.brand_information.settings.show_social.info"
+          "label": "Show social icons"
         }
       ]
-    },
+    }
+    ,
     {
       "type": "text",
       "name": "t:sections.footer.blocks.text.name",
