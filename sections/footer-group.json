@@ -14,6 +14,15 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "brand_information_pLUCGY": {
+          "type": "brand_information",
+          "settings": {
+            "brand_image": "shopify://shop_images/Group_8ed1e541-5eae-446d-a3ca-dad6a065fa6f.png",
+            "brand_title": "",
+            "brand_description": "",
+            "show_social": true
+          }
+        },
         "link_list_xdP99L": {
           "type": "link_list",
           "settings": {
@@ -28,12 +37,6 @@
             "menu": "footer"
           }
         },
-        "brand_information_pLUCGY": {
-          "type": "brand_information",
-          "settings": {
-            "show_social": true
-          }
-        },
         "text_3D9g6x": {
           "type": "text",
           "settings": {
@@ -43,14 +46,13 @@
         }
       },
       "block_order": [
+        "brand_information_pLUCGY",
         "link_list_xdP99L",
         "link_list_kkNmcT",
-        "brand_information_pLUCGY",
         "text_3D9g6x"
       ],
       "settings": {
-        "color_scheme": "scheme-2",
-        "show_social": false,
+        "color_scheme": "scheme-4",
         "enable_country_selector": true,
         "enable_language_selector": true,
         "payment_enable": true,
