@@ -26,15 +26,15 @@
         "link_list_xdP99L": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
+            "heading": "LEARN",
+            "menu": "footer-menu"
           }
         },
         "link_list_kkNmcT": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
+            "heading": "HELP",
+            "menu": "footer-menu2"
           }
         },
         "text_3D9g6x": {
