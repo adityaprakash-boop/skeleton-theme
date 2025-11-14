@@ -40,8 +40,10 @@
         "text_3D9g6x": {
           "type": "text",
           "settings": {
-            "heading": "Provide 3 distinct proposals in JSON form indexed by keys.",
-            "subtext": "<p>Upgrade Your Kitchen Game with Cookware Fit for Experts</p>"
+            "heading": "DOWNLOAD OUR APP",
+            "subtext": "",
+            "image_1": "shopify://shop_images/SVG_copy.png",
+            "image_2": "shopify://shop_images/SVG.png"
           }
         }
       },
