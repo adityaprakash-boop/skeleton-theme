@@ -39,10 +39,10 @@
   #main-header .header-drawer_icons svg {
     width: 20px;
   }
-  #header-drawer .header-drawer_icons.drawer-open svg.icon-menu,
+  /* #header-drawer .header-drawer_icons.drawer-open svg.icon-menu,
   #header-drawer .header-drawer_icons:not(.drawer-open) svg.icon-close {
     display: none;
-  }
+  } */
   #menu-drawer ul {
     list-style: none;
     margin: 0;
@@ -391,11 +391,16 @@ height:70px;
   <button
     class="header-drawer_icons"
     @click="drawerOpen = !drawerOpen"
-    :class="{ 'drawer-open': drawerOpen }"
   >
-    {{- 'icon-menu.svg' | inline_asset_content -}}
-    {{- 'icon-close.svg' | inline_asset_content -}}
+    <span x-show="!drawerOpen">
+      {{ 'icon-menu.svg' | inline_asset_content }}
+    </span>
+  
+    <span x-show="drawerOpen">
+      {{ 'icon-close.svg' | inline_asset_content }}
+    </span>
   </button>
+  
   <div
     id="menu-drawer"
     class="color-{{ menu_color_scheme }} gradient"
@@ -414,15 +419,7 @@ height:70px;
         </div>
       {% endif %}
 
-      {% if shop.customer_accounts_enabled and enable_customer_avatar %}
-        <a
-          href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}"
-          rel="nofollow"
-          class="menu-drawer_account"
-        >
-          {{ 'icon-account2.svg' | inline_asset_content }}
-        </a>
-      {% endif %}
+     
     </div>
   </div>
 </div>
