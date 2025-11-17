@@ -42,8 +42,8 @@
           "settings": {
             "heading": "DOWNLOAD OUR APP",
             "subtext": "",
-            "image_1": "shopify://shop_images/SVG_copy.png",
-            "image_2": "shopify://shop_images/SVG.png"
+            "image_1": "shopify://shop_images/SVG.png",
+            "image_2": "shopify://shop_images/SVG_copy.png"
           }
         }
       },
