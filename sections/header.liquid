@@ -5,6 +5,12 @@
 .header-wrapper:hover {
   background: white;
 }
+@media (max-width: 1024px) {
+  .header-wrapper {
+    background: white;
+  }
+ 
+}
 
 #shopify-section-{{ section.id }} * {
     font-family: "Futura PT", "Futura", "Avenir Next", sans-serif ;
@@ -93,7 +99,8 @@
     border: 0;
     background: transparent;
     color: inherit;
-    font-size: inherit;
+    font-size: 1.6rem;
+    font-weight: 500;
     
   }
   #main-header .menu-toggle svg {
@@ -136,12 +143,12 @@
     position: absolute;
     display: grid;
     place-items: center;
-    top: -2px;
-    right: -6px;
+    top: 5px;
+    right: -15px;
     width: 16px;
     height: 16px;
     color: rgb(var(--color-background));
-    background: rgb(var(--color-foreground));
+    /* background: rgb(var(--color-foreground)); */
     font-size: 10px;
     border-radius: 10rem;
     display: flex;
@@ -153,7 +160,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 2rem;
+    gap: 1.6rem;
     color: inherit;
     {% if section.settings.logo_position == 'top-left' or section.settings.logo_position == 'top-center' %}
       grid-area: 1 / 3;
@@ -281,7 +288,7 @@
     /* TAKE OUR QUIZ Button Styles */
     .header-quiz-button {
     display: inline-block;
-    background: #fff;
+    background: transparent;
     color: #000;
     border: 1px solid #000;
     padding: 12px 17px;
@@ -328,7 +335,7 @@
 .header-drawer-search { 
   display: flex;
   align-items: center;
-  gap: 4rem;
+  gap: 3.6rem;
 }
 .mobile-info-bar {
  display: none;
@@ -341,16 +348,20 @@
   .mobile-info-bar {
     color: black;
   display: flex;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       letter-spacing: 1.2px;
       align-items: center;
       line-height: 2.2rem;
-      gap: 2.7rem;
+      gap: 1.2rem;
       border-top: 1px solid grey;
-      padding: 1.6rem 3.2rem;
+      padding: 1.6rem 1rem;
       justify-content: space-evenly;
       flex: 0 0 auto; 
+      margin:0;
       
+  }
+  .mobile-info-scroller span{
+     margin-right: 1.2rem;
   }
 }
 @media (max-width: 920px) {
@@ -386,7 +397,7 @@
   }
 
     #main-header > nav,
-    .header-actions_account,
+    /* .header-actions_account, */
     .header-actions_localization {
       display: none;
     }
@@ -422,6 +433,12 @@
       min-width: 160px;
     }
   }
+  @media (max-width: 1024px) {
+   .header-logo{
+    width: 10.8rem;
+    height: 3.6rem;
+   }
+  }
 
   #main-header nav ul,
   #main-header nav ul li,
@@ -429,8 +446,8 @@
     color: {{ section.settings.menu_text_color }};
   }
   [data-cart-count] {
-    background: {{ section.settings.cart_count_color }};
-    color: #fff;
+    /* background: {{ section.settings.cart_count_color }}; */
+    color: black;
   }
  
   @media (max-width: 1024px) {
@@ -575,10 +592,25 @@
 }
 }
 
+.mobile-info-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  width: 1.3rem;
+  
+}
 
 
-
-
+.rotate-90 { transform: rotate(180deg); display: inline-block; }
+.mobile-info-scroller {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.mobile-info-scroller::-webkit-scrollbar {
+  display: none;
+}
 
 
 {% endstyle %}
@@ -744,19 +776,38 @@
       </button>
     </div>
   </header>
-  <div class="mobile-info-bar">
-   <span>SHOP ALL</span>
-   <span>ESSENTIALS</span>
-   <span>BEAUTY & WELLNESS</span>
-   <span>HAIR</span>
-   <span>SLEEP</span>
-   <span>KIDS</span>
-   <span>MINIS</span>
-   <span>LIFESTYLE</span>
-   <span>BUNDLES</span>
-   <span>GIFT CARDS</span>
-
+  <div class="mobile-info-bar" x-data>
+  
+    <!-- Left Button -->
+    <button @click="$refs.scroller.scrollBy({ left: -200, behavior: 'smooth' })">
+      <span class="rotate-90">
+        {{ 'icon-close3.svg' | inline_asset_content }}
+      </span>
+    </button>
+    
+  
+    <!-- Scrollable Area -->
+    <div class="mobile-info-scroller" x-ref="scroller" style="overflow-x: auto; white-space: nowrap;">
+      <span>SHOP ALL</span>
+      <span>ESSENTIALS</span>
+      <span>BEAUTY & WELLNESS</span>
+      <span>HAIR</span>
+      <span>SLEEP</span>
+      <span>KIDS</span>
+      <span>MINIS</span>
+      <span>LIFESTYLE</span>
+      <span>BUNDLES</span>
+      <span>GIFT CARDS</span>
+    </div>
+  
+    <!-- Right Button -->
+    <button @click="$refs.scroller.scrollBy({ left: 200, behavior: 'smooth' })">
+      {{ 'icon-close3.svg' | inline_asset_content }}
+    </button>
+  
   </div>
+  
+
 
   {%- if settings.cart_type == 'notification' -%}
     {%- render 'component-cart-notification',

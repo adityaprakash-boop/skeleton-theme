@@ -51,6 +51,7 @@
     .announcement-bar-section .announcement-bar__text {
       font-size: 1.2rem;
     }
+    
   }
   
   @media (prefers-reduced-motion: reduce) {
@@ -58,4 +59,5 @@
       transition: none;
     }
   }
+  
   

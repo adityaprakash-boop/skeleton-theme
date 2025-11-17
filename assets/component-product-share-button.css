@@ -19,7 +19,7 @@
   border: none;
 }
 
-.share-button .svg-wrapper {
+.share-button {
   display: inline-flex;
   justify-content: center;
   align-items: center;

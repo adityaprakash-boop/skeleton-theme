@@ -34,25 +34,29 @@
                   <h2 class="footer-block__heading">{{ block.settings.heading }}</h2>
                   <div class="footer-block__details-content">{{ block.settings.subtext }}</div><div class="footer-block__text-images">
 
-                    {%- if block.settings.image_1 != blank -%}
-                      <div class="footer-block__image-wrapper">
-                        {{
-                          block.settings.image_1
-                          | image_url: width: 600
-                          | image_tag: loading: 'lazy'
-                        }}
-                      </div>
-                    {%- endif -%}
-                
-                    {%- if block.settings.image_2 != blank -%}
-                      <div class="footer-block__image-wrapper">
-                        {{
-                          block.settings.image_2
-                          | image_url: width: 600
-                          | image_tag: loading: 'lazy'
-                        }}
-                      </div>
-                    {%- endif -%}
+                    {% if block.settings.image_1 != blank %}
+                      <a href="#" class="footer-image-link">
+                        <div class="footer-block__image-wrapper">
+                          {{
+                            block.settings.image_1
+                            | image_url: width: 600
+                            | image_tag: loading: 'lazy'
+                          }}
+                        </div>
+                      </a>
+                    {% endif %}
+                    
+                    {% if block.settings.image_2 != blank %}
+                      <a href="#" class="footer-image-link">
+                        <div class="footer-block__image-wrapper">
+                          {{
+                            block.settings.image_2
+                            | image_url: width: 600
+                            | image_tag: loading: 'lazy'
+                          }}
+                        </div>
+                      </a>
+                    {% endif %}
                 
                   </div>
                 {%- when 'link_list' -%}
@@ -103,6 +107,14 @@
             </div>
           {%- endfor -%}
         </div>
+        <div class="footer__column footer__localization">
+          {%- render 'component-localization-form',
+            enable_country_selector: section.settings.enable_country_selector,
+            enable_language_selector: section.settings.enable_language_selector,
+            menu_color_scheme: section.settings.color_scheme
+          -%}
+            
+        </div>
       </div>
     {%- endunless -%}
   {%- endif -%}
@@ -114,13 +126,14 @@
     {% endif %}
   >
     <div class="footer__content-bottom-wrapper">
-      <div class="footer__column footer__localization">
+      {% comment %} <div class="footer__column footer__localization">
         {%- render 'component-localization-form',
           enable_country_selector: section.settings.enable_country_selector,
           enable_language_selector: section.settings.enable_language_selector,
           menu_color_scheme: section.settings.color_scheme
         -%}
-      </div>
+          
+      </div> {% endcomment %}
       <div class="footer__column footer__column--info">
         {%- if section.settings.payment_enable -%}
           <div class="footer__payment">
@@ -134,25 +147,15 @@
           </div>
         {%- endif -%}
       </div>
-    </div>
-    <div class="footer__content-bottom-wrapper{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
-      <div class="footer__copyright">
-        <small class="copyright__content" >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url }} - {{ powered_by_link }} </small>
-        {%- if section.settings.show_policy -%}
-          <ul class="policies">
-            {%- for policy in shop.policies -%}
-              {%- if policy != blank -%}
-                <li>
-                  <small class="copyright__content"
-                    ><a href="{{ policy.url }}">{{ policy.title | escape }}</a></small
-                  >
-                </li>
-              {%- endif -%}
-            {%- endfor -%}
-          </ul>
-        {%- endif -%}
+      <div class="footer__content-bottom-wrapper{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
+        <div class="footer__copyright">
+          <small class="copyright__content" >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url }} - {{ powered_by_link }} </small>
+          
+        </div>
       </div>
+      
     </div>
+    
   </div>
 </footer>
 

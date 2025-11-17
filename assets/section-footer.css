@@ -10,7 +10,7 @@
 
 .footer__content-top {
   padding-top: 56px;
-  padding-bottom: 56px;
+  /* padding-bottom: 56px; */
   display: block;
 }
 
@@ -26,7 +26,7 @@
 .footer__content-bottom-wrapper {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  
   padding: 0 25px;
 }
 
@@ -111,7 +111,7 @@
 .footer__localization {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: center;
   gap: 1.5rem;
   flex-wrap: wrap;
@@ -833,7 +833,7 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
 }
 .footer__content-top {
   padding-top: 60px;
-  padding-bottom: 60px;
+  /* padding-bottom: 60px; */
   display: block;
   padding-left: 4rem;
   padding-right: 4rem;
@@ -855,4 +855,83 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
 }
 .footer-block__details-content {
  gap: 16px;
+}
+.footer-block__brand-info img{
+  width: 17.3rem;
+}
+.footer-block__text-images{
+  width: 15rem;
+}
+@media screen and (max-width: 1150px) {
+  .footer__content-top {
+    
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__blocks-wrapper {
+    display: grid !important;       
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  
+  .footer__blocks-wrapper > .footer-block.grid__item:nth-child(1),
+  .footer__blocks-wrapper > .footer-block.grid__item:nth-child(4) {
+    grid-column: 1 / -1;
+  }
+
+  
+  .footer__blocks-wrapper > .footer-block.grid__item:nth-child(2),
+  .footer__blocks-wrapper > .footer-block.grid__item:nth-child(3) {
+    grid-column: auto;
+  }
+  .footer-block__brand-info{
+    width: 150%;
+  }
+  .footer-block__heading {
+    font-weight: 500;
+    margin-bottom: 3.4rem;
+    margin-top: 0;
+    font-size: 1.3rem;
+    letter-spacing: 0.3rem;
+    /* color: rgb(32, 34, 35); */
+    color: white;
+  }
+  .footer-block__details-content .list-menu__item--link {
+    font-size: 1.3rem;
+}
+.footer-block__text-images{
+  display: flex;
+  width:150%;
+  gap: 16px;
+  
+}
+.footer-block__text-images img{
+ width: 15rem;
+  
+}
+
+}
+.footer__copyright {
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.footer__content-bottom-wrapper {
+  display: flex;
+  justify-content: space-between;
+  /* width: 100%; */
+  padding: 0 25px;
+}
+.footer__content-top{
+  display: grid;
+  grid-template-columns: 1fr ;
+}
+.footer__localization{
+  align-items: flex-start;
 }
