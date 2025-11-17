@@ -889,7 +889,7 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
     grid-column: auto;
   }
   .footer-block__brand-info{
-    width: 150%;
+    width: 100%;
   }
   .footer-block__heading {
     font-weight: 500;
@@ -905,7 +905,7 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
 }
 .footer-block__text-images{
   display: flex;
-  width:150%;
+  width:100%;
   gap: 16px;
   
 }

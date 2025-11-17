@@ -4,6 +4,7 @@
     width: 100%;
     position: relative;
     overflow: hidden;
+     
   }
   
   .announcement-bar-section .announcement-bar__container {
@@ -61,3 +62,9 @@
   }
   
   
+
+.announcement-bar-section {
+  position: sticky;
+  top: 0px;
+  z-index: 999;
+}

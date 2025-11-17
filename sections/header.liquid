@@ -17,7 +17,7 @@
   }
   #shopify-section-{{ section.id }} {
     position: {% unless section.settings.sticky_header_type == 'none' %}sticky{% else %}relative{% endunless %};
-    top: 0;
+    top: 34px;
     background: transparent;
     width: 100%;
     {% if section.settings.show_line_separator %}
@@ -603,7 +603,7 @@
 }
 
 
-.rotate-90 { transform: rotate(180deg); display: inline-block; }
+.rotate-90 { transform: rotate(180deg); display: block; }
 .mobile-info-scroller {
   scrollbar-width: none;
   -ms-overflow-style: none;
