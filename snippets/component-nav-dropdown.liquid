@@ -106,8 +106,11 @@
           {% elsif childlink.title == 'SHOP ALL' %}
            
             <div @click="open = !open" class="menu-toggle">
-              {{ childlink.title }}
-              {{ 'icon-caret.svg' | inline_asset_content }}
+              <span class="menu-toggle-content">
+                {{ childlink.title }}
+                </span>
+                {{ 'icon-caret.svg' | inline_asset_content }}
+              
             </div>
 
             <div x-show="open" x-transition class="shop-all-wrapper" x-cloak>

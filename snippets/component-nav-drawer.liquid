@@ -46,7 +46,7 @@
   #menu-drawer ul {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 1rem;
   }
   #menu-drawer li {
     width: 100%;
@@ -58,7 +58,7 @@
     gap: 10px;
     font-size: 15px;
     line-height: 1.5;
-    padding: 20px 18px;
+    padding: 14px 10px;
     
     text-decoration: none;
     width: 100%;
@@ -201,7 +201,8 @@
 #menu-drawer .drawer-all-menuitems > ul {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr)); /* Two per row */
-  gap: 1rem 1rem;
+  /* 
+   */
   padding: 1.2rem; /* row-gap column-gap */
   
 }
@@ -218,8 +219,8 @@
   gap: 1.2rem;
 }
 #menu-drawer .drawer-all-menuitems-login img {
-  width: 70px;
-height:70px;
+  width: 80px;
+height:80px;
 }
 #menu-drawer .drawer-all-menuitems-login a {
   padding: 0;
@@ -227,10 +228,11 @@ height:70px;
 #menu-drawer .menu-title-with-image {
   gap: 2rem;
 display: flex;
+align-items: center;
 }
 #menu-drawer .menu-title-with-image img{
-width: 70px;
-height:70px;
+width: 80px;
+height:80px;
 }
 #menu-drawer .nav-drawer {
   
@@ -254,7 +256,7 @@ height:70px;
   #menu-drawer .drawer-all-menuitems > ul {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem 1rem;
+    /* gap: 1rem 1rem; */
     padding: 1.2rem;
 }
 }
@@ -379,19 +381,33 @@ height:70px;
   cursor: pointer;
  
 }
+.drawer-all-menuitems-login{
+  font-weight: 500;
+  align-items: center;
+ 
+}
+#menu-drawer .drawer-all-menuitems-login {
+    
+    gap: 2.4rem;
+}
 
-
+#menu-drawer .menu-title-with-image {
+    gap: 2.4rem;
+    display: flex;
+    align-items: center;
+}
 
 {% endstylesheet %}
 <div
   id="header-drawer"
   x-data="{ drawerOpen: false }"
-  @click.outside="drawerOpen = false"
+  @click.outside="drawerOpen = false; $dispatch('drawer-toggle', { open: drawerOpen })"
 >
   <button
     class="header-drawer_icons"
-    @click="drawerOpen = !drawerOpen"
+    @click="drawerOpen = !drawerOpen; $dispatch('drawer-toggle', { open: drawerOpen })"
   >
+  
     <span x-show="!drawerOpen">
       {{ 'icon-menu.svg' | inline_asset_content }}
     </span>
@@ -409,7 +425,7 @@ height:70px;
     {% render 'component-nav-dropdown', nav_style: 'drawer', menu: menu, menu_color_scheme: menu_color_scheme, featured_products: section.blocks %}
 
     <div class="menu-drawer_action">
-      {% if enable_country_selector or enable_language_selector %}
+      {% comment %} {% if enable_country_selector or enable_language_selector %}
         <div class="menu-drawer_localization">
           {%- render 'component-localization-form',
             enable_country_selector: enable_country_selector,
@@ -417,7 +433,7 @@ height:70px;
             menu_color_scheme: menu_color_scheme
           -%}
         </div>
-      {% endif %}
+      {% endif %} {% endcomment %}
 
      
     </div>

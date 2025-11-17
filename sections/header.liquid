@@ -76,7 +76,7 @@
     margin: 0;
     padding: 0;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     gap: 4.8rem;
   }
@@ -195,7 +195,7 @@
       position: absolute;
      
       left: 0;
-      background: rgb(var(--color-background));
+      background: white;
       border: 1px solid rgba(var(--color-foreground),var(--color-background));
       border-top: 0;
       
@@ -621,16 +621,14 @@
   </div>
 {% endcapture %}
 
-  <div
-    class="color-{{ section.settings.color_scheme }} header-wrapper"
-    {% if settings.cart_type == 'drawer' %}
-      x-data="{ cartOpen: false }" @cart-open.window="cartOpen = true"
-    {% endif %}
-    x-data="{ scrolled: false }"
-    @scroll.window="scrolled = window.scrollY > 0" 
-    :class="{ 'scrolled': scrolled }"
-
-  >
+<div
+  class="color-{{ section.settings.color_scheme }} header-wrapper"
+  x-data="{ scrolled: false, cartOpen: false, drawerOpen: false }"
+  @cart-open.window="cartOpen = true"
+  @drawer-toggle.window="drawerOpen = $event.detail.open"
+  @scroll.window="scrolled = window.scrollY > 0"
+  :class="{ 'scrolled': scrolled }"
+>
   <header
     {% if section.settings.menu_position == 'center' %}
       class="header-menu-position-center"
@@ -776,7 +774,8 @@
       </button>
     </div>
   </header>
-  <div class="mobile-info-bar" x-data>
+  <div class="mobile-info-bar" x-show="!drawerOpen" x-transition.opacity>
+
   
     <!-- Left Button -->
     <button @click="$refs.scroller.scrollBy({ left: -200, behavior: 'smooth' })">
