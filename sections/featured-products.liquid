@@ -54,7 +54,7 @@
           </a>
         </div>
       </div>
-
+     
       <div id="featured-products-{{ section.id }}" class="featured-products__swiper swiper">
         <div class="featured-products__swiper-arrows">
           <div class="swiper-button-prev featured-products__swiper-prev">
@@ -109,9 +109,11 @@
 
                   <div class="product-card__info product-card__info--{{ product_content_alignment }}">
                     {% comment %} Placeholder for reviews/ratings {% endcomment %}
+                     <div class="product-card__title-wrapper">
                     <span class="product-card__title" style="color: {{ product_info_text_color | default: '#111111' }}">
                       {{ product.title | default: 'Product Title' }}
                     </span>
+                    </div>
                     <div class="product-card__reviews product-card__reviews--{{ review_content_alignment }}">
                       <span class="visually-hidden">Rating:</span>
                       <span class="product-card__stars" style="color: {{ stars_color | default: '#FFD700' }}"
@@ -150,8 +152,8 @@
                     
                   </div>
                   <div class="product-card__Best-Seller">
-                    <span class="product-card__Best-Seller-text">Best Seller</span>
-                  </div>
+                      <span class="product-card__Best-Seller-text">Best Seller</span>
+                    </div>
                   <div class="product-award">
                     {% if block.settings.award_image != blank %}
                       <img src="{{ block.settings.award_image | image_url }}" alt="Award Badge">

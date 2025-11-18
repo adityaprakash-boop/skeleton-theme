@@ -338,9 +338,9 @@
   top: 50%;
   transform: translateY(-50%);
   pointer-events: auto;
-  border-radius: 100%;
+ 
   width: 42px;
-  border: 1px solid #c0bcbc;
+  
 }
 
 .featured-products__swiper-arrows .swiper-button-prev {

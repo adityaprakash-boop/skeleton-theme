@@ -33,6 +33,7 @@ export class FeaturedProducts extends HTMLElement {
         slidesPerView: 1.8,
         spaceBetween: 16,
         autoHeight: true,
+        freeMode: true,
         navigation: {
           nextEl: `${selector} .featured-products__swiper-next`,
           prevEl: `${selector} .featured-products__swiper-prev`,
