@@ -1,9 +1,11 @@
 {% style %}
 .header-wrapper.scrolled {
   background: white;
+  
 }
 .header-wrapper:hover {
   background: white;
+  
 }
 @media (max-width: 1024px) {
   .header-wrapper {
@@ -566,7 +568,7 @@
 @media (max-width: 800px) {
   #header-search predictive-search {
     position: fixed;
-    top: 0;
+    top: 45px;
     
     
 }
@@ -636,6 +638,8 @@
     id="main-header"
     x-data="{ searchOpen: false, searchTerm: '{{ search.terms | escape }}' }"
     @click.outside="searchOpen = false"
+    @open-header-search.window="searchOpen = true; $nextTick(() => { $refs.searchInput.focus() })"
+
   >
     <div class="header-drawer-search">
       {% render 'component-nav-drawer',

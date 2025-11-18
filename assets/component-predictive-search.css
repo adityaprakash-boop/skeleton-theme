@@ -167,3 +167,28 @@
     z-index: 999;
     background: white;
   }
+  @media (max-width: 1024px) {
+    .predictive-search-container form {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+  
+    /* Push reset button to right */
+    .predictive-search-container form .reset__button {
+      order: 3;
+      margin-left: auto;
+      border: none !important;
+    }
+  
+    /* Make search icon stay before close button */
+    .predictive-search-container form button[type="submit"] {
+      order: 2;
+    }
+  
+    .predictive-search-container form input {
+      order: 1;
+      flex: 1;
+    }
+  }
+  

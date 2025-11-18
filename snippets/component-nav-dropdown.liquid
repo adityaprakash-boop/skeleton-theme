@@ -46,6 +46,12 @@
 {% endunless %}
 
 <ul class="{% if nav_style == 'drawer' %}menu-drawer_navigation{% endif %}">
+  <div class="drawer-search-wrapper">
+    <input type="text" placeholder="FIND YOUR WELLE" class="drawer-search-input" @focus="$dispatch('open-header-search')">
+    <span class="drawer-search-icon">
+      {{ 'icon-search2.svg' | inline_asset_content }}
+    </span>
+  </div>
   {% for link in menu.links %}
     {% if nav_style == 'drawer' and forloop.first %}
       {% for childlink in link.links %}

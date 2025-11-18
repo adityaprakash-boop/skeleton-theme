@@ -29,12 +29,15 @@
       type="reset"
       class="reset__button"
       aria-label="Clear search term"
-      @click="searchTerm = ''; $refs.predictiveSearch.clearSearch($event)"
-      x-show="searchTerm.length > 0"
-      x-transition
+      @click="
+        searchTerm = ''; 
+        $refs.predictiveSearch.clearSearch($event);
+         searchOpen = false;
+      "
+      x-show="true"
       x-cloak
     >
-      {{- 'icon-close.svg' | inline_asset_content -}}
+      {{ 'icon-close.svg' | inline_asset_content }}
     </button>
     <button aria-label="Search">
       {{- 'icon-search2.svg' | inline_asset_content -}}
@@ -45,7 +48,7 @@
     <div class="predictive-search__loading hidden">
       {{ 'icon-loader.svg' | inline_asset_content }}
     </div>
-    <div class="featured-products-preloaded-heading"><span x-show="!searchTerm.length" x-cloak>Featured Products</span></div>
+    <div class="featured-products-preloaded-heading"><span x-show="!searchTerm.length" x-cloak>Recently Viewed</span></div>
   <div class="featured-products-preloaded" x-show="!searchTerm.length" x-cloak>
    
     {% for product in collections['featured-products'].products %}
