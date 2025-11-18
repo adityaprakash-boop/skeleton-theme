@@ -59,7 +59,9 @@
         "enable_language_selector": true,
         "payment_enable": true,
         "show_policy": true,
-        "margin_top": 60
+        "margin_top": 60,
+        "footer_copyright": "© 2025 Your Store. All Rights Reserved.",
+        "footer_photography": "Photography credits"
       }
     }
   },
