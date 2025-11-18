@@ -1100,3 +1100,8 @@ localization-button {
     font-size: 1.3rem;
 }
 }
+.footer__content-bottom {
+  border-top: solid 0.1rem rgba(var(--color-foreground), 0.08);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
