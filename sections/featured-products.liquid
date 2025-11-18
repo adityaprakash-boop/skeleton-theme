@@ -145,15 +145,17 @@
                       <span class="product-btn subscribe-btn">Subscribe & Save 20%</span>
                       <span class="product-btn add-cart-btn">Add to Cart</span>
                     </div>
-                    <div class="product-card__Best-Seller">
-                      <span class="product-card__Best-Seller-text">Best Seller</span>
-                    </div>
-                    <div class="product-award">
-                      {% if block.settings.award_image != blank %}
-                        <img src="{{ block.settings.award_image | image_url }}" alt="Award Badge">
-                      {% endif %}
-                    </div>
                     
+                    
+                    
+                  </div>
+                  <div class="product-card__Best-Seller">
+                    <span class="product-card__Best-Seller-text">Best Seller</span>
+                  </div>
+                  <div class="product-award">
+                    {% if block.settings.award_image != blank %}
+                      <img src="{{ block.settings.award_image | image_url }}" alt="Award Badge">
+                    {% endif %}
                   </div>
                 </a>
               </div>

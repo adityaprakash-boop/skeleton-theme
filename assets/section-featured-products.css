@@ -484,9 +484,21 @@
   transition: bottom 0.3s ease;
 }
 
-.product-card:hover .product-card__buttons {
-  bottom: 10px; /* slide up */
+/* .product-card:hover .product-card__buttons {
+  bottom: 10px; 
+} */
+.product-card__info {
+  position: relative;
+  transition: transform 0.3s ease;
+  z-index: 2; /* keeps info ABOVE the buttons */
 }
+
+.product-card:hover .product-card__info {
+  transform: translateY(-90%);
+  opacity: 0.8;
+   /* same movement as needed */
+}
+
 /* end of the animation part */
 .product-card__Best-Seller{
   font-size: 1.3rem;
