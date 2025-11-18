@@ -92,16 +92,16 @@
       "settings": {
         "heading": "Best Sellers",
         "subheading": "",
-        "view_all_text": "View All",
+        "view_all_text": "",
         "view_all_url": "shopify://products/acb-top-in-chipped-brick",
-        "heading_alignment": "center",
+        "heading_alignment": "left",
         "show_view_all_as_button": true,
         "button_background_color": "#2e2e2e",
         "button_text_color": "#ffffff",
         "product_content_alignment": "center",
         "review_content_alignment": "center",
         "product_info_text_color": "#111111",
-        "stars_color": "#000000"
+        "stars_color": "#309153"
       }
     },
     "featured_collections_hhETJ9": {
