@@ -613,6 +613,13 @@
 .mobile-info-scroller::-webkit-scrollbar {
   display: none;
 }
+.header-wrapper.drawer-is-open #header-actions_search {
+  display: none !important;
+}
+
+.header-wrapper.drawer-is-open .header-search-drawer {
+  display: none !important;
+}
 
 
 {% endstyle %}
@@ -629,7 +636,7 @@
   @cart-open.window="cartOpen = true"
   @drawer-toggle.window="drawerOpen = $event.detail.open"
   @scroll.window="scrolled = window.scrollY > 0"
-  :class="{ 'scrolled': scrolled }"
+  :class="{ 'scrolled': scrolled, 'drawer-is-open': drawerOpen  }"
 >
   <header
     {% if section.settings.menu_position == 'center' %}
