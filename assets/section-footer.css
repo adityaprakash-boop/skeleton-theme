@@ -1054,3 +1054,23 @@ localization-button {
   height: auto;
   transform: rotate(90deg);
 }
+@media screen and (max-width: 768px) {
+  .localization-button {
+    display: flex;
+    align-items: center;
+    gap: 90vw;
+    color: inherit;
+    background: transparent;
+    min-width: max-content;
+    max-width: 100%;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+}
+@media screen and (max-width: 768px) {
+  .footer-block__details-content .list-menu__item--link {
+    font-size: 1.3rem;
+    white-space: nowrap;
+}
+}
