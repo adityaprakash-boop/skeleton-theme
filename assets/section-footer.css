@@ -1074,3 +1074,21 @@ localization-button {
     white-space: nowrap;
 }
 }
+.list-payment {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  flex-wrap: nowrap;
+}
+.copyright__content1 {
+  font-size: 1.2rem;
+  color:rgba(255, 255, 255, 0.6);
+  align-items: center;
+}
+.photography__content {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.6);
+  align-items: center;
+  border-bottom: 1px solid white;
+}
