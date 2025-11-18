@@ -79,7 +79,7 @@
 
 .footer-block__heading {
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  /* margin-bottom: 1.5rem; */
   margin-top: 0;
   font-size: 2rem;
   color: rgb(32, 34, 35);
@@ -115,7 +115,7 @@
   align-content: center;
   gap: 1.5rem;
   flex-wrap: wrap;
-  padding: 1rem 0 1rem 0;
+  padding: 1rem 0 5rem 0;
 }
 
 .footer__localization:empty {
@@ -162,7 +162,7 @@
 }
 
 .footer-block__details-content>li {
-  padding-bottom: 1.6rem;
+  padding-bottom: 2rem;
   list-style: none;
 }
 
@@ -174,7 +174,8 @@
 }
 
 .footer-block__details-content .list-menu__item--link {
-  font-size: 15px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .footer-block__details-content .list-menu__item--active {
@@ -199,13 +200,13 @@
 }
 
 li.list-social__item a {
-  background: #2E2E2E;
+  /* background: #2E2E2E; */
   border-radius: 50px;
   color: white;
 }
 
 .footer-block__image-wrapper {
-  margin-bottom: 2.4rem;
+  /* margin-bottom: 2.4rem; */
   overflow: hidden !important;
 }
 
@@ -350,7 +351,9 @@ li.list-social__item a {
 
 .newsletter-form__button:focus {
   box-shadow:
-    0 0 0 0.3rem rgb(var(--color-background)),
+  
+  
+  0 0 0 0.3rem rgb(var(--color-background)),
     0 0 0 0.4rem rgba(var(--color-foreground));
   background-color: rgb(var(--color-background));
 }
@@ -815,7 +818,7 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
 .footer__blocks-wrapper {
   display: flex;
   /* grid-template-columns: repeat(4, 1fr); */
-  /* gap: 32px; */
+  gap: 32px;
   margin-bottom: 32px;
   justify-content: space-between;
   flex-wrap: nowrap;
@@ -839,11 +842,11 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
   padding-right: 4rem;
 }
 .footer-block__heading {
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 3.4rem;
   margin-top: 0;
-  font-size: 1.6rem;
-  letter-spacing: 0.3rem;
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
   /* color: rgb(32, 34, 35); */
   color: white;
 }
@@ -892,11 +895,11 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
     width: 100%;
   }
   .footer-block__heading {
-    font-weight: 500;
-    margin-bottom: 3.4rem;
+    font-weight: 300;
+    /* margin-bottom: 3.4rem; */
     margin-top: 0;
     font-size: 1.3rem;
-    letter-spacing: 0.3rem;
+    letter-spacing: 0.1rem;
     /* color: rgb(32, 34, 35); */
     color: white;
   }
@@ -934,4 +937,120 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
 }
 .footer__localization{
   align-items: flex-start;
+}
+.footer-block__brand-info{
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  max-width: 55rem;
+  
+}
+@media (max-width: 1500px) {
+  .footer-block__brand-info{
+    max-width: 40rem;
+  }
+}
+.footer-block__brand-info > .footer-block__heading{
+  margin-bottom: 0;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
+}
+.footer-block__text-images{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer-block__brand-description{
+  color: white;
+  font-size: 1.6rem;
+  display: none;
+}
+.footer__copyright-wrapper{
+  display: flex;
+  gap: 16px;
+}
+.footer__photography-credits{
+ align-items: center;
+}
+.copyright__content1 {
+  font-size: 1.2rem;
+  color: white;
+  align-items: center;
+}
+.photography__content {
+  
+  font-size: 1.2rem;
+  color: white;
+  align-items: center;
+  border-bottom: 1px solid white;
+}
+@media (max-width: 768px) {
+  .footer-block__brand-description{
+    color: white;
+    font-size: 1.3rem;
+    display: flex;
+  }
+  .footer-block__heading-brand{
+    width: 95vw;
+  }
+  .footer-block__text-images {
+    display: flex;
+    width: 70vw;
+    flex-direction: row;
+    gap: 18px;
+  }
+}
+.footer-block__heading {
+ 
+  letter-spacing: 0.3rem;
+  
+}
+.footer-block__heading-brand{
+  letter-spacing: 0.1rem;
+  line-height: 2.2rem;
+  
+}
+@media (max-width: 768px) {
+  .footer__content-bottom-wrapper {
+    flex-direction: column-reverse;
+    gap: 15px;
+    padding: 15px 12px;
+    align-items: flex-start; /* optional spacing */
+  }
+  .footer__content-bottom {
+   padding: 0;
+}
+}
+
+.footer__localization .localization-list {
+  position: absolute;
+  box-shadow: #0000001a 0 1px 3px, #0000000f 0 1px 2px;
+  list-style: none;
+  padding: 0;
+  max-height: 60vh;
+  overflow: auto;
+  bottom: 100%;
+  background: white;
+  color: black;
+}
+.localization-button span{
+  color: white;
+}
+localization-button {
+  display: flex;
+  align-items: center;
+  gap: 90vw;
+  color: inherit;
+  background: transparent;
+  min-width: max-content;
+  max-width: 100%;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.localization-button svg{
+  width: 8px;
+  height: auto;
+  transform: rotate(90deg);
 }

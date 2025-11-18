@@ -94,10 +94,10 @@
                       </div>
                     {%- endif -%}
                     {%- if block.settings.brand_title != blank -%}
-                      <h2 class="footer-block__heading">{{ block.settings.brand_title }}</h2>
+                      <span class="footer-block__heading footer-block__heading-brand">{{ block.settings.brand_title }}</span>
                     {%- endif -%}
                     {%- if block.settings.brand_description != blank -%}
-                      <div>{{ block.settings.brand_description }}</div>
+                      <div class="footer-block__brand-description">{{ block.settings.brand_description }}</div>
                     {%- endif -%}
                     {%- if block.settings.show_social and has_social_icons -%}
                       {%- render 'component-social-icons', class: 'footer__list-social' -%}
@@ -134,7 +134,7 @@
         -%}
           
       </div> {% endcomment %}
-      <div class="footer__column footer__column--info">
+      {% comment %} <div class="footer__column footer__column--info">
         {%- if section.settings.payment_enable -%}
           <div class="footer__payment">
             <ul class="list-payment" role="list">
@@ -152,7 +152,57 @@
           <small class="copyright__content" >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url }} - {{ powered_by_link }} </small>
           
         </div>
+      </div> {% endcomment %}
+      <div class="footer__copyright-wrapper">
+      <div class="footer__copyright1">
+        <span class="copyright__content1">
+          {{ section.settings.footer_copyright }}
+        </span>
       </div>
+      
+      
+        <div class="footer__photography-credits">
+          <a href="https://www.instagram.com/welleco_us/" target="_blank">
+          <span class="photography__content">
+            {{ section.settings.footer_photography }}
+          </span>
+          </a>
+        </div>
+      
+      </div>
+      {% if section.settings.payment_enable %}
+        <div class="footer__payment">
+          <ul class="list-payment" role="list">
+            
+            <li class="list-payment__item">
+              <img src="{{ 'pay1.png' | asset_url }}" alt="Payment 1" loading="lazy">
+            </li>
+      
+            <li class="list-payment__item">
+              <img src="{{ 'pay3.png' | asset_url }}" alt="Payment 2" loading="lazy">
+            </li>
+      
+            <li class="list-payment__item">
+              <img src="{{ 'pay2.png' | asset_url }}" alt="Payment 3" loading="lazy">
+            </li>
+      
+            <li class="list-payment__item">
+              <img src="{{ 'pay6.png' | asset_url }}" alt="Payment 4" loading="lazy">
+            </li>
+      
+            <li class="list-payment__item">
+              <img src="{{ 'pay5.png' | asset_url }}" alt="Payment 5" loading="lazy">
+            </li>
+      
+            <li class="list-payment__item">
+              <img src="{{ 'pay4.png' | asset_url }}" alt="Payment 6" loading="lazy">
+            </li>
+      
+          </ul>
+        </div>
+      {% endif %}
+      
+      
       
     </div>
     
@@ -308,7 +358,20 @@
       "unit": "px",
       "label": "t:sections.footer.settings.margin_top.label",
       "default": 0
+    },
+    {
+      "type": "text",
+      "id": "footer_copyright",
+      "label": "Footer copyright text",
+      "default": "© 2025 Your Store. All Rights Reserved."
+    },
+    {
+      "type": "text",
+      "id": "footer_photography",
+      "label": "Photography credits",
+      "default": "Photography by Your Brand"
     }
+    
   ],
   "presets": [
     {
