@@ -1058,7 +1058,7 @@ localization-button {
   .localization-button {
     display: flex;
     align-items: center;
-    gap: 90vw;
+    gap: 80vw;
     color: inherit;
     background: transparent;
     min-width: max-content;
@@ -1091,4 +1091,12 @@ localization-button {
   color: rgba(255, 255, 255, 0.6);
   align-items: center;
   border-bottom: 1px solid white;
+}
+@media screen and (max-width: 768px) {
+  .list-menu__item--link {
+    color: white;
+    font-weight: 300;
+    letter-spacing: 0rem;
+    font-size: 1.3rem;
+}
 }
