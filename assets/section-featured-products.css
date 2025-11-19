@@ -567,3 +567,12 @@
   top: 40px;
   right: 10px;
 }
+.pp-grid-text {
+  position: absolute;
+  bottom: 50%;
+  left: 30%;
+  color: white;
+  font-size: 22px;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
