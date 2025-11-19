@@ -1,0 +1,111 @@
+<section class="statement-section">
+    <div class="statement-inner">
+  
+      {% if section.settings.heading != blank %}
+        <h2 class="statement-heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+  
+      {% if section.settings.subheading != blank %}
+        <p class="statement-subheading">{{ section.settings.subheading }}</p>
+      {% endif %}
+  
+      {% if section.settings.description != blank %}
+        <p class="statement-description">{{ section.settings.description }}</p>
+      {% endif %}
+  
+      {% if section.settings.button_label != blank %}
+        <a href="{{ section.settings.button_link }}" class="statement-button">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+  
+    </div>
+  </section>
+  
+  <style>
+    .statement-section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+  
+    .statement-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  
+    .statement-heading {
+      font-size: 28px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+  
+    .statement-subheading {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .statement-description {
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+  
+    .statement-button {
+      padding: 10px 24px;
+      border: 1px solid #000;
+      text-decoration: none;
+      color: #000;
+      display: inline-block;
+    }
+  
+    @media (max-width: 768px) {
+      .statement-heading {
+        font-size: 22px;
+      }
+      .statement-subheading {
+        font-size: 18px;
+      }
+    }
+  </style>
+  
+  {% schema %}
+  {
+    "name": "Statement Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "STATEMENT TEXT IN THAT CAN BE WRITTEN IN CAPS"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading",
+        "default": "or a headline displayed in sentence case"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description",
+        "default": "Supporting description text with bold or italic for emphasis. This can run over a couple of lines if desired."
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label",
+        "default": "CALL TO ACTION"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Statement Section"
+      }
+    ]
+  }
+  {% endschema %}
+  

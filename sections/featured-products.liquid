@@ -37,7 +37,7 @@
       <div class="featured-products__header">
         <div class="featured-products__titles featured-products__titles--{{ heading_alignment }}">
           {%- if heading != blank -%}
-            <h2 class="featured-products__heading">{{ heading | escape }}</h2>
+            <h3 class="featured-products__heading">{{ heading | escape }}</h3>
           {%- endif -%}
           {%- if subheading != blank -%}
             <p class="featured-products__subheading">{{ subheading | escape }}</p>
@@ -114,20 +114,20 @@
                       {{ product.title | default: 'Product Title' }}
                     </span>
                     </div>
-                    <div class="product-card__reviews product-card__reviews--{{ review_content_alignment }}">
-                      <span class="visually-hidden">Rating:</span>
-                      <span class="product-card__stars" style="color: {{ stars_color | default: '#FFD700' }}"
-                        >★★★★☆</span
-                      >
-                      <a href="#reviews" class="product-card__review-link">
-                        <span class="product-card__review-count">10 Reviews</span>
-                      </a>
-                    </div>
                     <div class="product-card__description">
                       <span class="product-card__description-text">
                         {{ product.description | default: 'Product Description' }}
                       </span>
                     </div>
+                    
+                    <div class="product-card__reviews product-card__reviews--{{ review_content_alignment }}">
+                      <span class="visually-hidden">Rating:</span>
+                      <span class="product-card__stars" style="color: {{ stars_color | default: '#FFD700' }}">★★★★☆</span>
+                      <a href="#reviews" class="product-card__review-link">
+                        <span class="product-card__review-count">10 Reviews</span>
+                      </a>
+                    </div>
+                    
                     
                     <div class="product-card__price" style="color: {{ product_info_text_color | default: '#111111' }}">
                       {%- if product.price -%}

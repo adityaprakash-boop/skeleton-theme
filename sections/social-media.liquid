@@ -1,0 +1,116 @@
+<section class="social-media">
+
+    <div class="social-media-grid">
+      {% for block in section.blocks %}
+        <div class="social-media-item">
+  
+          <div class="social-media-img-wrap">
+            {% if block.settings.image != blank %}
+              <img 
+                src="{{ block.settings.image | image_url: width: 800 }}"
+                class="social-media-img"
+                loading="lazy">
+            {% endif %}
+  
+            {% if block.settings.icon != blank %}
+              <div class="social-media-icon">
+                <img src="{{ block.settings.icon | image_url: width: 64 }}">
+              </div>
+            {% endif %}
+          </div>
+  
+        </div>
+      {% endfor %}
+    </div>
+  
+  </section>
+  
+  <style>
+    .social-media {
+      padding: 20px 0;
+    }
+  
+    /* DESKTOP — grid layout */
+    .social-media-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      
+    }
+  
+    .social-media-img-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background: #eee;
+      overflow: hidden;
+    }
+  
+    .social-media-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  
+    /* Hover Icon (hidden by default) */
+    .social-media-icon {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      background: rgba(0,0,0,0.3);
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+  
+    .social-media-icon img {
+      width: 48px;
+      height: 48px;
+    }
+  
+    .social-media-item:hover .social-media-icon {
+      opacity: 1;
+    }
+  
+    /* MOBILE — vertical stack */
+    @media (max-width: 768px) {
+      .social-media-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+       
+      }
+    }
+  </style>
+  
+  {% schema %}
+  {
+    "name": "Social Media Grid",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "item",
+        "name": "Image Block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Social Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Hover Icon (Instagram icon, play icon, etc.)"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Social Media Grid"
+      }
+    ]
+  }
+  {% endschema %}
+  

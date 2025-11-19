@@ -2,6 +2,7 @@
 .footer {
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
   color: rgb(92, 95, 98);
+  font-family: "Futura PT", sans-serif;
 }
 
 .footer:not(.color-scheme-1) {
@@ -945,7 +946,7 @@ ul.footer-block__details-content a.link.link--text.list-menu__item.list-menu__it
   max-width: 55rem;
   
 }
-@media (max-width: 1500px) {
+@media (max-width: 1800px) {
   .footer-block__brand-info{
     max-width: 40rem;
   }
@@ -1104,4 +1105,40 @@ localization-button {
   border-top: solid 0.1rem rgba(var(--color-foreground), 0.08);
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+.footer__blocks-wrapper {
+  display: flex;
+  /* grid-template-columns: repeat(4, 1fr); */
+  gap: 32px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+.footer-block__details-content .list-menu__item--link {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.1rem;
+}
+.footer__list-social {
+  gap: 15px;
+}
+.localization-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: inherit;
+  background: transparent;
+  min-width: max-content;
+  max-width: 100%;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+.footer-block__heading {
+  font-weight: 400;
+  
+}
+.footer__content-top {
+  height: 57.5rem;
 }

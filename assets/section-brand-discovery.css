@@ -2,6 +2,7 @@
     .brand-discovery {
       /* padding: 60px 0; */
       padding-top: 40px;
+      font-family: "Futura PT", sans-serif;
       
     }
   
@@ -74,4 +75,50 @@
         left: 15%;
       }
     }
- 
+    .brand-text {
+        position: absolute;
+        bottom: 50%;
+        left: 25%;
+        color: white;
+        font-size: 20px;
+        line-height: 1.4;
+        max-width: 15rem;
+        text-align: center;
+        font-weight: 300;
+    }
+    .brand-item img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+        height: 100%;
+        aspect-ratio: 4 / 5;
+    }
+    .brand-content span {
+        letter-spacing: 0.3rem;
+        font-size: 2.6rem;
+        font-weight: 400;
+    }
+    .brand-button {
+        display: inline-block;
+        padding: 12px 26px;
+        background: black;
+        color: white;
+        text-decoration: none;
+        margin-top: 4px;
+        width: 14rem;
+        text-align: center;
+    }
+    .brand-button {
+        display: inline-block;
+        padding: 12px 26px;
+        background: black;
+        color: white;
+        text-decoration: none;
+        margin-top: 4px;
+        width: 14rem;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 300;
+        width: 17rem;
+
+    }

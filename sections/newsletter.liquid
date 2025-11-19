@@ -1,0 +1,238 @@
+<section class="newsletter-section">
+    <div class="newsletter-inner">
+  
+      {% if section.settings.heading != blank %}
+        <span class="nl-heading">{{ section.settings.heading }}</span>
+      {% endif %}
+  
+      {% if section.settings.subheading != blank %}
+        <p class="nl-subheading">{{ section.settings.subheading }}</p>
+      {% endif %}
+  
+      <form class="nl-form">
+       <div class="nl-form-group">
+        <input 
+          type="email" 
+          class="nl-email" 
+          placeholder="{{ section.settings.placeholder }}" 
+          required>
+  
+        <div class="nl-buttons">
+          <button type="submit" class="nl-btn-primary">{{ section.settings.button_label }}</button>
+          <a href="{{ section.settings.sms_link }}" class="nl-btn-secondary">
+            {{ section.settings.sms_label }}
+          </a>
+        </div>
+        </div>
+  
+        <label class="nl-checkbox-wrap">
+          <input type="checkbox" required>
+          <span class="nl-checkbox"></span>
+          <span class="nl-checkbox-text">{{ section.settings.checkbox_text }}</span>
+        </label>
+  
+      </form>
+  
+    </div>
+  </section>
+  
+  <style>
+    .newsletter-inner{
+    display: flex;
+    flex-direction: column;
+    font-family: "Futura PT", sans-serif;
+    max-width: 60%
+    
+    }
+    .nl-form{
+    display: flex;
+    flex-direction: column;
+    
+    }
+    .newsletter-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+  
+    .newsletter-inner {
+      padding-left: 80px;
+      margin: 0 auto;
+    }
+  
+    .nl-heading {
+      font-size: 45px;
+      
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+}
+      
+    }
+  
+    .nl-subheading p{
+      font-size: 16px;
+      margin-bottom: 3rem;
+      color: rgba(0, 0, 0, 0.8);
+    }
+  
+    .nl-email {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #000;
+      padding: 12px 4px;
+      font-size: 12px;
+      
+    }
+  
+    .nl-email:focus {
+      outline: none;
+    }
+  
+    .nl-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      
+    }
+  
+    .nl-btn-primary {
+      background: black;
+      color: white;
+      border: none;
+      width: 16rem;
+      font-weight: 300;
+      font-size: 14px;
+    }
+  
+    .nl-btn-secondary {
+      border: 1px solid black;
+      
+      text-decoration: none;
+      color: black;
+      font-size: 15px;
+      width: 15rem;
+      align-items: center;
+      padding: 10px 10px;
+      
+    }
+  
+    /* Checkbox */
+    .nl-checkbox-wrap {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      text-align: left;
+    }
+  
+    .nl-checkbox-wrap input {
+      display: none;
+    }
+  
+    .nl-checkbox {
+      width: 22px;
+      height: 22px;
+      border: 1px solid #000;
+      display: inline-block;
+      position: relative;
+    }
+  
+    .nl-checkbox-wrap input:checked + .nl-checkbox::after {
+      content: "✔";
+      position: absolute;
+      top: -2px;
+      left: 4px;
+      font-size: 16px;
+      
+    }
+  
+    .nl-checkbox-text {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .nl-form-group{
+      display: flex;
+      
+      gap: 10px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+    .nl-checkbox-wrap{
+      align-items: center;
+    }
+  
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nl-buttons {
+        flex-direction: column;
+        gap: 14px;
+      }
+  
+      .nl-btn-primary,
+      .nl-btn-secondary {
+        width: 100%;
+      }
+  
+      .newsletter-inner {
+        text-align: left;
+      }
+  
+      .nl-heading {
+        text-align: left;
+        font-size: 26px;
+      }
+    }
+  </style>
+  
+  {% schema %}
+  {
+    "name": "Newsletter Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Join the WelleCommunity"
+      },
+      {
+        "type": "textarea",
+        "id": "subheading",
+        "label": "Subheading",
+        "default": "Sign up now to receive $10 off your next order and exclusive wellness tips from Elle Macpherson."
+      },
+      {
+        "type": "text",
+        "id": "placeholder",
+        "label": "Email Placeholder",
+        "default": "Enter your email address"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Primary Button Label",
+        "default": "SIGN UP"
+      },
+      {
+        "type": "text",
+        "id": "sms_label",
+        "label": "SMS Button Label",
+        "default": "SMS SIGN UP"
+      },
+      {
+        "type": "url",
+        "id": "sms_link",
+        "label": "SMS Sign Up Link"
+      },
+      {
+        "type": "textarea",
+        "id": "checkbox_text",
+        "label": "Checkbox Text",
+        "default": "I agree for WelleCo to contact me via email with product information, exclusive offers, nutrition and wellness content."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Newsletter Section"
+      }
+    ]
+  }
+  {% endschema %}
+  

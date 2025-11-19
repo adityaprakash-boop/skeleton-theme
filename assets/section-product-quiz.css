@@ -1,16 +1,17 @@
 .product-quiz {
     padding-bottom: 40px;
+    font-family: "Futura PT", sans-serif;
   }
 
  
   .pq-container {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 60px;
   }
 
   .pq-image {
-    flex: 1;
+    width: 60%;
   }
 
   .pq-img {
@@ -20,7 +21,7 @@
     display: block;
   }
   .pq-image img {
-    aspect-ratio: 3/2;
+    aspect-ratio: 3/1.9;
   }
 
 
@@ -30,11 +31,14 @@
   }
 
   .pq-heading {
-      font-size: 46px;
+      font-size: 44px;
       margin-bottom: 20px;
       width: 85%;
       font-weight: 400;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.2rem;
+      display: block;
+      line-height: 1.2;
+      
   }
 
   .pq-text {
@@ -49,6 +53,7 @@
     color: black;
     display: inline-block;
     font-size: 14px;
+    width: 17rem;
   }
   .pq-button:hover {
     background: #000;
@@ -74,4 +79,10 @@
       font-size: 28px;
       width: 100%;
     }
+  }
+  .pq-content{
+    display: flex;
+    flex-direction: column;
+   
+    gap: 15px;
   }
