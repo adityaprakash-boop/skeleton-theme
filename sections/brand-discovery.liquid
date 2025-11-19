@@ -63,6 +63,7 @@
       color: white;
       font-size: 20px;
       line-height: 1.4;
+      max-width: 15rem;
     }
   
     .brand-content {
@@ -70,7 +71,8 @@
       flex-direction: column;
       gap: 20px;
       padding: 40px 20px;
-      max-width: 700px;
+      width: 100%;
+      background: #FBF8F4;
     }
   
     .brand-button {
@@ -85,15 +87,15 @@
     }
   
     /* Mobile: 2-column grid */
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .brand-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
       }
       .brand-text {
         font-size: 16px;
-        bottom: 15px;
-        left: 15px;
+        bottom: 50%;
+        left: 15%;
       }
     }
   </style>
