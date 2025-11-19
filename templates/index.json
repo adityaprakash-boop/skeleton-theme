@@ -113,10 +113,18 @@
             "image": "shopify://shop_images/13dee4124285205a97413182c7fdea058dce413d.jpg",
             "text": "Founded by Elle Mcpherson"
           }
+        },
+        "image_text_W3tThA": {
+          "type": "image_text",
+          "settings": {
+            "image": "shopify://shop_images/36968e25343e249a90eafd6fbaf59214db3a42fb.gif",
+            "text": "With wellness, you can."
+          }
         }
       },
       "block_order": [
-        "image_text_938zjz"
+        "image_text_938zjz",
+        "image_text_W3tThA"
       ],
       "name": "Brand Discovery",
       "settings": {
