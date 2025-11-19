@@ -1142,3 +1142,18 @@ localization-button {
 .footer__content-top {
   height: 57.5rem;
 }
+.footer__localization {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-bottom: 60px;
+}
+@media (max-width: 1800px) {
+  .footer-block__brand-info {
+      max-width: 35rem;
+  }
+}

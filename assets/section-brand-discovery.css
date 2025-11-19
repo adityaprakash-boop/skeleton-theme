@@ -122,3 +122,23 @@
         width: 17rem;
 
     }
+    .brand-content p {
+        font-size: 1.4rem;
+        font-weight: 400;
+    }
+    .brand-item img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+        height: 108%;
+        aspect-ratio: 4/5;
+    }
+    .brand-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 60px 40px;
+        width: 100%;
+        background: #FBF8F4;
+    }
+    
