@@ -1,0 +1,75 @@
+
+    .brand-discovery {
+      padding: 60px 0;
+    }
+  
+    /* Desktop: 4 images in a row */
+    .brand-grid {
+      display: flex;
+      max-height: 45rem;
+    }
+  
+    .brand-item {
+      position: relative;
+      flex: 1;
+    }
+  
+    .brand-item img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      height: 100%;
+    }
+  
+    .brand-text {
+      position: absolute;
+      bottom: 50%;
+      left: 15%;
+      color: white;
+      font-size: 20px;
+      line-height: 1.4;
+      max-width: 15rem;
+      text-align: center;
+    }
+  
+    .brand-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 40px 40px;
+      width: 100%;
+      background: #FBF8F4;
+    }
+
+    .brand-content p{
+        font-size: 1.3rem;
+        font-weight: 400;
+      }
+      .brand-content h2{
+        letter-spacing: 0.2rem;
+      }
+  
+    .brand-button {
+      display: inline-block;
+      padding: 12px 26px;
+      background: black;
+      color: white;
+      text-decoration: none;
+      margin-top: 20px;
+      width: 14rem;
+      text-align: center;
+    }
+  
+    /* Mobile: 2-column grid */
+    @media (max-width: 900px) {
+      .brand-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .brand-text {
+        font-size: 16px;
+        bottom: 50%;
+        left: 15%;
+      }
+    }
+ 
