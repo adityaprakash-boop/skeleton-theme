@@ -1,0 +1,128 @@
+.proof-points {
+    padding: 0;
+  }
+
+  /* Desktop layout */
+  .pp-top {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .pp-text {
+  display: flex;
+  flex-direction: column;
+    flex: 1;
+    padding: 0 40px;
+    gap: 10px;
+  }
+  .pp-text h2{
+      font-size: 32px;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      }
+  .pp-text p{
+          font-size: 32px;
+          font-weight: 300;
+          font-style: italic;
+          letter-spacing: 0.02em;
+          }
+      .pp-button {
+              font-size: 13px;
+              font-weight: 300;
+              letter-spacing: 0.02em;
+              width: 14rem;
+              }
+            
+  
+
+  .pp-main-image {
+    position: relative;
+    flex: 1;
+  }
+  .pp-main-image img{
+      position: relative;
+      flex: 1;
+      aspect-ratio: 1/1;
+    }
+
+  .pp-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .pp-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    line-height: 1.3;
+  }
+
+  .pp-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: black;
+    color: white;
+    text-decoration: none;
+  }
+
+  /* Bottom 4 images – desktop row */
+  .pp-grid {
+    display: flex;
+    margin-top: 1px;
+  }
+
+  .pp-grid-item {
+    flex: 1;
+    position: relative;
+  }
+
+  .pp-grid-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .pp-grid-text {
+    position: absolute;
+    bottom: 50%;
+    left: 40%;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 300;
+  }
+
+  /* Mobile layout */
+  @media (max-width: 768px) {
+    .pp-top {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+
+    .pp-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 30px;
+    }
+    .pp-text{
+      width: 100%;
+      align-items: left;
+      padding: 0 20px;
+  }
+  .pp-heading{
+      text-align: left;
+  }
+  .pp-sub{
+      text-align: left;
+  }
+ 
+  }

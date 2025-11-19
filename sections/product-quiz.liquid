@@ -1,0 +1,76 @@
+{{ 'section-product-quiz.css' | asset_url | stylesheet_tag }}
+<section class="product-quiz">
+    <div class="pq-container">
+  
+      <div class="pq-image">
+        {% if section.settings.image != blank %}
+          <img 
+            src="{{ section.settings.image | image_url: width: 1400 }}"
+            alt="Quiz Image"
+            class="pq-img"
+            loading="lazy">
+        {% endif %}
+      </div>
+  
+      <div class="pq-content">
+        {% if section.settings.heading != blank %}
+          <h2 class="pq-heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+  
+        {% if section.settings.text != blank %}
+          <p class="pq-text">{{ section.settings.text }}</p>
+        {% endif %}
+  
+        {% if section.settings.button_label != blank %}
+          <a href="{{ section.settings.button_link }}" class="pq-button">
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
+  
+    </div>
+  </section>
+  
+ 
+  
+  {% schema %}
+  {
+    "name": "Product Quiz",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "FIND YOUR WELLNESS JOURNEY"
+      },
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Subtext",
+        "default": "Unsure which WelleCo product is right for you?"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label",
+        "default": "TAKE OUR QUIZ"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Quiz"
+      }
+    ]
+  }
+  {% endschema %}
+  

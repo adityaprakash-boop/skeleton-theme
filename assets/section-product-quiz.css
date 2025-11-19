@@ -1,0 +1,77 @@
+.product-quiz {
+    padding-bottom: 40px;
+  }
+
+ 
+  .pq-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .pq-image {
+    flex: 1;
+  }
+
+  .pq-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .pq-image img {
+    aspect-ratio: 3/2;
+  }
+
+
+  .pq-content {
+    flex: 1;
+    max-width: 500px;
+  }
+
+  .pq-heading {
+      font-size: 46px;
+      margin-bottom: 20px;
+      width: 85%;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+  }
+
+  .pq-text {
+    margin-bottom: 25px;
+    font-size: 13px;
+  }
+
+  .pq-button {
+    padding: 12px 28px;
+    border: 1px solid #000;
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    font-size: 14px;
+  }
+  .pq-button:hover {
+    background: #000;
+    color: #fff;
+  }
+
+  /* Mobile: column */
+  @media (max-width: 768px) {
+    .pq-container {
+      flex-direction: column;
+      text-align: center;
+      gap: 20px;
+    }
+
+    .pq-content {
+      max-width: 100%;
+      padding: 0 20px;
+      width: 100%;
+      text-align: right;
+    }
+
+    .pq-heading {
+      font-size: 28px;
+      width: 100%;
+    }
+  }

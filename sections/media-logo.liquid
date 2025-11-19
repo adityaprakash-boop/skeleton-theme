@@ -1,0 +1,55 @@
+{{ 'section-media-logo.css' | asset_url | stylesheet_tag }}
+<section class="media-logos">
+    {% if section.settings.title != blank %}
+      <h2 class="media-title">{{ section.settings.title }}</h2>
+    {% endif %}
+  
+    <div class="media-logos-row">
+      {% for block in section.blocks %}
+        <div class="media-logo-item">
+          {% if block.settings.logo != blank %}
+            <img 
+              src="{{ block.settings.logo | image_url: width: 400 }}"
+              alt="logo"
+              class="media-logo-img"
+              loading="lazy">
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+  
+  
+  
+  {% schema %}
+  {
+    "name": "Media Logos",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "AS SEEN IN"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "media_logo",
+        "name": "Logo",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Media Logos"
+      }
+    ]
+  }
+  {% endschema %}
+  
