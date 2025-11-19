@@ -149,11 +149,126 @@
         "button_label": "OUR STORY",
         "button_link": ""
       }
+    },
+    "media_logo_EDAYEM": {
+      "type": "media-logo",
+      "blocks": {
+        "media_logo_prbtqX": {
+          "type": "media_logo",
+          "settings": {
+            "logo": "shopify://shop_images/9579b44ea4116e40f92fc750dd04bc1266f0bafe.png"
+          }
+        },
+        "media_logo_8WHUUm": {
+          "type": "media_logo",
+          "settings": {
+            "logo": "shopify://shop_images/5f1cabe894b08aa6b9715aa244d69584f9ced9e4.png"
+          }
+        },
+        "media_logo_kctaLw": {
+          "type": "media_logo",
+          "settings": {
+            "logo": "shopify://shop_images/eeea27124d9a59e1dfa0e6f8085f7ab159b5de11.png"
+          }
+        },
+        "media_logo_LdQk3p": {
+          "type": "media_logo",
+          "settings": {
+            "logo": "shopify://shop_images/d03fa5706743682542fc8fdc04844488873393b0.png"
+          }
+        },
+        "media_logo_hTXDKe": {
+          "type": "media_logo",
+          "settings": {
+            "logo": "shopify://shop_images/96277ef0e7664e17b89340bc5a04da2f0606d8a5.png"
+          }
+        },
+        "media_logo_ewVf4c": {
+          "type": "media_logo",
+          "settings": {
+            "logo": "shopify://shop_images/9277f5dd3f45b5ec179bdf81533fbe5e400469fd.png"
+          }
+        }
+      },
+      "block_order": [
+        "media_logo_prbtqX",
+        "media_logo_8WHUUm",
+        "media_logo_kctaLw",
+        "media_logo_LdQk3p",
+        "media_logo_hTXDKe",
+        "media_logo_ewVf4c"
+      ],
+      "name": "Media Logos",
+      "settings": {
+        "title": "AS SEEN IN"
+      }
+    },
+    "product_quiz_JKbPCj": {
+      "type": "product-quiz",
+      "name": "Product Quiz",
+      "settings": {
+        "image": "shopify://shop_images/4f17b7e05a31170665c63f71bad53cf54d243ecd.jpg",
+        "heading": "FIND YOUR WELLNESS JOURNEY",
+        "text": "Unsure which WelleCo product is right for you?",
+        "button_label": "TAKE OUR QUIZ",
+        "button_link": ""
+      }
+    },
+    "proof_points_N6qnMx": {
+      "type": "proof-points",
+      "blocks": {
+        "pp_item_Wdderk": {
+          "type": "pp_item",
+          "settings": {
+            "image": "shopify://shop_images/820dcf756d2f38a06ee6e4fcdfa91d6cc4276b8b.jpg",
+            "text": "CERTIFICATIONS"
+          }
+        },
+        "pp_item_4yYTtx": {
+          "type": "pp_item",
+          "settings": {
+            "image": "shopify://shop_images/d34ebc1105187d85750521268bc74fa1d3d9474b_1.png",
+            "text": ""
+          }
+        },
+        "pp_item_jhPpBg": {
+          "type": "pp_item",
+          "settings": {
+            "image": "shopify://shop_images/17445a08dfa5679d8d477727bf1e6667ece2b765.jpg",
+            "text": ""
+          }
+        },
+        "pp_item_HdjLxq": {
+          "type": "pp_item",
+          "settings": {
+            "image": "shopify://shop_images/ec6a7175b0b731cdc021fc556d35e33beb0b6a41.jpg",
+            "text": "AWARDS"
+          }
+        }
+      },
+      "block_order": [
+        "pp_item_Wdderk",
+        "pp_item_4yYTtx",
+        "pp_item_jhPpBg",
+        "pp_item_HdjLxq"
+      ],
+      "name": "Proof Points",
+      "settings": {
+        "main_image": "shopify://shop_images/f1d7d5c3f4b8d42b9c86712b43c1ac2650e3a5a4.jpg",
+        "main_overlay_text": "91%saw resultswithin 30 days",
+        "heading": "Innovative formulas.",
+        "subheading": "Science-backed expertise.",
+        "button_label": "DISCOVER MORE",
+        "button_link": ""
+      }
     }
   },
   "order": [
     "hero_1",
     "featured_products_example",
-    "brand_discovery_QRbkNN"
+    "brand_discovery_QRbkNN",
+    "media_logo_EDAYEM",
+    "product_quiz_JKbPCj",
+    "proof_points_N6qnMx"
   ]
 }
