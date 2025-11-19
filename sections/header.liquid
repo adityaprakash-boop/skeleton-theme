@@ -447,7 +447,10 @@
   #main-header nav ul li,
   #main-header nav ul li a {
     color: {{ section.settings.menu_text_color }};
+    /* color: white; */
   }
+ 
+
   [data-cart-count] {
     /* background: {{ section.settings.cart_count_color }}; */
     color: black;
@@ -621,6 +624,106 @@
 .header-wrapper.drawer-is-open .header-search-drawer {
   display: none !important;
 }
+/* Default state – menu links white */
+#main-header nav ul li a {
+  color: white !important;
+}
+
+/* On hover of header – turn black */
+.header-wrapper:hover #main-header nav ul li a {
+  color: black !important;
+}
+
+/* On scroll – turn black */
+.header-wrapper.scrolled #main-header nav ul li a {
+  color: black !important;
+}
+
+/* When drawer open (optional because scrolled also applies white bg) */
+.header-wrapper.drawer-is-open #main-header nav ul li a {
+  color: black !important;
+}
+/* Default state – icons white */
+/* Default (top of page) – icon stroke = white, fill untouched */
+.header-wrapper svg * {
+  stroke: white !important;
+  fill: none !important; /* ensures hollow icons */
+}
+
+/* Hover OR Scroll – icon stroke = black, fill untouched */
+.header-wrapper:hover svg * ,
+.header-wrapper.scrolled svg * {
+  stroke: black !important;
+  fill: none !important;
+}
+/* Default state – white border + white text */
+.header-wrapper .header-quiz-button {
+  color: white !important;
+  border-color: white !important;
+}
+
+/* Hover OR Scrolled – black border + black text */
+.header-wrapper:hover .header-quiz-button,
+.header-wrapper.scrolled .header-quiz-button {
+  color: black !important;
+  border-color: black !important;
+}
+/* Default – white border + white text */
+.header-wrapper [data-cart-count] {
+  color: white !important;
+  
+}
+
+/* Hover OR Scrolled – black border + black text */
+.header-wrapper:hover [data-cart-count],
+.header-wrapper.scrolled [data-cart-count] {
+  color: black !important;
+ 
+}
+/* Default (top of page): visible country name = white */
+/* Default (top) – white country selector text */
+.header-wrapper .header-actions_localization *,
+.header-wrapper .header-actions_localization select,
+.header-wrapper .header-actions_localization button,
+.header-wrapper .header-actions_localization span {
+  color: white !important;
+  border-color: white !important;
+}
+
+/* Hover OR Scrolled – black country selector text */
+.header-wrapper:hover .header-actions_localization *,
+.header-wrapper.scrolled .header-actions_localization *,
+.header-wrapper:hover .header-actions_localization select,
+.header-wrapper.scrolled .header-actions_localization select,
+.header-wrapper:hover .header-actions_localization button,
+.header-wrapper.scrolled .header-actions_localization button,
+.header-wrapper:hover .header-actions_localization span,
+.header-wrapper.scrolled .header-actions_localization span {
+  color: black !important;
+  border-color: black !important;
+}
+
+/* Default – show white logo, hide black */
+.header-logo--white {
+  display: block;
+}
+.header-logo--black {
+  display: none;
+}
+
+/* On hover OR scroll – show black logo */
+.header-wrapper:hover .header-logo--white,
+.header-wrapper.scrolled .header-logo--white {
+  display: none;
+}
+
+.header-wrapper:hover .header-logo--black,
+.header-wrapper.scrolled .header-logo--black {
+  display: block;
+}
+
+
+
 
 
 {% endstyle %}
@@ -674,7 +777,13 @@
     {% if request.page_type == 'index' %}<h1 class="header-logo-container" style="margin: 0">{% endif %}
     <a href="{{ routes.root_url }}" class="header-shop_link" style="display: flex">
       {% if settings.logo != blank %}
-        {{ settings.logo | image_url: width: 900 | image_tag: class: 'header-logo' }}
+        <img 
+  src="{{ 'Group.png' | asset_url }}" 
+  class="header-logo header-logo--white">
+
+<img 
+  src="{{ settings.logo | image_url: width: 900 }}" 
+  class="header-logo header-logo--black">
       {% else %}
         <span class="header-shop_name">{{ shop.name }}</span>
       {% endif %}
