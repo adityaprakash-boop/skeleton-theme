@@ -127,12 +127,20 @@
             "image": "shopify://shop_images/30684ab445a6cef4139c3658452124572a960389.png",
             "text": ""
           }
+        },
+        "image_text_QTqHwj": {
+          "type": "image_text",
+          "settings": {
+            "image": "shopify://shop_images/6ac258b9cb0004b093766b5a722a6073f8b674ba.png",
+            "text": "With wellness, you can."
+          }
         }
       },
       "block_order": [
         "image_text_938zjz",
         "image_text_W3tThA",
-        "image_text_gnHrTc"
+        "image_text_gnHrTc",
+        "image_text_QTqHwj"
       ],
       "name": "Brand Discovery",
       "settings": {
