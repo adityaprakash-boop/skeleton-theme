@@ -46,6 +46,7 @@
   <script>
     const checkbox = document.querySelector(".nl-checkbox");
     const button = document.querySelector(".nl-btn-primary");
+    button.disabled = !checkbox.checked;
   
     checkbox.addEventListener("change", () => {
       button.disabled = !checkbox.checked;
