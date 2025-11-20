@@ -320,6 +320,111 @@
         "button_label": "EXPLORE MORE",
         "button_link": "shopify://products/the-14-day-travel"
       }
+    },
+    "social_media_qRkw7r": {
+      "type": "social-media",
+      "blocks": {
+        "item_WW7346": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/583219177_32365181226463572_8125646802573627488_n.jpg",
+            "icon": "shopify://shop_images/Adobe_Express_-_file.png"
+          }
+        },
+        "item_aRwABC": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/583534850_695788463607016_3302070055749240832_n.jpg",
+            "icon": "shopify://shop_images/Adobe_Express_-_file.png"
+          }
+        },
+        "item_WG8nkM": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/584383504_1557965108980696_3417899667170213472_n.jpg",
+            "icon": "shopify://shop_images/Adobe_Express_-_file.png"
+          }
+        },
+        "item_fz6xXT": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/582851377_18539668165039041_2212693506562734280_n.jpg",
+            "icon": "shopify://shop_images/Adobe_Express_-_file.png"
+          }
+        },
+        "item_nmUNbp": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/582003923_674812218825712_8075148314789173373_n.jpg",
+            "icon": "shopify://shop_images/Adobe_Express_-_file.png"
+          }
+        },
+        "item_fQfYxW": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/584075107_18539779849039041_2086515609351564420_n.jpg",
+            "icon": "shopify://shop_images/Adobe_Express_-_file.png"
+          }
+        },
+        "item_QCUqbt": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/576629134_1107775941431339_1325027134093342326_n.jpg",
+            "icon": "shopify://shop_images/Adobe_Express_-_file.png"
+          }
+        },
+        "item_eABq9R": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/582757425_1147638610829232_4509578028090597253_n.jpg",
+            "icon": "shopify://shop_images/Adobe_Express_-_file.png"
+          }
+        },
+        "item_Qqy7Mg": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/580128326_18538607962039041_2055304565024357114_n.jpg",
+            "icon": "shopify://shop_images/Adobe_Express_-_file.png"
+          }
+        },
+        "item_L4QEpm": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/579718050_1401086308027250_4798449318143432344_n.jpg",
+            "icon": "shopify://shop_images/Adobe_Express_-_file.png"
+          }
+        },
+        "item_fttTDC": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/580500881_18538294063039041_5197249796431103012_n.jpg",
+            "icon": "shopify://shop_images/Adobe_Express_-_file.png"
+          }
+        },
+        "item_HCaeJX": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/582851377_18539668165039041_2212693506562734280_n.jpg",
+            "icon": "shopify://shop_images/Adobe_Express_-_file.png"
+          }
+        }
+      },
+      "block_order": [
+        "item_WW7346",
+        "item_aRwABC",
+        "item_WG8nkM",
+        "item_fz6xXT",
+        "item_nmUNbp",
+        "item_fQfYxW",
+        "item_QCUqbt",
+        "item_eABq9R",
+        "item_Qqy7Mg",
+        "item_L4QEpm",
+        "item_fttTDC",
+        "item_HCaeJX"
+      ],
+      "name": "Social Media Grid",
+      "settings": {}
     }
   },
   "order": [
@@ -329,6 +434,7 @@
     "media_logo_EDAYEM",
     "product_quiz_JKbPCj",
     "proof_points_N6qnMx",
-    "journal_wdJEKY"
+    "journal_wdJEKY",
+    "social_media_qRkw7r"
   ]
 }
