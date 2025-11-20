@@ -5,9 +5,16 @@
         <span class="nl-heading">{{ section.settings.heading }}</span>
       {% endif %}
   
-      {% if section.settings.subheading != blank %}
-        <p class="nl-subheading">{{ section.settings.subheading }}</p>
-      {% endif %}
+      <div class="nl-subheading-wrap">
+        {% if section.settings.nl_subheading_1 != blank %}
+          <p class="nl-subheading-line">{{ section.settings.nl_subheading_1 }}</p>
+        {% endif %}
+      
+        {% if section.settings.nl_subheading_2 != blank %}
+          <p class="nl-subheading-line">{{ section.settings.nl_subheading_2 }}</p>
+        {% endif %}
+      </div>
+      
   
       <form class="nl-form">
        <div class="nl-form-group">
@@ -26,8 +33,9 @@
         </div>
   
         <label class="nl-checkbox-wrap">
-          <input type="checkbox" required>
-          <span class="nl-checkbox"></span>
+          <input type="checkbox" class="nl-checkbox" required>
+
+          
           <span class="nl-checkbox-text">{{ section.settings.checkbox_text }}</span>
         </label>
   
@@ -35,28 +43,47 @@
   
     </div>
   </section>
+  <script>
+    const checkbox = document.querySelector(".nl-checkbox");
+    const button = document.querySelector(".nl-btn-primary");
+  
+    checkbox.addEventListener("change", () => {
+      button.disabled = !checkbox.checked;
+    });
+  </script>
+  
   
   <style>
+
+    .nl-btn-primary:disabled {
+      background: rgba(0, 0, 0, 0.5);   
+    }
+    
     .newsletter-inner{
     display: flex;
     flex-direction: column;
     font-family: "Futura PT", sans-serif;
-    max-width: 60%
+    max-width: 60%;
+    gap: 10px;
     
     }
     .nl-form{
     display: flex;
     flex-direction: column;
+    gap: 15px;
     
     }
     .newsletter-section {
-      padding: 60px 20px;
+      padding: 40px 20px;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   
     .newsletter-inner {
-      padding-left: 80px;
-      margin: 0 auto;
+      padding-left: 50px;
+      
     }
   
     .nl-heading {
@@ -79,8 +106,20 @@
       border: none;
       border-bottom: 1px solid #000;
       padding: 12px 4px;
-      font-size: 12px;
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.5);
+      min-width: 30rem;
       
+    }
+    @media (min-width: 1350px) {
+      .nl-email {
+        min-width: 52rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .nl-email {
+        min-width: 1rem;
+      }
     }
   
     .nl-email:focus {
@@ -98,7 +137,7 @@
       background: black;
       color: white;
       border: none;
-      width: 16rem;
+      width: 17rem;
       font-weight: 300;
       font-size: 14px;
     }
@@ -108,8 +147,8 @@
       
       text-decoration: none;
       color: black;
-      font-size: 15px;
-      width: 15rem;
+      font-size: 17px;
+      width: 17rem;
       align-items: center;
       padding: 10px 10px;
       
@@ -119,30 +158,45 @@
     .nl-checkbox-wrap {
       display: flex;
       align-items: flex-start;
+      
       gap: 10px;
       text-align: left;
     }
   
-    .nl-checkbox-wrap input {
-      display: none;
-    }
-  
+    
     .nl-checkbox {
-      width: 22px;
-      height: 22px;
-      border: 1px solid #000;
-      display: inline-block;
+      -webkit-appearance: none; /* Safari fix */
+      appearance: none;
+    
+      width: 20px;
+      height: 20px;
+    
+      border: 1px solid black;
+      border-radius: 2px;
+    
+      background: black;
+      cursor: pointer;
       position: relative;
     }
-  
-    .nl-checkbox-wrap input:checked + .nl-checkbox::after {
-      content: "✔";
-      position: absolute;
-      top: -2px;
-      left: 4px;
-      font-size: 16px;
-      
+    
+    /* when checked → black background */
+    .nl-checkbox:checked {
+      background: black;
+      border-color: black;
     }
+    
+    /* white tick */
+    .nl-checkbox:checked::after {
+      content: "✓";
+      color: white;
+      position: absolute;
+      top: 2px;
+      left: 3px;
+      font-size: 12px;
+      font-weight: 400;
+    }
+    
+    
   
     .nl-checkbox-text {
       font-size: 14px;
@@ -180,6 +234,36 @@
         font-size: 26px;
       }
     }
+    .nl-heading {
+      font-size: 38px;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      color: rgba(0, 0, 0, 0.8);
+  }
+  .nl-subheading-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;   /* adjust spacing */
+    align-items: center;  /* center align — optional */
+    
+  }
+  
+  .nl-subheading-line {
+    margin: 0;
+    font-size: 18px;
+    color: rgba(0,0,0,0.7);
+    font-weight: 300;
+  }
+  .nl-checkbox-wrap {
+    align-items: center;
+    justify-content: center;
+}
+.nl-checkbox-text {
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(0, 0, 0, 0.7);
+}
+  
   </style>
   
   {% schema %}
@@ -193,11 +277,16 @@
         "default": "Join the WelleCommunity"
       },
       {
-        "type": "textarea",
-        "id": "subheading",
-        "label": "Subheading",
-        "default": "Sign up now to receive $10 off your next order and exclusive wellness tips from Elle Macpherson."
+        "type": "text",
+        "id": "nl_subheading_1",
+        "label": "Subheading Line 1"
       },
+      {
+        "type": "text",
+        "id": "nl_subheading_2",
+        "label": "Subheading Line 2"
+      }
+      ,
       {
         "type": "text",
         "id": "placeholder",
