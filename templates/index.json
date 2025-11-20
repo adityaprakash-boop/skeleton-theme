@@ -425,6 +425,20 @@
       ],
       "name": "Social Media Grid",
       "settings": {}
+    },
+    "newsletter_74RYYx": {
+      "type": "newsletter",
+      "name": "Newsletter Section",
+      "settings": {
+        "heading": "Join the WelleCommunity",
+        "nl_subheading_1": "Sign up now to receive $10 off your next order and",
+        "nl_subheading_2": "exclusive wellness tips from Elle Macpherson.",
+        "placeholder": "Enter your email address",
+        "button_label": "SIGN UP",
+        "sms_label": "SMS SIGN UP",
+        "sms_link": "",
+        "checkbox_text": "I agree for WelleCo to contact me via email with product infor, exclusive offers, nutrition and wellness content."
+      }
     }
   },
   "order": [
@@ -435,6 +449,7 @@
     "product_quiz_JKbPCj",
     "proof_points_N6qnMx",
     "journal_wdJEKY",
-    "social_media_qRkw7r"
+    "social_media_qRkw7r",
+    "newsletter_74RYYx"
   ]
 }
