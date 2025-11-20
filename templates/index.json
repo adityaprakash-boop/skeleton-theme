@@ -255,11 +255,40 @@
       "name": "Proof Points",
       "settings": {
         "main_image": "shopify://shop_images/f1d7d5c3f4b8d42b9c86712b43c1ac2650e3a5a4.jpg",
-        "main_overlay_text": "91%saw resultswithin 30 days",
+        "main_overlay_text_1": "91%",
+        "main_overlay_text_2": "saw results",
+        "main_overlay_text_3": "within 30 days",
         "heading": "Innovative formulas.",
         "subheading": "Science-backed expertise.",
         "button_label": "DISCOVER MORE",
         "button_link": ""
+      }
+    },
+    "journal_wdJEKY": {
+      "type": "journal",
+      "blocks": {
+        "article_card_rjDfcb": {
+          "type": "article_card",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-10-15_at_4.40.41_pm.webp",
+            "category": "LIFESTYLE",
+            "title": "Embracing manopause with kindness, rather than fear",
+            "link": "shopify://products/t-shirt"
+          }
+        }
+      },
+      "block_order": [
+        "article_card_rjDfcb"
+      ],
+      "name": "The Journal",
+      "settings": {
+        "heading_1": "The",
+        "heading_2": "JOURNAL",
+        "description_1": "Inspiring the",
+        "description_2": "Welle Community",
+        "description_3": "on their beauty-through-wellness journey.",
+        "button_label": "EXPLORE MORE",
+        "button_link": "shopify://products/the-14-day-travel"
       }
     }
   },
@@ -269,6 +298,7 @@
     "brand_discovery_QRbkNN",
     "media_logo_EDAYEM",
     "product_quiz_JKbPCj",
-    "proof_points_N6qnMx"
+    "proof_points_N6qnMx",
+    "journal_wdJEKY"
   ]
 }
