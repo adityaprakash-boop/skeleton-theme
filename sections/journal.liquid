@@ -1,12 +1,35 @@
+<link rel="stylesheet" href="https://use.typekit.net/sjm2dby.css">
 <section class="journal-section">
     <div class="journal-header">
-      {% if section.settings.heading != blank %}
-        <h2 class="journal-heading">{{ section.settings.heading }}</h2>
-      {% endif %}
+      <div class="journal-heading-wrap">
+        {% if section.settings.heading_1 != blank %}
+          <h2 class="journal-heading heading-1">{{ section.settings.heading_1 }}</h2>
+        {% endif %}
+        
+        {% if section.settings.heading_2 != blank %}
+          <h2 class="journal-heading heading-2">{{ section.settings.heading_2 }}</h2>
+        {% endif %}
+      </div>
+      
   
-      {% if section.settings.description != blank %}
-        <p class="journal-description">{{ section.settings.description }}</p>
-      {% endif %}
+     
+        <div class="journal-description">
+          {% if section.settings.description_1 != blank %}
+            <p class="journal-description-1">{{ section.settings.description_1 }}</p>
+          {% endif %}
+        
+          {% if section.settings.description_2 != blank %}
+            <div class="journal-description-2-wrap">
+              <p class="journal-description-2">{{ section.settings.description_2 }}</p>
+            </div>
+          {% endif %}
+        
+          {% if section.settings.description_3 != blank %}
+            <p class="journal-description-3">{{ section.settings.description_3 }}</p>
+          {% endif %}
+        </div>
+        
+      
     </div>
   
     <div class="journal-row">
@@ -49,7 +72,7 @@
   
   <style>
     .journal-section {
-      padding: 60px 20px;
+      padding: 50px 50px;
       text-align: center;
       background-color: #FAF8F5;
       font-family: "Futura PT", sans-serif;
@@ -73,7 +96,7 @@
     /* Desktop row */
     .journal-row {
       display: flex;
-      gap: 30px;
+      gap: 25px;
       margin-bottom: 40px;
     }
   
@@ -151,6 +174,90 @@
         padding-top: 140%;
       } {% endcomment %}
     }
+    .journal-description {
+      display: flex;
+      gap: 06px;
+      justify-content: center;
+    }
+    
+    .journal-description p {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.8);
+    }
+    .journal-description-2{
+    font-style: italic;
+    font-family: "libre-caslon-text", sans-serif;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 14px;
+    }
+    .journal-description-2-wrap p{
+      font-size: 14px;
+    }
+    .journal-description-2-wrap{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: bottom;
+    }
+    .journal-heading-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+    }
+    
+    .journal-heading {
+      margin: 0;
+      font-size: 38px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.8);
+      margin-bottom: 20px;
+    }
+    
+    .heading-1 {
+      font-style: italic;
+      font-family: "libre-caslon-text", serif;
+    }
+    .heading-2 {
+     font-size: 42px;
+     letter-spacing: 0.1em;
+    }
+    .journal-title {
+      font-size: 23px;
+      margin: 10px 0;
+      font-family: Roman;
+      color: rgba(0, 0, 0, 0.7);
+  }
+  .journal-category {
+    font-size: 1rem;
+    margin-top: 12px;
+    letter-spacing: 1px;
+    color: rgba(0, 0, 0, 0.7);
+}
+.journal-button {
+  font-size: 14px;
+  border-bottom: 1px solid black;
+  text-decoration: none;
+  color: black;
+  color: rgba(0, 0, 0, 0.7);
+}
+.journal-view {
+  font-size: 13px;
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid black;
+  color: rgba(0, 0, 0, 0.7);
+}
+.journal-heading-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+  
+
+    
   </style>
   
   {% schema %}
@@ -159,16 +266,31 @@
     "settings": [
       {
         "type": "text",
-        "id": "heading",
-        "label": "Heading",
-        "default": "THE JOURNAL"
+        "id": "heading_1",
+        "label": "Heading Line 1"
       },
       {
-        "type": "textarea",
-        "id": "description",
-        "label": "Description",
-        "default": "Supporting description text with bold or italic for emphasis."
+        "type": "text",
+        "id": "heading_2",
+        "label": "Heading Line 2"
+      }
+      ,
+      {
+        "type": "text",
+        "id": "description_1",
+        "label": "Description line 1"
       },
+      {
+        "type": "text",
+        "id": "description_2",
+        "label": "Description line 2"
+      },
+      {
+        "type": "text",
+        "id": "description_3",
+        "label": "Description line 3"
+      }
+      ,
       {
         "type": "text",
         "id": "button_label",
