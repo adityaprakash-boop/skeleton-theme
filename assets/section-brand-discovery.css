@@ -9,7 +9,7 @@
     /* Desktop: 4 images in a row */
     .brand-grid {
       display: flex;
-      max-height: 45rem;
+      /* max-height: 45rem; */
     }
   
     .brand-item {
@@ -77,8 +77,8 @@
     }
     .brand-text {
         position: absolute;
-        bottom: 50%;
-        left: 25%;
+        bottom: 45%;
+        left: 30%;
         color: white;
         font-size: 20px;
         line-height: 1.4;
@@ -130,7 +130,7 @@
         width: 100%;
         display: block;
         object-fit: cover;
-        height: 108%;
+        height: 100%;
         aspect-ratio: 4/5;
     }
     .brand-content {

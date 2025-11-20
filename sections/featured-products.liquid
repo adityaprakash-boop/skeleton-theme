@@ -94,6 +94,12 @@
                         height="317"
                         class="product-card__image"
                       >
+                        <img 
+                          src="{{ 'product_change.jpg' | asset_url }}" 
+                          alt="Hover image"
+                          class="product-card__hover-image"
+                        >
+                        
                     {%- else -%}
                       {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg product-card__image' }}
                     {%- endif -%}
@@ -152,7 +158,7 @@
                     
                   </div>
                   <div class="product-card__Best-Seller">
-                      <span class="product-card__Best-Seller-text">Best Seller</span>
+                      <span class="product-card__Best-Seller-text">BEST SELLER</span>
                     </div>
                   <div class="product-award">
                     {% if block.settings.award_image != blank %}

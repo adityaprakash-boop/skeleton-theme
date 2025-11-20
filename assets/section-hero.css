@@ -385,3 +385,12 @@
 }
   
 }
+.hero-banner-section {
+  position: relative;
+  color: var(--hero-text-color, #FFFFFF);
+  padding: 60px 20px;
+  min-height: 800px;
+  background-color: #000;
+  overflow: hidden;
+  margin-top: -82px;
+}

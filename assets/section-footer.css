@@ -1157,3 +1157,8 @@ localization-button {
       max-width: 35rem;
   }
 }
+@media (max-width: 768px) {
+  .footer__content-top {
+    height: 100%;
+  }
+}
