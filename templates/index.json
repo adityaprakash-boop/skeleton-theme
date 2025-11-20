@@ -275,10 +275,40 @@
             "title": "Embracing manopause with kindness, rather than fear",
             "link": "shopify://products/t-shirt"
           }
+        },
+        "article_card_wi6GEb": {
+          "type": "article_card",
+          "settings": {
+            "image": "shopify://shop_images/Welleco-Shoot-0111.webp",
+            "category": "ENERGY",
+            "title": "Why Self-Care Insn't Selfish During Hormonal Change",
+            "link": "shopify://products/t-shirt"
+          }
+        },
+        "article_card_NqprEN": {
+          "type": "article_card",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2025-10-02_at_8.51.35_am.webp",
+            "category": "ENERGY",
+            "title": "ASk Elle: How can I stop being a perfectionist?",
+            "link": "shopify://products/the-collection-snowboard-hydrogen"
+          }
+        },
+        "article_card_GdfEMg": {
+          "type": "article_card",
+          "settings": {
+            "image": "shopify://shop_images/unnamed_22546684-7907-460d-87f5-f1244f820df5.jpg",
+            "category": "ELLE'S EDIT",
+            "title": "Eat Welle With Elle Macpherson",
+            "link": "shopify://products/the-collection-snowboard-hydrogen"
+          }
         }
       },
       "block_order": [
-        "article_card_rjDfcb"
+        "article_card_rjDfcb",
+        "article_card_wi6GEb",
+        "article_card_NqprEN",
+        "article_card_GdfEMg"
       ],
       "name": "The Journal",
       "settings": {
