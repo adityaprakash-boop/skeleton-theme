@@ -1,0 +1,23 @@
+<section class="custom-collection-section">
+  <div class="custom-collection-grid">
+    {% for collection in collections %}
+      <div class="custom-collection-card">
+        <a href="{{ collection.url }}">
+          <img src="{{ collection.image | image_url: width: 500 }}" alt="{{ collection.title }}">
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Custom Collection",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    }
+  ]
+}
+{% endschema %}
