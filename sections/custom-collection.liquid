@@ -1,23 +1,63 @@
-<section class="custom-collection-section">
-  <div class="custom-collection-grid">
-    {% for collection in collections %}
-      <div class="custom-collection-card">
-        <a href="{{ collection.url }}">
-          <img src="{{ collection.image | image_url: width: 500 }}" alt="{{ collection.title }}">
-        </a>
-      </div>
-    {% endfor %}
+{% assign collection_obj = collections[section.settings.collection] %}
+
+<section class="collection-showcase">
+  <div class="collection-showcase__wrapper">
+
+    {% if collection_obj %}
+      <a href="{{ collection_obj.url }}" class="collection-showcase__link">
+        {% if collection_obj.image %}
+          <img 
+            src="{{ collection_obj.image | img_url: '600x' }}" 
+            alt="{{ collection_obj.title }}" 
+            class="collection-showcase__image"
+          >
+        {% endif %}
+
+        <h2 class="collection-showcase__title">
+          {{ collection_obj.title }}
+        </h2>
+      </a>
+    {% else %}
+      <p>Please select a collection in the theme editor.</p>
+    {% endif %}
+
   </div>
 </section>
+
 {% schema %}
 {
-  "name": "Custom Collection",
+  "name": "Collection Showcase",
   "settings": [
     {
       "type": "collection",
       "id": "collection",
-      "label": "Collection"
+      "label": "Select Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Showcase"
     }
   ]
 }
 {% endschema %}
+
+{% style %}
+.collection-showcase {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.collection-showcase__image {
+  max-width: 350px;
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.collection-showcase__title {
+  font-size: 24px;
+  font-weight: 600;
+}
+{% endstyle %}
