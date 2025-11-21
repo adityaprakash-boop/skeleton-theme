@@ -2,12 +2,15 @@
 <section class="collection-block-list">
     
         <div class="collection-banner">
+            <div class="collection-banner-image">
           {% if section.settings.banner_image %}
             <img src="{{ section.settings.banner_image | image_url: width: 1800 }}" alt="Banner" class="collection-banner__image">
           {% endif %}
+          </div>
         
           {% if section.settings.banner_text %}
             <div class="collection-banner__text">
+
               {{ section.settings.banner_text }}
             </div>
           {% endif %}
