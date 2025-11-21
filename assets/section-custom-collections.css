@@ -3,7 +3,7 @@
     padding: 0px;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 0px;
     font-family: "Futura PT", sans-serif;
   }
   
@@ -244,3 +244,37 @@ min-width: 30%;
     color: rgba(0, 0, 0, 0.7);
 }
 
+.collection-nav {
+    display: flex;
+    gap: 35px;
+    padding: 22px 56px;
+    overflow-x: auto;
+    border: 1px solid #e5e5e5;
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    color: rgba(0, 0, 0, 0.8);
+  }
+  .collection-nav-item::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background: black;
+    transition: all 0.5s ease;
+    transform: translateX(-50%);
+  }
+  
+  /* expand underline from center */
+  .collection-nav-item:hover::after {
+    width: 100%;
+  }
+  .collection-nav-item {
+    position: relative;      /* REQUIRED for ::after to work */
+    padding-bottom: 6px;     /* gives space for underline */
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  

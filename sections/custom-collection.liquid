@@ -1,5 +1,6 @@
 {{ 'section-custom-collections.css' | asset_url | stylesheet_tag }}
-<section class="collection-block-list">
+<section class="collection-block-list" x-data>
+
     
         <div class="collection-banner">
             <div class="collection-banner-image">
@@ -15,6 +16,18 @@
             </div>
           {% endif %}
         </div>
+        <div class="collection-nav">
+            {% for block in section.blocks %}
+              {% assign c = collections[block.settings.collection] %}
+              {% if c %}
+                <div class="collection-nav-item"
+                  @click="$refs['c{{ forloop.index }}'].scrollIntoView({ behavior: 'smooth' })">
+                  {{ c.title }}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          
         
         
 
@@ -24,7 +37,9 @@
         {% assign c = collections[block.settings.collection] %}
   
         {% if c %}
-        <div class="collection-block" >
+            <div class="collection-block"  x-ref="c{{ forloop.index }}">
+
+
   
           <div class="collection-info">
             <span class="collection-title">
@@ -144,7 +159,18 @@
             "type": "text",
             "id": "custom_title",
             "label": "Custom Collection Title"
+          },
+          {
+            "type": "image_picker",
+            "id": "collection_block_image",
+            "label": "Collection Block Image"
+          },
+          {
+            "type": "text",
+            "id": "custom_image_text",
+            "label": "Collection Block Image Text"
           }
+          
         ]
       }
     ],
