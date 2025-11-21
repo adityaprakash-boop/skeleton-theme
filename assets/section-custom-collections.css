@@ -28,6 +28,7 @@
     letter-spacing: 0.1rem;
     color: rgba(0, 0, 0, 0.8);
     margin-bottom: 10px;
+    line-height: 1.5;
   }
   .product-card {
     
@@ -184,6 +185,7 @@ min-width: 30%;
 .product-card:hover .product-card__info {
   transform: translateY(-100%);
   opacity: 0.8;
+  background: white;
    /* same movement as needed */
 }
 .product-card__buttons {

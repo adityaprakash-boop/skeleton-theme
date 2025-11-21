@@ -1,5 +1,19 @@
 {{ 'section-custom-collections.css' | asset_url | stylesheet_tag }}
 <section class="collection-block-list">
+    
+        <div class="collection-banner">
+          {% if section.settings.banner_image %}
+            <img src="{{ section.settings.banner_image | image_url: width: 1800 }}" alt="Banner" class="collection-banner__image">
+          {% endif %}
+        
+          {% if section.settings.banner_text %}
+            <div class="collection-banner__text">
+              {{ section.settings.banner_text }}
+            </div>
+          {% endif %}
+        </div>
+        
+        
 
     <div class="collection-block-wrapper">
   
@@ -75,8 +89,8 @@
                       </div>
               
                       <div class="product-card__buttons">
-                        <span class="product-btn subscribe-btn">Subscribe & Save 20%</span>
-                        <span class="product-btn add-cart-btn">Add to Cart</span>
+                        <span class="product-btn subscribe-btn">SUBSCRIBE & SAVE 20%</span>
+                        <span class="product-btn add-cart-btn">ADD TO CART</span>
                       </div>
               
                     </div>
@@ -101,7 +115,18 @@
   {% schema %}
   {
     "name": "Multi Collection Section",
-    "settings": [],
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "banner_image",
+            "label": "Banner Image"
+          },
+          {
+            "type": "text",
+            "id": "banner_text",
+            "label": "Banner Text"
+          }
+    ],
     "blocks": [
       {
         "type": "collection_block",
