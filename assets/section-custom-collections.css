@@ -282,3 +282,33 @@ max-width: 35%;
   .product-card__link{
     height: 100%;
   }
+  .product-card__image-wrapper{
+    position: relative;
+  }
+  .product-award{
+    position: absolute;
+    top: 3%;
+    left: 5%;
+  }
+  .product-award img{
+    width: 80px;
+    height: 100%;
+    object-fit: cover;
+  }
+  .custom-product-button{
+    
+    font-size: 1.2rem;
+    text-decoration: none;
+    width: 7.9rem;
+    height: 2.2rem;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 5px;
+    color: black;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+
+  }
+  
+  

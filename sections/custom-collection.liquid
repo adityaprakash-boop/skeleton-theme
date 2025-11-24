@@ -40,7 +40,7 @@
             <div class="collection-block"  x-ref="c{{ forloop.index }}">
 
 
-  
+          
           <div class="collection-info">
             <span class="collection-title">
                 {{ block.settings.custom_title | default: c.title }}
@@ -76,6 +76,20 @@
                         
                       {% endif %}
                     </div>
+                    <div class="product-award">
+                      {% if forloop.index == 1 %}
+                        <img src="{{ 'award1.png' | asset_url }}" alt="Award 1">
+                      {% elsif forloop.index == 2 %}
+                        <img src="{{ 'award2.png' | asset_url }}" alt="Award 2">
+                      {% else %}
+                        <img src="{{ 'award3.png' | asset_url }}" alt="Award 3">
+                      {% endif %}
+                    </div>
+                    
+                    
+                    
+                 
+
               
                     <div class="product-card__info product-card__info--left">
               
@@ -116,6 +130,12 @@
                     
               
                   </a>
+                  {% if block.settings.block_btn_text != blank %}
+                    <div class="custom-product-button"
+                      style="background: {{ block.settings.block_btn_bg }};">
+                      {{ block.settings.block_btn_text }}
+                    </div>
+                  {% endif %}
                 </div>
               {% endfor %}
               
@@ -169,7 +189,20 @@
             "type": "text",
             "id": "custom_image_text",
             "label": "Collection Block Image Text"
+          },
+          {
+            "type": "text",
+            "id": "block_btn_text",
+            "label": "Button Text",
+            
+          },
+          {
+            "type": "color",
+            "id": "block_btn_bg",
+            "label": "Button Background Color",
+            
           }
+          
           
         ]
       }
