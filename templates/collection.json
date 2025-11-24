@@ -12,24 +12,14 @@
     "main": {
       "type": "custom-collection",
       "blocks": {
-        "collection_block_qYzyTT": {
-          "type": "collection_block",
-          "settings": {
-            "collection": "",
-            "custom_title": "",
-            "custom_image_text": "",
-            "block_btn_text": "",
-            "block_btn_text_color": "",
-            "block_btn_bg": ""
-          }
-        },
         "collection_block_wj8REe": {
           "type": "collection_block",
           "settings": {
             "collection": "green",
             "custom_title": "Daily greens",
+            "collection_block_image": "shopify://shop_images/Fri_21st__Free_Black_Spoon-1_800x600_ebed7dc2-ad17-45ba-87fe-9622bd7ccc24.webp",
             "custom_image_text": "",
-            "block_btn_text": "SAVE $20",
+            "block_btn_text": "SAVE $30",
             "block_btn_text_color": "",
             "block_btn_bg": "#ffffff"
           }
@@ -63,7 +53,7 @@
             "custom_title": "Women's heath support: Mind & body",
             "custom_image_text": "",
             "block_btn_text": "SAVE $20",
-            "block_btn_text_color": "",
+            "block_btn_text_color": "#ffffff",
             "block_btn_bg": "#254430"
           }
         },
@@ -73,7 +63,7 @@
             "collection": "hair",
             "custom_title": "Vegan hair growth supplements",
             "custom_image_text": "",
-            "block_btn_text": "",
+            "block_btn_text": "SAVE $20",
             "block_btn_text_color": "",
             "block_btn_bg": ""
           }
@@ -84,9 +74,9 @@
             "collection": "sleep",
             "custom_title": "Sleep",
             "custom_image_text": "",
-            "block_btn_text": "",
-            "block_btn_text_color": "",
-            "block_btn_bg": ""
+            "block_btn_text": "SAVE $20",
+            "block_btn_text_color": "#ffffff",
+            "block_btn_bg": "#254430"
           }
         },
         "collection_block_C6mMce": {
@@ -106,8 +96,8 @@
             "collection": "kids",
             "custom_title": "Kids superfood protein powder supplements",
             "custom_image_text": "",
-            "block_btn_text": "",
-            "block_btn_text_color": "",
+            "block_btn_text": "SAVE $20",
+            "block_btn_text_color": "#254430",
             "block_btn_bg": ""
           }
         },
@@ -117,7 +107,7 @@
             "collection": "minis",
             "custom_title": "MINIS",
             "custom_image_text": "",
-            "block_btn_text": "",
+            "block_btn_text": "NEW",
             "block_btn_text_color": "",
             "block_btn_bg": ""
           }
@@ -128,7 +118,7 @@
             "collection": "lifestyle",
             "custom_title": "Lifestyle",
             "custom_image_text": "",
-            "block_btn_text": "",
+            "block_btn_text": "SAVE 20%",
             "block_btn_text_color": "",
             "block_btn_bg": ""
           }
@@ -139,14 +129,13 @@
             "collection": "bundle-save",
             "custom_title": "Bundle & Save",
             "custom_image_text": "",
-            "block_btn_text": "",
-            "block_btn_text_color": "",
-            "block_btn_bg": ""
+            "block_btn_text": "SAVE $46",
+            "block_btn_text_color": "#ffffff",
+            "block_btn_bg": "#254430"
           }
         }
       },
       "block_order": [
-        "collection_block_qYzyTT",
         "collection_block_wj8REe",
         "collection_block_zHRHCX",
         "collection_block_P7JfAK",
