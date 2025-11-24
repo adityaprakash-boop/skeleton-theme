@@ -132,10 +132,14 @@
                   </a>
                   {% if block.settings.block_btn_text != blank %}
                     <div class="custom-product-button"
-                      style="background: {{ block.settings.block_btn_bg }};">
+                      style="
+                        background: {{ block.settings.block_btn_bg }};
+                        color: {{ block.settings.block_btn_text_color }};
+                      ">
                       {{ block.settings.block_btn_text }}
                     </div>
                   {% endif %}
+                  
                 </div>
               {% endfor %}
               
@@ -196,6 +200,13 @@
             "label": "Button Text",
             
           },
+          {
+            "type": "color",
+            "id": "block_btn_text_color",
+            "label": "Button Text Color",
+            
+          },
+          
           {
             "type": "color",
             "id": "block_btn_bg",
