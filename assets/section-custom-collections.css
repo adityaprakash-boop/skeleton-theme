@@ -21,7 +21,12 @@
     flex-wrap: nowrap;
     gap: 20px;
     overflow-x: scroll;
+    scrollbar-width: none;
+    
   }
+  .collection-products::-webkit-scrollbar {
+    display: none;
+}
   .collection-description {
     font-size: 1.4rem;
     font-weight: 300;
@@ -296,18 +301,20 @@ max-width: 35%;
     object-fit: cover;
   }
   .custom-product-button{
-    
+    display: flex;
     font-size: 1.2rem;
     text-decoration: none;
     width: 7.9rem;
     height: 2.2rem;
     align-items: center;
     justify-content: center;
-    padding: 10px 5px;
+    padding: 12px 5px;
     color: black;
     position: absolute;
     top: 2%;
     right: 2%;
+    border: 1px solid black;
+    color: rgba(0, 0, 0, 0.8);
 
   }
   
