@@ -19,6 +19,7 @@
             "custom_title": "",
             "custom_image_text": "",
             "block_btn_text": "",
+            "block_btn_text_color": "",
             "block_btn_bg": ""
           }
         },
@@ -29,6 +30,7 @@
             "custom_title": "Daily greens",
             "custom_image_text": "",
             "block_btn_text": "SAVE $20",
+            "block_btn_text_color": "",
             "block_btn_bg": "#ffffff"
           }
         },
@@ -39,6 +41,7 @@
             "custom_title": "Skin, hair, and nail supplements",
             "custom_image_text": "",
             "block_btn_text": "SAVE $20",
+            "block_btn_text_color": "#254430",
             "block_btn_bg": ""
           }
         },
@@ -49,6 +52,7 @@
             "custom_title": "Protein",
             "custom_image_text": "",
             "block_btn_text": "SAVE $20",
+            "block_btn_text_color": "",
             "block_btn_bg": ""
           }
         },
@@ -59,6 +63,7 @@
             "custom_title": "Women's heath support: Mind & body",
             "custom_image_text": "",
             "block_btn_text": "SAVE $20",
+            "block_btn_text_color": "",
             "block_btn_bg": "#254430"
           }
         },
@@ -69,6 +74,7 @@
             "custom_title": "Vegan hair growth supplements",
             "custom_image_text": "",
             "block_btn_text": "",
+            "block_btn_text_color": "",
             "block_btn_bg": ""
           }
         },
@@ -79,6 +85,7 @@
             "custom_title": "Sleep",
             "custom_image_text": "",
             "block_btn_text": "",
+            "block_btn_text_color": "",
             "block_btn_bg": ""
           }
         },
@@ -89,6 +96,7 @@
             "custom_title": "Women's health support: Mind & body",
             "custom_image_text": "",
             "block_btn_text": "",
+            "block_btn_text_color": "",
             "block_btn_bg": ""
           }
         },
@@ -99,6 +107,7 @@
             "custom_title": "Kids superfood protein powder supplements",
             "custom_image_text": "",
             "block_btn_text": "",
+            "block_btn_text_color": "",
             "block_btn_bg": ""
           }
         },
@@ -109,6 +118,7 @@
             "custom_title": "MINIS",
             "custom_image_text": "",
             "block_btn_text": "",
+            "block_btn_text_color": "",
             "block_btn_bg": ""
           }
         },
@@ -119,6 +129,7 @@
             "custom_title": "Lifestyle",
             "custom_image_text": "",
             "block_btn_text": "",
+            "block_btn_text_color": "",
             "block_btn_bg": ""
           }
         },
@@ -129,6 +140,7 @@
             "custom_title": "Bundle & Save",
             "custom_image_text": "",
             "block_btn_text": "",
+            "block_btn_text_color": "",
             "block_btn_bg": ""
           }
         }
