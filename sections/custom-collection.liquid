@@ -21,15 +21,18 @@
               {% assign c = collections[block.settings.collection] %}
               {% if c %}
                 <div class="collection-nav-item"
-                  @click="$refs['c{{ forloop.index }}'].scrollIntoView({ behavior: 'smooth' })">
+                  @click="
+    const top = $refs['c{{ forloop.index }}'].offsetTop;window.scrollTo({ top: top - 10, behavior: 'smooth' });
+  ">
                   {{ c.title }}
                 </div>
               {% endif %}
             {% endfor %}
           </div>
           <div class="custom-filters">
-
-            {% for filter in collection.filters %}
+            <div class="filter-options">
+            {% assign sorted_filters = collection.filters | sort: 'label' %}
+            {% for filter in sorted_filters %}
               {% if filter.values.size > 0 and filter.param_name contains 'p.m.' %}
                 <div class="filter-group" x-data="{ open:false }">
   
@@ -59,9 +62,34 @@
                 
               {% endif %}
             {% endfor %}
+            </div>
+            <div class="shop-sort-btn-wrapper">
+            <div class="shop-all-btn" >
+              <a href="#" class="shop-all-btn-link">SHOP ALL</a>
+              </div>
+            <div class="custom-sort" x-data="{ open:false }">
+
+              <h3 class="sort-title" @click="open = !open">
+                SORT BY:
+                <span class="sort-icon" :class="{ 'open':open }">
+                  {{ 'icon-close3.svg' | inline_asset_content }}
+                </span>
+              </h3>
+            
+              <div class="sort-list" x-show="open" x-transition>
+                {% for option in collection.sort_options %}
+                  <a href="?sort_by={{ option.value }}" class="sort-item">
+                    {{ option.name }}
+                  </a>
+                {% endfor %}
+              </div>
+            
+            </div>
+            </div>
           
           </div>
-         
+          
+          
 
           
 

@@ -320,11 +320,33 @@ max-width: 35%;
   .custom-filters{
     display: flex;
    
-    gap: 35px;
+    gap: 20%;
     padding: 30px 56px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+  }
+  .shop-all-btn-link{
+    font-size: 1.4rem;
+    border-bottom: 1px solid black;
+  }
+  .shop-sort-btn-wrapper{
+    display: flex;
+    gap: 100px;
+    text-wrap: nowrap;
+
+  }
+  .filter-options{
+    display: flex;
+    gap: 35px;
   }
   .filter-title{
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    color: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+  }
+  .sort-title{
     font-size: 1.4rem;
     font-weight: 300;
     letter-spacing: 0.1rem;
@@ -336,12 +358,29 @@ max-width: 35%;
     gap: 10px;
     align-items: center;
     justify-content: space-between;
+    text-wrap: nowrap;
+  }
+  .sort-title{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    
   }
   .custom-filters a{
    text-decoration: none;
    color: rgba(0, 0, 0, 0.9);
   }
   .filter-list{
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1.3rem;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+  }
+  .sort-list{
     display: flex;
     flex-direction: column;
     gap: 17px;
@@ -368,11 +407,24 @@ max-width: 35%;
     transform: rotate(90deg);
     transition: transform 0.3s ease;
   }
+  .sort-icon{
+    display: flex;
+    width: 12px;
+    height: 12px;
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+  }
   
   .dropdown-icon.open{
     transform: rotate(-90deg);
   }
+  .sort-icon.open{
+    transform: rotate(-90deg);
+  }
   .filter-group{
+    position: relative;
+  }
+  .custom-sort{
     position: relative;
   }
   .filter-list{
@@ -391,6 +443,18 @@ max-width: 35%;
     gap: 17px;
     z-index: 10;            /* keep above other elements */
   }
+  .sort-list{
+    position: absolute;
+    top: 200%;
+    left: -10%;
+    background: white;
+    padding: 32px 16px;
+    width: 250px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 10;
+    height: 16.1rem;
+    overflow-y: scroll;
+  }
     
   .filter-value-label{
     display: flex;
@@ -408,24 +472,7 @@ max-width: 35%;
     letter-spacing: 0.1rem;
     color: rgba(0, 0, 0, 0.8);
   }
-  .filters-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.2);
-    z-index: 5;
-  }
-  .filters-overlay {
-    z-index: 5;   /* lower */
-  }
   
-  .filter-list {
-    z-index: 20;  /* higher */
-  }
-  
-  .filter-group {
-    z-index: 20;
-    
-  }
   .filter-list-items{
     display: flex;
     flex-direction: column;
@@ -433,4 +480,10 @@ max-width: 35%;
     height: 20.1rem;
     overflow-y: scroll;
   }
+  .sort-list{
+    font-weight: 400;
+  }
+ .custom-sort {
+  margin-right: 100px;
+ }
   

@@ -734,14 +734,14 @@
   </div>
 {% endcapture %}
 
-<div
-  class="color-{{ section.settings.color_scheme }} header-wrapper"
+<div class="color-{{ section.settings.color_scheme }} header-wrapper {% unless template == 'index' %}scrolled{% endunless %}"
   x-data="{ scrolled: false, cartOpen: false, drawerOpen: false }"
   @cart-open.window="cartOpen = true"
   @drawer-toggle.window="drawerOpen = $event.detail.open"
   @scroll.window="scrolled = window.scrollY > 0"
-  :class="{ 'scrolled': scrolled, 'drawer-is-open': drawerOpen  }"
+  :class="{ 'drawer-is-open': drawerOpen  }"
 >
+
   <header
     {% if section.settings.menu_position == 'center' %}
       class="header-menu-position-center"
