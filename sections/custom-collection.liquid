@@ -42,6 +42,7 @@
                   </h3>
                 
                   <div class="filter-list" x-show="open" x-transition>
+                    <div class="filter-list-items">
                     {% for value in filter.values %}
                       <a href="{{ value.url_to_add }}">
                         <div class="filter-value-label">
@@ -50,6 +51,7 @@
                         </div>
                       </a>
                     {% endfor %}
+                    </div>
                     <a href="#" class="filter-apply-all">APPLY</a>
                   </div>
                 
