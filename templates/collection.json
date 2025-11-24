@@ -1,11 +1,174 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "custom-collection",
+      "blocks": {
+        "collection_block_qYzyTT": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "",
+            "custom_title": "",
+            "custom_image_text": "",
+            "block_btn_text": "",
+            "block_btn_bg": ""
+          }
+        },
+        "collection_block_wj8REe": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "green",
+            "custom_title": "Daily greens",
+            "custom_image_text": "",
+            "block_btn_text": "SAVE $20",
+            "block_btn_bg": "#ffffff"
+          }
+        },
+        "collection_block_zHRHCX": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "skin",
+            "custom_title": "Skin, hair, and nail supplements",
+            "custom_image_text": "",
+            "block_btn_text": "SAVE $20",
+            "block_btn_bg": ""
+          }
+        },
+        "collection_block_P7JfAK": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "protien",
+            "custom_title": "Protein",
+            "custom_image_text": "",
+            "block_btn_text": "SAVE $20",
+            "block_btn_bg": ""
+          }
+        },
+        "collection_block_bdE3t4": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "menopause",
+            "custom_title": "Women's heath support: Mind & body",
+            "custom_image_text": "",
+            "block_btn_text": "SAVE $20",
+            "block_btn_bg": "#254430"
+          }
+        },
+        "collection_block_AFLHhk": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "hair",
+            "custom_title": "Vegan hair growth supplements",
+            "custom_image_text": "",
+            "block_btn_text": "",
+            "block_btn_bg": ""
+          }
+        },
+        "collection_block_fmBFVP": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "sleep",
+            "custom_title": "Sleep",
+            "custom_image_text": "",
+            "block_btn_text": "",
+            "block_btn_bg": ""
+          }
+        },
+        "collection_block_C6mMce": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "immune",
+            "custom_title": "Women's health support: Mind & body",
+            "custom_image_text": "",
+            "block_btn_text": "",
+            "block_btn_bg": ""
+          }
+        },
+        "collection_block_gJCNcf": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "kids",
+            "custom_title": "Kids superfood protein powder supplements",
+            "custom_image_text": "",
+            "block_btn_text": "",
+            "block_btn_bg": ""
+          }
+        },
+        "collection_block_nUXBj4": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "minis",
+            "custom_title": "MINIS",
+            "custom_image_text": "",
+            "block_btn_text": "",
+            "block_btn_bg": ""
+          }
+        },
+        "collection_block_Y87MgE": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "lifestyle",
+            "custom_title": "Lifestyle",
+            "custom_image_text": "",
+            "block_btn_text": "",
+            "block_btn_bg": ""
+          }
+        },
+        "collection_block_6EFUDW": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "bundle-save",
+            "custom_title": "Bundle & Save",
+            "custom_image_text": "",
+            "block_btn_text": "",
+            "block_btn_bg": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_qYzyTT",
+        "collection_block_wj8REe",
+        "collection_block_zHRHCX",
+        "collection_block_P7JfAK",
+        "collection_block_bdE3t4",
+        "collection_block_AFLHhk",
+        "collection_block_fmBFVP",
+        "collection_block_C6mMce",
+        "collection_block_gJCNcf",
+        "collection_block_nUXBj4",
+        "collection_block_Y87MgE",
+        "collection_block_6EFUDW"
+      ],
       "settings": {
-        "collection": ""
+        "banner_image": "shopify://shop_images/header-desktop-shop-all.webp",
+        "banner_text": "Shop All"
+      }
+    },
+    "newsletter_KfrjWE": {
+      "type": "newsletter",
+      "name": "Newsletter Section",
+      "settings": {
+        "heading": "Join the WelleCommunity",
+        "nl_subheading_1": "",
+        "nl_subheading_2": "",
+        "placeholder": "Enter your email address",
+        "button_label": "SIGN UP",
+        "sms_label": "SMS SIGN UP",
+        "sms_link": "",
+        "checkbox_text": "I agree for WelleCo to contact me via email with product information, exclusive offers, nutrition and wellness content."
       }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main",
+    "newsletter_KfrjWE"
+  ]
 }
