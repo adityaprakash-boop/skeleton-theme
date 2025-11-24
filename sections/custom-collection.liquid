@@ -1,5 +1,5 @@
 {{ 'section-custom-collections.css' | asset_url | stylesheet_tag }}
-<section class="collection-block-list" x-data>
+<section class="collection-block-list" x-data >
 
     
         <div class="collection-banner">
@@ -27,6 +27,42 @@
               {% endif %}
             {% endfor %}
           </div>
+          <div class="custom-filters">
+
+            {% for filter in collection.filters %}
+              {% if filter.values.size > 0 and filter.param_name contains 'p.m.' %}
+                <div class="filter-group" x-data="{ open:false }">
+  
+                  <h3 class="filter-title" @click="open = !open">
+                    {{ filter.label }}
+                
+                    <span class="dropdown-icon" :class="{ 'open':open }">
+                      {{ 'icon-close3.svg' | inline_asset_content }}
+                    </span>
+                  </h3>
+                
+                  <div class="filter-list" x-show="open" x-transition>
+                    {% for value in filter.values %}
+                      <a href="{{ value.url_to_add }}">
+                        <div class="filter-value-label">
+                          <span class="filter-value-1">{{ value.label }}</span>
+                          <span class="filter-value-2">({{ value.count }})</span>
+                        </div>
+                      </a>
+                    {% endfor %}
+                    <a href="#" class="filter-apply-all">APPLY</a>
+                  </div>
+                
+                </div>
+                
+              {% endif %}
+            {% endfor %}
+          
+          </div>
+         
+
+          
+
           
         
         
