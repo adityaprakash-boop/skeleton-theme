@@ -1,183 +1,157 @@
 {{ 'section-custom-collections.css' | asset_url | stylesheet_tag }}
-<section class="collection-block-list" x-data >
+<section class="collection-block-list" x-data>
+  <div class="collection-banner">
+    <div class="collection-banner-image">
+      {% if section.settings.banner_image %}
+        <img
+          src="{{ section.settings.banner_image | image_url: width: 1800 }}"
+          alt="Banner"
+          class="collection-banner__image"
+        >
+      {% endif %}
+    </div>
 
-    
-        <div class="collection-banner">
-            <div class="collection-banner-image">
-          {% if section.settings.banner_image %}
-            <img src="{{ section.settings.banner_image | image_url: width: 1800 }}" alt="Banner" class="collection-banner__image">
-          {% endif %}
-          </div>
-        
-          {% if section.settings.banner_text %}
-            <div class="collection-banner__text">
-
-              {{ section.settings.banner_text }}
-            </div>
-          {% endif %}
+    {% if section.settings.banner_text %}
+      <div class="collection-banner__text">
+        {{ section.settings.banner_text }}
+      </div>
+    {% endif %}
+  </div>
+  <div class="collection-nav">
+    {% for block in section.blocks %}
+      {% assign c = collections[block.settings.collection] %}
+      {% if c %}
+        <div
+          class="collection-nav-item"
+          @click="
+                const top = $refs['c{{ forloop.index }}'].offsetTop;window.scrollTo({ top: top - 10, behavior: 'smooth' });
+          "
+        >
+          {{ c.title }}
         </div>
-        <div class="collection-nav">
-            {% for block in section.blocks %}
-              {% assign c = collections[block.settings.collection] %}
-              {% if c %}
-                <div class="collection-nav-item"
-                  @click="
-    const top = $refs['c{{ forloop.index }}'].offsetTop;window.scrollTo({ top: top - 10, behavior: 'smooth' });
-  ">
-                  {{ c.title }}
-                </div>
-              {% endif %}
-            {% endfor %}
-          </div>
-          <div class="mobile-filter-bar">
-            <div class="mobile-filter-bar-text">
-            <span class="mobile-count">{{ collection.products_count }} Products</span>
-          
-            <a href="#" class="mobile-shop-all">SHOP ALL</a>
-          </div>
-          <div class="mobile-filter-bar-button">
-            <button class="mobile-refine-btn">
-              REFINE BY {{ '3.svg' | inline_asset_content }}
-            </button>
-            </div>
-          </div>
-          
-          
-          <div class="custom-filters">
-            <div class="filter-options">
-            {% assign sorted_filters = collection.filters | sort: 'label' %}
-            {% for filter in sorted_filters %}
-              {% if filter.values.size > 0 and filter.param_name contains 'p.m.' %}
-                <div class="filter-group" x-data="{ open:false }">
-  
-                  <h3 class="filter-title" @click="open = !open">
-                    {{ filter.label }}
-                
-                    <span class="dropdown-icon" :class="{ 'open':open }">
-                      {{ 'icon-close3.svg' | inline_asset_content }}
-                    </span>
-                  </h3>
-                
-                  <div class="filter-list" x-show="open" x-transition>
-                    <div class="filter-list-items">
-                    {% for value in filter.values %}
-                      <a href="{{ value.url_to_add }}">
-                        <div class="filter-value-label">
-                          <span class="filter-value-1">{{ value.label }}</span>
-                          <span class="filter-value-2">({{ value.count }})</span>
-                        </div>
-                      </a>
-                    {% endfor %}
-                    </div>
-                    <a href="#" class="filter-apply-all">APPLY</a>
-                  </div>
-                
-                </div>
-                
-              {% endif %}
-            {% endfor %}
-            </div>
-            <div class="shop-sort-btn-wrapper">
-            <div class="shop-all-btn" >
-              <a href="#" class="shop-all-btn-link">SHOP ALL</a>
-              </div>
-            <div class="custom-sort" x-data="{ open:false }">
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="mobile-filter-bar">
+    <div class="mobile-filter-bar-text">
+      <span class="mobile-count">{{ collection.products_count }} Products</span>
 
-              <h3 class="sort-title" @click="open = !open">
-                SORT BY:
-                <span class="sort-icon" :class="{ 'open':open }">
-                  {{ 'icon-close3.svg' | inline_asset_content }}
-                </span>
-              </h3>
-            
-              <div class="sort-list" x-show="open" x-transition>
-                {% for option in collection.sort_options %}
-                  <a href="?sort_by={{ option.value }}" class="sort-item">
-                    {{ option.name }}
+      <a href="#" class="mobile-shop-all">SHOP ALL</a>
+    </div>
+    <div class="mobile-filter-bar-button">
+      <button class="mobile-refine-btn">REFINE BY {{ '3.svg' | inline_asset_content }}</button>
+    </div>
+  </div>
+
+  <div class="custom-filters">
+    <div class="filter-options">
+      {% assign sorted_filters = collection.filters | sort: 'label' %}
+      {% for filter in sorted_filters %}
+        {% if filter.values.size > 0 and filter.param_name contains 'p.m.' %}
+          <div class="filter-group" x-data="{ open:false }">
+            <h3 class="filter-title" @click="open = !open">
+              {{ filter.label }}
+
+              <span class="dropdown-icon" :class="{ 'open':open }">
+                {{ 'icon-close3.svg' | inline_asset_content }}
+              </span>
+            </h3>
+
+            <div class="filter-list" x-show="open">
+              <div class="filter-list-items">
+                {% for value in filter.values %}
+                  <a href="{{ value.url_to_add }}">
+                    <div class="filter-value-label">
+                      <span class="filter-value-1">{{ value.label }}</span>
+                      <span class="filter-value-2">({{ value.count }})</span>
+                    </div>
                   </a>
                 {% endfor %}
               </div>
-            
+              <a href="#" class="filter-apply-all">APPLY</a>
             </div>
-            </div>
-          
           </div>
-          
-          
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="shop-sort-btn-wrapper">
+      <div class="shop-all-btn">
+        <a href="#" class="shop-all-btn-link">SHOP ALL</a>
+      </div>
+      <div class="custom-sort" x-data="{ open:false }">
+        <h3 class="sort-title" @click="open = !open">
+          SORT BY:
+          <span class="sort-icon" :class="{ 'open':open }">
+            {{ 'icon-close3.svg' | inline_asset_content }}
+          </span>
+        </h3>
 
-          
-          {% liquid
-            assign filter_active = false
-            for f in collection.filters
-              if f.active_values.size > 0
-                assign filter_active = true
-              endif
-            endfor
-          %}
-          
-          
-          
-          {% if filter_active %}
-            {% render 'component-custom-collection-filters' %}
-          {% else %}
-        
-  
+        <div class="sort-list" x-show="open">
+          {% for option in collection.sort_options %}
+            <a href="?sort_by={{ option.value }}" class="sort-item">
+              {{ option.name }}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% liquid
+    assign filter_active = false
+    for f in collection.filters
+      if f.active_values.size > 0
+        assign filter_active = true
+      endif
+    endfor
+  %}
+  {% if filter_active %}
+    {% render 'component-custom-collection-filters' %}
+  {% else %}
     <div class="collection-block-wrapper">
-  
       {% for block in section.blocks %}
         {% assign c = collections[block.settings.collection] %}
-  
+
         {% if c %}
-            <div class="collection-block"  x-ref="c{{ forloop.index }}">
-
-
-          
-          <div class="collection-info">
-            <span class="collection-title">
+          <div class="collection-block" x-ref="c{{ forloop.index }}">
+            <div class="collection-info">
+              <span class="collection-title">
                 {{ block.settings.custom_title | default: c.title }}
-            </span>
-              
-  
-          
-          {% if c.description != blank %}
-            <div class="collection-description">
-              {{ c.description }}
-            </div>
-          {% endif %}
-          <div class="View-all-products">
-            
-            <span>VIEW ALL PRODUCTS</span>
-          </div>
-          </div>
-          
-          
-          
-          <div class="collection-products">
-            {% if block.settings.collection_block_image %}
-              <div class="collection-block-image-wrapper">
-                <div class="collection-block-image-inner">
-                <img 
-                  src="{{ block.settings.collection_block_image | image_url: width: 1200 }}" 
-                  alt="{{ block.settings.custom_image_text | default: 'Collection image' }}" 
-                  class="collection-block-image"
-                >
+              </span>
+
+              {% if c.description != blank %}
+                <div class="collection-description">
+                  {{ c.description }}
                 </div>
-            
-                {% if block.settings.custom_image_text1 != blank %}
-                  <div class="collection-block-image-text">
-                    <div class="collection-block-image-text-item1">{{ block.settings.custom_image_text1 }}</div>
-                    <div class="collection-block-image-text-item2">{{ block.settings.custom_image_text2 }}</div>
-                    <div class="collection-block-image-text-item3">{{ block.settings.custom_image_text3 }}</div>
-                    
-                  </div>
-                {% endif %}
+              {% endif %}
+              <div class="View-all-products">
+                <span>VIEW ALL PRODUCTS</span>
               </div>
-            {% endif %}
-            
-            {% for product in c.products %}
+            </div>
+
+            <div class="collection-products">
+              {% if block.settings.collection_block_image %}
+                <div class="collection-block-image-wrapper">
+                  <div class="collection-block-image-inner">
+                    <img
+                      src="{{ block.settings.collection_block_image | image_url: width: 1200 }}"
+                      alt="{{ block.settings.custom_image_text | default: 'Collection image' }}"
+                      class="collection-block-image"
+                    >
+                  </div>
+
+                  {% if block.settings.custom_image_text1 != blank %}
+                    <div class="collection-block-image-text">
+                      <div class="collection-block-image-text-item1">{{ block.settings.custom_image_text1 }}</div>
+                      <div class="collection-block-image-text-item2">{{ block.settings.custom_image_text2 }}</div>
+                      <div class="collection-block-image-text-item3">{{ block.settings.custom_image_text3 }}</div>
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+
+              {% for product in c.products %}
                 <div class="product-card">
                   <a href="{{ product.url }}" class="product-card__link">
-              
                     <div class="product-card__image-wrapper">
                       {% assign image = product.featured_media.preview_image %}
                       {% if image %}
@@ -186,8 +160,6 @@
                           alt="{{ product.title }}"
                           class="product-card__image"
                         >
-              
-                        
                       {% endif %}
                     </div>
                     <div class="product-award">
@@ -199,27 +171,19 @@
                         <img src="{{ 'award3.png' | asset_url }}" alt="Award 3">
                       {% endif %}
                     </div>
-                    
-                    
-                    
-                 
 
-              
                     <div class="product-card__info product-card__info--left">
-              
                       <span class="product-card__title">
                         {{ product.title }}
                       </span>
-              
-                      
-              
+
                       <div class="product-card__reviews product-card__reviews--left">
                         <span class="product-card__stars">★★★★☆</span>
                         <a href="#reviews" class="product-card__review-link">
                           <span class="product-card__review-count">10 Reviews</span>
                         </a>
                       </div>
-              
+
                       <div class="product-card__price">
                         {% if product.compare_at_price > product.price %}
                           <s class="price__compare-at">{{ product.compare_at_price | money }}</s>
@@ -233,122 +197,107 @@
                           {{ product.description | strip_html }}
                         </span>
                       </div>
-              
+
                       <div class="product-card__buttons">
                         <span class="product-btn subscribe-btn">SUBSCRIBE & SAVE 20%</span>
                         <span class="product-btn add-cart-btn">ADD TO CART</span>
                       </div>
-              
                     </div>
-              
-                    
-              
                   </a>
                   {% if block.settings.block_btn_text != blank %}
-                    <div class="custom-product-button"
+                    <div
+                      class="custom-product-button"
                       style="
                         background: {{ block.settings.block_btn_bg }};
                         color: {{ block.settings.block_btn_text_color }};
-                      ">
+                      "
+                    >
                       {{ block.settings.block_btn_text }}
                     </div>
                   {% endif %}
-                  
                 </div>
               {% endfor %}
-              
+            </div>
           </div>
-  
-        </div>
         {% endif %}
-  
       {% endfor %}
-  
     </div>
   {% endif %}
-  </section>
-  
-  {% schema %}
-  {
-    "name": "Multi Collection Section",
-    "settings": [
+</section>
+
+{% schema %}
+{
+  "name": "Multi Collection Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "banner_text",
+      "label": "Banner Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_block",
+      "name": "Collection",
+      "settings": [
         {
-            "type": "image_picker",
-            "id": "banner_image",
-            "label": "Banner Image"
-          },
-          {
-            "type": "text",
-            "id": "banner_text",
-            "label": "Banner Text"
-          }
-    ],
-    "blocks": [
-      {
-        "type": "collection_block",
-        "name": "Collection",
-        "settings": [
-          {
-            "type": "collection",
-            "id": "collection",
-            "label": "Select Collection"
-          },
-          {
-            "type": "text",
-            "id": "custom_title",
-            "label": "Custom Collection Title"
-          },
-          {
-            "type": "image_picker",
-            "id": "collection_block_image",
-            "label": "Collection Block Image"
-          },
-          {
-            "type": "text",
-            "id": "custom_image_text1",
-            "label": "Collection Block Image Text"
-          },
-          {
-            "type": "text",
-            "id": "custom_image_text2",
-            "label": "Collection Block Image Text"
-          },
-          {
-            "type": "text",
-            "id": "custom_image_text3",
-            "label": "Collection Block Image Text"
-          },
-          {
-            "type": "text",
-            "id": "block_btn_text",
-            "label": "Button Text",
-            
-          },
-          {
-            "type": "color",
-            "id": "block_btn_text_color",
-            "label": "Button Text Color",
-            
-          },
-          
-          {
-            "type": "color",
-            "id": "block_btn_bg",
-            "label": "Button Background Color",
-            
-          }
-          
-          
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Multi Collection Section"
-      }
-    ]
-  }
-  {% endschema %}
-  
-  
-  
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Custom Collection Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "collection_block_image",
+          "label": "Collection Block Image"
+        },
+        {
+          "type": "text",
+          "id": "custom_image_text1",
+          "label": "Collection Block Image Text"
+        },
+        {
+          "type": "text",
+          "id": "custom_image_text2",
+          "label": "Collection Block Image Text"
+        },
+        {
+          "type": "text",
+          "id": "custom_image_text3",
+          "label": "Collection Block Image Text"
+        },
+        {
+          "type": "text",
+          "id": "block_btn_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "color",
+          "id": "block_btn_text_color",
+          "label": "Button Text Color"
+        },
+
+        {
+          "type": "color",
+          "id": "block_btn_bg",
+          "label": "Button Background Color"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multi Collection Section"
+    }
+  ]
+}
+{% endschema %}
