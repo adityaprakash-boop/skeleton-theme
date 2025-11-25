@@ -29,6 +29,20 @@
               {% endif %}
             {% endfor %}
           </div>
+          <div class="mobile-filter-bar">
+            <div class="mobile-filter-bar-text">
+            <span class="mobile-count">{{ collection.products_count }} Products</span>
+          
+            <a href="#" class="mobile-shop-all">SHOP ALL</a>
+          </div>
+          <div class="mobile-filter-bar-button">
+            <button class="mobile-refine-btn">
+              REFINE BY {{ '3.svg' | inline_asset_content }}
+            </button>
+            </div>
+          </div>
+          
+          
           <div class="custom-filters">
             <div class="filter-options">
             {% assign sorted_filters = collection.filters | sort: 'label' %}
@@ -125,7 +139,29 @@
           </div>
           </div>
           
+          
+          
           <div class="collection-products">
+            {% if block.settings.collection_block_image %}
+              <div class="collection-block-image-wrapper">
+                <div class="collection-block-image-inner">
+                <img 
+                  src="{{ block.settings.collection_block_image | image_url: width: 1200 }}" 
+                  alt="{{ block.settings.custom_image_text | default: 'Collection image' }}" 
+                  class="collection-block-image"
+                >
+                </div>
+            
+                {% if block.settings.custom_image_text1 != blank %}
+                  <div class="collection-block-image-text">
+                    <div class="collection-block-image-text-item1">{{ block.settings.custom_image_text1 }}</div>
+                    <div class="collection-block-image-text-item2">{{ block.settings.custom_image_text2 }}</div>
+                    <div class="collection-block-image-text-item3">{{ block.settings.custom_image_text3 }}</div>
+                    
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
             {% for product in c.products %}
                 <div class="product-card">
                   <a href="{{ product.url }}" class="product-card__link">
@@ -257,7 +293,17 @@
           },
           {
             "type": "text",
-            "id": "custom_image_text",
+            "id": "custom_image_text1",
+            "label": "Collection Block Image Text"
+          },
+          {
+            "type": "text",
+            "id": "custom_image_text2",
+            "label": "Collection Block Image Text"
+          },
+          {
+            "type": "text",
+            "id": "custom_image_text3",
             "label": "Collection Block Image Text"
           },
           {
