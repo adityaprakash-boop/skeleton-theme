@@ -1,0 +1,81 @@
+<div class="filtered-results-wrapper">
+
+    <div class="collection-products-1">
+      {% for product in collection.products %}
+        <div class="product-card">
+          <a href="{{ product.url }}" class="product-card__link">
+  
+            <div class="product-card__image-wrapper">
+              {% assign image = product.featured_media.preview_image %}
+              {% if image %}
+                <img
+                  src="{{ image | image_url: width: 600 }}"
+                  alt="{{ product.title }}"
+                  class="product-card__image"
+                >
+              {% endif %}
+            </div>
+  
+            <div class="product-award">
+              {% if forloop.index == 1 %}
+                <img src="{{ 'award1.png' | asset_url }}" alt="Award 1">
+              {% elsif forloop.index == 2 %}
+                <img src="{{ 'award2.png' | asset_url }}" alt="Award 2">
+              {% else %}
+                <img src="{{ 'award3.png' | asset_url }}" alt="Award 3">
+              {% endif %}
+            </div>
+  
+            <div class="product-card__info product-card__info--left">
+  
+              <span class="product-card__title">
+                {{ product.title }}
+              </span>
+  
+              <div class="product-card__reviews product-card__reviews--left">
+                <span class="product-card__stars">★★★★☆</span>
+                <a href="#reviews" class="product-card__review-link">
+                  <span class="product-card__review-count">10 Reviews</span>
+                </a>
+              </div>
+  
+              <div class="product-card__price">
+                {% if product.compare_at_price > product.price %}
+                  <s class="price__compare-at">{{ product.compare_at_price | money }}</s>
+                {% endif %}
+                <span class="price__regular">
+                  {{ product.price | money }}
+                </span>
+              </div>
+  
+              <div class="product-card__description">
+                <span class="product-card__description-text">
+                  {{ product.description | strip_html }}
+                </span>
+              </div>
+  
+              <div class="product-card__buttons">
+                <span class="product-btn subscribe-btn">SUBSCRIBE & SAVE 20%</span>
+                <span class="product-btn add-cart-btn">ADD TO CART</span>
+              </div>
+  
+            </div>
+  
+          </a>
+  
+          {% if block.settings.block_btn_text != blank %}
+            <div class="custom-product-button"
+              style="
+                background: {{ block.settings.block_btn_bg }};
+                color: {{ block.settings.block_btn_text_color }};
+              ">
+              {{ block.settings.block_btn_text }}
+            </div>
+          {% endif %}
+  
+        </div>
+      {% endfor %}
+    </div>
+  
+  </div>
+  

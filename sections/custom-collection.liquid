@@ -106,11 +106,22 @@
           
 
           
-
+          {% liquid
+            assign filter_active = false
+            for f in collection.filters
+              if f.active_values.size > 0
+                assign filter_active = true
+              endif
+            endfor
+          %}
           
+          
+          
+          {% if filter_active %}
+            {% render 'component-custom-collection-filters' %}
+          {% else %}
         
-        
-
+  
     <div class="collection-block-wrapper">
   
       {% for block in section.blocks %}
@@ -162,6 +173,7 @@
                 {% endif %}
               </div>
             {% endif %}
+            
             {% for product in c.products %}
                 <div class="product-card">
                   <a href="{{ product.url }}" class="product-card__link">
@@ -253,7 +265,7 @@
       {% endfor %}
   
     </div>
-  
+  {% endif %}
   </section>
   
   {% schema %}

@@ -777,9 +777,27 @@ max-width: 35%;
   text-align: center;
 }
 }
+.collection-products-1{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding:56px;
+  justify-content: center;
+  align-items: center;
+}
 
-
-
+.collection-products-1 > .product-card{
+   min-width: 90%;
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .collection-products-1{
+    grid-template-columns: repeat(2, 1fr);
+    padding: 16px;
+    gap: 10px;
+  }
+}
 
 
 
