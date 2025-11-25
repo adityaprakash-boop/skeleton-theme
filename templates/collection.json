@@ -18,7 +18,9 @@
             "collection": "green",
             "custom_title": "Daily greens",
             "collection_block_image": "shopify://shop_images/Fri_21st__Free_Black_Spoon-1_800x600_ebed7dc2-ad17-45ba-87fe-9622bd7ccc24.webp",
-            "custom_image_text": "",
+            "custom_image_text1": "Limited <span class=\"italic\"> Offer</span>",
+            "custom_image_text2": "Today, we're nviting you to experience the Evening Elixir: Receive a  <span class=\"italic \"> Free </span> Caddy and <span class=\"italic\"> 5x Free</span> Minis.",
+            "custom_image_text3": "",
             "block_btn_text": "SAVE $30",
             "block_btn_text_color": "",
             "block_btn_bg": "#ffffff"
@@ -29,7 +31,9 @@
           "settings": {
             "collection": "skin",
             "custom_title": "Skin, hair, and nail supplements",
-            "custom_image_text": "",
+            "custom_image_text1": "",
+            "custom_image_text2": "",
+            "custom_image_text3": "",
             "block_btn_text": "SAVE $20",
             "block_btn_text_color": "#000000",
             "block_btn_bg": ""
@@ -40,7 +44,9 @@
           "settings": {
             "collection": "protien",
             "custom_title": "Protein",
-            "custom_image_text": "",
+            "custom_image_text1": "",
+            "custom_image_text2": "",
+            "custom_image_text3": "",
             "block_btn_text": "SAVE $20",
             "block_btn_text_color": "",
             "block_btn_bg": ""
@@ -51,7 +57,9 @@
           "settings": {
             "collection": "menopause",
             "custom_title": "Women's heath support: Mind & body",
-            "custom_image_text": "",
+            "custom_image_text1": "",
+            "custom_image_text2": "",
+            "custom_image_text3": "",
             "block_btn_text": "SAVE $20",
             "block_btn_text_color": "#ffffff",
             "block_btn_bg": "#254430"
@@ -62,7 +70,9 @@
           "settings": {
             "collection": "hair",
             "custom_title": "Vegan hair growth supplements",
-            "custom_image_text": "",
+            "custom_image_text1": "",
+            "custom_image_text2": "",
+            "custom_image_text3": "",
             "block_btn_text": "SAVE $20",
             "block_btn_text_color": "",
             "block_btn_bg": ""
@@ -73,7 +83,9 @@
           "settings": {
             "collection": "sleep",
             "custom_title": "Sleep",
-            "custom_image_text": "",
+            "custom_image_text1": "",
+            "custom_image_text2": "",
+            "custom_image_text3": "",
             "block_btn_text": "SAVE $20",
             "block_btn_text_color": "#ffffff",
             "block_btn_bg": "#254430"
@@ -84,7 +96,9 @@
           "settings": {
             "collection": "immune",
             "custom_title": "Women's health support: Mind & body",
-            "custom_image_text": "",
+            "custom_image_text1": "",
+            "custom_image_text2": "",
+            "custom_image_text3": "",
             "block_btn_text": "",
             "block_btn_text_color": "",
             "block_btn_bg": ""
@@ -95,7 +109,9 @@
           "settings": {
             "collection": "kids",
             "custom_title": "Kids superfood protein powder supplements",
-            "custom_image_text": "",
+            "custom_image_text1": "",
+            "custom_image_text2": "",
+            "custom_image_text3": "",
             "block_btn_text": "SAVE $20",
             "block_btn_text_color": "#254430",
             "block_btn_bg": ""
@@ -106,7 +122,9 @@
           "settings": {
             "collection": "minis",
             "custom_title": "MINIS",
-            "custom_image_text": "",
+            "custom_image_text1": "",
+            "custom_image_text2": "",
+            "custom_image_text3": "",
             "block_btn_text": "NEW",
             "block_btn_text_color": "",
             "block_btn_bg": ""
@@ -117,7 +135,9 @@
           "settings": {
             "collection": "lifestyle",
             "custom_title": "Lifestyle",
-            "custom_image_text": "",
+            "custom_image_text1": "",
+            "custom_image_text2": "",
+            "custom_image_text3": "",
             "block_btn_text": "SAVE 20%",
             "block_btn_text_color": "",
             "block_btn_bg": ""
@@ -128,7 +148,9 @@
           "settings": {
             "collection": "bundle-save",
             "custom_title": "Bundle & Save",
-            "custom_image_text": "",
+            "custom_image_text1": "",
+            "custom_image_text2": "",
+            "custom_image_text3": "",
             "block_btn_text": "SAVE $46",
             "block_btn_text_color": "#ffffff",
             "block_btn_bg": "#254430"
