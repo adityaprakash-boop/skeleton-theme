@@ -1,0 +1,16 @@
+<div class="collection-info">
+    <span class="collection-title">
+      {{ custom_title | default: collection_obj.title }}
+    </span>
+  
+    {% if collection_obj.description != blank %}
+      <div class="collection-description">
+        {{ collection_obj.description }}
+      </div>
+    {% endif %}
+  
+    <div class="View-all-products">
+      <span>VIEW ALL PRODUCTS</span>
+    </div>
+  </div>
+  
