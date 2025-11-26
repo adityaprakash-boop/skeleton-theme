@@ -10,7 +10,12 @@ class CollectionFilter extends HTMLElement {
       this.querySelectorAll("[data-filter-link]").forEach(link => {
         link.addEventListener("click", e => {
           e.preventDefault();
-  
+          const label = link.querySelector(".filter-value-1").innerText;
+
+          
+          this.querySelector(".active-filter-text span").innerText = label;
+          this.querySelector(".active-filter-text").style.display = "inline-flex";
+
           const href = e.target.closest("a").href;
           const url = new URL(href, window.location.origin);
           const params = url.searchParams.toString();
@@ -20,17 +25,18 @@ class CollectionFilter extends HTMLElement {
       });
     }
     updateClearButton(params) {
-        const btn = this.querySelector(".clear-all-btn");
+        const activeNav = this.querySelector(".active-filter-bar");
         if (params && params.length > 0) {
-          btn.style.display = "inline-flex";
+          activeNav.style.display = "inline-flex";
         } else {
-          btn.style.display = "none";
+          activeNav.style.display = "none";
         }
-        btn.onclick = (e) => {
+          activeNav.onclick = (e) => {
           e.preventDefault();
           this.fetchSection(""); 
         };
       }
+   
       
     fetchSection(params) {
       const url = `${window.location.pathname}?section_id=${this.sectionId}&${params}`;

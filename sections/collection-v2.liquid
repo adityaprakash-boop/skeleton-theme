@@ -43,10 +43,7 @@
 
   <div class="custom-filters">
     <div class="filter-options">
-      <div class="active-filter-clear-all">
-       <a href="#"  class="clear-all-btn" style="display: none;"><span>Clear All</span></a>
-      </div>
-      <div class="active-filter-text" style="display: none;"><span></span></div>
+      
       {% assign sorted_filters = collection.filters | sort: 'label' %}
       {% for filter in sorted_filters %}
         {% if filter.values.size > 0 and filter.param_name contains 'p.m.' %}
@@ -99,6 +96,12 @@
       </div>
     </div>
   </div>
+  <div class="active-filter-bar" style="display: none;">
+    <div class="active-filter-text" ><span></span> <div class="active-filter-clear-all-icon">{{ 'icon-close.svg' | inline_asset_content }}</div></div>
+    <div class="active-filter-clear-all">
+      <a href="#" class="clear-all-btn"><span>Clear All </span></a>
+    </div>
+  </div>
 
   {% liquid
     assign filter_active = false
@@ -128,7 +131,10 @@
               x-ref="collection_obj{{ forloop.index }}"
               style="background: {{ block.settings.collection_bg }};"
             >
-              {% render 'component-collection-info',collection_obj: collection_obj,custom_title: block.settings.custom_title%}
+              {% render 'component-collection-info',
+                collection_obj: collection_obj,
+                custom_title: block.settings.custom_title
+              %}
               <div class="collection-products">
                 {% if block.settings.collection_block_image %}
                   <div class="collection-block-image-wrapper">
