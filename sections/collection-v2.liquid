@@ -1,4 +1,4 @@
-{{ 'section-custom-collections.css' | asset_url | stylesheet_tag }}
+{{ 'section-collection-v2.css' | asset_url | stylesheet_tag }}
 <section class="collection-block-list" x-data>
   <div class="collection-banner">
     <div class="collection-banner-image">
@@ -19,15 +19,15 @@
   </div>
   <div class="collection-nav">
     {% for block in section.blocks %}
-      {% assign c = collections[block.settings.collection] %}
-      {% if c %}
+      {% assign collection_obj = collections[block.settings.collection] %}
+      {% if collection_obj %}
         <div
           class="collection-nav-item"
           @click="
-                const top = $refs['c{{ forloop.index }}'].offsetTop;window.scrollTo({ top: top - 10, behavior: 'smooth' });
+                                        const top = $refs['collection_obj{{ forloop.index }}'].offsetTop;window.scrollTo({ top: top - 10, behavior: 'smooth' });
           "
         >
-          {{ c.title }}
+          {{ collection_obj.title }}
         </div>
       {% endif %}
     {% endfor %}
@@ -39,7 +39,7 @@
       <a href="#" class="mobile-shop-all">SHOP ALL</a>
     </div>
     <div class="mobile-filter-bar-button">
-      <button class="mobile-refine-btn">REFINE BY {{ '3.svg' | inline_asset_content }}</button>
+      <button class="mobile-refine-btn">REFINE BY {{ 'icon-filter-v2.svg' | inline_asset_content }}</button>
     </div>
   </div>
 
@@ -78,6 +78,7 @@
       <div class="shop-all-btn">
         <a href="#" class="shop-all-btn-link">SHOP ALL</a>
       </div>
+      <div class="custom-sort-line"></div>
       <div class="custom-sort" x-data="{ open:false }">
         <h3 class="sort-title" @click="open = !open">
           SORT BY:
@@ -105,22 +106,32 @@
     endfor
   %}
   {% if filter_active %}
-    {% render 'component-custom-collection-filters' %}
+    <div class="filtered-results-wrapper">
+      <div class="collection-products">
+        {% for product in collection.products %}
+          {% render 'component-product-card-v2', product: product, forloop: forloop %}
+        {% endfor %}
+      </div>
+    </div>
   {% else %}
     <div class="collection-block-wrapper">
       {% for block in section.blocks %}
-        {% assign c = collections[block.settings.collection] %}
+        {% assign collection_obj = collections[block.settings.collection] %}
 
-        {% if c %}
-          <div class="collection-block" x-ref="c{{ forloop.index }}">
+        {% if collection_obj %}
+          <div
+            class="collection-block"
+            x-ref="collection_obj{{ forloop.index }}"
+            style="background: {{ block.settings.collection_bg }};"
+          >
             <div class="collection-info">
               <span class="collection-title">
-                {{ block.settings.custom_title | default: c.title }}
+                {{ block.settings.custom_title | default: collection_obj.title }}
               </span>
 
-              {% if c.description != blank %}
+              {% if collection_obj.description != blank %}
                 <div class="collection-description">
-                  {{ c.description }}
+                  {{ collection_obj.description }}
                 </div>
               {% endif %}
               <div class="View-all-products">
@@ -149,73 +160,8 @@
                 </div>
               {% endif %}
 
-              {% for product in c.products %}
-                <div class="product-card">
-                  <a href="{{ product.url }}" class="product-card__link">
-                    <div class="product-card__image-wrapper">
-                      {% assign image = product.featured_media.preview_image %}
-                      {% if image %}
-                        <img
-                          src="{{ image | image_url: width: 600 }}"
-                          alt="{{ product.title }}"
-                          class="product-card__image"
-                        >
-                      {% endif %}
-                    </div>
-                    <div class="product-award">
-                      {% if forloop.index == 1 %}
-                        <img src="{{ 'award1.png' | asset_url }}" alt="Award 1">
-                      {% elsif forloop.index == 2 %}
-                        <img src="{{ 'award2.png' | asset_url }}" alt="Award 2">
-                      {% else %}
-                        <img src="{{ 'award3.png' | asset_url }}" alt="Award 3">
-                      {% endif %}
-                    </div>
-
-                    <div class="product-card__info product-card__info--left">
-                      <span class="product-card__title">
-                        {{ product.title }}
-                      </span>
-
-                      <div class="product-card__reviews product-card__reviews--left">
-                        <span class="product-card__stars">★★★★☆</span>
-                        <a href="#reviews" class="product-card__review-link">
-                          <span class="product-card__review-count">10 Reviews</span>
-                        </a>
-                      </div>
-
-                      <div class="product-card__price">
-                        {% if product.compare_at_price > product.price %}
-                          <s class="price__compare-at">{{ product.compare_at_price | money }}</s>
-                        {% endif %}
-                        <span class="price__regular">
-                          {{ product.price | money }}
-                        </span>
-                      </div>
-                      <div class="product-card__description">
-                        <span class="product-card__description-text">
-                          {{ product.description | strip_html }}
-                        </span>
-                      </div>
-
-                      <div class="product-card__buttons">
-                        <span class="product-btn subscribe-btn">SUBSCRIBE & SAVE 20%</span>
-                        <span class="product-btn add-cart-btn">ADD TO CART</span>
-                      </div>
-                    </div>
-                  </a>
-                  {% if block.settings.block_btn_text != blank %}
-                    <div
-                      class="custom-product-button"
-                      style="
-                        background: {{ block.settings.block_btn_bg }};
-                        color: {{ block.settings.block_btn_text_color }};
-                      "
-                    >
-                      {{ block.settings.block_btn_text }}
-                    </div>
-                  {% endif %}
-                </div>
+              {% for product in collection_obj.products %}
+                {% render 'component-product-card-v2', product: product, forloop: forloop %}
               {% endfor %}
             </div>
           </div>
@@ -275,21 +221,12 @@
           "id": "custom_image_text3",
           "label": "Collection Block Image Text"
         },
-        {
-          "type": "text",
-          "id": "block_btn_text",
-          "label": "Button Text"
-        },
-        {
-          "type": "color",
-          "id": "block_btn_text_color",
-          "label": "Button Text Color"
-        },
 
         {
           "type": "color",
-          "id": "block_btn_bg",
-          "label": "Button Background Color"
+          "id": "collection_bg",
+          "label": "Collection Block Background",
+          "default": "#FBF8F4"
         }
       ]
     }

@@ -1,4 +1,6 @@
-<section class="newsletter-section">
+<newsletter-section class="newsletter-section">
+  <script type="module" src="{{ 'section-newsletter.js' | asset_url }}"></script>
+
   <div class="newsletter-inner">
     {% if section.settings.heading != blank %}
       <span class="nl-heading">{{ section.settings.heading }}</span>
@@ -38,16 +40,8 @@
       </label>
     </form>
   </div>
-</section>
-<script>
-  const checkbox = document.querySelector('.nl-checkbox');
-  const button = document.querySelector('.nl-btn-primary');
-  button.disabled = !checkbox.checked;
+</newsletter-section>
 
-  checkbox.addEventListener('change', () => {
-    button.disabled = !checkbox.checked;
-  });
-</script>
 
 <style>
       .nl-btn-primary:disabled {
