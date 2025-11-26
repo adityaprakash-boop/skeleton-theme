@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "collection-v2",
+      "type": "custom-collection",
       "blocks": {
         "collection_block_wj8REe": {
           "type": "collection_block",
@@ -186,7 +186,7 @@
         "button_label": "SIGN UP",
         "sms_label": "SMS SIGN UP",
         "sms_link": "",
-        "checkbox_text": "I agree for WelleCo to contact me via email with product information, exclusive offers, nutrition and wellness content."
+        "checkbox_text": "I agree for WelleCo to contact me via email with product iformation, exclusive offers, nutrition and wellness content."
       }
     }
   },
