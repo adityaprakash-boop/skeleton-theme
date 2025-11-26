@@ -43,6 +43,10 @@
 
   <div class="custom-filters">
     <div class="filter-options">
+      <div class="active-filter-clear-all">
+       <a href="#"  class="clear-all-btn" style="display: none;"><span>Clear All</span></a>
+      </div>
+      <div class="active-filter-text" style="display: none;"><span></span></div>
       {% assign sorted_filters = collection.filters | sort: 'label' %}
       {% for filter in sorted_filters %}
         {% if filter.values.size > 0 and filter.param_name contains 'p.m.' %}
