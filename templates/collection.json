@@ -18,12 +18,10 @@
             "collection": "green",
             "custom_title": "Daily greens",
             "collection_block_image": "shopify://shop_images/Fri_21st__Free_Black_Spoon-1_800x600_ebed7dc2-ad17-45ba-87fe-9622bd7ccc24.webp",
-            "custom_image_text1": "Limited <span class=\"italic\"> Offer</span>",
-            "custom_image_text2": "Today, we're nviting you to experience the Evening Elixir: Receive a  <span class=\"italic \"> Free </span> Caddy and <span class=\"italic\"> 5x Free</span> Minis.",
+            "custom_image_text1": "Limited  Offer",
+            "custom_image_text2": "Today, we're nviting you to experience the Evening Elixir: Receive a   Free  Caddy and  5x Free Minis.",
             "custom_image_text3": "SHOP NOW",
-            "block_btn_text": "SAVE $30",
-            "block_btn_text_color": "",
-            "block_btn_bg": "#ffffff"
+            "collection_bg": "#fbf8f4"
           }
         },
         "collection_block_zHRHCX": {
@@ -34,9 +32,7 @@
             "custom_image_text1": "",
             "custom_image_text2": "",
             "custom_image_text3": "",
-            "block_btn_text": "SAVE $20",
-            "block_btn_text_color": "#000000",
-            "block_btn_bg": ""
+            "collection_bg": "#ffffff"
           }
         },
         "collection_block_P7JfAK": {
@@ -47,9 +43,7 @@
             "custom_image_text1": "",
             "custom_image_text2": "",
             "custom_image_text3": "",
-            "block_btn_text": "SAVE $20",
-            "block_btn_text_color": "",
-            "block_btn_bg": ""
+            "collection_bg": "#fbf8f4"
           }
         },
         "collection_block_bdE3t4": {
@@ -60,9 +54,7 @@
             "custom_image_text1": "",
             "custom_image_text2": "",
             "custom_image_text3": "",
-            "block_btn_text": "SAVE $20",
-            "block_btn_text_color": "#ffffff",
-            "block_btn_bg": "#254430"
+            "collection_bg": "#ffffff"
           }
         },
         "collection_block_AFLHhk": {
@@ -73,9 +65,7 @@
             "custom_image_text1": "",
             "custom_image_text2": "",
             "custom_image_text3": "",
-            "block_btn_text": "SAVE $20",
-            "block_btn_text_color": "",
-            "block_btn_bg": ""
+            "collection_bg": "#fbf8f4"
           }
         },
         "collection_block_fmBFVP": {
@@ -86,9 +76,7 @@
             "custom_image_text1": "",
             "custom_image_text2": "",
             "custom_image_text3": "",
-            "block_btn_text": "SAVE $20",
-            "block_btn_text_color": "#ffffff",
-            "block_btn_bg": "#254430"
+            "collection_bg": "#ffffff"
           }
         },
         "collection_block_C6mMce": {
@@ -99,9 +87,7 @@
             "custom_image_text1": "",
             "custom_image_text2": "",
             "custom_image_text3": "",
-            "block_btn_text": "",
-            "block_btn_text_color": "",
-            "block_btn_bg": ""
+            "collection_bg": "#fbf8f4"
           }
         },
         "collection_block_gJCNcf": {
@@ -112,9 +98,7 @@
             "custom_image_text1": "",
             "custom_image_text2": "",
             "custom_image_text3": "",
-            "block_btn_text": "SAVE $20",
-            "block_btn_text_color": "#254430",
-            "block_btn_bg": ""
+            "collection_bg": "#ffffff"
           }
         },
         "collection_block_nUXBj4": {
@@ -125,9 +109,7 @@
             "custom_image_text1": "",
             "custom_image_text2": "",
             "custom_image_text3": "",
-            "block_btn_text": "NEW",
-            "block_btn_text_color": "",
-            "block_btn_bg": ""
+            "collection_bg": "#fbf8f4"
           }
         },
         "collection_block_Y87MgE": {
@@ -138,9 +120,7 @@
             "custom_image_text1": "",
             "custom_image_text2": "",
             "custom_image_text3": "",
-            "block_btn_text": "SAVE 20%",
-            "block_btn_text_color": "",
-            "block_btn_bg": ""
+            "collection_bg": "#ffffff"
           }
         },
         "collection_block_6EFUDW": {
@@ -151,9 +131,7 @@
             "custom_image_text1": "",
             "custom_image_text2": "",
             "custom_image_text3": "",
-            "block_btn_text": "SAVE $46",
-            "block_btn_text_color": "#ffffff",
-            "block_btn_bg": "#254430"
+            "collection_bg": "#fbf8f4"
           }
         }
       },
@@ -186,7 +164,7 @@
         "button_label": "SIGN UP",
         "sms_label": "SMS SIGN UP",
         "sms_link": "",
-        "checkbox_text": "I agree for WelleCo to contact me via email with product iformation, exclusive offers, nutrition and wellness content."
+        "checkbox_text": "I agree for WelleCo to contact me via email with product information, exclusive offers, nutrition and wellness content."
       }
     }
   },
