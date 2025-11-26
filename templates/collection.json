@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "custom-collection",
+      "type": "collection-v2",
       "blocks": {
         "collection_block_wj8REe": {
           "type": "collection_block",
