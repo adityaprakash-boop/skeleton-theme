@@ -1,64 +1,84 @@
 class CollectionFilter extends HTMLElement {
-    constructor() {
-      super();
-      this.sectionId = this.dataset.section;
-    }
-    connectedCallback() {
-      this.bindFilterLinks();  
-    }
-    bindFilterLinks() {
-      this.querySelectorAll("[data-filter-link]").forEach(link => {
-        link.addEventListener("click", e => {
-          e.preventDefault();
-          const label = link.querySelector(".filter-value-1").innerText;
+  constructor() {
+    super();
+    this.sectionId = this.dataset.section;
+  }
 
-          
-          this.querySelector(".active-filter-text span").innerText = label;
-          this.querySelector(".active-filter-text").style.display = "inline-flex";
+  connectedCallback() {
+    this.bindFilterLinks();
+    this.bindSortLinks();   // 👈 added
+  }
 
-          const href = e.target.closest("a").href;
-          const url = new URL(href, window.location.origin);
-          const params = url.searchParams.toString();
-  
-          this.fetchSection(params);
-        });
+  // FILTER LINKS
+  bindFilterLinks() {
+    this.querySelectorAll("[data-filter-link]").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+
+        const label = link.querySelector(".filter-value-1").innerText;
+        this.querySelector(".active-filter-text span").innerText = label;
+        this.querySelector(".active-filter-bar").style.display = "inline-flex";
+
+        const href = e.target.closest("a").href;
+        const url = new URL(href, window.location.origin);
+        const params = url.searchParams.toString();
+
+        this.fetchSection(params);
       });
-    }
-    updateClearButton(params) {
-        const activeNav = this.querySelector(".active-filter-bar");
-        if (params && params.length > 0) {
-          activeNav.style.display = "inline-flex";
-        } else {
-          activeNav.style.display = "none";
+    });
+  }
+
+  // SORT LINKS (simple like filter)
+  bindSortLinks() {
+    this.querySelectorAll("[data-sort-link]").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+
+        const href = link.href;
+        const url = new URL(href, window.location.origin);
+        const params = url.searchParams.toString();  // EXACT same as filter
+
+        this.fetchSection(params);
+      });
+    });
+  }
+
+  updateClearButton(params) {
+    const activeNav = this.querySelector(".active-filter-bar");
+    activeNav.style.display = params && params.length > 0 ? "inline-flex" : "none";
+
+    activeNav.onclick = (e) => {
+      e.preventDefault();
+      this.fetchSection("");
+    };
+  }
+
+  fetchSection(params) {
+    const url = `${window.location.pathname}?section_id=${this.sectionId}&${params}`;
+
+    fetch(url)
+      .then(res => res.text())
+      .then(html => {
+        const doc = new DOMParser().parseFromString(html, "text/html");
+        const newResults = doc.querySelector("#results-area");
+        const currentResults = this.querySelector("#results-area");
+
+        if (newResults && currentResults) {
+          currentResults.innerHTML = newResults.innerHTML;
         }
-          activeNav.onclick = (e) => {
-          e.preventDefault();
-          this.fetchSection(""); 
-        };
-      }
-   
-      
-    fetchSection(params) {
-      const url = `${window.location.pathname}?section_id=${this.sectionId}&${params}`;
-      fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const doc = new DOMParser().parseFromString(html, "text/html");
-          const newResults = doc.querySelector("#results-area");
-          const currentResults = this.querySelector("#results-area");
-  
-          if (newResults && currentResults) {
-            currentResults.innerHTML = newResults.innerHTML;
-          }
-          const newUrl = params ? `${window.location.pathname}?${params}` : window.location.pathname;
-          history.replaceState({}, "", newUrl);
-          this.bindFilterLinks();
-          this.updateClearButton(params);
-        })
-        .catch(err => console.error("AJAX error:", err));
-    }
+
+        const newUrl = params ? `${window.location.pathname}?${params}` : window.location.pathname;
+        history.replaceState({}, "", newUrl);
+
+        // Rebind after AJAX
+        this.bindFilterLinks();
+        this.bindSortLinks();   // 👈 added here
+        this.updateClearButton(params);
+      })
+      .catch(err => console.error("AJAX error:", err));
   }
-  if (!customElements.get("collection-v2")) {
-    customElements.define("collection-v2", CollectionFilter);
-  }
-  
+}
+
+if (!customElements.get("collection-v2")) {
+  customElements.define("collection-v2", CollectionFilter);
+}

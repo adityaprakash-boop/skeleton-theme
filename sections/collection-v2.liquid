@@ -88,7 +88,7 @@
 
         <div class="sort-list" x-show="open">
           {% for option in collection.sort_options %}
-            <a href="?sort_by={{ option.value }}" data-sort-link class="sort-item">
+            <a href="?sort_by={{ option.value }}" data-sort-link class="sort-item" @click="open = false">
               {{ option.name }}
             </a>
           {% endfor %}
@@ -105,11 +105,16 @@
 
   {% liquid
     assign filter_active = false
-    for f in collection.filters
-      if f.active_values.size > 0
-        assign filter_active = true
-      endif
-    endfor
+
+  for f in collection.filters
+    if f.active_values.size > 0
+      assign filter_active = true
+    endif
+  endfor
+
+  if collection.sort_by != blank and collection.sort_by != collection.default_sort_by
+    assign filter_active = true
+  endif
   %}
   <div id="results-area">
     {% if filter_active %}
