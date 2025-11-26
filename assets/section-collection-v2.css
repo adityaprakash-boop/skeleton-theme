@@ -788,7 +788,7 @@ max-width: 35%;
   gap: 20%;
   padding: 0px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  justify-content: space-between;
+   justify-content: space-between;
 }
 .filter-options {
   display: flex;
