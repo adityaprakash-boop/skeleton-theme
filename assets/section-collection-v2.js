@@ -6,10 +6,10 @@ class CollectionFilter extends HTMLElement {
 
   connectedCallback() {
     this.bindFilterLinks();
-    this.bindSortLinks();   // 👈 added
+    this.bindSortLinks();
   }
 
-  // FILTER LINKS
+
   bindFilterLinks() {
     this.querySelectorAll("[data-filter-link]").forEach(link => {
       link.addEventListener("click", e => {
@@ -28,7 +28,7 @@ class CollectionFilter extends HTMLElement {
     });
   }
 
-  // SORT LINKS (simple like filter)
+
   bindSortLinks() {
     this.querySelectorAll("[data-sort-link]").forEach(link => {
       link.addEventListener("click", e => {
@@ -36,7 +36,7 @@ class CollectionFilter extends HTMLElement {
 
         const href = link.href;
         const url = new URL(href, window.location.origin);
-        const params = url.searchParams.toString();  // EXACT same as filter
+        const params = url.searchParams.toString();
 
         this.fetchSection(params);
       });
@@ -70,9 +70,9 @@ class CollectionFilter extends HTMLElement {
         const newUrl = params ? `${window.location.pathname}?${params}` : window.location.pathname;
         history.replaceState({}, "", newUrl);
 
-        // Rebind after AJAX
+
         this.bindFilterLinks();
-        this.bindSortLinks();   // 👈 added here
+        this.bindSortLinks();
         this.updateClearButton(params);
       })
       .catch(err => console.error("AJAX error:", err));

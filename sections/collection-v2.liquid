@@ -37,33 +37,35 @@
       <a href="#" class="mobile-shop-all">SHOP ALL</a>
     </div>
     <div class="mobile-filter-bar-button">
-      <button class="mobile-refine-btn" @click="mobileFilter = true">REFINE BY {{ 'icon-filter-v2.svg' | inline_asset_content }}</button>
+      <button class="mobile-refine-btn" @click="mobileFilter = true">
+        REFINE BY {{ 'icon-filter-v2.svg' | inline_asset_content }}
+      </button>
     </div>
   </div>
   <div class="mobile-filter-drawer" x-show="mobileFilter">
     <div class="mobile-filter-drawer-header">
       <span>Filter</span>
-      <span class="mobile-filter-drawer-header-close" @click="mobileFilter = false">{{ 'icon-close.svg' | inline_asset_content }}</span>
+      <span class="mobile-filter-drawer-header-close" @click="mobileFilter = false">
+        {{- 'icon-close.svg' | inline_asset_content -}}
+      </span>
     </div>
     <div class="mobile-filter-drawer-content">
       <div class="mobile-filter-drawer-filter">
         {% render 'component-collection-filter' %}
-        </div>
+      </div>
       <div class="mobile-filter-drawer-show-results-wrapper">
-        <span @click="mobileFilter = false" class="mobile-filter-drawer-show-results">
-          Show Results
-        </span>
+        <span @click="mobileFilter = false" class="mobile-filter-drawer-show-results"> Show Results </span>
       </div>
     </div>
   </div>
-  
-  
-  
 
   {% render 'component-collection-filter' %}
 
   <div class="active-filter-bar" style="display: none;">
-    <div class="active-filter-text" ><span></span> <div class="active-filter-clear-all-icon">{{ 'icon-close.svg' | inline_asset_content }}</div></div>
+    <div class="active-filter-text">
+      <span></span>
+      <div class="active-filter-clear-all-icon">{{ 'icon-close.svg' | inline_asset_content }}</div>
+    </div>
     <div class="active-filter-clear-all">
       <a href="#" class="clear-all-btn"><span>Clear All </span></a>
     </div>
@@ -72,15 +74,15 @@
   {% liquid
     assign filter_active = false
 
-  for f in collection.filters
-    if f.active_values.size > 0
+    for f in collection.filters
+      if f.active_values.size > 0
+        assign filter_active = true
+      endif
+    endfor
+
+    if collection.sort_by != blank and collection.sort_by != collection.default_sort_by
       assign filter_active = true
     endif
-  endfor
-
-  if collection.sort_by != blank and collection.sort_by != collection.default_sort_by
-    assign filter_active = true
-  endif
   %}
   <div id="results-area">
     {% if filter_active %}
