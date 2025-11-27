@@ -50,9 +50,9 @@
       </span>
     </div>
     <div class="mobile-filter-drawer-content">
-      <div class="mobile-filter-drawer-filter">
+      {% comment %} <div class="mobile-filter-drawer-filter">
         {% render 'component-collection-filter' %}
-      </div>
+      </div> {% endcomment %}
       <div class="mobile-filter-drawer-show-results-wrapper">
         <span @click="mobileFilter = false" class="mobile-filter-drawer-show-results"> Show Results ({{ collection.products_count }}) </span>
       </div>
@@ -61,7 +61,7 @@
 
   {% render 'component-collection-filter' %}
 
-  <div class="active-filter-bar" style="display: none;">
+  <div class="active-filter-bar" >
     <div class="active-filter-text">
       <span></span>
       <div class="active-filter-clear-all-icon">{{ 'icon-close.svg' | inline_asset_content }}</div>
