@@ -1,58 +1,56 @@
 <div class="custom-filters">
-    <div class="filter-options">
-      
-      {% assign sorted_filters = collection.filters | sort: 'label' %}
-      {% for filter in sorted_filters %}
-        {% if filter.values.size > 0 and filter.param_name contains 'p.m.' %}
-          <div class="filter-group" x-data="{ open:false }">
-            <h3 class="filter-title" @click="open = !open">
-              {{ filter.label }}
+  <div class="filter-options">
+    {% assign sorted_filters = collection.filters | sort: 'label' %}
+    {% for filter in sorted_filters %}
+      {% if filter.values.size > 0 and filter.param_name contains 'p.m.' %}
+        <div class="filter-group" x-data="{ open:false }">
+          <h3 class="filter-title" @click="open = !open">
+            {{ filter.label }}
 
-              <span class="dropdown-icon" :class="{ 'open':open }">
-                {{ 'icon-close3.svg' | inline_asset_content }}
-              </span>
-            </h3>
+            <span class="dropdown-icon" :class="{ 'open':open }">
+              {{ 'icon-close3.svg' | inline_asset_content }}
+            </span>
+          </h3>
 
-            <div class="filter-list" x-show="open">
-              <div class="filter-list-items">
-                {% for value in filter.values %}
-                  <a href="{{ value.url_to_add }}" @click="open = false" data-filter-link>
-                    <div class="filter-value-label">
-                      <span class="filter-value-1">{{ value.label }}</span>
-                      <span class="filter-value-2">({{ value.count }})</span>
-                    </div>
-                  </a>
-                {% endfor %}
-              </div>
-              <a href="#" class="filter-apply-all">APPLY</a>
+          <div class="filter-list" x-show="open">
+            <div class="filter-list-items">
+              {% for value in filter.values %}
+                <a href="{{ value.url_to_add }}" @click="open = false" data-filter-link>
+                  <div class="filter-value-label">
+                    <span class="filter-value-1">{{ value.label }}</span>
+                    <span class="filter-value-2">({{ value.count }})</span>
+                  </div>
+                </a>
+              {% endfor %}
             </div>
+            <a href="#" class="filter-apply-all">APPLY</a>
           </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-    <div class="shop-sort-btn-wrapper">
-      <div class="shop-all-btn">
-        <a href="#" class="shop-all-btn-link">SHOP ALL</a>
-      </div>
-      <div class="custom-sort-line"></div>
-      <div class="custom-sort" x-data="{ open:false }">
-        <h3 class="sort-title" @click="open = !open">
-          SORT BY:
-          <span class="sort-icon" :class="{ 'open':open }">
-            {{ 'icon-close3.svg' | inline_asset_content }}
-          </span>
-        </h3>
-
-        <div class="sort-list" x-show="open">
-            {% assign sorted_sort_options = collection.sort_options | sort: "name" | reverse %}
-
-            {% for option in sorted_sort_options %}
-              <a href="?sort_by={{ option.value }}" data-sort-link class="sort-item" @click="open = false">
-                {{ option.name }}
-              </a>
-            {% endfor %}
-            
         </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="shop-sort-btn-wrapper">
+    <div class="shop-all-btn">
+      <a href="#" class="shop-all-btn-link">SHOP ALL</a>
+    </div>
+    <div class="custom-sort-line"></div>
+    <div class="custom-sort" x-data="{ open:false }">
+      <h3 class="sort-title" @click="open = !open">
+        SORT BY:
+        <span class="sort-icon" :class="{ 'open':open }">
+          {{ 'icon-close3.svg' | inline_asset_content }}
+        </span>
+      </h3>
+
+      <div class="sort-list" x-show="open">
+        {% assign sorted_sort_options = collection.sort_options | sort: 'name' | reverse %}
+
+        {% for option in sorted_sort_options %}
+          <a href="?sort_by={{ option.value }}" data-sort-link class="sort-item" @click="open = false">
+            {{ option.name }}
+          </a>
+        {% endfor %}
       </div>
     </div>
-  </div>  
+  </div>
+</div>

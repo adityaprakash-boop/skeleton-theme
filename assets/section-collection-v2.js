@@ -18,7 +18,6 @@ class CollectionFilter extends HTMLElement {
         const label = link.querySelector(".filter-value-1").innerText;
         this.querySelector(".active-filter-text span").innerText = label;
         this.querySelector(".active-filter-bar").style.display = "inline-flex";
-
         const href = e.target.closest("a").href;
         const url = new URL(href, window.location.origin);
         const params = url.searchParams.toString();
@@ -45,7 +44,11 @@ class CollectionFilter extends HTMLElement {
 
   updateClearButton(params) {
     const activeNav = this.querySelector(".active-filter-bar");
-    activeNav.style.display = params && params.length > 0 ? "inline-flex" : "none";
+    if (params && params.length > 0) {
+      activeNav.style.display = "inline-flex";
+    } else {
+      activeNav.style.display = "none";
+    }
 
     activeNav.onclick = (e) => {
       e.preventDefault();

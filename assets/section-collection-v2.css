@@ -863,8 +863,8 @@ max-width: 35%;
   .mobile-filter-drawer{
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
+    gap: 0px;
+    padding: 0px;
     background: white;
      
    }
@@ -881,6 +881,8 @@ max-width: 35%;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.7);
   }
   .mobile-filter-drawer-filter .custom-sort {
     margin-right: 0px;
@@ -904,11 +906,13 @@ max-width: 35%;
    border: none;
    
   }
+  
   .mobile-filter-drawer-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    font-size: 2.6rem;
     
   }
   .mobile-filter-drawer-show-results{
@@ -942,5 +946,6 @@ max-width: 35%;
     height: 70%;
     justify-content: space-between;
   }
+
   
 }
