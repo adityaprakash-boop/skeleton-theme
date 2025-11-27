@@ -1,7 +1,9 @@
-class CollectionFilter extends HTMLElement {
+class CollectionV2 extends HTMLElement {
   constructor() {
     super();
     this.sectionId = this.dataset.section;
+    this.onFormChange = this.debounce(this.onFormChange.bind(this), 50);
+
   }
 
   connectedCallback() {
@@ -9,6 +11,13 @@ class CollectionFilter extends HTMLElement {
     this.bindInputs();
     this.bindSortLinks();
     this.bindClearAll();
+  }
+  debounce(fn, delay) {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => fn.apply(this, args), delay);
+    };
   }
   bindClearAll() {
     const btn = this.querySelector(".clear-all-btn");
@@ -19,6 +28,22 @@ class CollectionFilter extends HTMLElement {
         .forEach(checkbox => (checkbox.checked = false));
       this.onFormChange();
     });
+  }
+  updateActiveBar() {
+    const bar = this.querySelector(".active-filter-bar");
+    const box = this.querySelector(".active-filter-text span");
+    const checkedInputs = document.querySelectorAll("#custom-filter-form [data-filter-input]:checked");
+    let labels = [];
+    checkedInputs.forEach(input => {
+      const label = input.parentElement.querySelector(".filter-value-1").innerText;
+      labels.push(label);
+    });
+    box.innerText = labels.join(", ");
+    if (labels.length > 0) {
+      bar.style.display = "flex";
+    } else {
+      bar.style.display = "none";
+    }
   }
   
   bindInputs() {
@@ -44,6 +69,7 @@ class CollectionFilter extends HTMLElement {
     for (const [key, value] of formData.entries()) {
       params.append(key, value);
     }
+    this.updateActiveBar();
     this.fetchSection(params.toString());
   }
   fetchSection(params) {
@@ -71,5 +97,5 @@ class CollectionFilter extends HTMLElement {
 }
 
 if (!customElements.get("collection-v2")) {
-  customElements.define("collection-v2", CollectionFilter);
+  customElements.define("collection-v2", CollectionV2);
 }

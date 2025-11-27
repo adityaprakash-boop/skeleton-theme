@@ -851,7 +851,7 @@ max-width: 35%;
   align-items: center;
   justify-content: space-between;
   text-wrap: nowrap;
-  background: #e5e5e5;
+  background: #FBF8F4;
 }
 @media (max-width: 768px) {
   .mobile-filter-drawer-filter {
