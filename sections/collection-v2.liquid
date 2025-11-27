@@ -1,5 +1,5 @@
 {{ 'section-collection-v2.css' | asset_url | stylesheet_tag }}
-<collection-v2 class="collection-block-list" data-section="{{ section.id }}">
+<collection-v2 class="collection-block-list" data-section="{{ section.id }}" x-data="{ mobileFilter: false }">
   <div class="collection-banner">
     <div class="collection-banner-image">
       {% if section.settings.banner_image %}
@@ -37,65 +37,31 @@
       <a href="#" class="mobile-shop-all">SHOP ALL</a>
     </div>
     <div class="mobile-filter-bar-button">
-      <button class="mobile-refine-btn">REFINE BY {{ 'icon-filter-v2.svg' | inline_asset_content }}</button>
+      <button class="mobile-refine-btn" @click="mobileFilter = true">REFINE BY {{ 'icon-filter-v2.svg' | inline_asset_content }}</button>
     </div>
   </div>
-
-  <div class="custom-filters">
-    <div class="filter-options">
-      
-      {% assign sorted_filters = collection.filters | sort: 'label' %}
-      {% for filter in sorted_filters %}
-        {% if filter.values.size > 0 and filter.param_name contains 'p.m.' %}
-          <div class="filter-group" x-data="{ open:false }">
-            <h3 class="filter-title" @click="open = !open">
-              {{ filter.label }}
-
-              <span class="dropdown-icon" :class="{ 'open':open }">
-                {{ 'icon-close3.svg' | inline_asset_content }}
-              </span>
-            </h3>
-
-            <div class="filter-list" x-show="open">
-              <div class="filter-list-items">
-                {% for value in filter.values %}
-                  <a href="{{ value.url_to_add }}" @click="open = false" data-filter-link>
-                    <div class="filter-value-label">
-                      <span class="filter-value-1">{{ value.label }}</span>
-                      <span class="filter-value-2">({{ value.count }})</span>
-                    </div>
-                  </a>
-                {% endfor %}
-              </div>
-              <a href="#" class="filter-apply-all">APPLY</a>
-            </div>
-          </div>
-        {% endif %}
-      {% endfor %}
+  <div class="mobile-filter-drawer" x-show="mobileFilter">
+    <div class="mobile-filter-drawer-header">
+      <span>Filter</span>
+      <span class="mobile-filter-drawer-header-close" @click="mobileFilter = false">{{ 'icon-close.svg' | inline_asset_content }}</span>
     </div>
-    <div class="shop-sort-btn-wrapper">
-      <div class="shop-all-btn">
-        <a href="#" class="shop-all-btn-link">SHOP ALL</a>
-      </div>
-      <div class="custom-sort-line"></div>
-      <div class="custom-sort" x-data="{ open:false }">
-        <h3 class="sort-title" @click="open = !open">
-          SORT BY:
-          <span class="sort-icon" :class="{ 'open':open }">
-            {{ 'icon-close3.svg' | inline_asset_content }}
-          </span>
-        </h3>
-
-        <div class="sort-list" x-show="open">
-          {% for option in collection.sort_options %}
-            <a href="?sort_by={{ option.value }}" data-sort-link class="sort-item" @click="open = false">
-              {{ option.name }}
-            </a>
-          {% endfor %}
+    <div class="mobile-filter-drawer-content">
+      <div class="mobile-filter-drawer-filter">
+        {% render 'component-collection-filter' %}
         </div>
+      <div class="mobile-filter-drawer-show-results-wrapper">
+        <span @click="mobileFilter = false" class="mobile-filter-drawer-show-results">
+          Show Results
+        </span>
       </div>
     </div>
   </div>
+  
+  
+  
+
+  {% render 'component-collection-filter' %}
+
   <div class="active-filter-bar" style="display: none;">
     <div class="active-filter-text" ><span></span> <div class="active-filter-clear-all-icon">{{ 'icon-close.svg' | inline_asset_content }}</div></div>
     <div class="active-filter-clear-all">
