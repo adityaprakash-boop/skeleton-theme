@@ -25,9 +25,6 @@
     margin-inline: auto;
     align-items: flex-start;
     padding: 30px 40px;
-    
-    
-
   }
   #main-header .nav-megamenu .nav-megamenu_child {
     position: static;
@@ -128,12 +125,11 @@
     /* grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); */
     gap: 16px;
     width: 300%;
-   
+
     /* padding: 10px 0; */
   }
 
   /* Limit card size so it doesn’t stretch */
-  
 
   /* Shrink inner product card */
   #main-header .nav-megamenu_featured-products .product-card {
@@ -245,7 +241,7 @@
     /* grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); */
     gap: 16px;
     width: 300%;
-  
+
     /* padding: 10px 0; */
   }
 
@@ -253,8 +249,6 @@
   #main-header .nav-megamenu_product-card-wrapper {
     width: 40%;
     /* max-width: 300px; */
-
-    
   }
 
   /* Shrink inner product card */
@@ -321,8 +315,8 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height:60%; /* Covers bottom half of the card */
-    background: rgba(255, 255, 255, 0.7); 
+    height: 60%; /* Covers bottom half of the card */
+    background: rgba(255, 255, 255, 0.7);
     padding: 10px;
     box-sizing: border-box;
     transform: translateY(100%); /* Hides it by default by pushing it down */
@@ -332,7 +326,6 @@
     /* justify-content: center;
   align-items: center; */
     text-align: left;
- 
   }
 
   /* --- NEW: Hover State to reveal the shutter --- */
@@ -388,174 +381,156 @@
     font-weight: 500; /* 👈 change this value */
   }
   /* --- SHOP ALL BUTTON (Bottom Centered) --- */
-#main-header .nav-megamenu_shop-all {
-  width: 100%;
-  text-align: center;
-  padding: 20px 0 10px;
-  grid-column: 1 / -1; /* makes sure it spans full width of the megamenu grid */
-}
-
-#main-header .shop-all-btn {
-  display: inline-block;
-  padding: 15px 30px;
-  border: 1px solid black;
-
-  font-size: 17px;
-  font-weight: 400;
-  color: black;
-  background-color: white;
-
-  letter-spacing: 1px;
-}
-
-#main-header .shop-all-btn:hover {
-  background-color: black;
-  color: white; /* ✅ keeps text visible on hover */
-
-}
-/* --- ABOUT BLOCKS --- */
-#main-header .nav-megamenu_about-blocks {
-  display: flex;
-
-  align-items: flex-start;
-  gap: 2.4rem;
-  flex-wrap: wrap;
-  
-  
-  padding-left: 4rem;
-  padding-top: 4rem;
-  
-  
-
-}
-
-#main-header .nav-megamenu_about-block {
-  max-width: 15%;
-  text-align: center;
-  text-decoration: none;
-  color: black;
-  cursor: pointer;
-
-}
-
-
-
-#main-header .nav-megamenu_about-block img {
-  width: 100%;
-  object-fit: cover;
-  
-  margin-bottom: 10px;
-}
-
-#main-header .nav-megamenu_about-name {
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: 1px;
-  text-align: left;
-  
-}
-@media (max-width: 890px) {
-  #main-header .nav-megamenu_buttons .btn {
-    display: block;
+  #main-header .nav-megamenu_shop-all {
     width: 100%;
-    padding: 8px 5px;
-    font-size: 1.4rem;
-    font-weight: 400;
     text-align: center;
-    text-transform: uppercase;
-    border: 1px solid black;
-    cursor: pointer;
-    box-sizing: border-box;
-    transition: all 0.2s ease;
-    opacity: 1;
+    padding: 20px 0 10px;
+    grid-column: 1 / -1; /* makes sure it spans full width of the megamenu grid */
   }
-  
-}
-@media (max-width: 600px) {
-    #menu-drawer .nav-megamenu_product-title{
-    font-size: 1.4rem;
-  }
-  #main-header .nav-megamenu_buttons .btn {
-    display: block;
-    width: 100%;
-    padding: 6px 3px;
-    font-size: 1.2rem;
-    font-weight: 400;
-    text-align: center;
-    text-transform: uppercase;
-    border: 1px solid black;
-    cursor: pointer;
-    box-sizing: border-box;
-    
-    opacity: 1;
-  }
-  #main-header .nav-megamenu_product-info-hover {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 60%;
-  background: white;
-  padding: 10px;
-  box-sizing: border-box;
-  transform: translateY(100%);
-  transition: transform 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  
-}
 
+  #main-header .shop-all-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border: 1px solid black;
+
+    font-size: 17px;
+    font-weight: 400;
+    color: black;
+    background-color: white;
+
+    letter-spacing: 1px;
+  }
+
+  #main-header .shop-all-btn:hover {
+    background-color: black;
+    color: white; /* ✅ keeps text visible on hover */
+  }
+  /* --- ABOUT BLOCKS --- */
+  #main-header .nav-megamenu_about-blocks {
+    display: flex;
+
+    align-items: flex-start;
+    gap: 2.4rem;
+    flex-wrap: wrap;
+
+    padding-left: 4rem;
+    padding-top: 4rem;
+  }
+
+  #main-header .nav-megamenu_about-block {
+    max-width: 15%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+  }
+
+  #main-header .nav-megamenu_about-block img {
+    width: 100%;
+    object-fit: cover;
+
+    margin-bottom: 10px;
+  }
+
+  #main-header .nav-megamenu_about-name {
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-align: left;
+  }
+  @media (max-width: 890px) {
+    #main-header .nav-megamenu_buttons .btn {
+      display: block;
+      width: 100%;
+      padding: 8px 5px;
+      font-size: 1.4rem;
+      font-weight: 400;
+      text-align: center;
+      text-transform: uppercase;
+      border: 1px solid black;
+      cursor: pointer;
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+      opacity: 1;
+    }
+  }
+  @media (max-width: 600px) {
+    #menu-drawer .nav-megamenu_product-title {
+      font-size: 1.4rem;
+    }
+    #main-header .nav-megamenu_buttons .btn {
+      display: block;
+      width: 100%;
+      padding: 6px 3px;
+      font-size: 1.2rem;
+      font-weight: 400;
+      text-align: center;
+      text-transform: uppercase;
+      border: 1px solid black;
+      cursor: pointer;
+      box-sizing: border-box;
+
+      opacity: 1;
+    }
+    #main-header .nav-megamenu_product-info-hover {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      background: white;
+      padding: 10px;
+      box-sizing: border-box;
+      transform: translateY(100%);
+      transition: transform 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
   }
   #main-header .nav-megamenu_product-card:hover .nav-megamenu_product-info-visible {
-  opacity: 0;
-  
-}
-/* Apply the same underline animation to submenu (child) headings */
-#main-header .nav-megamenu_heading {
-  position: relative;
-  text-decoration: none;
-  color: inherit;
-  display: inline-block;
-  padding-bottom: 4px;
-}
+    opacity: 0;
+  }
+  /* Apply the same underline animation to submenu (child) headings */
+  #main-header .nav-megamenu_heading {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    padding-bottom: 4px;
+  }
 
-/* Create the underline effect */
-#main-header .nav-megamenu_heading::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  width: 0;
-  height: 1px;
-  background: currentColor;
-  transition: all 0.4s ease;
-  transform: translateX(-50%);
-}
+  /* Create the underline effect */
+  #main-header .nav-megamenu_heading::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+  }
 
-/* Animate underline on hover (child links only) */
-#main-header .nav-megamenu_heading:hover::after {
-  width: 100%;
-}
-#main-header > nav > ul > li > a, #main-header > nav > ul > li > .menu-toggle {
+  /* Animate underline on hover (child links only) */
+  #main-header .nav-megamenu_heading:hover::after {
+    width: 100%;
+  }
+  #main-header > nav > ul > li > a,
+  #main-header > nav > ul > li > .menu-toggle {
     font-size: 14px;
     font-weight: 500;
-}
-#main-header nav ul {
-   
+  }
+  #main-header nav ul {
     gap: 4.9rem;
-}
-
-  
-
-
-
+  }
 {% endstylesheet %}
 <ul>
   {% for link in menu.links %}
-    <li 
-      x-data="{ menuOpen: false }" 
-      @mouseenter="menuOpen = true" 
+    <li
+      x-data="{ menuOpen: false }"
+      @mouseenter="menuOpen = true"
       @mouseleave="menuOpen = false"
     >
       {% if link.links != blank or link.title == 'ABOUT' %}
@@ -586,7 +561,10 @@
                 {% for block in about_blocks %}
                   <a href="{{ block.settings.url }}" class="nav-megamenu_about-block">
                     {% if block.settings.image != blank %}
-                      <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.name | escape }}">
+                      <img
+                        src="{{ block.settings.image | image_url: width: 400 }}"
+                        alt="{{ block.settings.name | escape }}"
+                      >
                     {% endif %}
                     {% if block.settings.name != blank %}
                       <div class="nav-megamenu_about-name">{{ block.settings.name }}</div>
@@ -599,21 +577,22 @@
           <ul class="page-width" role="list">
             {%- for childlink in link.links -%}
               <li>
+                {% assign t = childlink.title | upcase | strip %}
                 <a
-                  href="{{ childlink.url }}"
+                  href="{% if t contains 'SHOP ALL' %}/collections/all{% else %}{{ childlink.url }}{% endif %}"
                   class="nav-megamenu_heading"
                   {% if childlink.current %}
                     aria-current="page"
                   {% endif %}
                 >
                   {{ childlink.title | escape }}
-                  {% if childlink.title contains 'SHOP ALL' %}
+
+                  {% if t contains 'SHOP ALL' %}
                     <span style="display:inline-block; margin-left:6px; vertical-align:middle;">
                       {{ 'Vector.svg' | inline_asset_content }}
                     </span>
                   {% endif %}
                 </a>
-                
 
                 {%- if childlink.links != blank -%}
                   <ul class="nav-megamenu_child" role="list">
@@ -636,7 +615,6 @@
                       {%- if block.type == 'featured_product' and block.settings.product != blank -%}
                         {%- assign product = block.settings.product -%}
                         <div class="nav-megamenu_product-card-wrapper">
-
                           <div class="nav-megamenu_product-card">
                             <a href="{{ product.url }}">
                               {%- if product.featured_image -%}
@@ -693,10 +671,10 @@
           </ul>
 
           {% if link.title != 'ABOUT' %}
-           <!-- SHOP ALL BUTTON -->
-           <div class="nav-megamenu_shop-all">
-            <a href="{{ link.url }}" class="shop-all-btn">SHOP ALL</a>
-          </div>
+            <!-- SHOP ALL BUTTON -->
+            <div class="nav-megamenu_shop-all">
+              <a href="{{ link.url }}" class="shop-all-btn">SHOP ALL</a>
+            </div>
           {% endif %}
         </div>
 
