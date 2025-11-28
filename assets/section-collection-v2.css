@@ -927,6 +927,8 @@ max-width: 35%;
   .mobile-filter-drawer-show-results-wrapper{
     display: flex;
     width: 100%;
+    flex-direction: column;
+    gap: 50rem;
   }
   .mobile-filter-drawer{
     position: fixed;
@@ -943,7 +945,7 @@ max-width: 35%;
     flex-direction: column;
     gap: 20px;
     padding: 20px;
-    height: 63%;
+    
     justify-content: space-between;
   }
 
