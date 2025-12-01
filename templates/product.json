@@ -34,14 +34,6 @@
             "text_style": "uppercase"
           }
         },
-        "inventory_aTTemW": {
-          "type": "inventory",
-          "settings": {
-            "text_style": "body",
-            "inventory_threshold": 3,
-            "show_inventory_quantity": false
-          }
-        },
         "variant_picker_NWh8q7": {
           "type": "variant_picker",
           "settings": {
@@ -107,7 +99,6 @@
         "title_bpmXVj",
         "price_4XTzqR",
         "sku_m7MALE",
-        "inventory_aTTemW",
         "variant_picker_NWh8q7",
         "quantity_selector_cwaLFj",
         "subscription_AbipnR",
