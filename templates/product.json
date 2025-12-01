@@ -24,15 +24,8 @@
           "type": "price",
           "settings": {
             "price_color": "#000000",
-            "price_font_size": 16,
+            "price_font_size": 24,
             "price_font_weight": "500"
-          }
-        },
-        "text_CmhREB": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "body"
           }
         },
         "sku_m7MALE": {
@@ -113,7 +106,6 @@
       "block_order": [
         "title_bpmXVj",
         "price_4XTzqR",
-        "text_CmhREB",
         "sku_m7MALE",
         "inventory_aTTemW",
         "variant_picker_NWh8q7",
