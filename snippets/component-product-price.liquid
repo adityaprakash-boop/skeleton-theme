@@ -132,14 +132,14 @@
          SUBSCRIBE & SAVE {{ percentage }}%
         </div>
       {% endif %}
-      
+{% comment %}       
       <span class="badge price__badge-sale">
         {{ 'products.product.on_sale' | t }}
       </span>
 
       <span class="badge price__badge-sold-out">
         {{ 'products.product.sold_out' | t }}
-      </span>
+      </span> {% endcomment %}
     {%- endif -%}
   </div>
 {% endunless %}

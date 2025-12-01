@@ -4,13 +4,14 @@ export class ProductInfo extends HTMLElement {
   constructor() {
     super();
   }
-
   setupEventListeners() {
     this.variantSelector?.addEventListener('change', this.onVariantChange.bind(this));
     this.quantitySelector.addEventListener('change', this.onQuantitySelectorEvent.bind(this));
     this.quantitySelector.querySelector('button[name="plus"]').addEventListener('click', this.onQuantitySelectorEvent.bind(this));
     this.quantitySelector.querySelector('button[name="minus"]').addEventListener('click', this.onQuantitySelectorEvent.bind(this));
     document.getElementById('swiper-script').addEventListener('load', this.initSwiper.bind(this));
+    this.variantSelector?.addEventListener('change', () => this.updateVariantImage());
+    this.bindThumbnailClicks();
   }
 
   connectedCallback() {
@@ -34,38 +35,75 @@ export class ProductInfo extends HTMLElement {
     });
   }
 
+  bindThumbnailClicks() {
+    const thumbs = this.querySelectorAll('.product-thumbnail-strip .thumb');
+
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const index = parseInt(thumb.dataset.index, 10);
+        if (this.swiper && !isNaN(index)) {
+          this.swiper.slideTo(index);
+        }
+      });
+    });
+  }
+  updateVariantImage() {
+    const mediaId = this.variantSelector.selectedOptions[0].dataset.mediaId;
+    const preview = this.querySelector('#VariantImagePreview img');
+    if (!preview || !mediaId) return;
+  
+    const target = this.querySelector(`.swiper-slide[data-media-id="${mediaId}"] img`);
+    if (target)
+       preview.src = target.src;
+  }
+  
+
+  // get variantSelector() {
+  //   return this.querySelector('variant-selector');
+  // }
   get variantSelector() {
-    return this.querySelector('variant-selector');
+    return this.querySelector('#CombinedVariantSelector');
   }
 
   get quantitySelector() {
     return this.querySelector('quantity-selector');
   }
 
+  // get selectedOptionValues() {
+  //   if (this.variantSelector.dataset.pickerType === 'dropdown') {
+  //     const list = Array.from(this.variantSelector.querySelectorAll('select')).map(
+  //       (select) => select.options[select.selectedIndex].dataset.optionValueId
+  //     );
+  //     return list;
+  //   } else {
+  //     const list = Array.from(this.variantSelector.querySelectorAll('fieldset input:checked')).map(
+  //       ({ dataset }) => dataset.optionValueId
+  //     );
+  //     return list;
+  //   }
+  // }
   get selectedOptionValues() {
-    if (this.variantSelector.dataset.pickerType === 'dropdown') {
-      const list = Array.from(this.variantSelector.querySelectorAll('select')).map(
-        (select) => select.options[select.selectedIndex].dataset.optionValueId
-      );
-      return list;
-    } else {
-      const list = Array.from(this.variantSelector.querySelectorAll('fieldset input:checked')).map(
-        ({ dataset }) => dataset.optionValueId
-      );
-      return list;
-    }
+    return [this.variantSelector.value];
   }
+
 
   getSelectedVariant(html) {
     const selectedVariant = html.querySelector('[data-selected-variant]')?.innerHTML;
     return !!selectedVariant ? JSON.parse(selectedVariant) : null;
   }
 
+  // onVariantChange(e) {
+  //   const hasDifferentProductUrl = e.target?.dataset?.productUrl ? (e.target?.dataset?.productUrl !== this.dataset.url) : false;
+  //   const productUrl = e.target?.dataset?.productUrl || this.dataset.url;
+  //   this.renderSection(hasDifferentProductUrl, productUrl);
+  // }
   onVariantChange(e) {
-    const hasDifferentProductUrl = e.target?.dataset?.productUrl ? (e.target?.dataset?.productUrl !== this.dataset.url) : false;
-    const productUrl = e.target?.dataset?.productUrl || this.dataset.url;
-    this.renderSection(hasDifferentProductUrl, productUrl);
+    const variantId = e.target.value;
+    this.updateURL(variantId);
+    this.updateVariantInputs(variantId);
+    this.renderSection(false, this.dataset.url);
   }
+
 
   onQuantitySelectorEvent(e) {
     const quantityInput = this.quantitySelector.querySelector('input[type="number"]');
@@ -121,7 +159,7 @@ export class ProductInfo extends HTMLElement {
     this.abortController?.abort();
     this.abortController = new AbortController();
 
-    fetch(`${productUrl}?option_values=${this.selectedOptionValues}&section_id=${this.dataset.section}`, {
+    fetch(`${productUrl}?variant=${this.variantSelector.value}&section_id=${this.dataset.section}`, {
       signal: this.abortController.signal,
     })
       .then((response) => response.text())
