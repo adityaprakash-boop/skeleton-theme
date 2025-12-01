@@ -37,7 +37,7 @@
         "variant_picker_NWh8q7": {
           "type": "variant_picker",
           "settings": {
-            "picker_type": "button",
+            "picker_type": "dropdown",
             "swatch_shape": "circle"
           }
         },
@@ -85,7 +85,7 @@
         "complementary_MeGfU6": {
           "type": "complementary",
           "settings": {
-            "heading": "Pairs Well With",
+            "heading": "CUSTOMERS USUALLY PAIR IT WITH",
             "show_vendor": false,
             "products_to_show": 4,
             "quick_add": "standard",
