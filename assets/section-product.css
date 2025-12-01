@@ -127,7 +127,11 @@ product-info .product__info-wrapper form>*:last-child {
   line-height: calc(1 + 0.3 / max (1, 1));
   letter-spacing: calc(1 * 0.6px);
 }
-
+.product__title span{
+  font-size: 32px;
+  font-weight: 400;
+  
+}
 .product__price {
   margin-bottom: 16px;
   display: flex;
@@ -238,6 +242,7 @@ product-info .product__info-wrapper form>*:last-child {
   width: calc(140px / 1 + 1px * 2);
   min-height: calc((1px * 2) + 40px);
   outline: 1px solid rgba(var(--color-foreground), 0.2);
+  width: 100%;
 }
 
 .product__quantity quantity-selector input {
@@ -560,6 +565,65 @@ shopify-buy-it-now-button .shopify-payment-button__button {
     max-width: 45%;
     width: calc(45% - 40px / 2);
   }
+}
+.product__description{
+  display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 1.5;
+}
+.product__description p{
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+.custom-product-button{
+  color: white;
+  font-size: 1rem;
+  border: 1px solid black;
+  background: rgb(37, 68, 48);
+  padding: 6px 13px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.9px;
+    line-height: 1;
+}
+.product-card__stars{
+  color: rgb(92, 155, 28);
+}
+.product-card__reviews a{
+  text-decoration: none;
+}
+.product-card__review-count{
+  color: black;
+  font-size: 1.4rem;
+}
+.product_description_more{
+  
+  font-size: 1.1rem;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 16px 0px;
+ 
+}
+.product_description_more_title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: black;
+}
+.product_description_more_content{
+  font-size: 1.4rem;
+  padding: 16px 0px;
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 1.7;
 }
 
 /* =============================

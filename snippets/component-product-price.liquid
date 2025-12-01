@@ -106,6 +106,7 @@
         <span class="price-item price-item--sale price-item--last">
           {{ money_price }}
         </span>
+        
       </div>
       <small class="unit-price caption{% if product.selected_or_first_available_variant.unit_price_measurement == nil %} hidden{% endif %}">
         <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
@@ -123,13 +124,22 @@
       </small>
     </div>
     {%- if show_badges -%}
-      <span class="badge price__badge-sale">
+      {% if compare_at_price > price %}
+        {% assign savings = compare_at_price | minus: price %}
+        {% assign percentage = savings | times: 100 | divided_by: compare_at_price | round %}
+        <div class="custom-product-button">
+         SUBSCRIBE & SAVE {{ percentage }}%
+        </div>
+      {% endif %}
+      
+      {% comment %} <span class="badge price__badge-sale">
         {{ 'products.product.on_sale' | t }}
       </span>
 
       <span class="badge price__badge-sold-out">
         {{ 'products.product.sold_out' | t }}
-      </span>
+      </span> {% endcomment %}
     {%- endif -%}
   </div>
 {% endunless %}
+

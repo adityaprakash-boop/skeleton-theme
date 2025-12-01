@@ -24,6 +24,9 @@
   {% endfor %}
 
   {%- style -%}
+  product-info{
+    font-family: "Futura PT", sans-serif;
+  }
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
       padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -87,7 +90,12 @@
       </div>
       <div class="product__info-wrapper flex__item {% if section.settings.enable_sticky_info %}product__info-sticky {% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
-
+        <div class="product-card__reviews product-card__reviews--left">
+          <span class="product-card__stars">★★★★☆</span>
+          <a href="#reviews" class="product-card__review-link">
+            <span class="product-card__review-count">26,287 Reviews</span>
+          </a>
+        </div>
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'text' -%}
@@ -97,10 +105,11 @@
               >
                 {{- block.settings.text -}}
               </p>
+              
 
             {%- when 'title' -%}
               <div class="product__title" {{ block.shopify_attributes }}>
-                <h1>{{ product.title }}</h1>
+                <span>{{ product.title }}</span>
               </div>
 
             {%- when 'price' -%}
@@ -267,6 +276,15 @@
                   <p>{{ product.description }}</p>
                 </div>
               {%- endif -%}
+              <div class="product_description_more" x-data="{ show: false }">
+                <div class="product_description_more_title" @click="show = !show"><span>TASTING NOTES</span>
+                <span x-show="!show">+</span><span x-show="show">--</span></div>
+                <div class="product_description_more_content" x-show="show">
+                  <p>
+                    {{ product.description }}
+                  </p>  
+                </div>
+              </div>
 
             {%- when 'buy_buttons' -%}
               <div class="product-form__buttons" {{ block.shopify_attributes }}>
