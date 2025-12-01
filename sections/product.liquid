@@ -84,9 +84,38 @@
           is_zoom: section.settings.image_zoom,
           section_id: section.id
         %}
+        
+        
+        
+        
         {% if section.settings.image_zoom == 'hover' %}
           </product-media-magnify>
         {% endif %}
+      </div>
+      <div class="product-thumbnail-strip">
+        {%- assign thumb_index = 0 -%}
+      
+        {%- if selected_variant.featured_media != null -%}
+          <div class="thumb" data-index="{{ thumb_index }}">
+            <img
+              src="{{ selected_variant.featured_media.preview_image | image_url: width: 150 }}"
+              alt="{{ selected_variant.featured_media.alt | escape }}"
+            >
+          </div>
+          {% assign thumb_index = thumb_index | plus: 1 %}
+        {%- endif -%}
+      
+        {%- for media in product.media -%}
+          {% unless selected_variant.featured_media.id == media.id %}
+            <div class="thumb" data-index="{{ thumb_index }}">
+              <img
+                src="{{ media.preview_image | image_url: width: 150 }}"
+                alt="{{ media.alt | escape }}"
+              >
+            </div>
+            {% assign thumb_index = thumb_index | plus: 1 %}
+          {% endunless %}
+        {%- endfor -%}
       </div>
       <div class="product__info-wrapper flex__item {% if section.settings.enable_sticky_info %}product__info-sticky {% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
@@ -96,6 +125,60 @@
             <span class="product-card__review-count">26,287 Reviews</span>
           </a>
         </div>
+        {% assign current_tags = product.tags %}
+{% assign related = "" | split: "," %}
+
+{%- for p in collections.all.products -%}
+  {%- if p.id != product.id -%}
+    {%- for t in p.tags -%}
+      {%- if current_tags contains t -%}
+        {% assign related = related | push: p %}
+        {% break %}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{% if related.size > 0 %}
+<div class="pair-it-wrapper">
+  <h3 class="pair-title">CUSTOMERS USUALLY PAIR IT WITH</h3>
+
+  {% for item in related limit: 3 %}
+    <div class="pair-item">
+      
+      <div class="pair-image">
+        <img src="{{ item.featured_image | image_url: width: 300 }}" alt="{{ item.title }}">
+      </div>
+
+      <div class="pair-info">
+        <p class="pair-name">{{ item.title }}</p>
+
+        <div class="pair-prices">
+          <span class="price-new">{{ item.price | money }}</span>
+
+          {% if item.compare_at_price > item.price %}
+            <span class="price-old">{{ item.compare_at_price | money }}</span>
+
+            {% assign diff = item.compare_at_price | minus: item.price %}
+            {% assign off = diff | times: 100 | divided_by: item.compare_at_price | round %}
+            <span class="pair-badge">{{ off }}% off</span>
+          {% endif %}
+        </div>
+
+      </div>
+
+      <div class="pair-add">
+        <form method="post" action="/cart/add">
+          <input type="hidden" name="id" value="{{ item.selected_or_first_available_variant.id }}">
+          <button type="submit" class="pair-add-btn">ADD +</button>
+        </form>
+      </div>
+
+    </div>
+  {% endfor %}
+</div>
+{% endif %}
+
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'text' -%}
@@ -292,7 +375,7 @@
                   {% form 'product', product, id: product_form_id, novalidate: 'novalidate' %}
                     <div data-ajax-cart-errors="form"></div>
                     <input type="hidden" name="id" value="{{ selected_variant.id }}">
-                    <div id="add-to-cart-container-{{ section.id }}">
+                    <div id="add-to-cart-container-{{ section.id }} add-to-cart-button-2" >
                       <button
                         id="AddToCart-{{ section.id }}"
                         type="submit"
@@ -307,16 +390,16 @@
                         {% elsif selected_variant.available == false %}
                           Sold out
                         {% else %}
-                          Add to cart
+                          Add to cart . {{ selected_variant.price | money }}
                         {% endif %}
-                        <span class="loading__spinner hidden">
+                        {% comment %} <span class="loading__spinner hidden">
                           {{ 'icon-spinner.svg' | inline_asset_content }}
-                        </span>
+                        </span> {% endcomment %}
                       </button>
                     </div>
-                    {%- if block.settings.show_dynamic_checkout -%}
+                    {% comment %} {%- if block.settings.show_dynamic_checkout -%}
                       {{ form | payment_button }}
-                    {%- endif -%}
+                    {%- endif -%} {% endcomment %}
                   {% endform %}
                 </ajax-cart-product-form>
 
@@ -550,6 +633,7 @@
                   >
                 {% endif %}
               </div>
+
             {%- when 'complementary' -%}
               <product-recommendations
                 {{ block.shopify_attributes }}
@@ -574,6 +658,7 @@
                     </li>
                   {%- endfor -%}
                 {% endif %}
+                
               </product-recommendations>
           {%- endcase -%}
         {%- endfor -%}
