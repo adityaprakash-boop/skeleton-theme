@@ -477,7 +477,7 @@
                   </div>
                 </details>
               </div>
-
+            
             {%- when 'inventory' -%}
               <p
                 class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if selected_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -805,6 +805,12 @@
                   {% endfor %}
                 </ul>
               </div>
+            {%- when 'declaration' -%}
+              <div class="declaration-wrapper" {{ block.shopify_attributes }}>
+                <div class="declaration-heading">
+                  {{ block.settings.declaration }}
+                </div>
+              </div>
 
             {%- when 'complementary' -%}
               <product-recommendations
@@ -904,6 +910,15 @@
     {
       "type": "simple_subscription",
       "name": "Simple Subscription"
+    },
+    {
+    "type": "declaration",
+      "name": "Declaration",
+      "settings": [
+        
+        { "type": "text", "id": "declaration", "label": "Declaration" },
+        
+      ]
     },
 
     {

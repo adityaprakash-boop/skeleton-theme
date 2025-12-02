@@ -116,7 +116,7 @@ product-info .product__info-wrapper form>*:last-child {
 
 .product__info-wrapper .product__title {
   word-break: break-word;
-  margin-bottom: 16px;
+ 
   margin-top: 0px;
 }
 
@@ -135,12 +135,13 @@ product-info .product__info-wrapper form>*:last-child {
 }
 
 .product__price {
-  margin-bottom: 16px;
+ 
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   row-gap: 10px;
 }
+
 
 .price__item {
   margin: 0 15px 0 0;
@@ -849,7 +850,7 @@ color: black;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  margin: 25px 0;
+  
 }
 
 .sub-option {
@@ -1002,6 +1003,35 @@ color: black;
 }
 .related-tag-products ul{
   padding-left: 0;
+}
+.option__label{
+  text-wrap: nowrap;
+}
+.product-card__reviews{
+  margin-bottom: 18px;
+}
+.product__title{
+  margin-bottom: 16px;
+}
+
+.price{
+  margin-bottom: 12px;
+}
+.product_description_more,.product__description{
+  margin-bottom: 18px;
+}
+.varient-quantity-wrapper{
+  margin-bottom: 16px;
+}
+.simple-subscription-heading{
+  margin-bottom: 10px;
+}
+.related-tag-products{
+  padding-top: 46px;
+  margin-bottom: 20px;
+}
+.declaration-heading{
+  font-size: 11px;
 }
 /* =============================
   END PRODUCT INFO SECTION STYLING
