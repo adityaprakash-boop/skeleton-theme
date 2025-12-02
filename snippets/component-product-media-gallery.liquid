@@ -77,9 +77,20 @@
       {% endfor %}
     </div>
     
-    <div class="swiper-pagination">&nbsp;</div>
+    
     <div class="swiper-button-prev">&nbsp;</div>
     <div class="swiper-button-next">&nbsp;</div>
+    <div class="pagination-text-wrapper-container">
+    <div class="swiper-pagination">&nbsp;</div>
+    
+    <div class="pagination-text-wrapper">
+      <span class="pagination-text">VIEW MORE</span>
+    <span class="pagination-text"><a href="#reviews">GREENS</a></span>
+      <span class="pagination-text"><a href="#reviews">SKIN</a></span>
+      <span class="pagination-text"><a href="#reviews">WOMEN HEALTH</a></span>
+    </div>
+    </div>
+
     {%- if is_zoom != 'none' -%}
       <div class="product__media-icon {% if is_zoom == 'hover' %}hover-zoom-enabled{% endif %}">
         <span class="lightbox-icon">

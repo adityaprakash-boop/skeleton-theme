@@ -48,15 +48,15 @@
             }
           {% when 'description' %}
             .product__description {
-              color: {{ block.settings.description_color }};
+              
               font-size: {{ block.settings.description_font_size }}px;
               font-weight: {{ block.settings.description_font_weight }};
             }
           {% when 'price' %}
             .price-item {
-              color: {{ block.settings.price_color }};
+              font-family: "roman";
               font-size: {{ block.settings.price_font_size }}px;
-              font-weight: {{ block.settings.price_font_weight }};
+              
             }
         {% endcase %}
       {% endfor %}
@@ -113,7 +113,9 @@
             {% assign thumb_index = thumb_index | plus: 1 %}
           {% endunless %}
         {%- endfor -%}
+        
       </div>
+      
       <div class="product__info-wrapper flex__item {% if section.settings.enable_sticky_info %}product__info-sticky {% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
         <div class="product-card__reviews product-card__reviews--left">
@@ -685,6 +687,71 @@
                   >
                 {% endif %}
               </div>
+            {%- when 'simple_subscription' -%}
+              <div class="simple-subscription-wrapper">
+              
+                
+                <label class="sub-option">
+                  
+                  <div class="sub-box">
+              
+                    <div class="sub-top sub-top-1">
+                      <div class="sub-top-left">
+                      <input type="radio" name="purchase_option" checked>
+                      <span class="sub-title">SUBSCRIBE AND SAVE 20%</span>
+                      </div>
+                      <span class="sub-price">
+                        <span class="compare">$85</span>
+                        $68.00
+                      </span>
+                    </div>
+              
+                  
+              
+                    <div class="sub-middle">
+                      <span class="icon">
+                        {{ 'icon-shuffle.svg' | inline_asset_content }}
+                      </span>
+                      
+                      <span>Delivered Every</span>
+              
+                      <select>
+                        <option>1 month subscription</option>
+                        <option>2 months subscription</option>
+                        <option>3 months subscription</option>
+                      </select>
+                    </div>
+              
+                    <div class="sub-bottom">
+                      <span class="perk">
+                        <span class="perk-icon">{{ 'icon-pause.svg' | inline_asset_content }}</span>
+                        Pause or cancel anytime
+                      </span>
+                      <span class="perk">
+                        <span class="perk-icon">{{ 'icon-gift.svg' | inline_asset_content }}</span>
+                        Free shipping + samples
+                      </span>
+                    </div>
+              
+                  </div>
+                </label>
+              
+               
+                <label class="sub-option one-time">
+                  <input type="radio" name="purchase_option">
+                  <div class="sub-box">
+                    <div class="sub-top">
+                      <span class="sub-title">ONE-TIME PURCHASE</span>
+                      <span class="sub-price">
+                        <span class="compare">$85.00</span>
+                        $51.00
+                      </span>
+                    </div>
+                  </div>
+                </label>
+              
+              </div>
+              
 
             {%- when 'complementary' -%}
               <product-recommendations
@@ -777,6 +844,11 @@
         }
       ]
     },
+    {
+      "type": "simple_subscription",
+      "name": "Simple Subscription"
+    },
+    
     {
       "type": "benefits",
       "name": "Benefits",
