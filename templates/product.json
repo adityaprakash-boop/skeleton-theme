@@ -76,6 +76,24 @@
             "page": ""
           }
         },
+        "collapsible_tab_LTemfM": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Details",
+            "icon": "check_mark",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_EUBWtt": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "HOW TO USE",
+            "icon": "none",
+            "content": "<p>Directions: Using the WelleCo Hydrator Bottle, shake 10g or 2 teaspoons of The Super Elixir™ greens powder with 8.5 fl oz of water, coconut water or almond milk. Blitz into a smoothie for the smoothest consistency. We recommend you take each morning or during the day, not at bedtime.</p><p>Pregnancy & Nursing: We recommend speaking to your healthcare professional before use or commencing any new supplement routine during these times to ensure that this product is right for you.</p><p>If taking any medication or if you have a medical condition, please consult your healthcare professional before use.</p><p>Dietary Supplement. </p><p>Storage: Store below 77ºF in a cool, dry place away from sunlight. Keep out of reach of children. Always use a dry spoon when measuring and best consumed within 90 days of opening. Do not use if lid seal is missing or broken. </p><p>No added gluten, egg, dairy, lactose, soy, and nuts. No artificial flavours, colours, preservatives or sweeteners.  </p><p>Foundational WelleCo products (The Super Elixir, Nourishing Protein & Sleep Welle Tea) can be taken, and are encouraged to be consumed, alongside one another. Based on your individual needs the remaining Elixirs in our WelleCo range may be suitable to be taken alongside each other. Please reach out to our Customer Service Team for any support in your supplementary routine.</p><p>Please consult your Primary Healthcare Professional such as your GP, Naturopath or Nutritionist, if you are unsure, have any underlying health conditions or are on pharmaceutical medication, as they can advise on what’s right for you.</p>",
+            "page": ""
+          }
+        },
         "complementary_MeGfU6": {
           "type": "complementary",
           "settings": {
@@ -99,6 +117,8 @@
         "description_RxGjaP",
         "buy_buttons_JPDYXc",
         "collapsible_tab_pxw7hB",
+        "collapsible_tab_LTemfM",
+        "collapsible_tab_EUBWtt",
         "complementary_MeGfU6"
       ],
       "settings": {
