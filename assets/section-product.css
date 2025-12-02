@@ -656,7 +656,7 @@ shopify-buy-it-now-button .shopify-payment-button__button {
   gap: 10px;
   margin-top: 15px;
   overflow-y: scroll;
-  height: 60vh;
+  height: 58vh;
   scrollbar-width: none;
 }
 
