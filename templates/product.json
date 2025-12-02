@@ -47,6 +47,12 @@
           "type": "quantity_selector",
           "settings": {}
         },
+        "sku_699yPH": {
+          "type": "sku",
+          "settings": {
+            "text_style": "body"
+          }
+        },
         "free_product_iF4xX3": {
           "type": "free_product",
           "settings": {
@@ -112,6 +118,7 @@
         "description_RxGjaP",
         "variant_picker_NWh8q7",
         "quantity_selector_cwaLFj",
+        "sku_699yPH",
         "free_product_iF4xX3",
         "simple_subscription_x8QHiA",
         "buy_buttons_JPDYXc",
