@@ -655,7 +655,9 @@ shopify-buy-it-now-button .shopify-payment-button__button {
   flex-direction: column;
   gap: 10px;
   margin-top: 15px;
-  overflow-x: auto;
+  overflow-y: scroll;
+  height: 60vh;
+  scrollbar-width: none;
 }
 
 .product-thumbnail-strip .thumb {
