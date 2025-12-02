@@ -114,6 +114,12 @@
             "content": "<p><strong>INGREDIENTS</strong>: Barley Grass (Hordeum vulgare) Powder, Wheatgrass (Triticum aestivum) Powder, Pineapple (Ananas comusus) Fruit Powder, Apple (Malus pumila) Fruit Powder, Chicory Root Fibre (Fructooligosaccharides), Alfalfa (Medicago sativa) Leaf Powder, Spinach (Spinacia oleracea) Leaf Powder, Goji Berry (Lycium barbarum) Fruit Extract (4:1), Psyllium Husk (Plantago ovata) Powder, L-Glutamine, Linseed (Linum usitatissimum) Extract (4:1), Carrot (Daucus carota) Powder, Gum Blend (Guar Gum, Gum Acacia, Xanthan Gum), Natural Flavours, Xylitol, Calcium Citrate, Lemon (Citrus limon) Fruit Powder, Lime (Citrus latifolia) Fruit Powder, Acai Berry (Euterpe oleracea) Fruit Powder, Pomegranate (Punica granatum) Fruit Powder, Spirulina (Spirulina platensis) Powder, Papaya (Carica papaya) Fruit Powder, Beetroot (Beta vulgaris) Powder, Broccoli (Brassica oleracea) Powder, Grape Seed (Vitis vinifera) Extract (4:1), Siberian Ginseng (Eleutherococcus senticosus) Root Extract (4:1), Kelp (Fucus vesiculosus) Whole Plant Extract (4:1), Milk Thistle (Silybum marianum) Extract (4:1), Magnesium Citrate, Zinc Gluconate, Dandelion (Taraxacum officinale) Extract (5:1), Maitake Mushroom (Grifola frondosa) Extract (4:1), Shiitake Mushroom (Lentinula edodes) Extract (4:1), Green Tea (Camellia sinensis) Extract (4:1), Turmeric Root (Curcuma longa) Extract (20:1), Aloe Vera Gel (Aloe barbadensis) Extract (200:1), Live Culture Blend (Lactobacillus acidophilus, Bifidobacterium bifidum, Bifidobacterium lactis, Bifidobacterium longum), Horsetail (Equisetum arvense) Extract (10:1), Biotin, Steviol Glycosides, Carotene Powder, Copper Gluconate, Pectin, Selenomethionine.</p>",
             "page": ""
           }
+        },
+        "declaration_XmbwnV": {
+          "type": "declaration",
+          "settings": {
+            "declaration": "*These statements have not been evaluated by the Food and Drug Administration. This product does not intend to diagnose, treat, cure or prevent any disease."
+          }
         }
       },
       "block_order": [
@@ -130,7 +136,8 @@
         "benefits_mKyyw6",
         "collapsible_tab_pxw7hB",
         "collapsible_tab_EUBWtt",
-        "collapsible_tab_LTemfM"
+        "collapsible_tab_LTemfM",
+        "declaration_XmbwnV"
       ],
       "settings": {
         "enable_sticky_info": true,
