@@ -48,7 +48,7 @@
             }
           {% when 'description' %}
             .product__description {
-              
+
               font-size: {{ block.settings.description_font_size }}px;
               font-weight: {{ block.settings.description_font_weight }};
             }
@@ -56,7 +56,7 @@
             .price-item {
               font-family: "roman";
               font-size: {{ block.settings.price_font_size }}px;
-              
+
             }
         {% endcase %}
       {% endfor %}
@@ -113,9 +113,8 @@
             {% assign thumb_index = thumb_index | plus: 1 %}
           {% endunless %}
         {%- endfor -%}
-        
       </div>
-      
+
       <div class="product__info-wrapper flex__item {% if section.settings.enable_sticky_info %}product__info-sticky {% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
         <div class="product-card__reviews product-card__reviews--left">
@@ -445,9 +444,6 @@
                   <script src="{{ 'component-pickup-availability.js' | asset_url }}" type="module"></script>
                 {%- endif -%}
               </div>
-             
-                
-          
 
             {%- when 'custom_liquid' -%}
               {{ block.settings.custom_liquid }}
@@ -465,7 +461,7 @@
                         -%}
                         <span class="svg-wrapper">{{ file | inline_asset_content }}</span>
                       {%- endif -%}
-                    
+
                       <span class="accordion__title">
                         {{ block.settings.heading | default: block.settings.page.title | escape }}
                       </span>
@@ -480,9 +476,8 @@
                     {{ block.settings.page.content }}
                   </div>
                 </details>
-                
               </div>
-              
+
             {%- when 'inventory' -%}
               <p
                 class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if selected_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -534,43 +529,42 @@
             {%- when 'free_product' -%}
               <div class="free-product-block" {{ block.shopify_attributes }}>
                 <div class="free-product-block-image">
-                {% if block.settings.image %}
-                  <img src="{{ block.settings.image | image_url: width: 300 }}" alt="">
-                {% endif %}
+                  {% if block.settings.image %}
+                    <img src="{{ block.settings.image | image_url: width: 300 }}" alt="">
+                  {% endif %}
                 </div>
                 <div class="free-product-block-content">
-                {% if block.settings.description %}
-                  <span class="free-product-block-content-description">{{ block.settings.description }}</span>
-                {% endif %}
-              
-                {% if block.settings.link %}
-                  <span class="free-product-block-content-link"><a href="{{ block.settings.link }}">While Supplie Last</a></span>
-                {% endif %}
+                  {% if block.settings.description %}
+                    <span class="free-product-block-content-description">{{ block.settings.description }}</span>
+                  {% endif %}
+
+                  {% if block.settings.link %}
+                    <span class="free-product-block-content-link"
+                      ><a href="{{ block.settings.link }}">While Supplie Last</a></span
+                    >
+                  {% endif %}
                 </div>
               </div>
             {%- when 'benefits' -%}
               <div class="benefits-wrapper" {{ block.shopify_attributes }}>
                 <div class="benefits-row">
-                  
                   <div class="benefit-col">
                     <div class="benefit-heading">{{ block.settings.b1_heading }}</div>
                     <div class="benefit-text">{{ block.settings.b1_text }}</div>
                   </div>
-              
+
                   <div class="benefit-col">
                     <div class="benefit-heading">{{ block.settings.b2_heading }}</div>
                     <div class="benefit-text">{{ block.settings.b2_text }}</div>
                   </div>
-              
+
                   <div class="benefit-col">
                     <div class="benefit-heading">{{ block.settings.b3_heading }}</div>
                     <div class="benefit-text">{{ block.settings.b3_text }}</div>
                   </div>
-              
                 </div>
               </div>
-              
-              
+
             {%- when 'share' -%}
               {% assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin %}
               {{ 'component-product-share-button.css' | asset_url | stylesheet_tag }}
@@ -688,43 +682,35 @@
                 {% endif %}
               </div>
             {%- when 'simple_subscription' -%}
-              <div class="simple-subscription-heading">
-                SELECT FREQUENCY
-              </div>
+              <div class="simple-subscription-heading">SELECT FREQUENCY</div>
               <div class="simple-subscription-wrapper">
-              
-                
                 <label class="sub-option">
-                  
                   <div class="sub-box">
-              
                     <div class="sub-top sub-top-1">
                       <div class="sub-top-left">
-                      <input type="radio" name="purchase_option" checked>
-                      <span class="sub-title">SUBSCRIBE AND SAVE 20%</span>
+                        <input type="radio" name="purchase_option" checked>
+                        <span class="sub-title">SUBSCRIBE AND SAVE 20%</span>
                       </div>
                       <span class="sub-price">
                         <span class="compare">$85</span>
                         $68.00
                       </span>
                     </div>
-              
-                  
-              
+
                     <div class="sub-middle">
                       <span class="icon">
                         {{ 'icon-shuffle.svg' | inline_asset_content }}
                       </span>
-                      
+
                       <span>Delivered Every</span>
-              
+
                       <select>
                         <option>1 month subscription</option>
                         <option>2 months subscription</option>
                         <option>3 months subscription</option>
                       </select>
                     </div>
-              
+
                     <div class="sub-bottom">
                       <span class="perk">
                         <span class="perk-icon">{{ 'icon-pause.svg' | inline_asset_content }}</span>
@@ -735,11 +721,9 @@
                         Free shipping + samples
                       </span>
                     </div>
-              
                   </div>
                 </label>
-              
-               
+
                 <label class="sub-option one-time">
                   <input type="radio" name="purchase_option">
                   <div class="sub-box">
@@ -752,77 +736,75 @@
                     </div>
                   </div>
                 </label>
-              
               </div>
             {%- when 'related_by_tags' -%}
               <div class="related-tag-products" {{ block.shopify_attributes }}>
-                <div class="rp-heading">
-                  CUSTOMERS USUALLY PAIR IT WITH
-                </div>
+                <div class="rp-heading">CUSTOMERS USUALLY PAIR IT WITH</div>
                 <ul class="related-products-list">
-              
                   {% assign current_tags = product.tags %}
                   {% assign max_items = 3 %}
                   {% assign count = 0 %}
-              
+
                   {% for item in collections.all.products %}
-                    {% if item.id != product.id %}
-                      {% for tag in item.tags %}
-                        {% if current_tags contains tag %}
-              
-                          
-                          <div class="related-item">
-                           
-                           
-                            <div class="rp-img">
-                              <img src="{{ item.featured_image | image_url: width: 140 }}" alt="{{ item.title }}">
-                            </div>
-              
-                           
-                            <div class="rp-info">
-                              <div class="rp-title">{{ item.title }}</div>
-              
-                              <div class="rp-price">
-                                <span class="rp-current">{{ item.price | money }}</span>
-              
-                                {% if item.compare_at_price > item.price %}
-                                  <span class="rp-compare"><s>{{ item.compare_at_price | money }}</s></span>
-              
-                                  {% assign discount = item.compare_at_price | minus: item.price %}
-                                  {% assign percent = discount | times: 100 | divided_by: item.compare_at_price | round %}
-                                  <span class="rp-badge">{{ percent }}% off</span>
-                                {% endif %}
+                    {% if item.description != blank %}
+                      {% if item.id != product.id %}
+                        {% for tag in item.tags %}
+                          {% if current_tags contains tag %}
+                            <div class="related-item">
+                              <div class="rp-img">
+                                <img src="{{ item.featured_image | image_url: width: 140 }}" alt="{{ item.title }}">
                               </div>
-                              <div class="rp-description">
-                                {{ item.description | strip_html }}
+
+                              <div class="rp-info">
+                                <div class="rp-title">{{ item.title }}</div>
+
+                                <div class="rp-price">
+                                  <span class="rp-current">{{ item.price | money }}</span>
+
+                                  {% if item.compare_at_price > item.price %}
+                                    <span class="rp-compare"
+                                      ><s>{{ item.compare_at_price | money }}</s></span
+                                    >
+
+                                    {% assign discount = item.compare_at_price | minus: item.price %}
+                                    {% assign percent = discount
+                                      | times: 100
+                                      | divided_by: item.compare_at_price
+                                      | round
+                                    %}
+                                    <span class="rp-badge">{{ percent }}% off</span>
+                                  {% endif %}
+                                </div>
+                                <div class="rp-description">
+                                  {{ item.description | strip_html }}
+                                </div>
+                              </div>
+
+                              <div class="rp-add">
+                                <form method="post" action="/cart/add">
+                                  <input
+                                    type="hidden"
+                                    name="id"
+                                    value="{{ item.selected_or_first_available_variant.id }}"
+                                  >
+                                  <button type="submit" class="rp-add-btn">ADD +</button>
+                                </form>
                               </div>
                             </div>
-              
-                          
-                            <div class="rp-add">
-                              <form method="post" action="/cart/add">
-                                <input type="hidden" name="id" value="{{ item.selected_or_first_available_variant.id }}">
-                                <button type="submit" class="rp-add-btn">ADD +</button>
-                              </form>
-                            </div>
-                          </div>
-                          
-              
-                          {% assign count = count | plus: 1 %}
-                          {% break %}
-                        {% endif %}
-                      {% endfor %}
+
+                            {% assign count = count | plus: 1 %}
+                            {% break %}
+                          {% endif %}
+                        {% endfor %}
+                      {% endif %}
                     {% endif %}
-              
+
                     {% if count >= max_items %}
                       {% break %}
                     {% endif %}
                   {% endfor %}
-              
                 </ul>
               </div>
-              
-            
 
             {%- when 'complementary' -%}
               <product-recommendations
@@ -923,7 +905,7 @@
       "type": "simple_subscription",
       "name": "Simple Subscription"
     },
-    
+
     {
       "type": "benefits",
       "name": "Benefits",
@@ -935,14 +917,14 @@
         },
         { "type": "text", "id": "b1_heading", "label": "Heading" },
         { "type": "text", "id": "b1_text", "label": "Sub text" },
-    
+
         {
           "type": "header",
           "content": "Benefit 2"
         },
         { "type": "text", "id": "b2_heading", "label": "Heading" },
         { "type": "text", "id": "b2_text", "label": "Sub text" },
-    
+
         {
           "type": "header",
           "content": "Benefit 3"
@@ -951,7 +933,7 @@
         { "type": "text", "id": "b3_text", "label": "Sub text" }
       ]
     },
-    
+
     {
       "type": "free_product",
       "name": "Free product",
@@ -961,7 +943,7 @@
         { "type": "url", "id": "link", "label": "Link" }
       ]
     },
-    
+
     {
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",

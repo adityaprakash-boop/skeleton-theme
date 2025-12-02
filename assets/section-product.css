@@ -1000,6 +1000,9 @@ color: black;
   font-weight: 500;
   margin-top: 10px;
 }
+.related-tag-products ul{
+  padding-left: 0;
+}
 /* =============================
   END PRODUCT INFO SECTION STYLING
   =============================== */
