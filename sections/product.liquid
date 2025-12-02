@@ -267,72 +267,88 @@
                   {% endunless %}
                 </div>
               {% endcomment %}
-            {%- when 'variant_picker' -%}
-              <div class="product__variants" {{ block.shopify_attributes }}>
-                <label class="option__label">Size & Flavor</label>
-                <div id="VariantImagePreview" class="variant-image-preview">
-                  <img 
-                    src="{{ selected_variant.featured_media.preview_image | image_url: width: 120 }}" 
-                    alt="{{ selected_variant.title }}"
-                  >
-                </div>
+              <div class="varient-quantity-wrapper">
+                {%- for block in section.blocks -%}
+                  {% case block.type %}
+                    {%- when 'variant_picker' -%}
+                      <div class="product__variants" {{ block.shopify_attributes }}>
+                        <label class="option__label">SIZE & FLAVOR</label>
+                        <div id="VariantImagePreview" class="variant-image-preview">
+                          <img
+                            src="{{ selected_variant.featured_media.preview_image | image_url: width: 120 }}"
+                            alt="{{ selected_variant.title }}"
+                          >
+                        </div>
 
-                <select
-                  id="CombinedVariantSelector"
-                  name="id"
-                  form="{{ product_form_id }}"
-                >
-                  {% for variant in product.variants %}
-                    <option
-                      value="{{ variant.id }}"
-                      data-media-id="{{ variant.featured_media.id }}"
-                      {% if variant.id == selected_variant.id %}
-                        selected
-                      {% endif %}
-                      {% unless variant.available %}
-                        disabled
-                      {% endunless %}
-                    >
-                      {{ variant.title | replace: '/', ' and ' }}
+                        <select
+                          id="CombinedVariantSelector"
+                          name="id"
+                          form="{{ product_form_id }}"
+                        >
+                          {% for variant in product.variants %}
+                            <option
+                              value="{{ variant.id }}"
+                              data-media-id="{{ variant.featured_media.id }}"
+                              {% if variant.id == selected_variant.id %}
+                                selected
+                              {% endif %}
+                              {% unless variant.available %}
+                                disabled
+                              {% endunless %}
+                            >
+                              {{ variant.title | replace: '/', ' and ' }}
 
-                      {% unless variant.available %} - Sold Out{% endunless %}
-                    </option>
-                  {% endfor %}
-                </select>
+                              {% unless variant.available %} - Sold Out{% endunless %}
+                            </option>
+                          {% endfor %}
+                        </select>
 
-                <script type="application/json" data-selected-variant>
-                  {{ selected_variant | json }}
-                </script>
-              </div>
+                        <script type="application/json" data-selected-variant>
+                          {{ selected_variant | json }}
+                        </script>
+                      </div>
 
-            {%- when 'quantity_selector' -%}
-              <div class="product__quantity" {{ block.shopify_attributes }}>
-                <label class="option__label" for="Quantity-{{ section.id }}">Quantity</label>
-                <quantity-selector>
-                  <button name="minus" type="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-minus" viewBox="0 0 10 2">
-                      <path fill="currentColor" fill-rule="evenodd" d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 1 1 0 1H1A.5.5 0 0 1 .5 1" clip-rule="evenodd"></path>
-                    </svg>
-                  </button>
-                  <input
-                    id="Quantity-{{ section.id }}"
-                    type="number"
-                    name="quantity"
-                    form="{{ product_form_id }}"
-                    data-cart-quantity="{{ cart | item_count_for_variant: selected_variant.id }}"
-                    min="{{ selected_variant.quantity_rule.min }}"
-                    {% if selected_variant.quantity_rule.max != null %}
-                      max="{{ selected_variant.quantity_rule.max }}"
-                    {% endif %}
-                    step="{{ selected_variant.quantity_rule.increment }}"
-                    value="1"
-                  >
-                  <button name="plus" type="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="icon icon-plus" viewBox="0 0 10 10">
-                      <path fill="currentColor" fill-rule="evenodd" d="M1 4.51a.5.5 0 0 0 0 1h3.5l.01 3.5a.5.5 0 0 0 1-.01V5.5l3.5-.01a.5.5 0 0 0-.01-1H5.5L5.49.99a.5.5 0 0 0-1 .01v3.5l-3.5.01z" clip-rule="evenodd"></path>
-                    </svg>
-                  </button>
-                </quantity-selector>
+                    {%- when 'quantity_selector' -%}
+                      <div class="product__quantity" {{ block.shopify_attributes }}>
+                        <label class="option__label" for="Quantity-{{ section.id }}"></label>
+                        <quantity-selector>
+                          <button name="minus" type="button">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              class="icon icon-minus"
+                              viewBox="0 0 10 2"
+                            >
+                              <path fill="currentColor" fill-rule="evenodd" d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 1 1 0 1H1A.5.5 0 0 1 .5 1" clip-rule="evenodd"></path>
+                            </svg>
+                          </button>
+                          <input
+                            id="Quantity-{{ section.id }}"
+                            type="number"
+                            name="quantity"
+                            form="{{ product_form_id }}"
+                            data-cart-quantity="{{ cart | item_count_for_variant: selected_variant.id }}"
+                            min="{{ selected_variant.quantity_rule.min }}"
+                            {% if selected_variant.quantity_rule.max != null %}
+                              max="{{ selected_variant.quantity_rule.max }}"
+                            {% endif %}
+                            step="{{ selected_variant.quantity_rule.increment }}"
+                            value="1"
+                          >
+                          <button name="plus" type="button">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              class="icon icon-plus"
+                              viewBox="0 0 10 10"
+                            >
+                              <path fill="currentColor" fill-rule="evenodd" d="M1 4.51a.5.5 0 0 0 0 1h3.5l.01 3.5a.5.5 0 0 0 1-.01V5.5l3.5-.01a.5.5 0 0 0-.01-1H5.5L5.49.99a.5.5 0 0 0-1 .01v3.5l-3.5.01z" clip-rule="evenodd"></path>
+                            </svg>
+                          </button>
+                        </quantity-selector>
+                      </div>
+                  {% endcase %}
+                {% endfor %}
               </div>
 
             {%- when 'description' -%}
