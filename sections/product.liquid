@@ -405,6 +405,18 @@
                       {%- endif -%}
                     {% endcomment %}
                   {% endform %}
+                  <div class="payment-badges">
+                    <div class="secure-checkout">
+                      <img src="{{ 'icon-secure.png' | asset_url }}" alt="Secure checkout" class="secure-icon" />
+                      <span>Secure checkout</span>
+                    </div>
+                  
+                    <div class="afterpay-offer">
+                      <span>or 4 payments of {{ product.price | divided_by: 4 | money }} with</span>
+                      <img src="{{ 'icon-afterpay.png' | asset_url }}" alt="Afterpay" class="afterpay-icon" />
+                    </div>
+                  </div>
+                  
                 </ajax-cart-product-form>
 
                 {%- if block.settings.show_pickup_availability -%}
@@ -730,8 +742,8 @@
                     <div class="sub-top">
                       <span class="sub-title">ONE-TIME PURCHASE</span>
                       <span class="sub-price">
-                        <span class="compare">$85.00</span>
-                        $51.00
+                        <span class="compare">$50.00</span>
+                        $20.00
                       </span>
                     </div>
                   </div>

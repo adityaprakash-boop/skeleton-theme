@@ -1033,6 +1033,31 @@ color: black;
 .declaration-heading{
   font-size: 11px;
 }
+.product__sku{
+  display: none;
+}
+.payment-badges {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px 0 20px;
+  font-size: 11px;
+}
+
+.secure-checkout,
+.afterpay-offer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.secure-icon,
+.afterpay-icon {
+  height: 15px;
+  width: auto;
+  object-fit: contain;
+}
+
 /* =============================
   END PRODUCT INFO SECTION STYLING
   =============================== */
