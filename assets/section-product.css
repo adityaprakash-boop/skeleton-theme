@@ -1057,6 +1057,31 @@ color: black;
   width: auto;
   object-fit: contain;
 }
+@media screen and (min-width: 769px) {
+  .product.flex {
+    align-items: flex-start; /* required for sticky inside flex */
+  }
+
+  .product__media-wrapper {
+    position: sticky;
+    top: 10px;
+  }
+
+}
+.decription-plus{
+  font-size: 18px;
+  font-weight: 300;
+}
+.decription-minus{
+  font-size: 23px;
+  font-weight: 300;
+}
+.product_description_more_content p{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 
 /* =============================
   END PRODUCT INFO SECTION STYLING

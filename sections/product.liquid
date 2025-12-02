@@ -360,7 +360,7 @@
               {%- endif -%}
               <div class="product_description_more" x-data="{ show: false }">
                 <div class="product_description_more_title" @click="show = !show">
-                  <span>TASTING NOTES</span> <span x-show="!show">+</span><span x-show="show">--</span>
+                  <span>TASTING NOTES</span> <span x-show="!show" class="decription-plus">+</span><span x-show="show" class="decription-minus">-</span>
                 </div>
                 <div class="product_description_more_content" x-show="show">
                   <p>
