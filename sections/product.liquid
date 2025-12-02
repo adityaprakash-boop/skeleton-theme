@@ -688,6 +688,9 @@
                 {% endif %}
               </div>
             {%- when 'simple_subscription' -%}
+              <div class="simple-subscription-heading">
+                SELECT FREQUENCY
+              </div>
               <div class="simple-subscription-wrapper">
               
                 
@@ -751,7 +754,75 @@
                 </label>
               
               </div>
+            {%- when 'related_by_tags' -%}
+              <div class="related-tag-products" {{ block.shopify_attributes }}>
+                <div class="rp-heading">
+                  CUSTOMERS USUALLY PAIR IT WITH
+                </div>
+                <ul class="related-products-list">
               
+                  {% assign current_tags = product.tags %}
+                  {% assign max_items = 3 %}
+                  {% assign count = 0 %}
+              
+                  {% for item in collections.all.products %}
+                    {% if item.id != product.id %}
+                      {% for tag in item.tags %}
+                        {% if current_tags contains tag %}
+              
+                          
+                          <div class="related-item">
+                           
+                           
+                            <div class="rp-img">
+                              <img src="{{ item.featured_image | image_url: width: 140 }}" alt="{{ item.title }}">
+                            </div>
+              
+                           
+                            <div class="rp-info">
+                              <div class="rp-title">{{ item.title }}</div>
+              
+                              <div class="rp-price">
+                                <span class="rp-current">{{ item.price | money }}</span>
+              
+                                {% if item.compare_at_price > item.price %}
+                                  <span class="rp-compare"><s>{{ item.compare_at_price | money }}</s></span>
+              
+                                  {% assign discount = item.compare_at_price | minus: item.price %}
+                                  {% assign percent = discount | times: 100 | divided_by: item.compare_at_price | round %}
+                                  <span class="rp-badge">{{ percent }}% off</span>
+                                {% endif %}
+                              </div>
+                              <div class="rp-description">
+                                {{ item.description | strip_html }}
+                              </div>
+                            </div>
+              
+                          
+                            <div class="rp-add">
+                              <form method="post" action="/cart/add">
+                                <input type="hidden" name="id" value="{{ item.selected_or_first_available_variant.id }}">
+                                <button type="submit" class="rp-add-btn">ADD +</button>
+                              </form>
+                            </div>
+                          </div>
+                          
+              
+                          {% assign count = count | plus: 1 %}
+                          {% break %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endif %}
+              
+                    {% if count >= max_items %}
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+              
+                </ul>
+              </div>
+              
+            
 
             {%- when 'complementary' -%}
               <product-recommendations
@@ -843,6 +914,10 @@
           "label": "t:sections.main-product.blocks.text.settings.text_style.label"
         }
       ]
+    },
+    {
+      "type": "related_by_tags",
+      "name": "Related Products "
     },
     {
       "type": "simple_subscription",

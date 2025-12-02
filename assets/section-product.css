@@ -940,8 +940,66 @@ color: black;
   align-items: center;
   
 }
-
-
+.related-item{
+  display: flex;
+ flex-direction: row;
+  gap: 10px;
+}
+.rp-info{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+  
+}
+.rp-title{
+  font-size: 14px;
+  font-weight: 500;
+}
+.rp-price{
+  font-size: 15px;
+}
+.rp-add-btn{
+  font-size: 14px;
+  font-weight: 400;
+  padding: 10px 40px;
+  background-color: white;
+  color: black;
+  
+  border: 1px solid black;
+  cursor: pointer;
+  width: 100%;
+}
+.rp-badge{
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 400;
+}
+.rp-img{
+  width: 100px;
+}
+.rp-description{
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.rp-heading{
+  font-size: 14px;
+  margin-bottom: 17px;
+}
+.simple-subscription-heading{
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 10px;
+}
 /* =============================
   END PRODUCT INFO SECTION STYLING
   =============================== */
