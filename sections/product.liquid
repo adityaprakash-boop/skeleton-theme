@@ -443,6 +443,9 @@
                   <script src="{{ 'component-pickup-availability.js' | asset_url }}" type="module"></script>
                 {%- endif -%}
               </div>
+             
+                
+          
 
             {%- when 'custom_liquid' -%}
               {{ block.settings.custom_liquid }}
@@ -460,9 +463,13 @@
                         -%}
                         <span class="svg-wrapper">{{ file | inline_asset_content }}</span>
                       {%- endif -%}
-                      <h2 class="accordion__title">
+                    
+                      <span class="accordion__title">
                         {{ block.settings.heading | default: block.settings.page.title | escape }}
-                      </h2>
+                      </span>
+                      <span class="accordion__icon">
+                        {{- 'icon-plus.svg' | inline_asset_content -}}
+                      </span>
                     </div>
                     {{- 'icon-caret.svg' | inline_asset_content -}}
                   </summary>
@@ -471,7 +478,9 @@
                     {{ block.settings.page.content }}
                   </div>
                 </details>
+                
               </div>
+              
             {%- when 'inventory' -%}
               <p
                 class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if selected_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -520,6 +529,46 @@
                   {%- endif -%}
                 {%- endif -%}
               </p>
+            {%- when 'free_product' -%}
+              <div class="free-product-block" {{ block.shopify_attributes }}>
+                <div class="free-product-block-image">
+                {% if block.settings.image %}
+                  <img src="{{ block.settings.image | image_url: width: 300 }}" alt="">
+                {% endif %}
+                </div>
+                <div class="free-product-block-content">
+                {% if block.settings.description %}
+                  <span class="free-product-block-content-description">{{ block.settings.description }}</span>
+                {% endif %}
+              
+                {% if block.settings.link %}
+                  <span class="free-product-block-content-link"><a href="{{ block.settings.link }}">While Supplie Last</a></span>
+                {% endif %}
+                </div>
+              </div>
+            {%- when 'benefits' -%}
+              <div class="benefits-wrapper" {{ block.shopify_attributes }}>
+                <div class="benefits-row">
+                  
+                  <div class="benefit-col">
+                    <div class="benefit-heading">{{ block.settings.b1_heading }}</div>
+                    <div class="benefit-text">{{ block.settings.b1_text }}</div>
+                  </div>
+              
+                  <div class="benefit-col">
+                    <div class="benefit-heading">{{ block.settings.b2_heading }}</div>
+                    <div class="benefit-text">{{ block.settings.b2_text }}</div>
+                  </div>
+              
+                  <div class="benefit-col">
+                    <div class="benefit-heading">{{ block.settings.b3_heading }}</div>
+                    <div class="benefit-text">{{ block.settings.b3_text }}</div>
+                  </div>
+              
+                </div>
+              </div>
+              
+              
             {%- when 'share' -%}
               {% assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin %}
               {{ 'component-product-share-button.css' | asset_url | stylesheet_tag }}
@@ -728,6 +777,44 @@
         }
       ]
     },
+    {
+      "type": "benefits",
+      "name": "Benefits",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Benefit 1"
+        },
+        { "type": "text", "id": "b1_heading", "label": "Heading" },
+        { "type": "text", "id": "b1_text", "label": "Sub text" },
+    
+        {
+          "type": "header",
+          "content": "Benefit 2"
+        },
+        { "type": "text", "id": "b2_heading", "label": "Heading" },
+        { "type": "text", "id": "b2_text", "label": "Sub text" },
+    
+        {
+          "type": "header",
+          "content": "Benefit 3"
+        },
+        { "type": "text", "id": "b3_heading", "label": "Heading" },
+        { "type": "text", "id": "b3_text", "label": "Sub text" }
+      ]
+    },
+    
+    {
+      "type": "free_product",
+      "name": "Free product",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "description", "label": "Description" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    },
+    
     {
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
