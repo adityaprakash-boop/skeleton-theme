@@ -558,7 +558,7 @@ shopify-buy-it-now-button .shopify-payment-button__button {
 
 @media screen and (min-width: 990px) {
   .product--large .product__info-wrapper {
-    max-width: 41%;
+    max-width: 38%;
     width: calc(35% - 40px / 2);
   }
 
