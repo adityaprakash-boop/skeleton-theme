@@ -28,10 +28,10 @@
             "price_font_weight": "500"
           }
         },
-        "sku_m7MALE": {
+        "sku_Q3gk9D": {
           "type": "sku",
           "settings": {
-            "text_style": "uppercase"
+            "text_style": "body"
           }
         },
         "variant_picker_NWh8q7": {
@@ -49,12 +49,6 @@
           "type": "subscription",
           "settings": {
             "supporting_text_title": "Purchase options"
-          }
-        },
-        "share_ybFkAW": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
           }
         },
         "description_RxGjaP": {
@@ -76,9 +70,9 @@
         "collapsible_tab_pxw7hB": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Shipping",
-            "icon": "check_mark",
-            "content": "<p>Maximize Your Store's Potential with Superior Shipping Strategies.</p>",
+            "heading": "BENEFITS",
+            "icon": "none",
+            "content": "<p>Carefully curated with over 40+ ingredients, The Super Elixir™ provides a complete daily solution for your entire body — without the bitter greens taste.</p><p>The Super Elixir™ supports:</p><p>+ Energy production and vitality</p><p>+ Healthy digestive system function</p><p>+ Cognitive function</p><p>+ Healthy hair, skin and nails</p><p>+ Normal fat metabolism</p><p>+ Immune system function</p><p>+ Supports healthy nervous system function*</p><p><br/></p><p><em>*Mood is regulated by the nervous system via neurotransmitters like serotonin and dopamine.</em></p><p>Vegan | Non-GMO | Dairy free | Gluten free | No artificial colours | No added sugar</p>",
             "page": ""
           }
         },
@@ -98,11 +92,10 @@
       "block_order": [
         "title_bpmXVj",
         "price_4XTzqR",
-        "sku_m7MALE",
+        "sku_Q3gk9D",
         "variant_picker_NWh8q7",
         "quantity_selector_cwaLFj",
         "subscription_AbipnR",
-        "share_ybFkAW",
         "description_RxGjaP",
         "buy_buttons_JPDYXc",
         "collapsible_tab_pxw7hB",
