@@ -189,10 +189,73 @@
       "settings": {
         "heading": "Just one serve a day helps support..."
       }
+    },
+    "key_ingrediants_frBiNH": {
+      "type": "key-ingrediants",
+      "blocks": {
+        "ingredient_KhqJax": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "shopify://shop_images/Alfalfa2.png",
+            "title": "Alfalfa"
+          }
+        },
+        "ingredient_YEnE6e": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "shopify://shop_images/Glutamine.webp",
+            "title": "Glutamine"
+          }
+        },
+        "ingredient_wygXzV": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "shopify://shop_images/Barley_Grass.avif",
+            "title": "Barley grass"
+          }
+        },
+        "ingredient_amg8Jg": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "shopify://shop_images/Maitake.png",
+            "title": "Maitake"
+          }
+        },
+        "ingredient_jJP4ax": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "shopify://shop_images/Kelp_745e6b5c-bae5-4053-b74f-46d2fcd888fc.png",
+            "title": "Kelp"
+          }
+        },
+        "ingredient_wTyzqw": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "shopify://shop_images/Linseed2.png",
+            "title": "Linseed"
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_KhqJax",
+        "ingredient_YEnE6e",
+        "ingredient_wygXzV",
+        "ingredient_amg8Jg",
+        "ingredient_jJP4ax",
+        "ingredient_wTyzqw"
+      ],
+      "name": "Key Ingredients",
+      "settings": {
+        "main_image": "shopify://shop_images/ingredient-certified-lab-3x.webp",
+        "desc_title": "Alfalfa",
+        "desc_text": "Alfalfa is naturally high in many essential vitamins and minerals including all B vitamins, biotin, calcium, folic acid, iron, magnesium, potassium and many others. When dried (like it is in The Super Elixir™) alfalfa is also high in protein. It has been linked to supporting immune function and overall joint health.",
+        "learn_link": "shopify://products/14-day-travel-pack"
+      }
     }
   },
   "order": [
     "main",
-    "benefits_showcase_RRWwbt"
+    "benefits_showcase_RRWwbt",
+    "key_ingrediants_frBiNH"
   ]
 }
