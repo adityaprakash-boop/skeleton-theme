@@ -257,8 +257,10 @@
       "name": "Product Routine",
       "settings": {
         "main_heading": "The easiest addition to a healthy routine",
+        "main_image": "shopify://shop_images/5_4_800x_ac49d9d2-715a-4736-9d67-04956e3abef8.jpg",
         "right_heading": "Once a day, every day",
         "right_text": "Add two teaspoons of The Super Elixir™ to water, your milk of choice, or a smoothie for an instant dose of beauty-boosting wellness. Best consumed in the morning or afternoon.",
+        "right_image": "shopify://shop_images/5_1_800x_6a547584-2b6f-4af3-ab68-df8c3f3a23c7.webp",
         "bottom_heading": "For just about anybody",
         "bottom_text": "Carefully curated with over 40+ ingredients, The Super Elixir™ is perfect for anyone over 16. Vegan, paleo and keto-friendly, it is also free of artificial colours and added sugar."
       }
