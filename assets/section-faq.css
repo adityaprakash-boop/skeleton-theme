@@ -1,0 +1,58 @@
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  padding: 56px;
+}
+.faq-section {
+  font-family: "Futura PT", sans-serif;
+}
+.faq-section h2{
+  font-family: "Futura PT", sans-serif;
+}
+
+.faq-heading {
+  font-size: 26px;
+  font-weight: 400;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.faq-item {
+  border-bottom: 1px solid #d0cdcd;
+  padding: 30px 0;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 300;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+}
+
+.faq-answer {
+  margin-top: 12px;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 300;
+  color: #444;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .faq-question {
+    font-size: 17px;
+  }
+}
