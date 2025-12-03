@@ -3,7 +3,8 @@
 
     
     align-items: flex-start;
-    padding: 80px 100px;
+    /* padding: 80px 100px; */
+    margin-bottom: 40px;
   
     
     
@@ -22,7 +23,7 @@
     font-size: 33px;
     font-weight: 400;
    
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 .key-ingredients__left{
     min-width: 500px;

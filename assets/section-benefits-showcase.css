@@ -1,7 +1,7 @@
 .benefits-showcase-section {
   padding: 70px 20px;
   font-family: futura-pt, sans-serif;
-  background-color: #efe9e3;
+  background-color: #f8f3ee;
 }
 
 .benefits-showcase__heading {
@@ -10,13 +10,13 @@
   font-size: 30px;
   font-weight: 400;
   font-family: futura-pt, sans-serif;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .benefits-showcase__container {
   display: flex;
   flex-direction: row;
-  gap: 40px;
+  gap: 20px;
   justify-content: center;
   align-items: flex-start;
 }
@@ -29,6 +29,7 @@
   text-align: center;
   font-family: futura-pt, sans-serif;
   margin: 0 70px;
+  max-width: 293px;
 }
 
 .benefits-showcase__icon {
@@ -53,11 +54,11 @@
 }
 
 .benefits-showcase__description {
-  font-size: 16px;
-  line-height: 1.4;
+  font-size: 18px;
+  line-height: 1.5;
   color: rgba(0, 0, 0, 0.6);
   font-weight: 300;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
 }
 
 @media screen and (max-width: 768px) {
