@@ -104,18 +104,18 @@
   }
 
   .product-routine__main-heading {
-    font-size: 24px;
+    font-size: 32px;
     margin-bottom: 40px;
   }
 
   .product-routine__bottom-heading,
   .product-routine__right-heading {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .product-routine__bottom-text,
   .product-routine__right-text {
-    font-size: 15px;
+    font-size: 17px;
   }
 }
 

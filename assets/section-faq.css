@@ -48,8 +48,10 @@
 /* Mobile */
 @media (max-width: 768px) {
   .faq-grid {
+    margin-top: 20px;
     grid-template-columns: 1fr;
     gap: 30px;
+    padding: 20px;
   }
 
   .faq-question {

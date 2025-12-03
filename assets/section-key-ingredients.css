@@ -117,17 +117,27 @@
     letter-spacing: 1px;
     
   }
- 
-  
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .key-ingredients__grid {
-      grid-template-columns: 1fr;
-      gap: 30px;
-    }
-  
-    .ingredient-icons {
-      gap: 20px 25px;
-    }
+ @media (max-width: 800px) {
+  .key-ingredients__grid {
+    flex-direction: column;
+    
   }
+  .key-ingredients__left{
+    min-width: 200px;
+  }
+  .ingredient-icons{
+    display: flex;
+    flex-direction: row;
+   
+
+  }
+  .key-ingredients__right {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    max-width: 800px;
+}
+  
+ }
+  
   

@@ -66,8 +66,9 @@
 
 @media screen and (max-width: 768px) {
   .founder-quote-section {
-    min-height: 500px;
-    padding: 60px 20px;
+    min-height: 430px;
+    padding: 60px 10px;
+    position: relative;
   }
 
   .founder-quote__content {
@@ -86,6 +87,9 @@
 
   .founder-quote__author {
     font-size: 16px;
+  }
+  .founder-quote__content{
+   display: none;
   }
 }
 

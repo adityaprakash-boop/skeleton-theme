@@ -27,12 +27,12 @@
 
 @media screen and (max-width: 768px) {
   .awards-showcase__container {
-    flex-direction: column;
-    gap: 30px;
+    
+    gap: 10px;
   }
 
   .awards-showcase__logo {
-    max-width: 120px;
+    max-width: 80px;
   }
 }
 
