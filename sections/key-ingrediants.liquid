@@ -1,7 +1,9 @@
 {{ 'section-key-ingredients.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'section-key-ingredients.js' | asset_url }}" type="module"></script>
 
-<section class="key-ingredients section-{{ section.id }}-padding">
-  <div class="page-width key-ingredients__grid">
+<key-ingredients>
+  <section class="key-ingredients section-{{ section.id }}-padding">
+    <div class="page-width key-ingredients__grid">
     <div class="key-ingredients__left">
       <div class="key-ingredients__left-content-heading">Key ingredients</div>
 
@@ -41,7 +43,8 @@
       </div>
     </div>
   </div>
-</section>
+  </section>
+</key-ingredients>
 
 {% schema %}
 {
