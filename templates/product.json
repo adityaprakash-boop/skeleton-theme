@@ -378,6 +378,113 @@
       "settings": {
         "background_color": "#254330"
       }
+    },
+    "faq_ibxjLk": {
+      "type": "faq",
+      "blocks": {
+        "faq_qA9bi4": {
+          "type": "faq",
+          "settings": {
+            "question": "Can men take The Super Elixir?",
+            "answer": "Yes, The Super Elixir™ is perfect for anyone over 16 years old (male or female). With over 40+ ingredients, The Super Elixir™ provides a complete daily solution for everyone - male or female."
+          }
+        },
+        "faq_ypH9NX": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I take The Super Elixir alongside other WelleCo products?",
+            "answer": "The Super Elixir™Greens, Nourishing Protein, Sleep Welle Calming Tea and The Evening Elixir can be taken, and are encouraged to be consumed, alongside one\nanother. We always recommend consulting your Primary Healthcare Professional such as your GP, Naturopath or Nutritionist to discuss your supplementary routine, particularly if you have any underlying health conditions or are on pharmaceutical medication, as they can advise on what's right for your individual needs."
+          }
+        },
+        "faq_qCRBEm": {
+          "type": "faq",
+          "settings": {
+            "question": "Is The Super Elixir gluten free?",
+            "answer": "Yes, The Super Elixir is gluten free. The wheatgrass and barley grass in the formulation are derived from the young leaves rather than the grain which contains the allergenic protein. Every batch of The Super Elixir is tested to ensure the product is free from gluten."
+          }
+        },
+        "faq_AGCJJz": {
+          "type": "faq",
+          "settings": {
+            "question": "Is The Super Elixir suitable for vegans?",
+            "answer": "Yes, The Super Elixir is vegan friendly."
+          }
+        },
+        "faq_rBAwzt": {
+          "type": "faq",
+          "settings": {
+            "question": "Does The Super Elixir contain GMO ingredients?",
+            "answer": "The Super Elixir does not contain any GMO ingredients."
+          }
+        },
+        "faq_YebdXC": {
+          "type": "faq",
+          "settings": {
+            "question": "Does The Super Elixir contain sugar?",
+            "answer": "The Super Elixir™ Original, The Super Elixir™ Lemon and Ginger, and The Super Elixir™ Blood Orange are sweetened with stevia and xylitol. They do not contain any refined sugars. The Super Elixir™ Original contains 1.1g of sugar per serve, The Super Elixir™ Lemon and Ginger contains 1g of sugar per serve and The Super Elixir™ Blood Orange contains 1.1g of sugar per serve. The Super Elixir™ Unflavoured does not contain any sweeteners and contains 0.9g of sugar per 10g serve."
+          }
+        },
+        "faq_3Nn7gh": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I take The Super Elixir while on pharmaceutical medication?",
+            "answer": "We always recommend consulting your Primary Healthcare Professional such as your GP, Naturopath or Nutritionist to discuss your supplementary routine, particularly if you have any underlying health conditions or are on pharmaceutical medication, as they can advise on what's right for your individual needs."
+          }
+        },
+        "faq_LMLmaM": {
+          "type": "faq",
+          "settings": {
+            "question": "Is The Super Elixir suitable to take while pregnant or breastfeeding?",
+            "answer": "The Super Elixir formulation contains herbal extracts, including herbs that are known for their detoxing effect. While there is no known reason for concern with consuming these products, please seek advice from your Primary Healthcare Professional to determine if suitable for you during pregnancy or breastfeeding. To help establish if these products are suitable for you during this time, we suggest taking the product ingredient list to your Primary Healthcare Professional. The ingredient lists can be found on the product pages of our website."
+          }
+        },
+        "faq_xAMyaF": {
+          "type": "faq",
+          "settings": {
+            "question": "Is The Super Elixir suitable for children?",
+            "answer": "The Super Elixir has been formulated for adults and we do not recommend this product for children under 16 years of age. We recommend The Super Kids Elixir for children between the ages of 4-16 years."
+          }
+        },
+        "faq_AebwAh": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the best time of day to take The Super Elixir?",
+            "answer": "We recommend taking your daily serving of The Super Elixir each morning or during the day rather than bedtime. The Super Elixir contains ingredients such as Siberian Ginseng and Green Tea Leaf extract, that may assist with energy production and mental focus throughout the day."
+          }
+        },
+        "faq_iftXtx": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I take The Super Elixir at night?",
+            "answer": "The Super Elixir isn't recommended to be consumed at night due to the inclusion of B vitamins, ginseng and a small amount of caffeine from green tea extract. All of these ingredients are included to support energy production and are best consumed in the morning or afternoon to avoid any impacts to sleep."
+          }
+        },
+        "faq_7NVQqy": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I take this if I’m not going through menopause?",
+            "answer": "Absolutely! The Super Elixir is a comprehensive daily greens blend designed for anyone over 16 years old. While some of its nutrient-rich ingredients can help support women during menopause, this formula is made to nourish every body, at every life stage. With over 40 premium ingredients, The Super Elixir helps to balance, revitalise and replenish from within, supporting energy, immunity, digestion and skin health for both men and women."
+          }
+        }
+      },
+      "block_order": [
+        "faq_qA9bi4",
+        "faq_ypH9NX",
+        "faq_qCRBEm",
+        "faq_AGCJJz",
+        "faq_rBAwzt",
+        "faq_YebdXC",
+        "faq_3Nn7gh",
+        "faq_LMLmaM",
+        "faq_xAMyaF",
+        "faq_AebwAh",
+        "faq_iftXtx",
+        "faq_7NVQqy"
+      ],
+      "name": "Simple FAQ",
+      "settings": {
+        "heading": "Frequently Asked Questions"
+      }
     }
   },
   "order": [
@@ -387,6 +494,7 @@
     "product_routine_MVVTT8",
     "customer_testimonials_mGyJki",
     "founder_quote_xjY4q7",
-    "awards_showcase_i7b34E"
+    "awards_showcase_i7b34E",
+    "faq_ibxjLk"
   ]
 }
