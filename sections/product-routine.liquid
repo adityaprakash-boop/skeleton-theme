@@ -1,0 +1,109 @@
+{% comment %} /sections/product-routine.liquid {% endcomment %}
+
+{{ 'section-product-routine.css' | asset_url | stylesheet_tag }}
+
+<section class="product-routine-section section-{{ section.id }}-padding">
+  <div class="page-width">
+    {% if section.settings.main_heading != blank %}
+      <h2 class="product-routine__main-heading">{{ section.settings.main_heading }}</h2>
+    {% endif %}
+
+    <div class="product-routine__container">
+      <div class="product-routine__left">
+        {% if section.settings.main_image != blank %}
+          <img
+            src="{{ section.settings.main_image | image_url: width: 800 }}"
+            alt="{{ section.settings.main_image.alt }}"
+            class="product-routine__main-image"
+            loading="lazy"
+          >
+        {% endif %}
+
+        {% if section.settings.bottom_heading != blank or section.settings.bottom_text != blank %}
+          <div class="product-routine__bottom-content">
+            {% if section.settings.bottom_heading != blank %}
+              <h3 class="product-routine__bottom-heading">{{ section.settings.bottom_heading }}</h3>
+            {% endif %}
+            {% if section.settings.bottom_text != blank %}
+              <p class="product-routine__bottom-text">{{ section.settings.bottom_text }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="product-routine__right">
+        {% if section.settings.right_heading != blank %}
+          <h3 class="product-routine__right-heading">{{ section.settings.right_heading }}</h3>
+        {% endif %}
+
+        {% if section.settings.right_text != blank %}
+          <p class="product-routine__right-text">{{ section.settings.right_text }}</p>
+        {% endif %}
+
+        {% if section.settings.right_image != blank %}
+          <div class="product-routine__right-image-wrapper">
+            <img
+              src="{{ section.settings.right_image | image_url: width: 400 }}"
+              alt="{{ section.settings.right_image.alt }}"
+              class="product-routine__right-image"
+              loading="lazy"
+            >
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Routine",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading",
+      "default": "The easiest addition to a healthy routine"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Image (Left)"
+    },
+    {
+      "type": "text",
+      "id": "right_heading",
+      "label": "Right Column Heading",
+      "default": "Once a day, every day"
+    },
+    {
+      "type": "textarea",
+      "id": "right_text",
+      "label": "Right Column Text",
+      "default": "Add two teaspoons of The Super Elixir™ to water, your milk of choice, or a smoothie for an instant dose of beauty-boosting wellness. Best consumed in the morning or afternoon."
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Column Image"
+    },
+    {
+      "type": "text",
+      "id": "bottom_heading",
+      "label": "Bottom Left Heading",
+      "default": "For just about anybody"
+    },
+    {
+      "type": "textarea",
+      "id": "bottom_text",
+      "label": "Bottom Left Text",
+      "default": "Carefully curated with over 40+ ingredients, The Super Elixir™ is perfect for anyone over 16. Vegan, paleo and keto-friendly, it is also free of artificial colours and added sugar."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Routine"
+    }
+  ]
+}
+{% endschema %}

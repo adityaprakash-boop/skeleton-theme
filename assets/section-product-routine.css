@@ -1,0 +1,120 @@
+.product-routine-section {
+  padding: 60px 20px;
+  font-family: "Futura PT", sans-serif;
+}
+.product-routine-section h2,h3 {
+ font-family: "Futura PT", sans-serif;
+}
+
+.product-routine__main-heading {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 300;
+  margin-bottom: 50px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.product-routine__container {
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.product-routine__left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 500px;
+  text-align: center;
+}
+
+.product-routine__main-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.product-routine__bottom-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-routine__bottom-heading {
+  font-size: 24px;
+  font-weight: 400;
+  
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.product-routine__bottom-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.product-routine__right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+  text-align: center;
+}
+@media (max-width: 1400px) {
+  .product-routine__right {
+    max-width: 400px;
+  }
+  .product-routine__left {
+    max-width: 400px;
+  }
+}
+
+.product-routine__right-heading {
+  font-size: 24px;
+  font-weight: 400;
+ 
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.product-routine__right-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.product-routine__right-image-wrapper {
+  width: 100%;
+}
+
+.product-routine__right-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 768px) {
+  .product-routine__container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .product-routine__main-heading {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+
+  .product-routine__bottom-heading,
+  .product-routine__right-heading {
+    font-size: 20px;
+  }
+
+  .product-routine__bottom-text,
+  .product-routine__right-text {
+    font-size: 15px;
+  }
+}
+

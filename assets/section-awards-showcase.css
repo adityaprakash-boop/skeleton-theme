@@ -1,0 +1,38 @@
+.awards-showcase-section {
+  padding: 35px 20px;
+}
+
+.awards-showcase__container {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.awards-showcase__item {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.awards-showcase__logo {
+  max-width: 150px;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+@media screen and (max-width: 768px) {
+  .awards-showcase__container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .awards-showcase__logo {
+    max-width: 120px;
+  }
+}
+

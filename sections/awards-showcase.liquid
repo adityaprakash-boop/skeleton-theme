@@ -1,0 +1,89 @@
+{% comment %} /sections/awards-showcase.liquid {% endcomment %}
+
+{{ 'section-awards-showcase.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .awards-showcase-section {
+    background-color: {{ section.settings.background_color | default: '#2d5016' }};
+  }
+</style>
+
+<section class="awards-showcase-section section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="awards-showcase__container">
+      {% for block in section.blocks %}
+        <div class="awards-showcase__item" {{ block.shopify_attributes }}>
+          {% if block.settings.logo != blank %}
+            <img
+              src="{{ block.settings.logo | image_url: width: 200 }}"
+              alt="{{ block.settings.alt_text | default: 'Award logo' }}"
+              class="awards-showcase__logo"
+              loading="lazy"
+            >
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Awards Showcase",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#2d5016"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "award",
+      "name": "Award Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Award Logo"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text",
+          "default": "Award logo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Awards Showcase",
+      "blocks": [
+        {
+          "type": "award"
+        },
+        {
+          "type": "award"
+        },
+        {
+          "type": "award"
+        },
+        {
+          "type": "award"
+        },
+        {
+          "type": "award"
+        },
+        {
+          "type": "award"
+        },
+        {
+          "type": "award"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

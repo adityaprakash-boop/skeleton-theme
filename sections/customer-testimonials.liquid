@@ -1,0 +1,117 @@
+{% comment %} /sections/customer-testimonials.liquid {% endcomment %}
+
+{{ 'section-customer-testimonials.css' | asset_url | stylesheet_tag }}
+
+<section class="customer-testimonials-section section-{{ section.id }}-padding">
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <div class="customer-testimonials__header">
+        <h2 class="customer-testimonials__heading">{{ section.settings.heading }}</h2>
+        <div class="customer-testimonials__divider"></div>
+      </div>
+    {% endif %}
+
+    <div class="customer-testimonials__container">
+      {% for block in section.blocks %}
+        <div class="customer-testimonials__item" {{ block.shopify_attributes }}>
+          {% if block.settings.quote != blank %}
+            <p class="customer-testimonials__quote">"{{ block.settings.quote }}"</p>
+          {% endif %}
+
+          <div class="customer-testimonials__stars">
+            {% for i in (1..5) %}
+              <span class="customer-testimonials__star">★</span>
+            {% endfor %}
+          </div>
+
+          {% if block.settings.customer_name != blank %}
+            <p class="customer-testimonials__name">{{ block.settings.customer_name }}</p>
+          {% endif %}
+
+          <p class="customer-testimonials__verified">Verified Buyer</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+      <div class="customer-testimonials__button-wrapper">
+        <a href="{{ section.settings.button_link }}" class="customer-testimonials__button">
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Customer Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Hear from our WelleCommunity"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "READ ALL REVIEWS"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Customer Quote",
+          "default": "Customer testimonial quote goes here."
+        },
+        {
+          "type": "text",
+          "id": "customer_name",
+          "label": "Customer Name",
+          "default": "Customer Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I've only been taking this for a week. I felt the effects immediately. Way more energy and I am sleeping much better!!",
+            "customer_name": "Amy B."
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I can honestly say my skin is fuller and has the youthful glow I had when I was younger. I'm 58, menopausal and my skin was dull and tired looking. I always envied women whose skin glowed and now I do too.",
+            "customer_name": "Mell S."
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I love the flavors & can really tell a difference in my digestion. I actually look forward to my drink every morning.",
+            "customer_name": "Sally M."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

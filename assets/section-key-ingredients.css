@@ -1,0 +1,131 @@
+.key-ingredients__grid {
+   display: flex;
+
+    
+    align-items: flex-start;
+    padding: 80px 100px;
+  
+    
+    
+  }
+.key-ingredients{
+    font-family: "Futura PT", sans-serif;
+    display: flex;
+
+}
+.key-ingredients span,p {
+    font-family: "Futura PT", sans-serif;
+    font-weight: 300;
+}
+
+.key-ingredients__left-content-heading{
+    font-size: 33px;
+    font-weight: 400;
+   
+    margin-bottom: 30px;
+}
+.key-ingredients__left{
+    min-width: 500px;
+}
+/* .key-ingredients__left{
+    display: flex;
+    flex-direction: column;
+    
+} */
+.key-ingredients__right{
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    max-width: 800px;
+    
+}
+  .key-ingredients__main-img {
+    width: 500px;
+    height: auto;
+    
+  }
+  .key-ingredients__right-content-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+  @media (max-width: 1400px) {
+    .key-ingredients__main-img {
+      width: 587px;
+      
+    }
+    .key-ingredients__left{
+        min-width: 587px;
+    }
+  }
+  
+  /* Ingredient Icons */
+  .ingredient-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 40px;
+    margin-bottom: 30px;
+  }
+  
+  .ingredient-icon-item {
+    text-align: center;
+  }
+  
+  .ingredient-icon-item img {
+    width: 120px;
+    height: auto;
+  }
+  .ingredient-icon-item img:hover{
+    border: 1px solid green;
+  }
+
+  
+  /* Description section */
+  .ingredient-desc-title {
+    margin-bottom: 10px;
+    font-size: 19px;
+    font-weight: 300;
+  }
+  
+  .ingredient-desc-text {
+    width: 100%;
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    
+    
+  }
+
+  
+  .ingredient-learn-more {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: underline;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+  }
+  .key-ingredients__right-content-wrapper a{
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    
+  }
+ 
+  
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .key-ingredients__grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  
+    .ingredient-icons {
+      gap: 20px 25px;
+    }
+  }
+  

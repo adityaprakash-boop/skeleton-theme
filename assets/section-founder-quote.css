@@ -1,0 +1,91 @@
+.founder-quote-section {
+  /* position: relative; */
+  min-height: 474px;
+  /* padding: 100px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 1440px) {
+  .founder-quote-section {
+    min-height: 350px;
+    
+  }
+}
+
+/* .founder-quote-section .page-width {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+} */
+
+
+.founder-quote__content {
+  max-width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-left: 540px;
+}
+.founder-quote__divider {
+  width: 90px;
+  height: 2px;
+  background-color: #000;
+  
+}
+.founder-quote__heading {
+  font-size: 36px;
+  font-weight: 300;
+  color: black;
+  margin: 0;
+}
+.founder-quote__content h2{
+  font-family: "Futura PT", sans-serif;
+  font-weight: 400;
+  color: black;
+}
+.founder-quote__quote {
+  font-size: 19px;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.8);
+  font-family: "Futura PT", sans-serif;
+  margin: 0;
+  font-weight: 300;
+}
+
+.founder-quote__author {
+  font-size: 20px;
+  font-weight: 400;
+  color: black;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .founder-quote-section {
+    min-height: 500px;
+    padding: 60px 20px;
+  }
+
+  .founder-quote__content {
+    max-width: 100%;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .founder-quote__heading {
+    font-size: 20px;
+  }
+
+  .founder-quote__quote {
+    font-size: 18px;
+  }
+
+  .founder-quote__author {
+    font-size: 16px;
+  }
+}
+

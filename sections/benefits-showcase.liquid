@@ -1,0 +1,102 @@
+{% comment %} /sections/benefits-showcase.liquid {% endcomment %}
+
+{{ 'section-benefits-showcase.css' | asset_url | stylesheet_tag }}
+
+<section class="benefits-showcase-section section-{{ section.id }}-padding">
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <h2 class="benefits-showcase__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="benefits-showcase__container">
+      {% for block in section.blocks %}
+        <div class="benefits-showcase__item" {{ block.shopify_attributes }}>
+          {% if block.settings.icon != blank %}
+            <div class="benefits-showcase__icon">
+              <img
+                src="{{ block.settings.icon | image_url: width: 60 }}"
+                alt="{{ block.settings.title }}"
+                loading="lazy"
+              >
+            </div>
+          {% endif %}
+
+          {% if block.settings.title != blank %}
+            <span class="benefits-showcase__title">{{ block.settings.title }}</span>
+          {% endif %}
+
+          {% if block.settings.description != blank %}
+            <p class="benefits-showcase__description">{{ block.settings.description }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Benefits Showcase",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Just one serve a day helps support..."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Benefit Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Benefit description text goes here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits Showcase",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Improved Energy",
+            "description": "Ginseng and Green Tea supports energy production and helps the body manage stress."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Clearer Skin",
+            "description": "Aloe vera, biotin and zinc are antioxidant-rich to promote healthy skin, hair and nails."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Better Digestion",
+            "description": "Turmeric, dandelion and milk thistle support's the body's natural detoxification processes."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,99 @@
+{{ 'section-key-ingredients.css' | asset_url | stylesheet_tag }}
+
+<section class="key-ingredients section-{{ section.id }}-padding">
+  <div class="page-width key-ingredients__grid">
+    <div class="key-ingredients__left">
+      <div class="key-ingredients__left-content-heading">Key ingredients</div>
+
+      {% if section.settings.main_image %}
+        <img
+          src="{{ section.settings.main_image | image_url: width: 900 }}"
+          alt="Key Ingredients"
+          class="key-ingredients__main-img"
+        >
+      {% endif %}
+    </div>
+
+    <div class="key-ingredients__right">
+      <div class="ingredient-icons">
+        {% for block in section.blocks %}
+          <div class="ingredient-icon-item" {{ block.shopify_attributes }}>
+            {% if block.settings.icon %}
+              <img src="{{ block.settings.icon | image_url: width: 120 }}" alt="{{ block.settings.title }}">
+            {% endif %}
+            <p class="ingredient-title">{{ block.settings.title }}</p>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="key-ingredients__right-content-wrapper">
+        {% if section.settings.desc_title != '' %}
+          <span class="ingredient-desc-title">{{ section.settings.desc_title }}</span>
+        {% endif %}
+
+        {% if section.settings.desc_text != '' %}
+          <span class="ingredient-desc-text">{{ section.settings.desc_text }}</span>
+        {% endif %}
+
+        {% if section.settings.learn_link != '' %}
+          <a href="{{ section.settings.learn_link }}" class="ingredient-learn-more">LEARN MORE</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Key Ingredients",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Left Side Main Image"
+    },
+    {
+      "type": "text",
+      "id": "desc_title",
+      "label": "Ingredient Heading",
+      "default": "Alfalfa"
+    },
+    {
+      "type": "textarea",
+      "id": "desc_text",
+      "label": "Ingredient Description",
+      "default": "Write your ingredient description here."
+    },
+    {
+      "type": "url",
+      "id": "learn_link",
+      "label": "Learn More Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Ingredient Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Ingredient Title",
+          "default": "Alfalfa"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Key Ingredients",
+      "blocks": [{ "type": "ingredient" }, { "type": "ingredient" }, { "type": "ingredient" }]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,120 @@
+.customer-testimonials-section {
+  padding: 60px 20px;
+}
+.customer-testimonials-section h2 {
+  font-family: "Futura PT", sans-serif;
+}
+
+.customer-testimonials__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.customer-testimonials__heading {
+  font-size: 33px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.customer-testimonials__divider {
+  width: 270px;
+  height: 2px;
+  background-color: #000;
+  margin: 0 auto;
+}
+
+.customer-testimonials__container {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  justify-content: center;
+  margin-bottom: 50px;
+  
+}
+
+.customer-testimonials__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 359px;
+}
+
+.customer-testimonials__quote {
+  font-size: 19px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.8);
+  
+}
+
+.customer-testimonials__stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.customer-testimonials__star {
+  color: #6b9632;
+  font-size: 21px;
+}
+
+.customer-testimonials__name {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.customer-testimonials__verified {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.customer-testimonials__button-wrapper {
+  text-align: center;
+  margin-top: 40px;
+  font-family: "Futura PT", sans-serif;
+  font-weight: 300;
+}
+
+.customer-testimonials__button {
+  display: inline-block;
+  padding: 14px 32px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease;
+}
+
+.customer-testimonials__button:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .customer-testimonials__container {
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .customer-testimonials__item {
+    max-width: 100%;
+  }
+
+  .customer-testimonials__heading {
+    font-size: 24px;
+  }
+
+  .customer-testimonials__quote {
+    font-size: 15px;
+  }
+}
+
