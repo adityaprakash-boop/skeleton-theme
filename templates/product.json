@@ -264,12 +264,50 @@
         "bottom_heading": "For just about anybody",
         "bottom_text": "Carefully curated with over 40+ ingredients, The Super Elixir™ is perfect for anyone over 16. Vegan, paleo and keto-friendly, it is also free of artificial colours and added sugar."
       }
+    },
+    "customer_testimonials_mGyJki": {
+      "type": "customer-testimonials",
+      "blocks": {
+        "testimonial_7MY8qf": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I've only been taking this for a week. I felt the effects immediately. Way more energy and I am sleeping much better!!",
+            "customer_name": "Amy B."
+          }
+        },
+        "testimonial_e4A84d": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I can honestly say my skin is fuller and has the youthful glow I had when I was younger. I'm 58, menopausal and my skin was dull and tired looking. I always envied women whose skin glowed and now I do too.",
+            "customer_name": "Mell S."
+          }
+        },
+        "testimonial_ey3HmB": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I love the flavors & can really tell a difference in my digestion. I actually look forward to my drink every morning.",
+            "customer_name": "Sally M."
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_7MY8qf",
+        "testimonial_e4A84d",
+        "testimonial_ey3HmB"
+      ],
+      "name": "Customer Testimonials",
+      "settings": {
+        "heading": "Hear from our WelleCommunity",
+        "button_label": "READ ALL REVIEWS",
+        "button_link": "shopify://products/nourishing-protein"
+      }
     }
   },
   "order": [
     "main",
     "benefits_showcase_RRWwbt",
     "key_ingrediants_frBiNH",
-    "product_routine_MVVTT8"
+    "product_routine_MVVTT8",
+    "customer_testimonials_mGyJki"
   ]
 }
