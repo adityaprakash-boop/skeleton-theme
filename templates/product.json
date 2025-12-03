@@ -301,6 +301,83 @@
         "button_label": "READ ALL REVIEWS",
         "button_link": "shopify://products/nourishing-protein"
       }
+    },
+    "founder_quote_xjY4q7": {
+      "type": "founder-quote",
+      "name": "Founder Quote",
+      "settings": {
+        "image": "shopify://shop_images/999b4b4af235dbb6a05226f971f9c7ae2ee8eab5_1_1.webp",
+        "heading": "From the founder,",
+        "quote": "I came to learn on my own journey that consistency shapes success. Doing something once is to be celebrated but doing that same thing day after day is the key to seeing real results.",
+        "author_name": "Elle Macpherson"
+      }
+    },
+    "awards_showcase_i7b34E": {
+      "type": "awards-showcase",
+      "blocks": {
+        "award_abx9YN": {
+          "type": "award",
+          "settings": {
+            "logo": "shopify://shop_images/Mask_group_d89741c1-e93b-4a12-a681-5aa3ca3bbb65.webp",
+            "alt_text": "Award logo"
+          }
+        },
+        "award_WFU8t3": {
+          "type": "award",
+          "settings": {
+            "logo": "shopify://shop_images/Mask_group_1_6ad5e2ed-c6dd-4552-80ab-0f01855077df.webp",
+            "alt_text": "Award logo"
+          }
+        },
+        "award_bzYq78": {
+          "type": "award",
+          "settings": {
+            "logo": "shopify://shop_images/Mask_group_2_e7275c06-3181-4ba6-b9e5-6f8d5a24cb47.webp",
+            "alt_text": "Award logo"
+          }
+        },
+        "award_E9g7VR": {
+          "type": "award",
+          "settings": {
+            "logo": "shopify://shop_images/Mask_group_3_250e0d46-a4c4-4799-9d81-26f5eaacfb9e.png",
+            "alt_text": "Award logo"
+          }
+        },
+        "award_Jwmhj4": {
+          "type": "award",
+          "settings": {
+            "logo": "shopify://shop_images/Mask_group_4_23dbd007-9d78-459b-844b-da946156b973.webp",
+            "alt_text": "Award logo"
+          }
+        },
+        "award_LiFyDx": {
+          "type": "award",
+          "settings": {
+            "logo": "shopify://shop_images/Mask_group_5_ac6bf6ef-8192-4a34-a414-a765e70f3ac9.webp",
+            "alt_text": "Award logo"
+          }
+        },
+        "award_WXY6DM": {
+          "type": "award",
+          "settings": {
+            "logo": "shopify://shop_images/Mask_group_6.png",
+            "alt_text": "Award logo"
+          }
+        }
+      },
+      "block_order": [
+        "award_abx9YN",
+        "award_WFU8t3",
+        "award_bzYq78",
+        "award_E9g7VR",
+        "award_Jwmhj4",
+        "award_LiFyDx",
+        "award_WXY6DM"
+      ],
+      "name": "Awards Showcase",
+      "settings": {
+        "background_color": "#254330"
+      }
     }
   },
   "order": [
@@ -308,6 +385,8 @@
     "benefits_showcase_RRWwbt",
     "key_ingrediants_frBiNH",
     "product_routine_MVVTT8",
-    "customer_testimonials_mGyJki"
+    "customer_testimonials_mGyJki",
+    "founder_quote_xjY4q7",
+    "awards_showcase_i7b34E"
   ]
 }
