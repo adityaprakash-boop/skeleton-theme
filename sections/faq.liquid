@@ -3,77 +3,64 @@
 {{ 'section-faq.css' | asset_url | stylesheet_tag }}
 
 <section class="faq-section section-{{ section.id }}-padding">
-    <div class="page-width faq-grid">
-  
-      <!-- LEFT HEADING -->
-      <div class="faq-left">
-        <h2 class="faq-heading">{{ section.settings.heading }}</h2>
-      </div>
-  
-      <!-- RIGHT DROPDOWNS -->
-      <div class="faq-right">
-        {% for block in section.blocks %}
-          <div class="faq-item" x-data="{ open: false }">
-            
-            <!-- QUESTION -->
-            <button class="faq-question" @click="open = !open">
-              <span x-text="open ? '-' : '+'"></span>
-              <span>{{ block.settings.question }}</span>
-            </button>
-  
-            <!-- ANSWER -->
-            <div class="faq-answer" x-show="open" x-collapse>
-              {{ block.settings.answer }}
-            </div>
-  
-          </div>
-        {% endfor %}
-      </div>
-  
+  <div class="page-width faq-grid">
+    <div class="faq-left">
+      <h2 class="faq-heading">{{ section.settings.heading }}</h2>
     </div>
-  </section>
-  
-  
-  {% schema %}
-  {
-    "name": "Simple FAQ",
-    "settings": [
-      {
-        "type": "text",
-        "id": "heading",
-        "label": "Heading",
-        "default": "Frequently Asked Questions"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "faq",
-        "name": "FAQ Item",
-        "settings": [
-          {
-            "type": "text",
-            "id": "question",
-            "label": "Question",
-            "default": "Your question?"
-          },
-          {
-            "type": "textarea",
-            "id": "answer",
-            "label": "Answer",
-            "default": "Your answer goes here."
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Simple FAQ",
-        "blocks": [
-          { "type": "faq" },
-          { "type": "faq" },
-          { "type": "faq" }
-        ]
-      }
-    ]
-  }
-  {% endschema %}
+
+    <div class="faq-right">
+      {% for block in section.blocks %}
+        <div class="faq-item" x-data="{ open: false }">
+          <button class="faq-question" @click="open = !open">
+            <span x-text="open ? '-' : '+'"></span>
+            <span>{{ block.settings.question }}</span>
+          </button>
+
+          <div class="faq-answer" x-show="open" x-collapse>
+            {{ block.settings.answer }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Simple FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Your question?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Your answer goes here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Simple FAQ",
+      "blocks": [{ "type": "faq" }, { "type": "faq" }, { "type": "faq" }]
+    }
+  ]
+}
+{% endschema %}
