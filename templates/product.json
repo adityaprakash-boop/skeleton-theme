@@ -154,9 +154,45 @@
         "variant_label_font_size": 13,
         "variant_label_font_weight": "300"
       }
+    },
+    "benefits_showcase_RRWwbt": {
+      "type": "benefits-showcase",
+      "blocks": {
+        "benefit_aqeMGT": {
+          "type": "benefit",
+          "settings": {
+            "title": "Improved Energy",
+            "description": "Ginseng and Green Tea supports energy production and helps the body manage stress."
+          }
+        },
+        "benefit_QmVq8k": {
+          "type": "benefit",
+          "settings": {
+            "title": "Clearer Skin",
+            "description": "Aloe vera, biotin and zinc are antioxidant-rich to promote healthy skin, hair and nails."
+          }
+        },
+        "benefit_jpQMJb": {
+          "type": "benefit",
+          "settings": {
+            "title": "Better Digestion",
+            "description": "Turmeric, dandelion and milk thistle support's the body's natural detoxification processes."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_aqeMGT",
+        "benefit_QmVq8k",
+        "benefit_jpQMJb"
+      ],
+      "name": "Benefits Showcase",
+      "settings": {
+        "heading": "Just one serve a day helps support..."
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "benefits_showcase_RRWwbt"
   ]
 }
