@@ -251,11 +251,23 @@
         "desc_text": "Alfalfa is naturally high in many essential vitamins and minerals including all B vitamins, biotin, calcium, folic acid, iron, magnesium, potassium and many others. When dried (like it is in The Super Elixir™) alfalfa is also high in protein. It has been linked to supporting immune function and overall joint health.",
         "learn_link": "shopify://products/14-day-travel-pack"
       }
+    },
+    "product_routine_MVVTT8": {
+      "type": "product-routine",
+      "name": "Product Routine",
+      "settings": {
+        "main_heading": "The easiest addition to a healthy routine",
+        "right_heading": "Once a day, every day",
+        "right_text": "Add two teaspoons of The Super Elixir™ to water, your milk of choice, or a smoothie for an instant dose of beauty-boosting wellness. Best consumed in the morning or afternoon.",
+        "bottom_heading": "For just about anybody",
+        "bottom_text": "Carefully curated with over 40+ ingredients, The Super Elixir™ is perfect for anyone over 16. Vegan, paleo and keto-friendly, it is also free of artificial colours and added sugar."
+      }
     }
   },
   "order": [
     "main",
     "benefits_showcase_RRWwbt",
-    "key_ingrediants_frBiNH"
+    "key_ingrediants_frBiNH",
+    "product_routine_MVVTT8"
   ]
 }
