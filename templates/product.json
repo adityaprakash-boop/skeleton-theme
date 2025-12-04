@@ -567,6 +567,20 @@
         "total_reviews": "11,256",
         "recommend_percent": "90"
       }
+    },
+    "newsletter_VXUqyw": {
+      "type": "newsletter",
+      "name": "Newsletter Section",
+      "settings": {
+        "heading": "Join the WelleCommunity",
+        "nl_subheading_1": "",
+        "nl_subheading_2": "",
+        "placeholder": "Enter your email address",
+        "button_label": "SIGN UP",
+        "sms_label": "SMS SIGN UP",
+        "sms_link": "",
+        "checkbox_text": "I agree for WelleCo to contact me via email with product information, exclusive offers, nutrition and wellness content."
+      }
     }
   },
   "order": [
@@ -578,6 +592,7 @@
     "founder_quote_xjY4q7",
     "awards_showcase_i7b34E",
     "faq_ibxjLk",
-    "customer_reviews_RFFF8F"
+    "customer_reviews_RFFF8F",
+    "newsletter_VXUqyw"
   ]
 }
