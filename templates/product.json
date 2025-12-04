@@ -573,8 +573,8 @@
       "name": "Newsletter Section",
       "settings": {
         "heading": "Join the WelleCommunity",
-        "nl_subheading_1": "",
-        "nl_subheading_2": "",
+        "nl_subheading_1": "Sign up now to receive $10 off your next order and",
+        "nl_subheading_2": "exclusive wellness tips from Elle Macpherson.",
         "placeholder": "Enter your email address",
         "button_label": "SIGN UP",
         "sms_label": "SMS SIGN UP",
