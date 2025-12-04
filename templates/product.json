@@ -485,6 +485,88 @@
       "settings": {
         "heading": "Frequently Asked Questions"
       }
+    },
+    "customer_reviews_RFFF8F": {
+      "type": "customer-reviews",
+      "blocks": {
+        "review_EJCeXj": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/582003923_674812218825712_8075148314789173373_n.jpg"
+          }
+        },
+        "review_WWqFyJ": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/Welleco-Shoot-0111.webp"
+          }
+        },
+        "review_j8UhBV": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/unnamed_22546684-7907-460d-87f5-f1244f820df5.jpg"
+          }
+        },
+        "review_Wm64ji": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/Screenshot_2025-10-15_at_4.40.41_pm.webp"
+          }
+        },
+        "review_item_dBEb9U": {
+          "type": "review_item",
+          "settings": {
+            "name": "Beatriz M. T.",
+            "date": "19 hours ago",
+            "title": "A staple in my morning routine",
+            "text": "Its been a few months since I started taking this Elixir. The biggest change I have noticed is my energy levels. I feel awake, focus and no more mid-day crushes. I mixed it with water. Take it with my vitamins first thing in the morning and off I go. Taste... is not my favorite thing but I know that I feel good after so I just take it quickly without much thinking. Thank you for making good products that are effective and safe."
+          }
+        },
+        "review_item_a668g6": {
+          "type": "review_item",
+          "settings": {
+            "name": "Brittney G.",
+            "date": "20 hours ago",
+            "title": "Feeling Healthy Inside & Out",
+            "text": "I've been taking this daily for one month now and already ordered more... I've noticed an improvement in my energy, and when a family member in my household became ill, I remained healthy; my immune system seems to be functioning at an all-time high! Plus, my nails are stronger and I feel like I have a bit of a glow, too. I'm excited to see the long-term benefits -- more to come!"
+          }
+        },
+        "review_item_GBFTCm": {
+          "type": "review_item",
+          "settings": {
+            "name": "Regina C.",
+            "date": "2 days ago",
+            "title": "The Ultimate AM/PM",
+            "text": "The Ultimate AM/PM has become a morning and evening wellness ritual for me! I highly recommend these products!"
+          }
+        },
+        "review_item_CrrzED": {
+          "type": "review_item",
+          "settings": {
+            "name": "Suzette R.",
+            "date": "2 days ago",
+            "title": "One serve review",
+            "text": "I love that these are offerred. They are great for travel and being on the go. I will be ordering more."
+          }
+        }
+      },
+      "block_order": [
+        "review_EJCeXj",
+        "review_WWqFyJ",
+        "review_j8UhBV",
+        "review_Wm64ji",
+        "review_item_dBEb9U",
+        "review_item_a668g6",
+        "review_item_GBFTCm",
+        "review_item_CrrzED"
+      ],
+      "name": "Customer Reviews",
+      "settings": {
+        "heading": "Customer Reviews",
+        "rating_score": "4.6",
+        "total_reviews": "11,256",
+        "recommend_percent": "90"
+      }
     }
   },
   "order": [
@@ -495,6 +577,7 @@
     "customer_testimonials_mGyJki",
     "founder_quote_xjY4q7",
     "awards_showcase_i7b34E",
-    "faq_ibxjLk"
+    "faq_ibxjLk",
+    "customer_reviews_RFFF8F"
   ]
 }
