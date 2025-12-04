@@ -4,62 +4,51 @@
 
 <section class="customer-reviews section-{{ section.id }}-padding">
   <div class="page-width">
-
-    <!-- SECTION HEADING -->
     <h2 class="cr-heading">{{ section.settings.heading }}</h2>
 
-    <!-- TOP GRID -->
     <div class="cr-top-grid">
-
-      <!-- LEFT COLUMN: RATING SUMMARY -->
       <div class="cr-left">
         <div class="cr-rating">
           <span class="cr-rating-score">{{ section.settings.rating_score }}</span>
           <span class="cr-rating-stars">★★★★★</span>
         </div>
 
-        <div class="cr-reviews-count">
-          Based on {{ section.settings.total_reviews }} reviews
-        </div>
+        <div class="cr-reviews-count">Based on {{ section.settings.total_reviews }} reviews</div>
 
-        <!-- STATIC BAR LIST FOR NOW -->
         <div class="cr-rating-bars">
-          
-            <div class="cr-rating-row">
-              <span>5</span>
-              <span class="cr-rating-stars">★</span>
-              <div class="cr-bar"><div class="cr-bar-fill-5"></div></div>
-              <span class="cr-bar-count">9.2k</span>
-            </div>
-            <div class="cr-rating-row">
-              <span>4</span>
-              <span class="cr-rating-stars">★</span>
-              <div class="cr-bar"><div class="cr-bar-fill-4"></div></div>
-              <span class="cr-bar-count">985</span>
-            </div>
-            <div class="cr-rating-row">
-              <span>3</span>
-              <span class="cr-rating-stars">★</span>
-              <div class="cr-bar"><div class="cr-bar-fill-3"></div></div>
-              <span class="cr-bar-count">480</span>
-            </div>
-            <div class="cr-rating-row">
-              <span>2</span>
-              <span class="cr-rating-stars">★</span>
-              <div class="cr-bar"><div class="cr-bar-fill-2"></div></div>
-              <span class="cr-bar-count">241</span>
-            </div>
-            <div class="cr-rating-row">
-              <span>1</span>
-              <span class="cr-rating-stars">★</span>
-              <div class="cr-bar"><div class="cr-bar-fill-1"></div></div>
-              <span class="cr-bar-count">367</span>
-            </div>
-          
+          <div class="cr-rating-row">
+            <span>5</span>
+            <span class="cr-rating-stars">★</span>
+            <div class="cr-bar"><div class="cr-bar-fill-5"></div></div>
+            <span class="cr-bar-count">9.2k</span>
+          </div>
+          <div class="cr-rating-row">
+            <span>4</span>
+            <span class="cr-rating-stars">★</span>
+            <div class="cr-bar"><div class="cr-bar-fill-4"></div></div>
+            <span class="cr-bar-count">985</span>
+          </div>
+          <div class="cr-rating-row">
+            <span>3</span>
+            <span class="cr-rating-stars">★</span>
+            <div class="cr-bar"><div class="cr-bar-fill-3"></div></div>
+            <span class="cr-bar-count">480</span>
+          </div>
+          <div class="cr-rating-row">
+            <span>2</span>
+            <span class="cr-rating-stars">★</span>
+            <div class="cr-bar"><div class="cr-bar-fill-2"></div></div>
+            <span class="cr-bar-count">241</span>
+          </div>
+          <div class="cr-rating-row">
+            <span>1</span>
+            <span class="cr-rating-stars">★</span>
+            <div class="cr-bar"><div class="cr-bar-fill-1"></div></div>
+            <span class="cr-bar-count">367</span>
+          </div>
         </div>
       </div>
 
-      <!-- MIDDLE COLUMN: SLIDERS -->
       <div class="cr-middle">
         <div class="cr-slider-row">
           <span class="cr-slider-label">Taste</span>
@@ -68,12 +57,13 @@
             <div class="cr-slider-dot-small-2"></div>
             <div class="cr-slider-dot-small-3"></div>
             <div class="cr-slider-dot-small-4"></div>
-            <div class="cr-slider-dot"></div></div>
-            <div class="cr-slider-label">
-              <span>Poor</span>
-              
-              <span>Excellent</span>
-            </div>
+            <div class="cr-slider-dot"></div>
+          </div>
+          <div class="cr-slider-label">
+            <span>Poor</span>
+
+            <span>Excellent</span>
+          </div>
         </div>
 
         <div class="cr-slider-row">
@@ -83,117 +73,113 @@
             <div class="cr-slider-dot-small-2"></div>
             <div class="cr-slider-dot-small-3"></div>
             <div class="cr-slider-dot-small-4"></div>
-            <div class="cr-slider-dot"></div></div>
-            <div class="cr-slider-label">
-              <span>Poor</span>
-              
-              <span>Excellent</span>
-            </div>
+            <div class="cr-slider-dot"></div>
+          </div>
+          <div class="cr-slider-label">
+            <span>Poor</span>
+
+            <span>Excellent</span>
+          </div>
         </div>
       </div>
 
-      <!-- RIGHT COLUMN: PHOTOS -->
       <div class="cr-right">
-        <span class="cr-would-recommend"><strong>{{ section.settings.recommend_percent }}%</strong>   would recommend this product</span>
+        <span class="cr-would-recommend"
+          ><strong>{{ section.settings.recommend_percent }}%</strong> would recommend this product</span
+        >
 
         <div class="cr-photo-strip">
-          
-            
-              {% for block in section.blocks limit: 4 %}
-                <div class="cr-photo">
-                <img src="{{ block.settings.review_image | image_url: width: 100 }}" alt="Review Image">
-              </div>
-              {% endfor %}
-            
-          
+          {% for block in section.blocks limit: 4 %}
+            <div class="cr-photo">
+              <img src="{{ block.settings.review_image | image_url: width: 100 }}" alt="Review Image">
+            </div>
+          {% endfor %}
         </div>
       </div>
-
     </div>
-    <!-- REVIEW TABS (Simple Static for Now) -->
-<div class="cr-tabs">
-  <span class="cr-tab-active">Reviews ({{ section.settings.total_reviews }})</span>
-  <span class="cr-tab">Questions</span>
-</div>
-<div class="cr-review-filter">
-  <div class="cr-review-filter-1"> 
-    <span class="cr-review-svg">
-      {{ 'icon-review-filter.svg' | inline_asset_content }}
-    </span>
-    <span class="cr-review-filter-1-label">FILTERS</span>
-  </div>
-  <div class="cr-review-filter-2">
-    <span class="cr-review-svg">
-      {{ 'icon-write-review.svg' | inline_asset_content }}
-    </span>
-    <span class="cr-review-filter-2-label">WRITE A REVIEW</span>
-  </div>
-</div>
 
-<!-- REVIEW LIST -->
-<div class="cr-review-list">
-  {% for block in section.blocks %}
-    {% if block.type == 'review_item' %}
-      <div class="cr-review-card" {{ block.shopify_attributes }}>
-        <div class="cr-review-left">
-        <div class="cr-review-header">
-          <strong>{{ block.settings.name }}</strong>
-          <span class="cr-review-svg">
-            <span class="cr-review-verified">Verified Buyer</span>
-            <span>{{ 'icon-verified.svg' | inline_asset_content }}</span>
-            
-          </span>
-          <span class="cr-review-reviewing-container">
-            <span class="cr-review-reviewing-image">
-              <img src="{{ 'customer-review.png' | asset_url }}" alt="Review Image">
-            </span>
-          <span class="cr-review-reviewing"> 
-            <span class="cr-review-reviewing-label">Reviewing</span>
-            <span class="cr-review-reviewing-value">The Super Elixir™
-              Pineapple and Lime 10.5 oz</span>
-          </span>
-          </span>
-          <span class="cr-review-svg cr-review-recommend">
-            <span>{{ 'icon-recommend.svg' | inline_asset_content }}</span> 
-            <span>I recommend this product</span>
-          </span>
-          <span class="cr-review-age">
-            <span class="cr-review-age-label">Age</span>
-             <span class="cr-review-age-value">45-54</span>
-            </span>
-          
-        </div>
-        </div>
-        <div class="cr-review-right">
-        <div class="cr-review-stars-date">
-          <span class="cr-review-stars">★★★★★</span>
-          <span class="cr-review-date">{{ block.settings.date }}</span>
-        </div>
-
-        <div class="cr-review-title">
-          {{ block.settings.title }}
-        </div>
-
-        <div class="cr-review-body">
-          {{ block.settings.text }}
-        </div>
-        <div class="cr-review-helpful">
-          <span class="cr-review-svg">
-            <span>Was this helpful?</span> 
-          <span class="cr-review-svg">{{ 'icon-review2.svg' | inline_asset_content }} <span>0 </span></span>
-            {% comment %} <span class="cr-review-svg" >{{ 'icon-review2.svg' | inline_asset_content }} <span>0</span></span> {% endcomment %}
-          </span>
-         
-        </div>
-        </div>
+    <div class="cr-tabs">
+      <span class="cr-tab-active">Reviews ({{ section.settings.total_reviews }})</span>
+      <span class="cr-tab">Questions</span>
+    </div>
+    <div class="cr-review-filter">
+      <div class="cr-review-filter-1">
+        <span class="cr-review-svg">
+          {{ 'icon-review-filter.svg' | inline_asset_content }}
+        </span>
+        <span class="cr-review-filter-1-label">FILTERS</span>
       </div>
-    {% endif %}
-  {% endfor %}
-</div>
+      <div class="cr-review-filter-2">
+        <span class="cr-review-svg">
+          {{ 'icon-write-review.svg' | inline_asset_content }}
+        </span>
+        <span class="cr-review-filter-2-label">WRITE A REVIEW</span>
+      </div>
+    </div>
 
+    <div class="cr-review-list">
+      {% for block in section.blocks %}
+        {% if block.type == 'review_item' %}
+          <div class="cr-review-card" {{ block.shopify_attributes }}>
+            <div class="cr-review-left">
+              <div class="cr-review-header">
+                <strong>{{ block.settings.name }}</strong>
+                <span class="cr-review-svg">
+                  <span class="cr-review-verified">Verified Buyer</span>
+                  <span>{{ 'icon-verified.svg' | inline_asset_content }}</span>
+                </span>
+                <span class="cr-review-reviewing-container">
+                  <span class="cr-review-reviewing-image">
+                    <img src="{{ 'customer-review.png' | asset_url }}" alt="Review Image">
+                  </span>
+                  <span class="cr-review-reviewing">
+                    <span class="cr-review-reviewing-label">Reviewing</span>
+                    <span class="cr-review-reviewing-value">The Super Elixir™ Pineapple and Lime 10.5 oz</span>
+                  </span>
+                </span>
+                <span class="cr-review-svg cr-review-recommend">
+                  <span>{{ 'icon-recommend.svg' | inline_asset_content }}</span>
+                  <span>I recommend this product</span>
+                </span>
+                <span class="cr-review-age">
+                  <span class="cr-review-age-label">Age</span>
+                  <span class="cr-review-age-value">45-54</span>
+                </span>
+              </div>
+            </div>
+            <div class="cr-review-right">
+              <div class="cr-review-stars-date">
+                <span class="cr-review-stars">★★★★★</span>
+                <span class="cr-review-date">{{ block.settings.date }}</span>
+              </div>
+
+              <div class="cr-review-title">
+                {{ block.settings.title }}
+              </div>
+
+              <div class="cr-review-body">
+                {{ block.settings.text }}
+              </div>
+              <div class="cr-review-helpful">
+                <span class="cr-review-svg">
+                  <span>Was this helpful?</span>
+                  <span class="cr-review-svg">
+                    {{- 'icon-review2.svg' | inline_asset_content }}
+                    <span>0 </span></span
+                  >
+                  {% comment %} <span class="cr-review-svg" >{{ 'icon-review2.svg' | inline_asset_content }} <span>0</span></span> {% endcomment %}
+                </span>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+      <div class="cr-review-show-more">
+        <span>SHOW MORE</span>
+      </div>
+    </div>
   </div>
 </section>
-
 
 {% schema %}
 {
@@ -269,7 +255,7 @@
   ],
   "presets": [
     {
-      "name": "Customer Reviews",
+      "name": "Customer Reviews"
     }
   ]
 }
