@@ -445,3 +445,89 @@
  
   cursor: pointer;
 }
+@media (max-width: 900px) {
+  .cr-review-list{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .cr-review-card{
+    flex-direction: column;
+    gap: 20px;
+  }
+  .cr-review-left{
+    max-width: 100%;
+  }
+  .cr-middle{
+    max-width: 100%;
+  }
+  .cr-top-grid{
+    max-width: 100vw;
+  }
+  .cr-top-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Left column should shrink fully */
+  .cr-left {
+    max-width: 100%;
+   
+  
+    text-align: center;
+  
+  }
+  .cr-rating{
+    justify-content: center;
+  }
+
+  /* Remove min-widths that break mobile */
+  .cr-review-header {
+    min-width: 0;
+  }
+
+  /* Photo strip must be full width */
+  .cr-photo-strip {
+    max-width: 100%;
+  }
+
+  /* Allow sliders to shrink */
+  .cr-middle {
+    max-width: 100%;
+  }
+
+  /* Ensure photo boxes don't force overflow */
+  .cr-photo {
+    width: 90px;     /* or 80px if still overflowing */
+    height: 80px;
+  }
+  .customer-reviews {
+    padding: 0 20px;
+}
+.cr-would-recommend {
+  text-align: center;
+}
+.cr-review-filter{
+  flex-direction: column;
+  text-align: center;
+}
+.cr-review-filter-1{
+  text-align: center;
+  justify-content: center;
+}
+.cr-review-filter-2{
+  text-align: center;
+  justify-content: center;
+}
+.cr-review-reviewing-container{
+  display: none;
+}
+.cr-review-age{
+  display: none;
+}
+.cr-review-show-more{
+  display: flex;
+}
+.cr-review-show-more span {
+  width: 100%;
+}
+}
