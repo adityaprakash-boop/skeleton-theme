@@ -53,7 +53,7 @@
 
     {%- else -%}
       <div class="cart-header">
-        <h2>Your cart ({{ cart.item_count }})</h2>
+        <h2>YOUR CART ({{ cart.item_count }})</h2>
         <div class="cart-drawer__close" @click="cartOpen = !cartOpen">
           {{- 'icon-close.svg' | inline_asset_content -}}
         </div>
@@ -75,15 +75,8 @@
             <div class="cart-item__details">
               <div class="cart-item__heading">
                 <a href="{{ line_item.url }}">
-                  {{ line_item.title | escape }}
+                  {{ line_item.product.title | escape }}
                 </a>
-
-                <small class="cart-item__price">
-                  {% if line_item.original_price > line_item.final_price %}
-                    <s>{{ line_item.original_price | money }}</s>
-                  {% endif %}
-                  <span>{{ line_item.final_price | money }}</span>
-                </small>
 
                 {%- if line_item.product.has_only_default_variant == false
                   or line_item.properties.size != 0
@@ -91,15 +84,22 @@
                 -%}
                   <dl class="cart-item__options">
                     {%- if line_item.product.has_only_default_variant == false -%}
-                      {%- for option in line_item.options_with_values -%}
+                      {% comment %}
+                        {%- for option in line_item.options_with_values -%}
+                          <div class="cart-item__option">
+                            <dt>{{ option.name }}:</dt>
+                            <dd>
+                              {{ option.value -}}
+                              {%- unless forloop.last %}, {% endunless %}
+                            </dd>
+                          </div>
+                        {%- endfor -%}
+                      {% endcomment %}
+                      {% if line_item.variant %}
                         <div class="cart-item__option">
-                          <dt>{{ option.name }}:</dt>
-                          <dd>
-                            {{ option.value -}}
-                            {%- unless forloop.last %}, {% endunless %}
-                          </dd>
+                          {{ line_item.variant.title | replace: '/', ' and ' }}
                         </div>
-                      {%- endfor -%}
+                      {% endif %}
                     {%- endif -%}
 
                     {%- for property in line_item.properties -%}
@@ -138,9 +138,6 @@
                     {% endfor %}
                   </ul>
                 {% endif %}
-              </div>
-
-              <div class="cart-item__action">
                 <ajax-cart-quantity>
                   <a
                     data-ajax-cart-quantity-minus
@@ -164,10 +161,34 @@
                     {{- 'icon-plus.svg' | inline_asset_content -}}
                   </a>
                 </ajax-cart-quantity>
+              </div>
+
+              <div class="cart-item__action">
+                <small class="cart-item__price">
+                  {% comment %}
+                    {% if line_item.original_price > line_item.final_price %}
+                      <s>{{ line_item.original_price | money }}</s>
+                    {% endif %}
+                  {% endcomment %}
+                  {% assign compare_at = line_item.variant.compare_at_price %}
+                  {% assign price = line_item.variant.price %}
+
+                  {% if compare_at > price %}
+                    {% assign percentage = compare_at | minus: price | times: 100 | divided_by: compare_at %}
+                    <div class="cart-drawer-price-container">
+                      <span class="cart-drawer-compare_price">{{ compare_at | money }}</span>
+                      <span class="cart-drawer-price">{{ price | money }}</span>
+                    </div>
+                    <span class="cart-drawer-save">Saving {{ percentage | round }}%</span>
+                  {% else %}
+                    <span>{{ price | money }}</span>
+                  {% endif %}
+                </small>
 
                 <div class="cart-item__remove">
-                  {{- 'icon-close.svg' | inline_asset_content -}}
-                  <a href="{{ line_item.url_to_remove }}" data-ajax-cart-request-button>Remove</a>
+                  <a href="{{ line_item.url_to_remove }}" data-ajax-cart-request-button>
+                    {{- 'icons8-delete (1).svg' | inline_asset_content -}}
+                  </a>
                 </div>
               </div>
 
