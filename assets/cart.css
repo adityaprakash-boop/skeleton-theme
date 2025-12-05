@@ -389,6 +389,7 @@ span.cart-total__label {
 .cart-discounts li {
   display: flex;
   align-items: center;
+  
 }
 
 .cart-discounts svg.icon-discount {
