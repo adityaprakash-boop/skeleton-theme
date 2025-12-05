@@ -73,7 +73,9 @@
       <span></span>
       <div class="active-filter-clear-all-icon">{{ 'icon-close.svg' | inline_asset_content }}</div>
     </div>
-    <div class="active-filter-clear-all">
+    {% assign clear_filters_url = collection.url | append: '?sort_by=' | append: sort_by %}
+
+    <div class="active-filter-clear-all" data-filter-input-xxx="{{ clear_filters_url }}">
       <a href="#" class="clear-all-btn"><span>Clear All </span></a>
     </div>
   </div>
