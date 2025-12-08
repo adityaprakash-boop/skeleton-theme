@@ -445,7 +445,7 @@ max-width: 35%;
   }
   .sort-list{
     position: absolute;
-    top: 200%;
+    top: 100%;
     left: -10%;
     background: white;
     padding: 32px 16px;
@@ -852,6 +852,22 @@ max-width: 35%;
   justify-content: space-between;
   text-wrap: nowrap;
   background: #FBF8F4;
+}
+.active-filter-items{
+  display: flex;
+  gap: 10px;
+}
+.active-filter-item{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  text-wrap: nowrap;
+  background: #FBF8F4;
+}
+.active-filter-item svg{
+  width: 12px;
+  height: 12px;
 }
 @media (max-width: 768px) {
   .mobile-filter-drawer-filter {

@@ -4,7 +4,8 @@
       {% assign sorted_filters = collection.filters | sort: 'label' %}
       {% for filter in sorted_filters %}
         {% if filter.values.size > 0 and filter.param_name contains 'p.m.' %}
-          <div class="filter-group" x-data="{ open:false }">
+          <div class="filter-group" x-data="{ open:false }" @click.outside="open=false" @keydown.escape.window="open=false">
+
             <h3 class="filter-title" @click="open = !open">
               {{ filter.label }}
 
@@ -21,7 +22,7 @@
                       type="checkbox"
                       name="{{ value.param_name }}"
                       value="{{ value.value }}"
-                      data-filter-input
+                      data-render-section
                       {% if value.active %}
                         checked
                       {% endif %}
@@ -45,24 +46,32 @@
         <a href="#" class="shop-all-btn-link">SHOP ALL</a>
       </div>
       <div class="custom-sort-line"></div>
-      <div class="custom-sort" x-data="{ open:false }">
+      <div class="custom-sort" x-data="{ open:false }" @click.outside="open=false" @keydown.escape.window="open=false">
+
         <h3 class="sort-title" @click="open = !open">
           SORT BY:
           <span class="sort-icon" :class="{ 'open':open }">
             {{ 'icon-close3.svg' | inline_asset_content }}
           </span>
         </h3>
-
+      
         <div class="sort-list" x-show="open">
-          {% assign sorted_sort_options = collection.sort_options | sort: 'name' | reverse %}
-
-          {% for option in sorted_sort_options %}
-            <a href="?sort_by={{ option.value }}" data-sort-link class="sort-item" @click="open = false">
-              {{ option.name }}
-            </a>
-          {% endfor %}
+          <select
+            id="SortBy-{{ section.id }}"
+            name="sort_by"
+            data-render-section
+            
+            @change="open = false"
+          >
+            {% for option in collection.sort_options %}
+              <option value="{{ option.value }}" {% if option.value == collection.sort_by %}selected{% endif %}>
+                {{ option.name }}
+              </option>
+            {% endfor %}
+          </select>
         </div>
       </div>
+      
     </div>
   </div>
 </form>

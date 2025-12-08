@@ -64,22 +64,10 @@
     </div>
   </div>
 
-  <div class="desktop-filter-wrapper" x-show="!mobileFilter">
+  <div id="filters-wrapper-{{ section.id }}" class="desktop-filter-wrapper">
+
     {% render 'component-collection-filter' %}
   </div>
-
-  <div class="active-filter-bar">
-    <div class="active-filter-text">
-      <span></span>
-      <div class="active-filter-clear-all-icon">{{ 'icon-close.svg' | inline_asset_content }}</div>
-    </div>
-    {% assign clear_filters_url = collection.url | append: '?sort_by=' | append: sort_by %}
-
-    <div class="active-filter-clear-all" data-filter-input-xxx="{{ clear_filters_url }}">
-      <a href="#" class="clear-all-btn"><span>Clear All </span></a>
-    </div>
-  </div>
-
   {% liquid
     assign filter_active = false
 
@@ -93,6 +81,32 @@
       assign filter_active = true
     endif
   %}
+  <div id="active-filter-bar-{{ section.id }}" class="active-filter-bar">
+
+    {% if filter_active %}
+      <div class="active-filter-items">
+        {% for f in collection.filters %}
+          {% for v in f.active_values %}
+            <div class="active-filter-item">
+              <span>{{ v.label }}</span>
+              <div class="active-filter-close" data-render-section-url="{{ v.url_to_remove }}">
+                {{ 'icon-close.svg' | inline_asset_content }}
+              </div>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+  
+      {% assign clear_filters_url = collection.url  %}
+      <div class="active-filter-clear-all" data-render-section-url="{{ clear_filters_url }}">
+        <a href="#" class="clear-all-btn"><span>Clear All</span></a>
+      </div>
+    {% endif %}
+  
+  </div>
+  
+    
+  
   <div id="results-area">
     {% if filter_active %}
       <div class="filtered-results-wrapper">
