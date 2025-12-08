@@ -16,7 +16,7 @@
     "max_page_width": 2000,
     "max_page_width_narrow": 725,
     "min_page_margin": 0,
-    "cart_type": "notification",
+    "cart_type": "drawer",
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": true,
     "predictive_search_show_price": true,
