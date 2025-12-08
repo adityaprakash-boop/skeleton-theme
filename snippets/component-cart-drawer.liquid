@@ -40,7 +40,7 @@
         {%- if settings.cart_drawer_collection != blank -%}
           <div class="cart-collection">
             {% assign card_collection = settings.cart_drawer_collection %}
-            <a href="">
+            <a href="{{ card_collection.url }}">
               {{ card_collection.featured_image | image_url: width: 1500 | image_tag }}
               <div class="cart-collection__title">
                 {{ card_collection.title }}
@@ -215,6 +215,65 @@
           </div>
         {% endfor %}
       </div>
+      {% comment %}
+        {%- if settings.cart_drawer_collection != blank -%}
+          <div class="cart-collection">
+            {% assign card_collection = settings.cart_drawer_collection %}
+            <a href="{{ card_collection.url }}">
+              <div class="cart-collection-wrapper">
+              <div class="cart-collection__image">
+              {{ card_collection.featured_image | image_url: width: 1500 | image_tag }}
+              </div>
+              <div class="cart-collection__title">
+                <span>{{ card_collection.title }}</span>
+                {% comment %} {{- 'icon-arrow.svg' | inline_asset_content -}} {% endcomment %}
+
+              </div>
+              </div>
+            </a>
+          </div>
+        {%- endif -%}
+      {% endcomment %}
+
+      {%- if settings.cart_drawer_product_extra != blank -%}
+        <div class="cart-drawer-product-extra">
+          {%- for product in settings.cart_drawer_product_extra -%}
+            {%- assign selected_variant = product.selected_or_first_available_variant -%}
+            <div class="cart-drawer-extra-product">
+              <span class="cart-drawer-extra-product__save">ADD THESE FOR {{ percentage | round }}% OFF</span>
+              <div class="cart-drawer-extra-product__content-wrapper">
+                <a href="{{ product.url }}" class="cart-drawer-extra-product__link">
+                  <div class="cart-drawer-extra-product__content">
+                    <div class="cart-drawer-extra-product__image">
+                      {{ product.featured_image | image_url: width: 200 | image_tag: alt: product.title }}
+                    </div>
+                    <div class="cart-drawer-extra-product__info">
+                      <span class="cart-drawer-extra-product__title">{{ product.title }}</span>
+                      <span class="cart-drawer-extra-product__description">60 capsules</span>
+                      <div class="cart-drawer-extra-product__price">
+                        {%- assign compare_at = selected_variant.compare_at_price -%}
+                        {%- assign price = selected_variant.price -%}
+                        {%- if compare_at > price -%}
+                          {%- assign percentage = compare_at | minus: price | times: 100 | divided_by: compare_at -%}
+                          <div class="cart-drawer-extra-product__price-container">
+                            <span class="cart-drawer-extra-product__current-price">{{ price | money }}</span>
+                          </div>
+
+                        {%- else -%}
+                          <span class="cart-drawer-extra-product__current-price">{{ price | money }}</span>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="{{ product.url }}" class="cart-drawer-extra-product-add">
+                  <span class="cart-drawer-extra-product__add">QUICK ADD</span>
+                </a>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
 
       <div class="cart-footer">
         {%- if settings.show_cart_note -%}
@@ -244,14 +303,13 @@
             {% endif %}
             {% assign compare_total = 0 %}
 
-{% for item in cart.items %}
-  {% if item.variant.compare_at_price > item.variant.price %}
-    {% assign compare_total = compare_total | plus: item.variant.compare_at_price | times: item.quantity %}
-  {% else %}
-    {% assign compare_total = compare_total | plus: item.final_price %}
-  {% endif %}
-{% endfor %}
-
+            {% for item in cart.items %}
+              {% if item.variant.compare_at_price > item.variant.price %}
+                {% assign compare_total = compare_total | plus: item.variant.compare_at_price | times: item.quantity %}
+              {% else %}
+                {% assign compare_total = compare_total | plus: item.final_price %}
+              {% endif %}
+            {% endfor %}
 
             <div class="cart-total">
               <span class="cart-total__label">Subtotal({{ cart.item_count }} items)</span>
@@ -260,14 +318,13 @@
                 <span>{{ cart.total_price | money }}</span>
               </div>
             </div>
-            
           </div>
 
           {% form 'cart', cart, id: 'my-ajax-cart-form' %}
             <button type="submit" name="checkout">Check out</button>
           {% endform %}
           <div class="cart-total__small">
-          <span >Shipping & taxes calculated at checkout</span>
+            <span>Shipping & taxes calculated at checkout</span>
           </div>
         </div>
       </div>

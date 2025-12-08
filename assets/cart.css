@@ -330,7 +330,7 @@ data-ajax-cart-quantity-plus svg{
   height: fit-content;
   margin-bottom: 1rem;
   font-size: 2rem;
-  color: #5D5D5D;
+  color: #5b5959;
 }
 
 .cart-note label {
@@ -499,7 +499,7 @@ h2.cart__empty-text {
   padding: 1.5rem 0;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   #cart-main .cart-item {
     grid-template-columns: 1fr 8fr;
     column-gap: 2rem;
@@ -617,7 +617,7 @@ h2.cart__empty-text {
   }
 
 
-}
+} */
 .cart-item__remove svg {
   width: 13px !important;
   height: 13px !important;
@@ -645,10 +645,77 @@ h2.cart__empty-text {
 .cart-total__small span{
   font-size: 1.2rem;
   font-weight: 400;
-  background-color: #d7cfcf;
+  background-color: #d8d7d7;
   letter-spacing: 0.01em;
   margin-top: 0.5rem;
 }
 .cart-total__small{
   margin-top: 1.5rem;
+}
+.cart-collection img {
+  display: block;
+  width: 60px;
+  height: 60px;
+  
+  margin-inline: auto;
+}
+
+.cart-drawer-extra-product__image img{
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+.cart-drawer-extra-product__link{
+  display: flex;
+  
+}
+.cart-drawer-extra-product a{
+  text-decoration: none;
+  color: black;
+}
+.cart-drawer-extra-product {
+ padding: 2rem;
+ padding-bottom: 0;
+}
+.cart-drawer-extra-product__save{
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.5rem;
+  color: black;
+}
+.cart-drawer-extra-product__info{
+  font-size: 1.3rem;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.cart-drawer-extra-product__title{
+  font-weight: 500;
+}
+.cart-drawer-extra-product{
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.cart-drawer-extra-product__content{
+  display: flex;
+  gap: 2rem;
+}
+.cart-drawer-extra-product__add{
+  background: black;
+  color: white;
+  padding: 4px 12px;
+ 
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin-top: 0.5rem;
+}
+.cart-drawer-extra-product__content-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
 }
