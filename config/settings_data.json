@@ -17,6 +17,9 @@
     "max_page_width_narrow": 725,
     "min_page_margin": 0,
     "cart_type": "drawer",
+    "cart_drawer_product_extra": [
+      "the-goddess-exiler"
+    ],
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": true,
     "predictive_search_show_price": true,
