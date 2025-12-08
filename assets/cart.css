@@ -261,6 +261,7 @@ ajax-cart-quantity {
   max-width: 128px;
   font-size: 1.3rem;
   font-weight: 500;
+  padding: 4px;
   
 }
 
@@ -305,6 +306,10 @@ ajax-cart-quantity svg {
   width: 14px;
   height: auto;
 }
+data-ajax-cart-quantity-plus svg{
+  font-weight: 500;
+}
+
 
 .drawer__wrapper .cart-footer {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -316,7 +321,7 @@ ajax-cart-quantity svg {
 
 .cart-footer {
   padding: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 .cart-note {
@@ -402,13 +407,14 @@ form#my-ajax-cart-form button {
   border: 1px solid rgb(var(--color-button));
   background: rgb(var(--color-button));
   color: rgb(var(--color-button-text));
-  font-size: 1.8rem;
-  padding: 15px;
+  font-size: 1.6rem;
+  padding: 12px;
   width: 100%;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
+  
 }
 
 html.js-ajax-cart-processing .cart-items {
@@ -620,4 +626,29 @@ h2.cart__empty-text {
 .cart-item__price{
   margin-bottom: 0.7rem;
 }
+.cart-total__label{
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: black;
+}
+.cart-total span{
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: black;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.5rem;
+}
+.cart-total__compare_price{
+  text-decoration: line-through;
 
+}
+.cart-total__small span{
+  font-size: 1.2rem;
+  font-weight: 400;
+  background-color: #d7cfcf;
+  letter-spacing: 0.01em;
+  margin-top: 0.5rem;
+}
+.cart-total__small{
+  margin-top: 1.5rem;
+}

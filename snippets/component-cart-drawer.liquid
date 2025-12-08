@@ -242,17 +242,33 @@
                 {% endfor %}
               </ul>
             {% endif %}
+            {% assign compare_total = 0 %}
+
+{% for item in cart.items %}
+  {% if item.variant.compare_at_price > item.variant.price %}
+    {% assign compare_total = compare_total | plus: item.variant.compare_at_price | times: item.quantity %}
+  {% else %}
+    {% assign compare_total = compare_total | plus: item.final_price %}
+  {% endif %}
+{% endfor %}
+
 
             <div class="cart-total">
-              <span class="cart-total__label">Estimated total</span>
-              <span>{{ cart.total_price | money }}</span>
+              <span class="cart-total__label">Subtotal({{ cart.item_count }} items)</span>
+              <div class="cart-total-price-container">
+                <span class="cart-total__compare_price">{{ compare_total | money }}</span>
+                <span>{{ cart.total_price | money }}</span>
+              </div>
             </div>
-            <small class="cart-total__small">Taxes, discounts and shipping calculated at checkout.</small>
+            
           </div>
 
           {% form 'cart', cart, id: 'my-ajax-cart-form' %}
             <button type="submit" name="checkout">Check out</button>
           {% endform %}
+          <div class="cart-total__small">
+          <span >Shipping & taxes calculated at checkout</span>
+          </div>
         </div>
       </div>
     {%- endif -%}

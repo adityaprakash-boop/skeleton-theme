@@ -51,12 +51,12 @@ export class ProductInfo extends HTMLElement {
     const mediaId = this.variantSelector.selectedOptions[0].dataset.mediaId;
     const preview = this.querySelector('#VariantImagePreview img');
     if (!preview || !mediaId) return;
-  
+
     const target = this.querySelector(`.swiper-slide[data-media-id="${mediaId}"] img`);
     if (target)
-       preview.src = target.src;
+      preview.src = target.src;
   }
-  
+
 
   // get variantSelector() {
   //   return this.querySelector('variant-selector');
@@ -92,19 +92,12 @@ export class ProductInfo extends HTMLElement {
     return !!selectedVariant ? JSON.parse(selectedVariant) : null;
   }
 
-  // onVariantChange(e) {
-  //   const hasDifferentProductUrl = e.target?.dataset?.productUrl ? (e.target?.dataset?.productUrl !== this.dataset.url) : false;
-  //   const productUrl = e.target?.dataset?.productUrl || this.dataset.url;
-  //   this.renderSection(hasDifferentProductUrl, productUrl);
-  // }
   onVariantChange(e) {
-    const variantId = e.target.value;
-    this.updateURL(variantId);
-    this.updateVariantInputs(variantId);
-    this.renderSection(false, this.dataset.url);
+    const hasDifferentProductUrl = e.target?.dataset?.productUrl ? (e.target?.dataset?.productUrl !== this.dataset.url) : false;
+    const productUrl = e.target?.dataset?.productUrl || this.dataset.url;
+    this.renderSection(hasDifferentProductUrl, productUrl);
   }
-
-
+  
   onQuantitySelectorEvent(e) {
     const quantityInput = this.quantitySelector.querySelector('input[type="number"]');
     let currentValue = parseInt(quantityInput.value);
