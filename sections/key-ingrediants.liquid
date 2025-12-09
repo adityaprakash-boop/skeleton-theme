@@ -19,7 +19,7 @@
     <div class="key-ingredients__right">
       <div class="ingredient-icons">
         {% for block in section.blocks %}
-          <div class="ingredient-icon-item" {{ block.shopify_attributes }}>
+          <div class="ingredient-icon-item" data-title="{{ block.settings.title }}" {{ block.shopify_attributes }}>
             {% if block.settings.icon %}
               <img src="{{ block.settings.icon | image_url: width: 120 }}" alt="{{ block.settings.title }}">
             {% endif %}

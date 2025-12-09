@@ -2,7 +2,7 @@
   START PRODUCT INFO SECTION STYLING
   ==================================*/
 :root {
-  --swiper-navigation-size: 20px;
+  --swiper-navigation-size: 10px; /* Change this value to adjust arrow size */
 }
 
 product-info {
@@ -484,6 +484,7 @@ shopify-buy-it-now-button .shopify-payment-button__button {
   }
 
   .product--left .product__info-wrapper {
+    padding-top: 50px;
     padding-left: 40px;
   }
 
@@ -614,23 +615,25 @@ shopify-buy-it-now-button .shopify-payment-button__button {
   padding: 6px 13px;
   border-radius: 4px;
   font-size: 10px;
-  font-weight: 500;
+  
   text-transform: uppercase;
   letter-spacing: 0.9px;
   line-height: 1;
 }
 
 .product-card__stars {
-  color: rgb(92, 155, 28);
+  color: rgb(94, 149, 39);
 }
 
 .product-card__reviews a {
   text-decoration: none;
 }
 
+
 .product-card__review-count {
   color: black;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  font-weight: 300;
 }
 
 .product_description_more {
@@ -662,7 +665,7 @@ shopify-buy-it-now-button .shopify-payment-button__button {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 15px;
+ 
   overflow-y: scroll;
   height: 58vh;
   scrollbar-width: none;
@@ -686,9 +689,23 @@ shopify-buy-it-now-button .shopify-payment-button__button {
   border: 1px solid black;
 }
 
-.swiper-button-prev svg {
-  width: 100%;
+.swiper-button-prev svg,
+.swiper-button-next svg {
+  width: 60%;
+  height: 60%;
+}
 
+/* Adjust SVG size for product page navigation arrows */
+.product__media-wrapper .swiper-button-prev::after,
+.product__media-wrapper .swiper-button-next::after {
+  font-size: var(--swiper-navigation-size, 20px);
+}
+
+/* Or if using SVG icons directly, adjust like this: */
+.product__media-wrapper .swiper-button-prev svg,
+.product__media-wrapper .swiper-button-next svg {
+  width: 10px; /* Change this value to your desired size */
+  height: 10px; /* Change this value to your desired size */
 }
 
 .product__variants {
@@ -705,7 +722,7 @@ shopify-buy-it-now-button .shopify-payment-button__button {
 
 #CombinedVariantSelector {
   border: none;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .option__label {
@@ -759,6 +776,7 @@ shopify-buy-it-now-button .shopify-payment-button__button {
   align-items: center;
   background-color: #fbf8f4;
   padding: 20px;
+  margin-bottom: 20px;
 }
 
 .free-product-block-content a{
@@ -857,7 +875,7 @@ color: black;
   display: flex;
   border: 1px solid #ddd;
   border-radius: 4px;
-  padding: 16px;
+  padding: 20px;
   cursor: pointer;
   align-items: flex-start;
   transition: border 0.2s ease;
@@ -869,11 +887,21 @@ color: black;
 }
 
 .sub-option:hover {
+  border-color: #ddd; /* Keep original border color on hover */
+}
+
+/* Black border only when the radio input is checked */
+.sub-option:has(input[type="radio"]:checked) {
   border-color: #000;
 }
 
-.sub-option input:checked ~ .sub-box {
-  border-color: #000;
+/* Alternative approach if :has() is not supported */
+.sub-option input[type="radio"]:checked {
+  /* This will make the parent label have black border */
+}
+
+.sub-option input[type="radio"]:checked ~ * {
+  /* This won't work for border on parent */
 }
 
 .sub-option input[type="radio"] {
@@ -1013,6 +1041,9 @@ color: black;
 .product__title{
   margin-bottom: 16px;
 }
+.product__description{
+  line-height: 1;
+}
 
 .price{
   margin-bottom: 12px;
@@ -1021,7 +1052,7 @@ color: black;
   margin-bottom: 18px;
 }
 .varient-quantity-wrapper{
-  margin-bottom: 16px;
+  margin-bottom: 36px;
 }
 .simple-subscription-heading{
   margin-bottom: 10px;
@@ -1086,8 +1117,25 @@ color: black;
   display: none;
 }
 }
-
-
+.product__variants {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.option__label{
+  margin-right: 20px;
+}
+.payment-badges span{
+  color: rgba(0, 0, 0, 0.6);
+}
+.related-item {
+  display: flex;
+  flex-direction: row;
+  gap: 1px;
+}
+.perk {
+ color: black;
+}
 /* =============================
   END PRODUCT INFO SECTION STYLING
   =============================== */

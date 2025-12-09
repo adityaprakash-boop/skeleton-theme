@@ -1,6 +1,6 @@
 .founder-quote-section {
   /* position: relative; */
-  min-height: 474px;
+  min-height: 538px;
   /* padding: 100px 20px;
   display: flex;
   align-items: center;
@@ -11,7 +11,7 @@
 }
 @media screen and (max-width: 1440px) {
   .founder-quote-section {
-    min-height: 350px;
+    min-height: 404px;
     
   }
 }

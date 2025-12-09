@@ -3,7 +3,7 @@
 
     
     align-items: flex-start;
-    /* padding: 80px 100px; */
+    padding: 0px 125px;
     margin-bottom: 40px;
   
     
@@ -17,6 +17,7 @@
 .key-ingredients span,p {
     font-family: "Futura PT", sans-serif;
     font-weight: 300;
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .key-ingredients__left-content-heading{
@@ -60,6 +61,10 @@
     .key-ingredients__left{
         min-width: 587px;
     }
+    .key-ingredients__grid{
+      padding: 0 60px;
+    }
+
   }
   
   /* Ingredient Icons */

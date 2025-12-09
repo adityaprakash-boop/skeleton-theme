@@ -37,7 +37,6 @@ export class ProductInfo extends HTMLElement {
 
   bindThumbnailClicks() {
     const thumbs = this.querySelectorAll('.product-thumbnail-strip .thumb');
-
     thumbs.forEach(thumb => {
       thumb.addEventListener('click', () => {
         const index = parseInt(thumb.dataset.index, 10);
@@ -47,6 +46,7 @@ export class ProductInfo extends HTMLElement {
       });
     });
   }
+
   updateVariantImage() {
     const mediaId = this.variantSelector.selectedOptions[0].dataset.mediaId;
     const preview = this.querySelector('#VariantImagePreview img');
