@@ -759,3 +759,12 @@ h2.cart__empty-text {
 .cart-item{
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+.cart-drawer-extra-product-add{
+  background: black;
+  color: white;
+  padding: 3px 10px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin-top: 0.5rem;
+}

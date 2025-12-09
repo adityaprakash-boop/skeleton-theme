@@ -11,7 +11,6 @@
   id="cart-drawer"
   class="color-{{ settings.cart_color_scheme }}"
   :class="{ 'cart-open': cartOpen }"
-  
 >
   <button class="drawer-overlay" @click="cartOpen = !cartOpen">
     <span hidden>Close</span>
@@ -61,18 +60,13 @@
       </div>
 
       <div class="cart-items" data-ajax-cart-section-scroll>
-        <div class="cart-drawer-free-delivery"  >
-         
-          <span>🎉 Congrats! You've unlocked <span class="cart-drawer-free-delivery-text">FREE SHIPPING!</span>
-       
-        </span>
-        <div class="cart-drawer-free-delivery-image-wrapper">
-          <div class="cart-drawer-free-delivery-line">
-          </div>
-          <div class="cart-drawer-free-delivery-image">
-            <img src="{{ 'icon-delivery-van.png' | asset_url }}" alt="Free delivery">
-            
-          </div>
+        <div class="cart-drawer-free-delivery">
+          <span>🎉 Congrats! You've unlocked <span class="cart-drawer-free-delivery-text">FREE SHIPPING!</span> </span>
+          <div class="cart-drawer-free-delivery-image-wrapper">
+            <div class="cart-drawer-free-delivery-line"></div>
+            <div class="cart-drawer-free-delivery-image">
+              <img src="{{ 'icon-delivery-van.png' | asset_url }}" alt="Free delivery">
+            </div>
           </div>
         </div>
         {% for line_item in cart.items %}
@@ -233,6 +227,7 @@
           <div class="cart-drawer-product-extra">
             {%- for product in settings.cart_drawer_product_extra -%}
               {%- assign selected_variant = product.selected_or_first_available_variant -%}
+              {%- assign quick_add_form_id = 'quick-add-cart-drawer-' | append: product.id -%}
               <div class="cart-drawer-extra-product">
                 <span class="cart-drawer-extra-product__save">ADD THESE FOR {{ percentage | round }}% OFF</span>
                 <div class="cart-drawer-extra-product__content-wrapper">
@@ -252,7 +247,7 @@
                             <div class="cart-drawer-extra-product__price-container">
                               <span class="cart-drawer-extra-product__current-price">{{ price | money }}</span>
                             </div>
-  
+
                           {%- else -%}
                             <span class="cart-drawer-extra-product__current-price">{{ price | money }}</span>
                           {%- endif -%}
@@ -260,9 +255,29 @@
                       </div>
                     </div>
                   </a>
-                  <a href="{{ product.url }}" class="cart-drawer-extra-product-add">
-                    <span class="cart-drawer-extra-product__add">QUICK ADD</span>
-                  </a>
+                  <ajax-cart-product-form>
+                    {% form 'product', product, id: quick_add_form_id, novalidate: 'novalidate' %}
+                      <div data-ajax-cart-errors="form"></div>
+                      <input type="hidden" name="id" value="{{ selected_variant.id }}">
+                      <button
+                        id="QuickAdd-{{ product.id }}"
+                        type="submit"
+                        name="add"
+                        class="cart-drawer-extra-product-add"
+                        {% if selected_variant == null or selected_variant.available == false %}
+                          disabled
+                        {% endif %}
+                      >
+                        {% if selected_variant == null %}
+                          Unavailable
+                        {% elsif selected_variant.available == false %}
+                          Sold out
+                        {% else %}
+                          QUICK ADD
+                        {% endif %}
+                      </button>
+                    {% endform %}
+                  </ajax-cart-product-form>
                 </div>
               </div>
             {%- endfor -%}
@@ -288,8 +303,6 @@
           </div>
         {%- endif -%}
       {% endcomment %}
-
-     
 
       <div class="cart-footer">
         {%- if settings.show_cart_note -%}
