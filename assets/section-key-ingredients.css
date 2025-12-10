@@ -159,6 +159,7 @@
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
     /* smooth scroll on iOS */
+    width: 90%;
   }
 
   .ingredient-icon-item {
@@ -183,6 +184,9 @@
 }
 .declaration-heading{
   margin-top: 10px;
+}
+.key-ingredients__main-img {
+  width: 380px;
 }
 
 }
