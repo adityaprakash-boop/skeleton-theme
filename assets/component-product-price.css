@@ -119,3 +119,9 @@
   clip: rect(0 0 0 0);
   word-wrap: normal !important;
 }
+@media screen and (max-width: 800px) {
+  .price-item {
+    font-family: "roman";
+    font-size: 20px;
+  }
+}

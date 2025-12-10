@@ -88,8 +88,26 @@
   .founder-quote__author {
     font-size: 16px;
   }
-  .founder-quote__content{
-   display: none;
+  .founder-quote-section{
+    position: relative;
+   
   }
+  .founder-quote__content{
+    position: absolute;
+    
+    left: 0;
+    right: 0;
+    bottom: -250px;
+  
+    padding: 20px;
+    z-index: 100;
+    text-align: left;
+  }
+  .founder-quote__content h2 {
+    font-family: "Futura PT", sans-serif;
+    font-weight: 400;
+    color: black;
+    font-size: 30px;
+}
 }
 

@@ -119,3 +119,32 @@
   }
 }
 
+@media (max-width: 800px) {
+  .product-routine__right {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .product-routine__right-image-wrapper {
+    order: 1;
+  }
+
+  .product-routine__right-heading {
+    order: 2;
+  }
+
+  .product-routine__right-text {
+    order: 3;
+    line-height: 1.2;
+  }
+  .product-routine-section {
+    padding: 30px 20px;
+    font-family: "Futura PT", sans-serif;
+    background-color: #f8f3ee;
+}
+.product-routine__bottom-text{
+  line-height: 1.2;
+}
+}

@@ -1136,6 +1136,47 @@ color: black;
 .perk {
  color: black;
 }
+@media screen and (max-width: 800px) {
+  .mobile-info-bar{
+    display: none;
+  }
+  .product__media-wrapper{
+    position: relative;
+  margin-top: 20px;
+  }
+  .pagination-text-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 10px 20px;
+    z-index: 100;
+
+  }
+  .price-item {
+    font-family: "roman";
+    font-size: 20px !important;
+}
+.product__description p{
+  font-size: 14px ;
+  color: black;
+}
+.product_description_more{
+  margin-bottom: 0px;
+}
+.product_description_more_title{
+  font-size: 14px;
+  font-weight: 500;
+}
+.product_description_more_content{
+  font-size: 14px;
+}
+.product_description_more_title span{
+  font-size: 11px;
+  font-weight: 500;
+}
+}
 /* =============================
   END PRODUCT INFO SECTION STYLING
   =============================== */

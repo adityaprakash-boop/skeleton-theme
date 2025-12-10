@@ -34,5 +34,8 @@
   .awards-showcase__logo {
     max-width: 80px;
   }
+  .awards-showcase-section{
+    margin-top: 270px;
+  }
 }
 

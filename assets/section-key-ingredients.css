@@ -125,6 +125,7 @@
  @media (max-width: 800px) {
   .key-ingredients__grid {
     flex-direction: column;
+    padding: 0 20px;
     
   }
   .key-ingredients__left{
@@ -132,7 +133,7 @@
   }
   .ingredient-icons{
     display: flex;
-    flex-direction: row;
+   
    
 
   }
@@ -142,7 +143,46 @@
     padding: 10px;
     max-width: 800px;
 }
-  
+  .ingredient-desc-text{
+    line-height: 1.2;
+  }
  }
   
-  
+ @media (max-width: 800px) {
+  .ingredient-icons {
+    display: flex;
+    flex-wrap: nowrap;        /* force all items in one row */
+    overflow-x: auto;         /* allow horizontal scrolling */
+    gap: 20px;                /* spacing between icons */
+    padding-bottom: 10px;     /* optional */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    /* smooth scroll on iOS */
+  }
+
+  .ingredient-icon-item {
+    flex: 0 0 auto; /* prevent shrinking */
+    text-align: center;
+  }
+}
+@media (max-width: 800px){
+  .key-ingredients__left {
+    min-width: auto;
+    width: 100%;
+  }
+  .ingredient-icon-item img {
+    width: 140px;
+    height: auto;
+}
+.key-ingredients span, p {
+  font-family: "Futura PT", sans-serif;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 17px;
+}
+.declaration-heading{
+  margin-top: 10px;
+}
+
+}
