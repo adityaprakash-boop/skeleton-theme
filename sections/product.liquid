@@ -693,7 +693,7 @@
                   >
                 {% endif %}
               </div>
-            {%- when 'simple_subscription' -%}
+            {% comment %} {%- when 'simple_subscription' -%}
               <div class="simple-subscription-heading">SELECT FREQUENCY</div>
               <div class="simple-subscription-wrapper">
                 <label class="sub-option">
@@ -745,8 +745,8 @@
                     </div>
                   </div>
                 </label>
-              </div>
-            {%- when 'related_by_tags' -%}
+              </div> {% endcomment %}
+            {% comment %} {%- when 'related_by_tags' -%}
               <div class="related-tag-products" {{ block.shopify_attributes }}>
                 <div class="rp-heading">CUSTOMERS USUALLY PAIR IT WITH</div>
                 <ul class="related-products-list">
@@ -819,7 +819,7 @@
                 <div class="declaration-heading">
                   {{ block.settings.declaration }}
                 </div>
-              </div>
+              </div> {% endcomment %}
 
             {%- when 'complementary' -%}
               <product-recommendations

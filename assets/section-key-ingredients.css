@@ -190,3 +190,33 @@
 }
 
 }
+/* FIX WRONG SELECTOR */
+/* .key-ingredients span,
+.key-ingredients p {
+  font-family: "Futura PT", sans-serif;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 17px;
+} */
+
+/* MOBILE OVERFLOW FIX */
+@media (max-width: 800px) {
+  .key-ingredients__grid,
+  .key-ingredients {
+    overflow-x: hidden;
+  }
+
+  .ingredient-icons {
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .ingredient-icons::-webkit-scrollbar {
+    display: none;
+  }
+}

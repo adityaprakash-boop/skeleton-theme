@@ -13,24 +13,42 @@
   </style>
 {% endif %}
 
-<section class="founder-quote-section section-{{ section.id }}-padding">
-  <div class="page-width">
-    <div class="founder-quote__content">
-      {% if section.settings.heading != blank %}
-        <h2 class="founder-quote__heading">{{ section.settings.heading }}</h2>
-      {% endif %}
+<section class="banner banner--medium founder-banner section-{{ section.id }}-padding">
+  <div class="banner__media media">
+    {% if section.settings.image %}
+      <img
+        srcset="
+          {{ section.settings.image | image_url: width: 400 }} 400w,
+          {{ section.settings.image | image_url: width: 800 }} 800w,
+          {{ section.settings.image | image_url: width: 1200 }} 1200w,
+          {{ section.settings.image | image_url: width: 1600 }} 1600w,
+          {{ section.settings.image | image_url: width: 2000 }} 2000w
+        "
+        src="{{ section.settings.image | image_url: width: 1600 }}"
+        sizes="100vw"
+        alt="{{ section.settings.image.alt | escape }}"
+        class="banner__media-image"
+        loading="lazy"
+      >
+    {% endif %}
+  </div>
+
+  <div class="banner__content founder-quote__content">
+    {% if section.settings.heading %}
+      <h2 class="founder-quote__heading">{{ section.settings.heading }}</h2>
       <div class="founder-quote__divider"></div>
+    {% endif %}
 
-      {% if section.settings.quote != blank %}
-        <blockquote class="founder-quote__quote">"{{ section.settings.quote }}"</blockquote>
-      {% endif %}
+    {% if section.settings.quote %}
+      <blockquote class="founder-quote__quote">"{{ section.settings.quote }}"</blockquote>
+    {% endif %}
 
-      {% if section.settings.author_name != blank %}
-        <p class="founder-quote__author">{{ section.settings.author_name }}</p>
-      {% endif %}
-    </div>
+    {% if section.settings.author_name %}
+      <p class="founder-quote__author">{{ section.settings.author_name }}</p>
+    {% endif %}
   </div>
 </section>
+
 
 {% schema %}
 {
