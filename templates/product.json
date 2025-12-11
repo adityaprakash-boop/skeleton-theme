@@ -120,6 +120,18 @@
           "settings": {
             "declaration": "*These statements have not been evaluated by the Food and Drug Administration. This product does not intend to diagnose, treat, cure or prevent any disease."
           }
+        },
+        "complementary_YQwBNd": {
+          "type": "complementary",
+          "settings": {
+            "heading": "You may also like",
+            "show_vendor": false,
+            "products_to_show": 4,
+            "quick_add": "standard",
+            "enable_swatches": true,
+            "swatch_type": "image",
+            "swatch_trigger": "Color"
+          }
         }
       },
       "block_order": [
@@ -137,7 +149,8 @@
         "collapsible_tab_pxw7hB",
         "collapsible_tab_EUBWtt",
         "collapsible_tab_LTemfM",
-        "declaration_XmbwnV"
+        "declaration_XmbwnV",
+        "complementary_YQwBNd"
       ],
       "settings": {
         "enable_sticky_info": true,
