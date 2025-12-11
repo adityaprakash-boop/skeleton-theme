@@ -61,9 +61,11 @@
             "link": "shopify://products/the-evening-elixir"
           }
         },
-        "simple_subscription_x8QHiA": {
-          "type": "simple_subscription",
-          "settings": {}
+        "subscription_Ktf3GW": {
+          "type": "subscription",
+          "settings": {
+            "supporting_text_title": "Purchase options"
+          }
         },
         "buy_buttons_JPDYXc": {
           "type": "buy_buttons",
@@ -72,10 +74,6 @@
             "show_gift_card_recipient": true,
             "show_pickup_availability": true
           }
-        },
-        "related_by_tags_q9xGUQ": {
-          "type": "related_by_tags",
-          "settings": {}
         },
         "benefits_mKyyw6": {
           "type": "benefits",
@@ -142,9 +140,8 @@
         "quantity_selector_cwaLFj",
         "sku_699yPH",
         "free_product_iF4xX3",
-        "simple_subscription_x8QHiA",
+        "subscription_Ktf3GW",
         "buy_buttons_JPDYXc",
-        "related_by_tags_q9xGUQ",
         "benefits_mKyyw6",
         "collapsible_tab_pxw7hB",
         "collapsible_tab_EUBWtt",
