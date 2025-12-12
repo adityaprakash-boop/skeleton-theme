@@ -105,9 +105,7 @@
 
 /* SECTION WRAPPER — NO FIXED HEIGHT */
 /* The official banner height logic (Shopify handles responsive resizing) */
-.banner--medium {
-  min-height: 560px;
-}
+
 
 /* The media container */
 .banner__media {
@@ -129,7 +127,7 @@
 .founder-quote__content {
   position: absolute;
   top: 50%;
-  right: 10%;
+  right: 20%;
   transform: translateY(-50%);
   max-width: 420px;
   display: flex;
@@ -143,16 +141,7 @@
   background: #000;
 }
 /* FORCE FIXED HEIGHT LIKE WELLECO */
-.banner__media {
-  padding-bottom: 0 !important; 
-  height: 559px !important;
-  overflow: hidden;
-}
 
-.banner--medium {
-  min-height: 559px !important;
-  height: 559px !important;
-}
 
 /* IMAGE CROPPING */
 .banner__media-image {
@@ -160,4 +149,22 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+.founder-quote__heading{
+  font-size: 34px;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 400;
+}
+.founder-quote__quote{
+  font-size: 19px;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 300;
+}
+.founder-quote__author{
+  font-size: 18px;
+  color: black;
+  font-weight: 400;
+}
+.banner__media {
+  height: 60vh;
 }

@@ -623,14 +623,17 @@
                                 %}
                               
                                 <div class="selling-plan-group">
-                                  <div>
+                                  <div class="selling-plan-group-heading">
                                     <label>{{ group.name }}</label>
                                   </div>
+                                  <div class="delivery-info-subscribe-wrapper">
+                                  <div class="delivery-info-subscribe">
                                   <span class="icon">
                                     {{ 'icon-shuffle.svg' | inline_asset_content }}
                                   </span>
             
                                   <span>Delivered Every</span>
+                                  </div>
                                   <ul>
                                     {% for allocation in allocations %}
                                       {% liquid
@@ -642,8 +645,8 @@
                                         assign allocation_price = allocation.price | money_with_currency | escape
                                         assign allocation_compared_at_price = allocation.compare_at_price | money_with_currency | escape
                                       %}
-                                      <li>
-                                        <label>
+                                      <li> 
+                                        <label class="subscription-frequency-label">
                                           <input
                                             type="radio"
                                             {% if variant.available == false %}
@@ -664,14 +667,15 @@
                                       </li>
                                     {% endfor %}
                                   </ul>
+                                  </div>
                                   <div class="sub-bottom">
                                     <span class="perk">
                                       <span class="perk-icon">{{ 'icon-pause.svg' | inline_asset_content }}</span>
-                                      Pause or cancel anytime
+                                      <strong>Pause or cancel anytime</strong>
                                     </span>
                                     <span class="perk">
                                       <span class="perk-icon">{{ 'icon-gift.svg' | inline_asset_content }}</span>
-                                      Free shipping + samples
+                                      <strong>Free shipping every order + samples</strong>
                                     </span>
                                   </div>
                                 </div>

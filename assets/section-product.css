@@ -444,6 +444,27 @@ shopify-buy-it-now-button .shopify-payment-button__button {
   padding: 0;
 }
 
+.selling-plan-group ul {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  padding: 10px;
+  margin-top: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  display: block;
+}
+
+.subscription-frequency-select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
 .product__subscription fieldset {
   padding: 0;
 }
@@ -452,9 +473,7 @@ shopify-buy-it-now-button .shopify-payment-button__button {
   margin: 0;
 }
 
-.selling_options_container>div {
-  padding: 10px;
-}
+
 
 .selling_options_container--no-one-time>hr:first-of-type {
   display: none;
@@ -560,8 +579,7 @@ shopify-buy-it-now-button .shopify-payment-button__button {
 
 @media screen and (min-width: 990px) {
   .product--large .product__info-wrapper {
-    max-width: 38%;
-    width: calc(35% - 40px / 2);
+   max-width: 30%;
   }
 
   /* .product--large .product__media-wrapper {
@@ -1184,14 +1202,93 @@ color: black;
   border: none;
 }
 .selling-plan-group{
-  border: 1px solid black;
+  border: 1px solid #ccc;
   margin-bottom: 20px;
   border-radius: 6px;
+  transition: border-color 0.2s;
+}
+
+.selling-plan-group:has(input[type="radio"]:checked) {
+  border: 1px solid black;
+}
+
+.one-time-purchase{
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.2s;
+}
+
+.one-time-purchase:has(input[type="radio"]:checked) {
+  border: 1px solid black;
+}
+.product_description_more, .product__description {
+  margin-bottom: 18px;
+  margin-top: 18px;
+}
+.delivery-info-subscribe{
+  display: flex;
+  gap: 6px;
+  text-wrap: nowrap;
+}
+.delivery-info-subscribe-wrapper{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.selling-plan-group-heading{
+  border-bottom: 1px solid #dedddd;
+  padding-bottom: 15px;
+}
+.perk {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-wrap: nowrap;
+  font-size: 11px;
+  color: black;
+  font-weight: 400;
+}
+.perk strong{
+  font-weight: 500;
+}
+.selling_plan_theme_integration legend{
+  font-size: 14px;
+  font-weight: 400;
+  color: black;
+  margin-bottom: 14px;
+}
+.selling-plan-group-heading{
+  font-size: 15px;
+  font-weight: 400;
+  color: black;
+}
+.delivery-info-subscribe{
+  font-size: 14px;
+}
+.subscription-frequency-label{
+  font-size: 14px;
 }
 .one-time-purchase{
-  border: 1px solid black;
-  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 400;
+  color: black;
+  padding: 20px;
+  
 }
-/* =============================
+.selling-plan-group {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  transition: border-color 0.2s;
+  padding: 16px;
+}
+.product_description_more_content p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+/* ====
+=========================
   END PRODUCT INFO SECTION STYLING
   =============================== */

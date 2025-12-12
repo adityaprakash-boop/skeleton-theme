@@ -148,3 +148,8 @@
   line-height: 1.2;
 }
 }
+.product-routine__right-text {
+  font-size: 17px;
+  line-height: 1.4;
+  color: rgba(0, 0, 0, 0.7);
+}

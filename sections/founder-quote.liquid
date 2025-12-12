@@ -2,16 +2,7 @@
 
 {{ 'section-founder-quote.css' | asset_url | stylesheet_tag }}
 
-{% if section.settings.image != blank %}
-  <style>
-    .founder-quote-section {
-      background-image: url('{{ section.settings.image | image_url: width: 2000 }}');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-  </style>
-{% endif %}
+
 
 <section class="banner banner--medium founder-banner section-{{ section.id }}-padding">
   <div class="banner__media media">
@@ -35,12 +26,12 @@
 
   <div class="banner__content founder-quote__content">
     {% if section.settings.heading %}
-      <h2 class="founder-quote__heading">{{ section.settings.heading }}</h2>
+      <p class="founder-quote__heading">{{ section.settings.heading }}</p>
       <div class="founder-quote__divider"></div>
     {% endif %}
 
     {% if section.settings.quote %}
-      <blockquote class="founder-quote__quote">"{{ section.settings.quote }}"</blockquote>
+      <p class="founder-quote__quote">"{{ section.settings.quote }}"</p>
     {% endif %}
 
     {% if section.settings.author_name %}

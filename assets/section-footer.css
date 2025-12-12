@@ -1162,3 +1162,12 @@ localization-button {
     height: 100%;
   }
 }
+.footer-block__details-content .list-menu__item--link {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+}
+.footer-block__brand-info > .footer-block__heading {
+  margin-bottom: 0;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.4);
+}

@@ -47,8 +47,32 @@
         </div>
   
         <div class="product-card__buttons">
-          <span class="product-btn subscribe-btn">SUBSCRIBE & SAVE 20%</span>
-          <span class="product-btn add-cart-btn">ADD TO CART</span>
+          <a href="{{ product.url }}" class="product-btn subscribe-btn">SUBSCRIBE & SAVE 20%</a>
+          {% assign selected_variant = product.selected_or_first_available_variant %}
+          {% assign product_form_id = 'product-form-' | append: product.id %}
+          {% if product.variants_count > 1 %}
+            <a href="{{ product.url }}" class="product-btn add-cart-btn">ADD TO CART</a>
+          {% else %}
+            <ajax-cart-product-form>
+              {% form 'product', product, id: product_form_id, novalidate: 'novalidate' %}
+                <input type="hidden" name="id" value="{{ selected_variant.id }}">
+                <button
+                  type="submit"
+                  name="add"
+                  class="product-btn add-cart-btn"
+                  {% if selected_variant.available == false %}
+                    disabled
+                  {% endif %}
+                >
+                  {% if selected_variant.available == false %}
+                    Sold out
+                  {% else %}
+                    ADD TO CART
+                  {% endif %}
+                </button>
+              {% endform %}
+            </ajax-cart-product-form>
+          {% endif %}
         </div>
   
       </div>
