@@ -551,7 +551,7 @@ shopify-buy-it-now-button .shopify-payment-button__button {
 }
 
 [processing] .quick-add__submit.button span {
-  font-size: 0;
+  opacity: 0.7;
 }
 
 .loading__spinner svg {
@@ -1176,6 +1176,21 @@ color: black;
   font-size: 11px;
   font-weight: 500;
 }
+}
+.price {
+  margin-bottom: 0px;
+}
+.product__subscription fieldset {
+  border: none;
+}
+.selling-plan-group{
+  border: 1px solid black;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+.one-time-purchase{
+  border: 1px solid black;
+  border-radius: 6px;
 }
 /* =============================
   END PRODUCT INFO SECTION STYLING

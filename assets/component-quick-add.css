@@ -170,7 +170,7 @@ quick-add-modal .product-media-container.constrain-height {
 }
 
 [processing] .quick-add__submit.button span {
-  font-size: 0;
+  opacity: 0.7;
 }
 
 .loading__spinner svg {
@@ -241,4 +241,12 @@ quick-add-modal .product-media-container.constrain-height {
   .quick-add-modal__content {
     width: 70%;
   }
+}
+.quick-add__submit {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+padding: 0;
+  min-width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
 }

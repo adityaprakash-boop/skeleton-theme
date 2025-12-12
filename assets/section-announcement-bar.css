@@ -68,3 +68,15 @@
   top: 0px;
   z-index: 9;
 }
+
+body.mobile-filter-open .announcement-bar-section {
+  display: none;
+}
+
+body.mobile-filter-open .announcement-bar-section .announcement-bar__container {
+  display: none;
+}
+
+body.mobile-filter-open .announcement-bar {
+  display: none;
+}

@@ -600,32 +600,13 @@
                           data-variant-id="{{ variant.id }}"
                           class="selling_plan_theme_integration {% if variant.id != current_variant.id %}selling_plan_theme_integration--hidden{% endif %}"
                         >
+                          <legend>
+                            {{ block.settings.supporting_text_title }}
+                          </legend>
                           <fieldset>
-                            <legend>
-                              {{ block.settings.supporting_text_title }}
-                            </legend>
+                           
                             <div class="selling_options_container {% unless product.requires_selling_plan == false %}selling_options_container--no-one-time{% endunless %}">
-                              {% unless product.requires_selling_plan %}
-                                <div>
-                                  <label>
-                                    <input
-                                      aria-label="One-time purchase. Product price {{ variant_price }}"
-                                      type="radio"
-                                      name="purchaseOption_{{ section.id }}_{{ variant.id }}"
-                                      {% if variant.available == false %}
-                                        disabled
-                                      {% endif %}
-                                      id="{{ section.id }}_one_time_purchase"
-                                      data-radio-type="one_time_purchase"
-                                      data-variant-id="{{ variant.id }}"
-                                      data-variant-price="{{ variant_price }}"
-                                      data-variant-compare-at-price="{{ variant_compared_at_price }}"
-                                      checked
-                                    >
-                                    One-time purchase
-                                  </label>
-                                </div>
-                              {% endunless %}
+                              
                               {% assign group_ids = variant.selling_plan_allocations
                                 | map: 'selling_plan_group_id'
                                 | uniq
@@ -640,11 +621,16 @@
                                     assign first_selling_plan_group = false
                                   endif
                                 %}
-                                <hr>
-                                <div>
+                              
+                                <div class="selling-plan-group">
                                   <div>
                                     <label>{{ group.name }}</label>
                                   </div>
+                                  <span class="icon">
+                                    {{ 'icon-shuffle.svg' | inline_asset_content }}
+                                  </span>
+            
+                                  <span>Delivered Every</span>
                                   <ul>
                                     {% for allocation in allocations %}
                                       {% liquid
@@ -678,8 +664,39 @@
                                       </li>
                                     {% endfor %}
                                   </ul>
+                                  <div class="sub-bottom">
+                                    <span class="perk">
+                                      <span class="perk-icon">{{ 'icon-pause.svg' | inline_asset_content }}</span>
+                                      Pause or cancel anytime
+                                    </span>
+                                    <span class="perk">
+                                      <span class="perk-icon">{{ 'icon-gift.svg' | inline_asset_content }}</span>
+                                      Free shipping + samples
+                                    </span>
+                                  </div>
                                 </div>
                               {% endfor %}
+                              {% unless product.requires_selling_plan %}
+                                <div class="one-time-purchase">
+                                  <label>
+                                    <input
+                                      aria-label="One-time purchase. Product price {{ variant_price }}"
+                                      type="radio"
+                                      name="purchaseOption_{{ section.id }}_{{ variant.id }}"
+                                      {% if variant.available == false %}
+                                        disabled
+                                      {% endif %}
+                                      id="{{ section.id }}_one_time_purchase"
+                                      data-radio-type="one_time_purchase"
+                                      data-variant-id="{{ variant.id }}"
+                                      data-variant-price="{{ variant_price }}"
+                                      data-variant-compare-at-price="{{ variant_compared_at_price }}"
+                                      checked
+                                    >
+                                    One-time purchase
+                                  </label>
+                                </div>
+                              {% endunless %}
                             </div>
                           </fieldset>
                         </div>
@@ -693,134 +710,7 @@
                   >
                 {% endif %}
               </div>
-            {% comment %} {%- when 'simple_subscription' -%}
-              <div class="simple-subscription-heading">SELECT FREQUENCY</div>
-              <div class="simple-subscription-wrapper">
-                <label class="sub-option">
-                  <div class="sub-box">
-                    <div class="sub-top sub-top-1">
-                      <div class="sub-top-left">
-                        <input type="radio" name="purchase_option" checked>
-                        <span class="sub-title">SUBSCRIBE AND SAVE 20%</span>
-                      </div>
-                      <span class="sub-price">
-                        <span class="compare">$50</span>
-                        $20
-                      </span>
-                    </div>
-
-                    <div class="sub-middle">
-                      <span class="icon">
-                        {{ 'icon-shuffle.svg' | inline_asset_content }}
-                      </span>
-
-                      <span>Delivered Every</span>
-
-                      <select>
-                        <option>1 month subscription</option>
-                        <option>2 months subscription</option>
-                        <option>3 months subscription</option>
-                      </select>
-                    </div>
-
-                    <div class="sub-bottom">
-                      <span class="perk">
-                        <span class="perk-icon">{{ 'icon-pause.svg' | inline_asset_content }}</span>
-                        Pause or cancel anytime
-                      </span>
-                      <span class="perk">
-                        <span class="perk-icon">{{ 'icon-gift.svg' | inline_asset_content }}</span>
-                        Free shipping + samples
-                      </span>
-                    </div>
-                  </div>
-                </label>
-
-                <label class="sub-option one-time">
-                  <input type="radio" name="purchase_option">
-                  <div class="sub-box">
-                    <div class="sub-top">
-                      <span class="sub-title">ONE-TIME PURCHASE</span>
-                      <span class="sub-price"> $20.00 </span>
-                    </div>
-                  </div>
-                </label>
-              </div> {% endcomment %}
-            {% comment %} {%- when 'related_by_tags' -%}
-              <div class="related-tag-products" {{ block.shopify_attributes }}>
-                <div class="rp-heading">CUSTOMERS USUALLY PAIR IT WITH</div>
-                <ul class="related-products-list">
-                  {% assign current_tags = product.tags %}
-                  {% assign max_items = 3 %}
-                  {% assign count = 0 %}
-
-                  {% for item in collections.all.products %}
-                    {% if item.description != blank %}
-                      {% if item.id != product.id %}
-                        {% for tag in item.tags %}
-                          {% if current_tags contains tag %}
-                            <div class="related-item">
-                              <div class="rp-img">
-                                <img src="{{ item.featured_image | image_url: width: 140 }}" alt="{{ item.title }}">
-                              </div>
-
-                              <div class="rp-info">
-                                <div class="rp-title">{{ item.title }}</div>
-
-                                <div class="rp-price">
-                                  <span class="rp-current">{{ item.price | money }}</span>
-
-                                  {% if item.compare_at_price > item.price %}
-                                    <span class="rp-compare"
-                                      ><s>{{ item.compare_at_price | money }}</s></span
-                                    >
-
-                                    {% assign discount = item.compare_at_price | minus: item.price %}
-                                    {% assign percent = discount
-                                      | times: 100
-                                      | divided_by: item.compare_at_price
-                                      | round
-                                    %}
-                                    <span class="rp-badge">{{ percent }}% off</span>
-                                  {% endif %}
-                                </div>
-                                <div class="rp-description">
-                                  {{ item.description | strip_html }}
-                                </div>
-                              </div>
-
-                              <div class="rp-add">
-                                <form method="post" action="/cart/add">
-                                  <input
-                                    type="hidden"
-                                    name="id"
-                                    value="{{ item.selected_or_first_available_variant.id }}"
-                                  >
-                                  <button type="submit" class="rp-add-btn">ADD +</button>
-                                </form>
-                              </div>
-                            </div>
-
-                            {% assign count = count | plus: 1 %}
-                            {% break %}
-                          {% endif %}
-                        {% endfor %}
-                      {% endif %}
-                    {% endif %}
-
-                    {% if count >= max_items %}
-                      {% break %}
-                    {% endif %}
-                  {% endfor %}
-                </ul>
-              </div>
-            {%- when 'declaration' -%}
-              <div class="declaration-wrapper" {{ block.shopify_attributes }}>
-                <div class="declaration-heading">
-                  {{ block.settings.declaration }}
-                </div>
-              </div> {% endcomment %}
-
+            
             {%- when 'complementary' -%}
               <product-recommendations
                 {{ block.shopify_attributes }}

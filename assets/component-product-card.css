@@ -363,3 +363,46 @@ h2.card-heading.product-grid-heading, .card__heading {
     font-size: 1.5rem;
   }
 }
+.card-description span {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;      /* limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-information{
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  flex-wrap: nowrap;
+  flex: 1;
+  align-items: center;
+}
+.price--on-sale .price__sale {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #121212;
+  align-items: center;
+}
+.card-pricing{
+  display: flex;
+  font-size: 1.4rem;
+}
+.product-recommendations .price-item {
+  font-size: 1.4rem;
+  color: #121212BF;
+}
+.price__sale span{
+  font-size: 1.5rem;
+}
+.card-price-text{
+  background-color: black;
+  color: white;
+  font-size: 1.4rem;
+  padding: 3px 10px;
+  border-radius: 5px;
+}
+.card-description{
+  font-size: 1.4rem;
+  line-height: 1.5;
+}

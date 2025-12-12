@@ -4,7 +4,7 @@
       {% assign sorted_filters = collection.filters | sort: 'label' %}
       {% for filter in sorted_filters %}
         {% if filter.values.size > 0 and filter.param_name contains 'p.m.' %}
-          <div class="filter-group" x-data="{ open:false }" @click.outside="open=false" @keydown.escape.window="open=false">
+          <div class="filter-group" x-data="{ open:false }" @click.outside="open=false" @keydown.escape.window="open=false" x-effect="document.body.classList.toggle('desktop-dropdown-open', open)">
 
             <h3 class="filter-title" @click="open = !open">
               {{ filter.label }}
@@ -46,9 +46,9 @@
         <a href="#" class="shop-all-btn-link">SHOP ALL</a>
       </div>
       <div class="custom-sort-line"></div>
-      <div class="custom-sort" x-data="{ open:false }" @click.outside="open=false" @keydown.escape.window="open=false">
+      <div class="custom-sort" x-data="{ open:false }" @click.outside="open=false" @keydown.escape.window="open=false" x-effect="document.body.classList.toggle('desktop-dropdown-open', open)">
 
-        <h3 class="sort-title" @click="open = !open">
+        <h3 class="sort-title" @click="open = !open; if(open) { $nextTick(() => $refs.sortSelect.focus()); }">
           SORT BY:
           <span class="sort-icon" :class="{ 'open':open }">
             {{ 'icon-close3.svg' | inline_asset_content }}
@@ -56,20 +56,28 @@
         </h3>
       
         <div class="sort-list" x-show="open">
-          <select
-            id="SortBy-{{ section.id }}"
-            name="sort_by"
-            data-render-section
-            
-            @change="open = false"
-          >
-            {% for option in collection.sort_options %}
-              <option value="{{ option.value }}" {% if option.value == collection.sort_by %}selected{% endif %}>
+          {% for option in collection.sort_options %}
+            <label class="sort-option-item" @click="$refs.sortSelect.value = '{{ option.value }}'; const changeEvent = new Event('change', { bubbles: true, cancelable: true }); $refs.sortSelect.dispatchEvent(changeEvent); open = false;">
+              <span {% if option.value == collection.sort_by %}style="font-weight: 500;"{% endif %}>
                 {{ option.name }}
-              </option>
-            {% endfor %}
-          </select>
+              </span>
+            </label>
+          {% endfor %}
         </div>
+        
+        <select
+          x-ref="sortSelect"
+          id="SortBy-{{ section.id }}"
+          name="sort_by"
+          data-render-section
+          style="position: absolute; opacity: 0; pointer-events: none; width: 0; height: 0;"
+        >
+          {% for option in collection.sort_options %}
+            <option value="{{ option.value }}" {% if option.value == collection.sort_by %}selected{% endif %}>
+              {{ option.name }}
+            </option>
+          {% endfor %}
+        </select>
       </div>
       
     </div>

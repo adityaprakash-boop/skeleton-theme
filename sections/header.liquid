@@ -30,6 +30,10 @@
     transition: top 150ms ease-out;
     margin-bottom: {{ section.settings.margin_bottom }}px;
   }
+  
+  body.mobile-filter-open #shopify-section-{{ section.id }} {
+    display: none;
+  }
 
   {% if section.settings.sticky_header_type == 'on-scroll-up' %}
     #shopify-section-{{ section.id }}

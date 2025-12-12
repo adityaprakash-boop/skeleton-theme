@@ -427,6 +427,33 @@ max-width: 35%;
   .custom-sort{
     position: relative;
   }
+  
+  .desktop-filter-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 8;
+    display: none;
+    cursor: pointer;
+  }
+  
+  body.desktop-dropdown-open .desktop-filter-overlay {
+    display: block;
+  }
+  
+  body.desktop-dropdown-open .filter-list,
+  body.desktop-dropdown-open .sort-list {
+    z-index: 9;
+  }
+  
+  @media (max-width: 768px) {
+    .desktop-filter-overlay {
+      display: none !important;
+    }
+  }
   .filter-list{
     position: absolute;      /* makes dropdown floating */
     top: 200%;               /* show BELOW title */
@@ -451,10 +478,32 @@ max-width: 35%;
     padding: 32px 16px;
     width: 250px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.1);
     z-index: 10;
-    height: 16.1rem;
-    overflow-y: scroll;
+    max-height: 16.1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
   }
+  
+  .sort-option-item {
+    cursor: pointer;
+    padding: 8px 0;
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.7);
+    transition: background-color 0.2s;
+  }
+  
+  .sort-option-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .sort-option-item span {
+    display: block;
+  }
+  
     
   .filter-value-label{
     display: flex;
@@ -946,24 +995,92 @@ max-width: 35%;
     flex-direction: column;
     gap: 50rem;
   }
+  .mobile-filter-drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9;
+    cursor: pointer;
+  }
+  
   .mobile-filter-drawer{
     position: fixed;
-    height: 100%;
+    top: 0;
+    height: 100vh;
     background: white;
-    z-index: 999999;
+    z-index: 10;
     width: 90%;
     right: 0;
-  
-    
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
+  
+  body.mobile-filter-open {
+    overflow: hidden !important;
+    touch-action: none !important;
+  }
+  
+  html.mobile-filter-open {
+    overflow: hidden !important;
+    height: 100% !important;
+    position: fixed !important;
+    width: 100% !important;
+  }
+  
   .mobile-filter-drawer-content{
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 20px;
-    
     justify-content: space-between;
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
   }
 
   
+}
+@media (max-width: 768px) {
+  .mobile-filter-drawer-content{
+    position: relative;
+  }
+  .mobile-filter-drawer-show-results {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+      text-align: center;
+      font-size: 1.6rem;
+      color: white;
+      background-color: black;
+      font-weight: 300;
+      width: 90%;
+      left: 5%;
+      padding: 15px 0;
+  }
+  .filter-list-items {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+   height: 100%;
+    overflow-y: hidden;
+}
+.sort-list {
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  background: white;
+  padding: 32px 16px;
+  width: 250px;
+  
+  z-index: 10;
+  max-height: 60rem;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
 }

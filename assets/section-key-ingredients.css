@@ -84,10 +84,7 @@
     width: 120px;
     height: auto;
   }
-  .ingredient-icon-item img:hover{
-    border: 1px solid green;
-  }
-
+  
   
   /* Description section */
   .ingredient-desc-title {
@@ -219,4 +216,11 @@
   .ingredient-icons::-webkit-scrollbar {
     display: none;
   }
+}
+.ingredient-desc{
+  display: none;
+}
+.active-icon img {
+  border: 1px solid green;
+  
 }

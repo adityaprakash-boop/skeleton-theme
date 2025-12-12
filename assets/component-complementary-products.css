@@ -37,7 +37,7 @@
 }
 
 .product-recommendations .price-item {
-  font-size: calc(var(--font-heading-scale) * 1.3rem);
+  
   color: #121212BF;
 }
 
@@ -46,7 +46,35 @@
   color: #121212;
   background: none;
   border: none;
-  padding: 3rem;
+  
   cursor: pointer;
   text-transform: none;
+}
+.product-recommendations h2{
+  font-size: 1.4rem;
+  font-family: 'Futura PT', sans-serif;
+  
+}
+.product-recommendations .card-heading a {
+  font-size: calc(var(--font-heading-scale) * 1.3rem);
+  text-decoration: none;
+  color: #121212;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.product-recommendations .quick-add__submit {
+ 
+  color: #121212;
+  background: none;
+  border: 1px solid black;
+  cursor: pointer;
+  text-transform: none;
+  border: 1px solid black;
+  text-wrap: nowrap;
+  font-size: 1.4rem;
+  padding: 11px 45px;
 }

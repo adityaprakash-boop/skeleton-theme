@@ -1,5 +1,5 @@
 {{ 'section-collection-v2.css' | asset_url | stylesheet_tag }}
-<collection-v2 class="collection-block-list" data-section="{{ section.id }}" x-data="{ mobileFilter: false }">
+<collection-v2 class="collection-block-list" data-section="{{ section.id }}" x-data="{ mobileFilter: false }" x-effect="document.body.classList.toggle('mobile-filter-open', mobileFilter)">
   <div class="collection-banner">
     <div class="collection-banner-image">
       {% if section.settings.banner_image %}
@@ -42,6 +42,7 @@
       </button>
     </div>
   </div>
+  <div class="mobile-filter-drawer-overlay" x-show="mobileFilter" @click="mobileFilter = false" x-transition></div>
   <div class="mobile-filter-drawer" x-show="mobileFilter">
     <div class="mobile-filter-drawer-header">
       <span>Filter</span>
@@ -65,15 +66,17 @@
   </div>
 
   <div id="filters-wrapper-{{ section.id }}" class="desktop-filter-wrapper">
-
+    <div class="desktop-filter-overlay"></div>
     {% render 'component-collection-filter' %}
   </div>
   {% liquid
     assign filter_active = false
+    assign has_active_filters = false
 
     for f in collection.filters
       if f.active_values.size > 0
         assign filter_active = true
+        assign has_active_filters = true
       endif
     endfor
 
@@ -97,10 +100,12 @@
         {% endfor %}
       </div>
   
-      {% assign clear_filters_url = collection.url  %}
-      <div class="active-filter-clear-all" data-render-section-url="{{ clear_filters_url }}">
-        <a href="#" class="clear-all-btn"><span>Clear All</span></a>
-      </div>
+      {% if has_active_filters %}
+        {% assign clear_filters_url = collection.url  %}
+        <div class="active-filter-clear-all" data-render-section-url="{{ clear_filters_url }}">
+          <a href="#" class="clear-all-btn"><span>Clear All</span></a>
+        </div>
+      {% endif %}
     {% endif %}
   
   </div>

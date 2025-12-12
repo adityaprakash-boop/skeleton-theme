@@ -76,9 +76,26 @@
           <span class="card-vendor">{{ card_product.vendor }}</span>
         {% endif %}
        {% unless section_id == 'megamenu' %}
+        
   <div class="card-pricing">
     {% render 'component-product-price', product: card_product, show_compare_at_price: true %}
+    
+    {% assign product_savings = card_product.compare_at_price | minus: card_product.price %}
+    {% assign product_savings_percentage = product_savings | times: 100 | divided_by: card_product.compare_at_price %}
+    <div class="card-price">
+      <span class="card-price-text">
+        {{ product_savings_percentage }}% off
+      </span>
+    </div>
   </div>
+  {% if card_product.description != blank %}
+    <div class="card-description">
+      <span>
+        {{ card_product.description | strip_html }}
+      </span>
+    </div>
+  {% endif %}
+  
 {% endunless %}
 
         {% if enable_swatches %}
@@ -207,7 +224,7 @@
                 >
                   <span>
                     {%- if card_product.selected_or_first_available_variant.available -%}
-                      {{ 'products.product.add_to_cart' | t }}
+                      ADD +
                     {%- else -%}
                       {{ 'products.product.sold_out' | t }}
                     {%- endif -%}
