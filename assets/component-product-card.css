@@ -409,3 +409,11 @@ h2.card-heading.product-grid-heading, .card__heading {
 .price__sale span {
   font-size: 2.4rem;
 }
+.card-price-text {
+  background-color: black;
+  color: white;
+  font-size: 1.4rem;
+  padding: 3px 10px;
+  border-radius: 5px;
+  text-wrap: nowrap;
+}

@@ -168,3 +168,22 @@
 .banner__media {
   height: 60vh;
 }
+@media screen and (max-width: 768px) {
+  .banner__media-image {
+    position: relative;
+}
+  .founder-quote__content {
+    position: absolute;
+    top: 530px;
+    left: 6%;
+    right: 20%;
+    transform: translateY(-50%);
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.banner__media {
+  height: 43vh;
+}
+}

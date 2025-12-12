@@ -1074,7 +1074,7 @@ max-width: 35%;
   }
   .mobile-filter-drawer-show-results {
     position: absolute;
-    bottom: 5%;
+    bottom: 3%;
     left: 0;
       text-align: center;
       font-size: 1.6rem;
@@ -1097,16 +1097,37 @@ max-width: 35%;
   top: 100%;
   left: 0%;
   background: white;
-  padding: 32px 16px;
+  padding:  16px;
   width: 250px;
+  
   
   z-index: 10;
   max-height: 60rem;
   overflow-y: hidden;
   display: flex;
   flex-direction: column;
-  gap: 17px;
+ gap: 0px;
 }
+.sort-option-item {
+  cursor: pointer;
+  padding: 8px 0;
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.7);
+  transition: background-color 0.2s;
+}
+.filter-list {
+  padding: 20px;
+}
+.filter-value-label {
+  display: flex;
+  gap: 10px;
+  font-weight: 300;
+}
+.filter-value-1{
+  font-weight: 300;
+}
+
 }
 .active-filter-item {
   display: flex;
@@ -1129,4 +1150,12 @@ max-width: 35%;
   font-size: 1.4rem;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.8);
+}
+.sort-title {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  font-family: Futura PT;
+  font-weight: 400;
 }
