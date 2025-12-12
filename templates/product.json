@@ -64,7 +64,7 @@
         "subscription_Ktf3GW": {
           "type": "subscription",
           "settings": {
-            "supporting_text_title": "Purchase options"
+            "supporting_text_title": "SELECT FREQUENCY"
           }
         },
         "buy_buttons_JPDYXc": {
@@ -73,6 +73,18 @@
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true,
             "show_pickup_availability": true
+          }
+        },
+        "complementary_YQwBNd": {
+          "type": "complementary",
+          "settings": {
+            "heading": "CUSTOMERS USUALLY PAIR IT WITH",
+            "show_vendor": false,
+            "products_to_show": 4,
+            "quick_add": "standard",
+            "enable_swatches": true,
+            "swatch_type": "image",
+            "swatch_trigger": "Color"
           }
         },
         "benefits_mKyyw6": {
@@ -118,18 +130,6 @@
           "settings": {
             "declaration": "*These statements have not been evaluated by the Food and Drug Administration. This product does not intend to diagnose, treat, cure or prevent any disease."
           }
-        },
-        "complementary_YQwBNd": {
-          "type": "complementary",
-          "settings": {
-            "heading": "CUSTOMERS USUALLY PAIR IT WITH",
-            "show_vendor": false,
-            "products_to_show": 4,
-            "quick_add": "standard",
-            "enable_swatches": true,
-            "swatch_type": "image",
-            "swatch_trigger": "Color"
-          }
         }
       },
       "block_order": [
@@ -142,12 +142,12 @@
         "free_product_iF4xX3",
         "subscription_Ktf3GW",
         "buy_buttons_JPDYXc",
+        "complementary_YQwBNd",
         "benefits_mKyyw6",
         "collapsible_tab_pxw7hB",
         "collapsible_tab_EUBWtt",
         "collapsible_tab_LTemfM",
-        "declaration_XmbwnV",
-        "complementary_YQwBNd"
+        "declaration_XmbwnV"
       ],
       "settings": {
         "enable_sticky_info": true,
