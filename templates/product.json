@@ -207,42 +207,48 @@
           "type": "ingredient",
           "settings": {
             "icon": "shopify://shop_images/Alfalfa2.png",
-            "title": "Alfalfa"
+            "title": "Alfalfa",
+            "desc": "Alfalfa is naturally high in many essential vitamins and minerals including all B vitamins, biotin, calcium, folic acid, iron, magnesium, potassium and many others. When dried (like it is in The Super Elixir™) alfalfa is also high in protein. It has been linked to supporting immune function and overall joint health."
           }
         },
         "ingredient_YEnE6e": {
           "type": "ingredient",
           "settings": {
             "icon": "shopify://shop_images/Glutamine.webp",
-            "title": "Glutamine"
+            "title": "Glutamine",
+            "desc": "Glutamine is the most abundant amino acid that naturally occurs in the human body. It has many important functions, such as helping to boost collagen production. Glutamine also helps to support immune and digestive system health, fuels intestinal and immune cells and is also involved in energy production."
           }
         },
         "ingredient_wygXzV": {
           "type": "ingredient",
           "settings": {
             "icon": "shopify://shop_images/Barley_Grass.avif",
-            "title": "Barley grass"
+            "title": "Barley grass",
+            "desc": "Our barley grass is harvested from 100% sweet young green shoots of barley before they form grain kernels, making them gluten free. Barley grass is a nutritious natural food renowned for its alkalizing and antioxidant properties while being a rich source of chlorophyll, vitamins, minerals and amino acids."
           }
         },
         "ingredient_amg8Jg": {
           "type": "ingredient",
           "settings": {
             "icon": "shopify://shop_images/Maitake.png",
-            "title": "Maitake"
+            "title": "Maitake",
+            "desc": "Maitake Mushroom contains an active component known as polysaccharides, which help to stimulate the immune system. It’s a premium source of fibre, B vitamins, amino acids, copper, potassium and selenium."
           }
         },
         "ingredient_jJP4ax": {
           "type": "ingredient",
           "settings": {
             "icon": "shopify://shop_images/Kelp_745e6b5c-bae5-4053-b74f-46d2fcd888fc.png",
-            "title": "Kelp"
+            "title": "Kelp",
+            "desc": "Kelp seaweed is a large, brown seaweed, which typically grows in shallow saltwater near coastal areas across the globe. Kelp is rich in nutrients like iodine, vitamins, and other minerals. The natural iodine content supports healthy thyroid function."
           }
         },
         "ingredient_wTyzqw": {
           "type": "ingredient",
           "settings": {
             "icon": "shopify://shop_images/Linseed2.png",
-            "title": "Linseed"
+            "title": "Linseed",
+            "desc": "Linseeds, also known as flaxseeds, are tiny but mighty additions to a healthy diet and wellness routine. Packed with essential nutrients, linseeds boast a rich profile of omega-3 fatty acids, fibre, and antioxidants. These nutritional powerhouses are renowned for their potential benefits in supporting digestion and aiding in weightmanagement. Their high fibre content also contributes to digestive health by promoting regular bowel movements and supporting a healthy gut microbiome."
           }
         }
       },
