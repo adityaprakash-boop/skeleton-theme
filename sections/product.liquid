@@ -70,6 +70,7 @@
   {%- endstyle -%}
 
   {% assign selected_variant = product.selected_or_first_available_variant %}
+  {% assign first_variant = product.variants.first %}
 
   <div class="page-width">
     <div class="product flex product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} {% if section.settings.constrain_to_viewport %}constrain-height{% endif %}">
@@ -170,7 +171,7 @@
               <div {{ block.shopify_attributes }}>
                 {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                 {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
-                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                  <input type="hidden" name="id" value="{{ first_variant.id }}">
                   {{ form | payment_terms }}
                 {%- endform -%}
               </div>
@@ -290,6 +291,10 @@
                             <option
                               value="{{ variant.id }}"
                               data-media-id="{{ variant.featured_media.id }}"
+                              {% if forloop.index == 2 %}
+                                data-disable-image-update="true"
+                                data-disable-add-to-cart="true"
+                              {% endif %}
                               {% if variant.id == selected_variant.id %}
                                 selected
                               {% endif %}
@@ -375,7 +380,7 @@
                 <ajax-cart-product-form>
                   {% form 'product', product, id: product_form_id, novalidate: 'novalidate' %}
                     <div data-ajax-cart-errors="form"></div>
-                    <input type="hidden" name="id" value="{{ selected_variant.id }}">
+                    <input type="hidden" name="id" value="{{ first_variant.id }}" data-first-variant-id="{{ first_variant.id }}">
                     <div id="add-to-cart-container-{{ section.id }} add-to-cart-button-2">
                       <button
                         id="AddToCart-{{ section.id }}"
@@ -383,6 +388,10 @@
                         name="add"
                         class="{% if block.settings.show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
                         {% if selected_variant == null or selected_variant.available == false %}
+                          disabled
+                        {% endif %}
+                        {% assign second_variant = product.variants[1] %}
+                        {% if second_variant and selected_variant.id == second_variant.id %}
                           disabled
                         {% endif %}
                       >

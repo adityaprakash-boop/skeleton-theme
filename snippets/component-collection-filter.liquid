@@ -17,14 +17,22 @@
             <div class="filter-list" x-show="open">
               <div class="filter-list-items">
                 {% for value in filter.values %}
+                  {% assign value_label_handle = value.label | handleize %}
                   <label class="filter-value-label">
                     <input
                       type="checkbox"
                       name="{{ value.param_name }}"
                       value="{{ value.value }}"
                       data-render-section
+                      data-filter-label-handle="{{ value_label_handle }}"
+                      {% if value_label_handle == 'energy-vitality' %}
+                        data-ignore-apply
+                      {% endif %}
                       {% if value.active %}
                         checked
+                      {% endif %}
+                      {% if value_label_handle == 'detox' %}
+                        disabled
                       {% endif %}
                       {% if value.count == 0 and value.active == false %}
                         disabled

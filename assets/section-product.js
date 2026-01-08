@@ -10,7 +10,11 @@ export class ProductInfo extends HTMLElement {
     this.quantitySelector.querySelector('button[name="plus"]').addEventListener('click', this.onQuantitySelectorEvent.bind(this));
     this.quantitySelector.querySelector('button[name="minus"]').addEventListener('click', this.onQuantitySelectorEvent.bind(this));
     document.getElementById('swiper-script').addEventListener('load', this.initSwiper.bind(this));
-    this.variantSelector?.addEventListener('change', () => this.updateVariantImage());
+    // Bug: Image preview update disabled - image won't change when variant changes
+    this.variantSelector?.addEventListener('change', () => {
+      this.updateVariantImage();
+      this.updateAddToCartButton();
+    });
     this.bindThumbnailClicks();
   }
 
@@ -19,6 +23,10 @@ export class ProductInfo extends HTMLElement {
     if (typeof Swiper !== 'undefined') {
       this.initSwiper();
     }
+    // Initialize add to cart button state on load
+    this.updateAddToCartButton();
+    // Ensure first variant ID is set on load
+    this.updateVariantInputs();
   }
 
   initSwiper() {
@@ -48,7 +56,13 @@ export class ProductInfo extends HTMLElement {
   }
 
   updateVariantImage() {
-    const mediaId = this.variantSelector.selectedOptions[0].dataset.mediaId;
+    const selectedOption = this.variantSelector.selectedOptions[0];
+    // Skip image update if 2nd variant is selected
+    if (selectedOption?.dataset.disableImageUpdate === 'true') {
+      return;
+    }
+    
+    const mediaId = selectedOption?.dataset.mediaId;
     const preview = this.querySelector('#VariantImagePreview img');
     if (!preview || !mediaId) return;
 
@@ -119,6 +133,13 @@ export class ProductInfo extends HTMLElement {
 
   updateMedia(variantFeaturedMediaId) {
     if (!variantFeaturedMediaId) return;
+    
+    // Skip media update if 2nd variant is selected
+    const selectedOption = this.variantSelector?.selectedOptions[0];
+    if (selectedOption?.dataset.disableImageUpdate === 'true') {
+      return;
+    }
+    
     var index = this.querySelector(`.swiper-slide[data-media-id="${variantFeaturedMediaId}"]`).dataset.mediaIndex;
     this.swiper?.slideTo(index);
   }
@@ -136,16 +157,44 @@ export class ProductInfo extends HTMLElement {
     const destination = this.querySelector(`#${id}`);
     if (source && destination) {
       destination.innerHTML = source.innerHTML;
+      // After updating, ensure the first variant ID is set in the form
+      if (id.includes('add-to-cart-container')) {
+        this.updateVariantInputs();
+      }
     }
   };
 
   updateVariantInputs(variantId) {
+    // Always use the first variant ID for cart submission
+    const firstVariantInput = this.querySelector('input[name="id"][data-first-variant-id]');
+    const firstVariantId = firstVariantInput?.dataset.firstVariantId || firstVariantInput?.value;
+    
     this.querySelectorAll(`#product-form-${this.dataset.section}, #product-form-installment-${this.dataset.section}`).forEach(
       (productForm) => {
         const input = productForm.querySelector('input[name="id"]');
-        input.value = variantId ?? '';
+        // Always set to first variant ID, regardless of selected variant
+        input.value = firstVariantId ?? '';
       }
     );
+  }
+
+  updateAddToCartButton() {
+    const selectedOption = this.variantSelector?.selectedOptions[0];
+    const addToCartButton = this.querySelector(`#AddToCart-${this.dataset.section}`);
+    
+    if (!addToCartButton) return;
+    
+    // Disable button if 2nd variant is selected
+    if (selectedOption?.dataset.disableAddToCart === 'true') {
+      addToCartButton.disabled = true;
+    } else {
+      // Re-enable if variant is available
+      const variantId = this.variantSelector.value;
+      const variant = JSON.parse(this.querySelector('[data-selected-variant]')?.textContent || '{}');
+      if (variant && variant.available !== false) {
+        addToCartButton.disabled = false;
+      }
+    }
   }
 
   renderSection(hasDifferentProductUrl, productUrl) {
@@ -172,6 +221,7 @@ export class ProductInfo extends HTMLElement {
           this.updateSourceFromDestination(html, `price-${this.dataset.section}`);
           this.updateSourceFromDestination(html, `sku-${this.dataset.section}`);
           this.updateSourceFromDestination(html, `inventory-${this.dataset.section}`);
+          this.updateAddToCartButton();
         }
       })
       .catch((error) => {
